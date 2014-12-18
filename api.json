@@ -1,0 +1,85 @@
+{
+  "resources": {
+    "attachments": {
+        "methods": {
+            "find_by_id":           { "method": "get",   "url": "/attachments/%d",              "args": ["attachment_id"] },
+            "find_by_task":         { "method": "get",   "url": "/tasks/%d/attachments",        "args": ["task_id"] }
+        }
+    },
+    "events": {
+        "methods": {
+            "get":                  { "method": "get",   "url": "/events" }
+        }
+    },
+    "projects": {
+        "methods": {
+            "create":               { "method": "post",   "url": "/projects" },
+            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/projects",     "args": ["workspace_id"] },
+            "find_by_id":           { "method": "get",    "url": "/projects/%d",                "args": ["project_id"] },
+            "find_all":             { "method": "get",    "url": "/projects" },
+            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/projects",     "args": ["workspace_id"] },
+            "update":               { "method": "put",    "url": "/projects/%d",                "args": ["project_id"] },
+            "delete":               { "method": "delete", "url": "/projects/%d",                "args": ["project_id"] }
+        }
+    },
+    "stories": {
+        "methods": {
+            "create_on_task":       { "method": "post",   "url": "/tasks/%d/stories",           "args": ["task_id"] },
+            "find_by_id":           { "method": "get",    "url": "/stories/%d",                 "args": ["story_id"] },
+            "find_by_task":         { "method": "get",    "url": "/tasks/%d/stories",           "args": ["task_id"] }
+        }
+    },
+    "tags": {
+        "methods": {
+            "create":               { "method": "post",   "url": "/tags" },
+            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tags",         "args": ["workspace_id"] },
+            "find_by_id":           { "method": "get",    "url": "/tags/%d",                    "args": ["tag_id"] },
+            "find_all":             { "method": "get",    "url": "/tags" },
+            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/tags",         "args": ["workspace_id"] },
+            "update":               { "method": "put",    "url": "/tags/%d",                    "args": ["tag_id"] }
+        }
+    },
+    "tasks": {
+        "methods": {
+            "create":               { "method": "post",   "url": "/tasks" },
+            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tasks",        "args": ["workspace_id"] },
+            "find_by_id":           { "method": "get",    "url": "/tasks/%d",                   "args": ["task_id"] },
+            "find_all":             { "method": "get",    "url": "/tasks" },
+            "find_by_project":      { "method": "get",    "url": "/workspaces/%d/tasks",        "args": ["project_id"] },
+            "update":               { "method": "put",    "url": "/tasks/%d",                   "args": ["task_id"] },
+            "delete":               { "method": "delete", "url": "/tasks/%d",                   "args": ["task_id"] },
+            "add_followers":        { "method": "post",   "url": "/tasks/%d/addFollowers",      "args": ["task_id"] },
+            "remove_followers":     { "method": "post",   "url": "/tasks/%d/removeFollowers",   "args": ["task_id"] },
+            "projects":             { "method": "get",    "url": "/tasks/%d/projects",          "args": ["task_id"] },
+            "add_project":          { "method": "post",   "url": "/tasks/%d/addProject",        "args": ["task_id"] },
+            "remove_project":       { "method": "post",   "url": "/tasks/%d/removeProject",     "args": ["task_id"] },
+            "tags":                 { "method": "get",    "url": "/tasks/%d/tags",              "args": ["task_id"] },
+            "add_tag":              { "method": "post",   "url": "/tasks/%d/addTag",            "args": ["task_id"] },
+            "remove_tag":           { "method": "post",   "url": "/tasks/%d/removeTag",         "args": ["task_id"] },
+            "subtasks":             { "method": "get",    "url": "/tasks/%d/subtasks",          "args": ["task_id"] },
+            "add_subtask":          { "method": "post",   "url": "/tasks/%d/subtasks",          "args": ["task_id"] },
+            "set_parent":           { "method": "post",   "url": "/tasks/%d/setParent",         "args": ["task_id"] }
+        }
+    },
+    "teams": {
+        "methods": {
+            "find_by_organization": { "method": "get",    "url": "/organizations/%d/teams",     "args": ["organization_id"] }
+        }
+    },
+    "users": {
+        "methods": {
+            "find_all":             { "method": "get",    "url": "/users" },
+            "me":                   { "method": "get",    "url": "/users/me" },
+            "find_by_id":           { "method": "get",    "url": "/userse/%d",                  "args": ["user_id"] },
+            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/users",        "args": ["workspace_id"] }
+        }
+    },
+    "workspaces": {
+        "methods": {
+            "find_all":             { "method": "get",    "url": "/workspaces" },
+            "update":               { "method": "put",    "url": "/workspaces/%d",              "args": ["workspace_id"] },
+            "typeahead":            { "method": "get",    "url": "/workspaces/%d/typeahead",    "args": ["workspace_id"] }
+        }
+    }
+  }
+}
