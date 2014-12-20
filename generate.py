@@ -9,19 +9,19 @@ from . import $resourceNames
 
 RESOURCE_CLASS_TEMPLATE = string.Template('''
 class $resourceName:
-    def __init__(self, dispatcher=None):
-        self.dispatcher = dispatcher
+    def __init__(self, session=None):
+        self.session = session
 ''')
 
 RESOURCE_METHOD_TEMPLATE = string.Template('''
     def $name(self, params={}):
-        return self.dispatcher.$method('$url', params)
+        return self.session.$method('$url', params)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_WITH_ARGS = string.Template('''
     def $name(self, $args, params={}):
         path = '$url' % ($args)
-        return self.dispatcher.$method(path, params)
+        return self.session.$method(path, params)
 ''')
 
 api = json.loads(open('api.json', 'r').read())
