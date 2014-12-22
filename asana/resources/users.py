@@ -15,5 +15,5 @@ class Users:
         return self.session.get('/users', params)
 
     def find_by_id(self, user_id, params={}):
-        path = '/userse/%d' % (user_id)
+        path = '/users/%d' % (user_id)
         return self.session.get(path, params)

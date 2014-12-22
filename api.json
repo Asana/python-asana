@@ -70,7 +70,7 @@
         "methods": {
             "find_all":             { "method": "get",    "url": "/users" },
             "me":                   { "method": "get",    "url": "/users/me" },
-            "find_by_id":           { "method": "get",    "url": "/userse/%d",                  "args": ["user_id"] },
+            "find_by_id":           { "method": "get",    "url": "/users/%d",                   "args": ["user_id"] },
             "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/users",        "args": ["workspace_id"] }
         }
     },
