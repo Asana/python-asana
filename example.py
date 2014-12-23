@@ -6,7 +6,11 @@ import json
 
 if 'ASANA_API_KEY' in os.environ:
     client = asana.Client.basic_auth(os.environ['ASANA_API_KEY'])
-    print client.users.me()
+    print "me=", client.users.me()
+    # print "users=", client.users.find_all()
+    # client.events.get_next({ 'resource': 22914506663063 })
+    for event in client.events.get_iterator({ 'resource': 22914506663063 }):
+        print "event", event
 
 if 'ASANA_CLIENT_ID' in os.environ:
     client = asana.Client.oauth(
@@ -40,4 +44,5 @@ if 'ASANA_TOKEN' in os.environ:
         token=json.loads(os.environ['ASANA_TOKEN'])
     )
     print "authorized=", client.session.authorized
+
     print "me=", client.users.me()
