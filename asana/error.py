@@ -5,11 +5,11 @@ class AsanaError(Exception):
         self.status = status
         self.value = value
 
-class ForbiddenError(AsanaError):
+class InvalidRequestError(AsanaError):
     def __init__(self, value=None):
-        super(ForbiddenError, self).__init__(
-            message='Forbidden',
-            status=403,
+        super(InvalidRequestError, self).__init__(
+            message='Invalid Request',
+            status=400,
             value=value
         )
 
@@ -18,6 +18,14 @@ class NoAuthorizationError(AsanaError):
         super(NoAuthorizationError, self).__init__(
             message='No Authorization',
             status=401,
+            value=value
+        )
+
+class ForbiddenError(AsanaError):
+    def __init__(self, value=None):
+        super(ForbiddenError, self).__init__(
+            message='Forbidden',
+            status=403,
             value=value
         )
 

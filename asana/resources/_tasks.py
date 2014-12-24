@@ -28,7 +28,7 @@ class _Tasks:
         return self.session.put(path, params)
 
     def find_by_project(self, project_id, params={}):
-        path = '/workspaces/%d/tasks' % (project_id)
+        path = '/projects/%d/tasks' % (project_id)
         return self.session.get(path, params)
 
     def find_by_id(self, task_id, params={}):

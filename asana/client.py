@@ -2,7 +2,7 @@ from . import session
 from . import resources
 from . import error
 
-from types import ModuleType, ClassType
+from types import ModuleType
 import requests
 import json
 
@@ -13,7 +13,7 @@ for name, module in resources.__dict__.items():
 
 STATUS_MAP = {}
 for name, Klass in error.__dict__.items():
-    if isinstance(Klass, (type, ClassType)) and issubclass(Klass, error.AsanaError):
+    if isinstance(Klass, type) and issubclass(Klass, error.AsanaError):
         STATUS_MAP[Klass().status] = Klass
 
 class Client:

@@ -45,7 +45,7 @@
             "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tasks",        "args": ["workspace_id"] },
             "find_by_id":           { "method": "get",    "url": "/tasks/%d",                   "args": ["task_id"] },
             "find_all":             { "method": "get",    "url": "/tasks" },
-            "find_by_project":      { "method": "get",    "url": "/workspaces/%d/tasks",        "args": ["project_id"] },
+            "find_by_project":      { "method": "get",    "url": "/projects/%d/tasks",          "args": ["project_id"] },
             "update":               { "method": "put",    "url": "/tasks/%d",                   "args": ["task_id"] },
             "delete":               { "method": "delete", "url": "/tasks/%d",                   "args": ["task_id"] },
             "add_followers":        { "method": "post",   "url": "/tasks/%d/addFollowers",      "args": ["task_id"] },
