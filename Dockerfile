@@ -17,5 +17,8 @@ ADD tests /app/tests
 
 RUN find . -name '*.pyc' -delete
 
+RUN python --version
 RUN python -m pytest
+
+RUN python3 --version
 RUN python3 -m pytest
