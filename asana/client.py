@@ -5,6 +5,7 @@ from . import error
 from types import ModuleType
 import requests
 import json
+import time
 
 RESOURCE_CLASSES = {}
 for name, module in resources.__dict__.items():
@@ -31,14 +32,20 @@ class Client:
         return self.ROOT_URL + path
 
     def request(self, method, path, dispatch_options={}, **kwargs):
-        response = getattr(self.session, method)(self.url(path), auth=self.auth, **kwargs)
-        if response.status_code in STATUS_MAP:
-            raise STATUS_MAP[response.status_code](response.json())
-        else:
-            if dispatch_options.get('fullPayload', False):
-                return response.json()
-            else:
-                return response.json()['data']
+        while True:
+            response = getattr(self.session, method)(self.url(path), auth=self.auth, **kwargs)
+            try:
+                if response.status_code in STATUS_MAP:
+                    raise STATUS_MAP[response.status_code](response.json())
+                else:
+                    if dispatch_options.get('fullPayload', False):
+                        return response.json()
+                    else:
+                        return response.json()['data']
+            except error.RateLimitEnforcedError as e:
+                seconds = float(response.headers['Retry-After'])
+                print("Rate-limited. Pausing for %f seconds.".format(seconds))
+                time.sleep(seconds)
 
     def get(self, path, query, dispatch_options={}):
         return self.request('get', path, params=query, dispatch_options=dispatch_options)
