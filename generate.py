@@ -17,30 +17,30 @@ class $name($classNameBase):
 
 RESOURCE_BASE_CLASS_TEMPLATE = string.Template('''
 class $name:
-    def __init__(self, session=None):
-        self.session = session
+    def __init__(self, client=None):
+        self.client = client
 ''')
 
 RESOURCE_METHOD_TEMPLATE = string.Template('''
     def $name(self, params={}):
-        return self.session.$method('$url', params$dispatchOptions)
+        return self.client.$method('$url', params$dispatchOptions)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_WITH_ARGS = string.Template('''
     def $name(self, $args, params={}):
         path = '$url' % ($args)
-        return self.session.$method(path, params$dispatchOptions)
+        return self.client.$method(path, params$dispatchOptions)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_ITERATOR = string.Template('''
     def ${name}_iterator(self, params={}):
-        return self.session.get_iterator('$url', params$dispatchOptions)
+        return self.client.get_iterator('$url', params$dispatchOptions)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS = string.Template('''
     def ${name}_iterator(self, $args, params={}):
         path = '$url' % ($args)
-        return self.session.get_iterator(path, params$dispatchOptions)
+        return self.client.get_iterator(path, params$dispatchOptions)
 ''')
 
 api = json.loads(open('api.json', 'r').read())
