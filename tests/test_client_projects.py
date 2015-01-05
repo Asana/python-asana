@@ -49,16 +49,6 @@ class TestClientProjects(ClientTestCase):
         responses.add(DELETE, 'http://app/projects/1331', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.projects.delete(1331), res['data'])
 
-    def test_projects_tasks(self):
-        res = {
-            "data": [
-                { "id": 2001, "name": "Catnip" },
-                { "id": 2002, "name": "Kitty litter" }
-            ]
-        }
-        responses.add(GET, 'http://app/projects/1331/tasks', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.find_by_project(1331), res['data'])
-
     def test_projects_find_by_workspace(self):
         res = {
             "data": [
@@ -68,3 +58,13 @@ class TestClientProjects(ClientTestCase):
         }
         responses.add(GET, 'http://app/workspaces/14916/projects', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.projects.find_by_workspace(14916), res['data'])
+
+    def test_projects_find_all(self):
+        res = {
+            "data": [
+                { "id": 1331, "name": "Things to buy" },
+                { "id": 14641, "name": "Cat Stuff" }
+            ]
+        }
+        responses.add(GET, 'http://app/projects', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.projects.find_all(), res['data'])

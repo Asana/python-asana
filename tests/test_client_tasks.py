@@ -43,6 +43,16 @@ class TestClientTasks(ClientTestCase):
         responses.add(GET, 'http://app/tasks/1001', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.tasks.find_by_id(1001), res['data'])
 
+    def test_tasks_find_by_project(self):
+        res = {
+            "data": [
+                { "id": 2001, "name": "Catnip" },
+                { "id": 2002, "name": "Kitty litter" }
+            ]
+        }
+        responses.add(GET, 'http://app/projects/1331/tasks', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.tasks.find_by_project(1331), res['data'])
+
     def test_tasks_update(self):
         req = { "assignee": "me" }
         res = {
