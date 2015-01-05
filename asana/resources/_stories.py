@@ -8,6 +8,10 @@ class _Stories:
         path = '/tasks/%d/stories' % (task_id)
         return self.session.get(path, params)
 
+    def find_by_task_iterator(self, task_id, params={}):
+        path = '/tasks/%d/stories' % (task_id)
+        return self.session.get_iterator(path, params)
+
     def create_on_task(self, task_id, params={}):
         path = '/tasks/%d/stories' % (task_id)
         return self.session.post(path, params)

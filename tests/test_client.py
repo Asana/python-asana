@@ -89,7 +89,6 @@ class TestClient(ClientTestCase):
         # -d "assignee=1234" \
         # -d "options.expand=%2Aprojects%2A"
 
-    @unittest.skip("pagination not yet implemented")
     def test_pagination(self):
         res = {
             "data": [
@@ -101,4 +100,17 @@ class TestClient(ClientTestCase):
                 "uri": "https://app.asana.com/api/1.0/tasks?project=1337&limit=5&offset=yJ0eXAiOiJKV1QiLCJhbGciOiJIRzI1NiJ9"
             }
         }
-        responses.add(GET, 'http://app/tasks?project=1337&limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
+        # responses.add(GET, 'http://app/tasks?project=1337&limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
+
+        self.assertEqual(self.client.tasks.find_by_project(1337, { 'limit': 5, 'offset': 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9'}), res['data'])
+
+    def test_pagination_iterator(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project_iterator(1337, { 'limit': '2' })
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertEqual(next(iterator), 'c')
+        self.assertRaises(StopIteration, next, (iterator))

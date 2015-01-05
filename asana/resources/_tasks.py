@@ -12,6 +12,10 @@ class _Tasks:
         path = '/tasks/%d/tags' % (task_id)
         return self.session.get(path, params)
 
+    def tags_iterator(self, task_id, params={}):
+        path = '/tasks/%d/tags' % (task_id)
+        return self.session.get_iterator(path, params)
+
     def add_project(self, task_id, params={}):
         path = '/tasks/%d/addProject' % (task_id)
         return self.session.post(path, params)
@@ -31,6 +35,10 @@ class _Tasks:
         path = '/projects/%d/tasks' % (project_id)
         return self.session.get(path, params)
 
+    def find_by_project_iterator(self, project_id, params={}):
+        path = '/projects/%d/tasks' % (project_id)
+        return self.session.get_iterator(path, params)
+
     def find_by_id(self, task_id, params={}):
         path = '/tasks/%d' % (task_id)
         return self.session.get(path, params)
@@ -38,6 +46,10 @@ class _Tasks:
     def subtasks(self, task_id, params={}):
         path = '/tasks/%d/subtasks' % (task_id)
         return self.session.get(path, params)
+
+    def subtasks_iterator(self, task_id, params={}):
+        path = '/tasks/%d/subtasks' % (task_id)
+        return self.session.get_iterator(path, params)
 
     def add_subtask(self, task_id, params={}):
         path = '/tasks/%d/subtasks' % (task_id)
@@ -54,6 +66,9 @@ class _Tasks:
     def find_all(self, params={}):
         return self.session.get('/tasks', params)
 
+    def find_all_iterator(self, params={}):
+        return self.session.get_iterator('/tasks', params)
+
     def create_in_workspace(self, workspace_id, params={}):
         path = '/workspaces/%d/tasks' % (workspace_id)
         return self.session.post(path, params)
@@ -69,6 +84,10 @@ class _Tasks:
     def projects(self, task_id, params={}):
         path = '/tasks/%d/projects' % (task_id)
         return self.session.get(path, params)
+
+    def projects_iterator(self, task_id, params={}):
+        path = '/tasks/%d/projects' % (task_id)
+        return self.session.get_iterator(path, params)
 
     def delete(self, task_id, params={}):
         path = '/tasks/%d' % (task_id)

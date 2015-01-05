@@ -8,6 +8,10 @@ class _Attachments:
         path = '/tasks/%d/attachments' % (task_id)
         return self.session.get(path, params)
 
+    def find_by_task_iterator(self, task_id, params={}):
+        path = '/tasks/%d/attachments' % (task_id)
+        return self.session.get_iterator(path, params)
+
     def find_by_id(self, attachment_id, params={}):
         path = '/attachments/%d' % (attachment_id)
         return self.session.get(path, params)

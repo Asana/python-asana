@@ -32,6 +32,17 @@ RESOURCE_METHOD_TEMPLATE_WITH_ARGS = string.Template('''
         return self.session.$method(path, params$dispatchOptions)
 ''')
 
+RESOURCE_METHOD_TEMPLATE_ITERATOR = string.Template('''
+    def ${name}_iterator(self, params={}):
+        return self.session.get_iterator('$url', params$dispatchOptions)
+''')
+
+RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS = string.Template('''
+    def ${name}_iterator(self, $args, params={}):
+        path = '$url' % ($args)
+        return self.session.get_iterator(path, params$dispatchOptions)
+''')
+
 api = json.loads(open('api.json', 'r').read())
 
 resourceNames = []
@@ -48,22 +59,27 @@ for resourceName, resource in api['resources'].iteritems():
     resource_base_py.write(RESOURCE_BASE_CLASS_TEMPLATE.substitute(name=classNameBase))
     if 'methods' in resource:
         for methodName, method in resource['methods'].iteritems():
-            dispatchOptions = ', ' + repr(method['dispatchOptions']) if 'dispatchOptions' in method else ''
-            if 'args' in method and len(method['args']) > 0:
-                resource_base_py.write(RESOURCE_METHOD_TEMPLATE_WITH_ARGS.substitute(
-                    name=methodName,
-                    method=method['method'],
-                    url=method['url'],
-                    args=', '.join(method['args']),
-                    dispatchOptions=dispatchOptions
-                ))
+            templateVariables = {
+                'name': methodName,
+                'method': method['method'],
+                'url': method['url'],
+                'args': ', '.join(method['args']) if 'args' in method and len(method['args']) > 0 else None,
+                'dispatchOptions': ', ' + repr(method['dispatchOptions']) if 'dispatchOptions' in method else ''
+            }
+
+            if templateVariables['args'] is None:
+                resource_base_py.write(RESOURCE_METHOD_TEMPLATE.substitute(**templateVariables))
             else:
-                resource_base_py.write(RESOURCE_METHOD_TEMPLATE.substitute(
-                    name=methodName,
-                    method=method['method'],
-                    url=method['url'],
-                    dispatchOptions=dispatchOptions
-                ))
+                resource_base_py.write(RESOURCE_METHOD_TEMPLATE_WITH_ARGS.substitute(**templateVariables))
+
+            if method.get('collection', False):
+                if method['method'] != 'get':
+                    raise Exception('"collection" set to true with "method" other than "get" is not supported')
+                if templateVariables['args'] is None:
+                    resource_base_py.write(RESOURCE_METHOD_TEMPLATE_ITERATOR.substitute(**templateVariables))
+                else:
+                    resource_base_py.write(RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS.substitute(**templateVariables))
+
     resource_base_py.close()
 
     if not os.path.exists('asana/resources/' + moduleName + '.py'):

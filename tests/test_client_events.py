@@ -1,7 +1,5 @@
 from .helpers import *
 
-from six import next
-
 class TestClientEvents(ClientTestCase):
 
     def test_events_get(self):

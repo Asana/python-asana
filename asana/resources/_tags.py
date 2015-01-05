@@ -19,8 +19,15 @@ class _Tags:
         path = '/workspaces/%d/tags' % (workspace_id)
         return self.session.get(path, params)
 
+    def find_by_workspace_iterator(self, workspace_id, params={}):
+        path = '/workspaces/%d/tags' % (workspace_id)
+        return self.session.get_iterator(path, params)
+
     def find_all(self, params={}):
         return self.session.get('/tags', params)
+
+    def find_all_iterator(self, params={}):
+        return self.session.get_iterator('/tags', params)
 
     def create_in_workspace(self, workspace_id, params={}):
         path = '/workspaces/%d/tags' % (workspace_id)

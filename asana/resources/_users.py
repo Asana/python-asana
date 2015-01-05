@@ -11,8 +11,15 @@ class _Users:
         path = '/workspaces/%d/users' % (workspace_id)
         return self.session.get(path, params)
 
+    def find_by_workspace_iterator(self, workspace_id, params={}):
+        path = '/workspaces/%d/users' % (workspace_id)
+        return self.session.get_iterator(path, params)
+
     def find_all(self, params={}):
         return self.session.get('/users', params)
+
+    def find_all_iterator(self, params={}):
+        return self.session.get_iterator('/users', params)
 
     def find_by_id(self, user_id, params={}):
         path = '/users/%d' % (user_id)

@@ -7,3 +7,7 @@ class _Teams:
     def find_by_organization(self, organization_id, params={}):
         path = '/organizations/%d/teams' % (organization_id)
         return self.session.get(path, params)
+
+    def find_by_organization_iterator(self, organization_id, params={}):
+        path = '/organizations/%d/teams' % (organization_id)
+        return self.session.get_iterator(path, params)

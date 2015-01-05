@@ -19,6 +19,7 @@ for name, Klass in error.__dict__.items():
 class Client:
 
     ROOT_URL = 'https://app.asana.com/api/1.0'
+    DEFAULT_LIMIT = 10
 
     def __init__(self, session=None, auth=None):
         self.session = session or requests.Session()
@@ -51,6 +52,19 @@ class Client:
     def delete(self, path, dispatch_options={}):
         return self.request('delete', path, dispatch_options=dispatch_options)
 
+    def get_iterator(self, path, query, dispatch_options={}):
+        query = _merge({ 'limit': self.DEFAULT_LIMIT }, query)
+        dispatch_options = _merge(dispatch_options, { 'fullPayload': True })
+
+        while True:
+            result = self.request('get', path, params=query, dispatch_options=dispatch_options)
+            for item in result['data']:
+                yield item
+            next_page = result.get('next_page', None)
+            if next_page is None:
+                return
+            else:
+                query['offset'] = next_page['offset']
 
     @classmethod
     def basic_auth(Klass, apiKey):
@@ -59,3 +73,8 @@ class Client:
     @classmethod
     def oauth(Klass, **kwargs):
         return Klass(session.AsanaOAuth2Session(**kwargs))
+
+def _merge(*objects):
+    result = {}
+    [result.update(obj) for obj in objects]
+    return result

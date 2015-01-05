@@ -4,6 +4,8 @@ import requests
 import responses
 import unittest
 import json
+
+from six import next
 from responses import GET, PUT, POST, DELETE
 
 # Define JSON primitives so we can just copy in JSON:

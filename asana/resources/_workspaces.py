@@ -8,8 +8,15 @@ class _Workspaces:
         path = '/workspaces/%d/typeahead' % (workspace_id)
         return self.session.get(path, params)
 
+    def typeahead_iterator(self, workspace_id, params={}):
+        path = '/workspaces/%d/typeahead' % (workspace_id)
+        return self.session.get_iterator(path, params)
+
     def find_all(self, params={}):
         return self.session.get('/workspaces', params)
+
+    def find_all_iterator(self, params={}):
+        return self.session.get_iterator('/workspaces', params)
 
     def update(self, workspace_id, params={}):
         path = '/workspaces/%d' % (workspace_id)

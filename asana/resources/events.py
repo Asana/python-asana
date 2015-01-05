@@ -19,7 +19,7 @@ class Events(_Events):
             if 'data' in result and len(result['data']) > 0:
                 return (result['data'], result['sync'])
             else:
-                params.update({ 'sync': result['sync'] })
+                params['sync'] = result['sync']
                 time.sleep(self.POLL_INTERVAL / 1000.0)
 
     def get_iterator(self, params):
@@ -28,4 +28,4 @@ class Events(_Events):
             items, sync = self.get_next(params)
             for item in items:
                 yield item
-            params.update({ 'sync': sync })
+            params['sync'] = sync
