@@ -37,6 +37,14 @@ class NotFoundError(AsanaError):
             value=value
         )
 
+class InvalidTokenError(AsanaError):
+    def __init__(self, value=None):
+        super(InvalidTokenError, self).__init__(
+            message='Sync token invalid or too old',
+            status=412,
+            value=value
+        )
+
 class RateLimitEnforcedError(AsanaError):
     def __init__(self, value=None):
         super(RateLimitEnforcedError, self).__init__(

@@ -30,3 +30,5 @@ class ClientTestCase(unittest.TestCase):
     def setUp(self):
         self.client = asana.Client()
         self.client.ROOT_URL = 'http://app'
+        # no delay when polling to speed up tests
+        self.client.events.POLL_INTERVAL = 0
