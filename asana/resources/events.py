@@ -5,7 +5,7 @@ from ..error import InvalidTokenError
 import time
 
 class Events(_Events):
-    POLL_INTERVAL = 1000
+    POLL_INTERVAL = 5000
 
     def get_next(self, params):
         params = params.copy()
