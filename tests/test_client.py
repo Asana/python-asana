@@ -128,3 +128,16 @@ class TestClient(ClientTestCase):
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(len(responses.calls), 2)
         time_sleep.assert_called_once_with(10)
+
+    @patch('time.sleep')
+    def test_rate_limited_twice(self, time_sleep):
+        res = [
+            (429, { 'Retry-After': '10' }, '{}'),
+            (429, { 'Retry-After': '1' }, '{}'),
+            (200, {}, json.dumps({ 'data': 'me' }))
+        ]
+        responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
+
+        self.assertEqual(self.client.users.me(), 'me')
+        self.assertEqual(len(responses.calls), 3)
+        time_sleep.assert_called_twice()
