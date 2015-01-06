@@ -4,20 +4,20 @@ class _Workspaces:
     def __init__(self, client=None):
         self.client = client
 
-    def typeahead(self, workspace_id, params={}):
+    def typeahead(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/typeahead' % (workspace_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def typeahead_iterator(self, workspace_id, params={}):
+    def typeahead_iterator(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/typeahead' % (workspace_id)
-        return self.client.get_iterator(path, params)
+        return self.client.get_iterator(path, params, **options)
 
-    def find_all(self, params={}):
-        return self.client.get('/workspaces', params)
+    def find_all(self, params={}, **options):
+        return self.client.get('/workspaces', params, **options)
 
-    def find_all_iterator(self, params={}):
-        return self.client.get_iterator('/workspaces', params)
+    def find_all_iterator(self, params={}, **options):
+        return self.client.get_iterator('/workspaces', params, **options)
 
-    def update(self, workspace_id, params={}):
+    def update(self, workspace_id, params={}, **options):
         path = '/workspaces/%d' % (workspace_id)
-        return self.client.put(path, params)
+        return self.client.put(path, params, **options)

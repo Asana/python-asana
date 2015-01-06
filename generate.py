@@ -22,25 +22,25 @@ class $name:
 ''')
 
 RESOURCE_METHOD_TEMPLATE = string.Template('''
-    def $name(self, params={}):
-        return self.client.$method('$url', params$dispatchOptions)
+    def $name(self, params={}, **options):$options
+        return self.client.$method('$url', params, **options)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_WITH_ARGS = string.Template('''
-    def $name(self, $args, params={}):
+    def $name(self, $args, params={}, **options):$options
         path = '$url' % ($args)
-        return self.client.$method(path, params$dispatchOptions)
+        return self.client.$method(path, params, **options)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_ITERATOR = string.Template('''
-    def ${name}_iterator(self, params={}):
-        return self.client.get_iterator('$url', params$dispatchOptions)
+    def ${name}_iterator(self, params={}, **options):$options
+        return self.client.get_iterator('$url', params, **options)
 ''')
 
 RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS = string.Template('''
-    def ${name}_iterator(self, $args, params={}):
+    def ${name}_iterator(self, $args, params={}, **options):$options
         path = '$url' % ($args)
-        return self.client.get_iterator(path, params$dispatchOptions)
+        return self.client.get_iterator(path, params, **options)
 ''')
 
 api = json.loads(open('api.json', 'r').read())
@@ -64,7 +64,7 @@ for resourceName, resource in api['resources'].iteritems():
                 'method': method['method'],
                 'url': method['url'],
                 'args': ', '.join(method['args']) if 'args' in method and len(method['args']) > 0 else None,
-                'dispatchOptions': ', ' + repr(method['dispatchOptions']) if 'dispatchOptions' in method else ''
+                'options': '\n        options = self.client._merge_options(' + repr(method['dispatch_options']) + ')' if 'dispatch_options' in method else ''
             }
 
             if templateVariables['args'] is None:

@@ -4,5 +4,6 @@ class _Events:
     def __init__(self, client=None):
         self.client = client
 
-    def get(self, params={}):
-        return self.client.get('/events', params, {u'fullPayload': True})
+    def get(self, params={}, **options):
+        options = self.client._merge_options({u'full_payload': True})
+        return self.client.get('/events', params, **options)

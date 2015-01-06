@@ -30,7 +30,7 @@ class ClientTestCase(unittest.TestCase):
         decallmethods(responses.activate)(cls)
 
     def setUp(self):
-        self.client = asana.Client()
-        self.client.ROOT_URL = 'http://app'
-        # no delay when polling to speed up tests
-        self.client.events.POLL_INTERVAL = 0
+        self.client = asana.Client(
+            base_url='http://app',
+            poll_interval=0 # no delay when polling to speed up tests
+        )

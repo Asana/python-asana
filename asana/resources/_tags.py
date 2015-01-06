@@ -4,31 +4,31 @@ class _Tags:
     def __init__(self, client=None):
         self.client = client
 
-    def create(self, params={}):
-        return self.client.post('/tags', params)
+    def create(self, params={}, **options):
+        return self.client.post('/tags', params, **options)
 
-    def update(self, tag_id, params={}):
+    def update(self, tag_id, params={}, **options):
         path = '/tags/%d' % (tag_id)
-        return self.client.put(path, params)
+        return self.client.put(path, params, **options)
 
-    def find_by_id(self, tag_id, params={}):
+    def find_by_id(self, tag_id, params={}, **options):
         path = '/tags/%d' % (tag_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace(self, workspace_id, params={}):
+    def find_by_workspace(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/tags' % (workspace_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace_iterator(self, workspace_id, params={}):
+    def find_by_workspace_iterator(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/tags' % (workspace_id)
-        return self.client.get_iterator(path, params)
+        return self.client.get_iterator(path, params, **options)
 
-    def find_all(self, params={}):
-        return self.client.get('/tags', params)
+    def find_all(self, params={}, **options):
+        return self.client.get('/tags', params, **options)
 
-    def find_all_iterator(self, params={}):
-        return self.client.get_iterator('/tags', params)
+    def find_all_iterator(self, params={}, **options):
+        return self.client.get_iterator('/tags', params, **options)
 
-    def create_in_workspace(self, workspace_id, params={}):
+    def create_in_workspace(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/tags' % (workspace_id)
-        return self.client.post(path, params)
+        return self.client.post(path, params, **options)

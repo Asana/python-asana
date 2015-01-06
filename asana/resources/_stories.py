@@ -4,18 +4,18 @@ class _Stories:
     def __init__(self, client=None):
         self.client = client
 
-    def find_by_task(self, task_id, params={}):
+    def find_by_task(self, task_id, params={}, **options):
         path = '/tasks/%d/stories' % (task_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_task_iterator(self, task_id, params={}):
+    def find_by_task_iterator(self, task_id, params={}, **options):
         path = '/tasks/%d/stories' % (task_id)
-        return self.client.get_iterator(path, params)
+        return self.client.get_iterator(path, params, **options)
 
-    def create_on_task(self, task_id, params={}):
+    def create_on_task(self, task_id, params={}, **options):
         path = '/tasks/%d/stories' % (task_id)
-        return self.client.post(path, params)
+        return self.client.post(path, params, **options)
 
-    def find_by_id(self, story_id, params={}):
+    def find_by_id(self, story_id, params={}, **options):
         path = '/stories/%d' % (story_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)

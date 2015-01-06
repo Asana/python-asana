@@ -4,35 +4,35 @@ class _Projects:
     def __init__(self, client=None):
         self.client = client
 
-    def create(self, params={}):
-        return self.client.post('/projects', params)
+    def create(self, params={}, **options):
+        return self.client.post('/projects', params, **options)
 
-    def update(self, project_id, params={}):
+    def update(self, project_id, params={}, **options):
         path = '/projects/%d' % (project_id)
-        return self.client.put(path, params)
+        return self.client.put(path, params, **options)
 
-    def find_by_id(self, project_id, params={}):
+    def find_by_id(self, project_id, params={}, **options):
         path = '/projects/%d' % (project_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace(self, workspace_id, params={}):
+    def find_by_workspace(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/projects' % (workspace_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace_iterator(self, workspace_id, params={}):
+    def find_by_workspace_iterator(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/projects' % (workspace_id)
-        return self.client.get_iterator(path, params)
+        return self.client.get_iterator(path, params, **options)
 
-    def find_all(self, params={}):
-        return self.client.get('/projects', params)
+    def find_all(self, params={}, **options):
+        return self.client.get('/projects', params, **options)
 
-    def find_all_iterator(self, params={}):
-        return self.client.get_iterator('/projects', params)
+    def find_all_iterator(self, params={}, **options):
+        return self.client.get_iterator('/projects', params, **options)
 
-    def create_in_workspace(self, workspace_id, params={}):
+    def create_in_workspace(self, workspace_id, params={}, **options):
         path = '/workspaces/%d/projects' % (workspace_id)
-        return self.client.post(path, params)
+        return self.client.post(path, params, **options)
 
-    def delete(self, project_id, params={}):
+    def delete(self, project_id, params={}, **options):
         path = '/projects/%d' % (project_id)
-        return self.client.delete(path, params)
+        return self.client.delete(path, params, **options)

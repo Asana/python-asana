@@ -8,7 +8,7 @@
     },
     "events": {
         "methods": {
-            "get":                  { "method": "get",   "url": "/events", "dispatchOptions": { "fullPayload": true } }
+            "get":                  { "method": "get",   "url": "/events", "dispatch_options": { "full_payload": true } }
         }
     },
     "projects": {

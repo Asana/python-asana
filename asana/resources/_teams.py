@@ -4,10 +4,10 @@ class _Teams:
     def __init__(self, client=None):
         self.client = client
 
-    def find_by_organization(self, organization_id, params={}):
+    def find_by_organization(self, organization_id, params={}, **options):
         path = '/organizations/%d/teams' % (organization_id)
-        return self.client.get(path, params)
+        return self.client.get(path, params, **options)
 
-    def find_by_organization_iterator(self, organization_id, params={}):
+    def find_by_organization_iterator(self, organization_id, params={}, **options):
         path = '/organizations/%d/teams' % (organization_id)
-        return self.client.get_iterator(path, params)
+        return self.client.get_iterator(path, params, **options)
