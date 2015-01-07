@@ -4,11 +4,13 @@ class TestClientTasks(ClientTestCase):
 
     def test_tasks_create(self):
         req = {
-            "assignee": 1235,
-            "followers": [5678],
-            "name": "Hello, world.",
-            "notes": "How are you today?",
-            "workspace": 14916
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Hello, world.",
+                "notes": "How are you today?",
+                "workspace": 14916
+            }
         }
         res = {
             "data": {
@@ -30,7 +32,7 @@ class TestClientTasks(ClientTestCase):
         }
         responses.add(POST, 'http://app/tasks', status=201, body=json.dumps(res), match_querystring=True)
 
-        self.assertEqual(self.client.tasks.create(req), res['data'])
+        self.assertEqual(self.client.tasks.create(req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_find_by_id(self):
@@ -54,7 +56,7 @@ class TestClientTasks(ClientTestCase):
         self.assertEqual(self.client.tasks.find_by_project(1331), res['data'])
 
     def test_tasks_update(self):
-        req = { "assignee": "me" }
+        req = { "data": { "assignee": "me" } }
         res = {
             "data": {
                 "assignee": { "id": 1234, "name": "Tim Bizarro" },
@@ -62,7 +64,7 @@ class TestClientTasks(ClientTestCase):
             }
         }
         responses.add(PUT, 'http://app/tasks/1001', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.update(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.update(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_delete(self):
@@ -82,10 +84,12 @@ class TestClientTasks(ClientTestCase):
 
     def test_tasks_add_subtask(self):
         req = {
-            "assignee": 1235,
-            "followers": [5678],
-            "name": "Tell Luke",
-            "notes": "He's going to be upset."
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Tell Luke",
+                "notes": "He's going to be upset."
+            }
         }
         res = {
             "data": {
@@ -106,7 +110,7 @@ class TestClientTasks(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/tasks/2272/subtasks', status=201, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.add_subtask(2272, req), res['data'])
+        self.assertEqual(self.client.tasks.add_subtask(2272, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_subtasks(self):
@@ -121,7 +125,7 @@ class TestClientTasks(ClientTestCase):
         self.assertEqual(self.client.tasks.subtasks(7331), res['data'])
 
     def test_tasks_set_parent(self):
-        req = { "parent": 1331 }
+        req = { "data": { "parent": 1331 } }
         res = {
             "data": {
                 "id": 2272,
@@ -130,7 +134,7 @@ class TestClientTasks(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/tasks/2272/setParent', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.set_parent(2272, req), res['data'])
+        self.assertEqual(self.client.tasks.set_parent(2272, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_projects(self):
@@ -144,17 +148,17 @@ class TestClientTasks(ClientTestCase):
         self.assertEqual(self.client.tasks.projects(1001), res['data'])
 
     def test_tasks_add_project(self):
-        req = { "project": 14641 }
+        req = { "data": { "project": 14641 } }
         res = { "data": {} }
         responses.add(POST, 'http://app/tasks/1001/addProject', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.add_project(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.add_project(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_remove_project(self):
-        req = { "project": 14641 }
+        req = { "data": { "project": 14641 } }
         res = { "data": {} }
         responses.add(POST, 'http://app/tasks/1001/removeProject', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.remove_project(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.remove_project(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_tags(self):
@@ -168,21 +172,21 @@ class TestClientTasks(ClientTestCase):
         self.assertEqual(self.client.tasks.tags(1001), res['data'])
 
     def test_tasks_1001_addTag(self):
-        req = { "tag": 1771 }
+        req = { "data": { "tag": 1771 } }
         res = { "data": {} }
         responses.add(POST, 'http://app/tasks/1001/addTag', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.add_tag(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.add_tag(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_removeTag(self):
-        req = { "tag": 1771 }
+        req = { "data": { "tag": 1771 } }
         res = { "data": {} }
         responses.add(POST, 'http://app/tasks/1001/removeTag', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.remove_tag(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.remove_tag(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_add_followers(self):
-        req = { "followers": [1235] }
+        req = { "data": { "followers": [1235] } }
         res = {
             "data": {
                 "followers": [{ "id": 1235, "name": "Darth Vader" }],
@@ -190,14 +194,14 @@ class TestClientTasks(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/tasks/1001/addFollowers', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.add_followers(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.add_followers(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_tasks_remove_followers(self):
-        req = { "followers": [1235] }
+        req = { "data": { "followers": [1235] } }
         res = { "data": { "followers": [], "id": 1001 } }
         responses.add(POST, 'http://app/tasks/1001/removeFollowers', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tasks.remove_followers(1001, req), res['data'])
+        self.assertEqual(self.client.tasks.remove_followers(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     @unittest.skip("tasks.find_by_tag not yet implemented")

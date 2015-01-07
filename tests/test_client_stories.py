@@ -40,7 +40,7 @@ class TestClientStories(ClientTestCase):
         self.assertEqual(self.client.stories.find_by_id(2001), res['data'])
 
     def test_stories_create_on_task(self):
-        req = { "text": "This is a very nice comment." }
+        req = { "data": { "text": "This is a very nice comment." } }
         res = {
             "data": {
                 "created_at": "2011-12-21T23:23:01.259Z",
@@ -53,5 +53,5 @@ class TestClientStories(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/tasks/1001/stories', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.stories.create_on_task(1001, req), res['data'])
+        self.assertEqual(self.client.stories.create_on_task(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)

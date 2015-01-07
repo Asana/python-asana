@@ -52,24 +52,26 @@ class TestClient(ClientTestCase):
         responses.add(GET, 'http://app/users/1234', status=403, body=json.dumps(res), match_querystring=True)
         self.assertRaises(asana.error.ForbiddenError, self.client.users.find_by_id, (1234))
 
-    @unittest.skip("pretty option not yet implemented")
     def test_option_pretty(self):
         res = {
             "data": { "email": "sanchez@...", "id": 999, "name": "Greg Sanchez" }
         }
-        responses.add(GET, 'http://app/users/me?opt_pretty', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.users.me(pretty=True), res['data'])
+        # responses.add(GET, 'http://app/users/me?opt_pretty', status=200, body=json.dumps(res), match_querystring=True)
+        responses.add(GET, 'http://app/users/me?opt_pretty=true', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.users.me(pretty=True), res['data']) 
 
-    @unittest.skip("fields option not yet implemented")
     def test_option_fields(self):
         res = {
             "data": { "name": "Make a list", "notes": "Check it twice!", "id": 1224 }
         }
-        responses.add(GET, 'http://app/tasks/1224?opt_fields=name,notes', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.tasks.find_by_id.me(fields=('name','notes')), res['data'])
+        responses.add(GET, 'http://app/tasks/1224?opt_fields=name%2Cnotes', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.tasks.find_by_id(1224, fields=['name','notes']), res['data'])
 
-    @unittest.skip("expand option not yet implemented")
     def test_option_expand(self):
+        req = {
+            'data': { 'assignee': 1234 },
+            'options': { 'expand' : ['projects'] }
+        }
         res = {
             "data": {
                 "id": 1001,
@@ -90,6 +92,8 @@ class TestClient(ClientTestCase):
         responses.add(PUT, 'http://app/tasks/1001', status=200, body=json.dumps(res), match_querystring=True)
         # -d "assignee=1234" \
         # -d "options.expand=%2Aprojects%2A"
+        self.assertEqual(self.client.tasks.update(1001, req['data'], expand=['projects']), res['data'])
+        self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
     def test_pagination(self):
         res = {

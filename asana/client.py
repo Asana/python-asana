@@ -39,7 +39,7 @@ class Client:
     def request(self, method, path, **options):
         options = self._merge_options(options)
         url = options['base_url'] + path
-        request_options = self._select_options(options, ['headers', 'params', 'data'])
+        request_options = self._parse_request_options(options)
         while True:
             try:
                 response = getattr(self.session, method)(url, auth=self.auth, **request_options)
@@ -53,34 +53,37 @@ class Client:
             except error.RateLimitEnforcedError as e:
                 if options['rate_limit_retry']:
                     seconds = float(response.headers['Retry-After'])
-                    print("Rate-limited. Pausing for %f seconds.".format(seconds))
                     time.sleep(seconds)
                 else:
                     raise e
 
     def get(self, path, query, **options):
-        api_options = self._select_options(options, ['pretty', 'fields', 'expand'], 'opt_')
-        query_options = self._select_options(options, ['limit', 'offset', 'sync'])
+        api_options = self._parse_api_options(options, query_string=True)
+        query_options = self._parse_query_options(options)
         query = _merge(query_options, api_options, query) # options in the query takes precendence
         return self.request('get', path, params=query, **options)
 
     def post(self, path, data, **options):
-        api_options = self._select_options(options, ['pretty', 'fields', 'expand'])
-        data = _merge(api_options, data) # options in the data takes precendence
-        return self.request('post', path, data=json.dumps(data), headers={'content-type': 'application/json'}, **options)
+        body = { 'data': data }
+        api_options = self._parse_api_options(options)
+        if len(api_options) > 0:
+            body['options'] = api_options
+        return self.request('post', path, data=json.dumps(body), headers={'content-type': 'application/json'}, **options)
 
     def put(self, path, data, **options):
-        api_options = self._select_options(options, ['pretty', 'fields', 'expand'])
-        data = _merge(api_options, data) # options in the data takes precendence
-        return self.request('put', path, data=json.dumps(data), headers={'content-type': 'application/json'}, **options)
+        body = { 'data': data }
+        api_options = self._parse_api_options(options)
+        if len(api_options) > 0:
+            body['options'] = api_options
+        return self.request('put', path, data=json.dumps(body), headers={'content-type': 'application/json'}, **options)
 
     def delete(self, path, data, **options):
         return self.request('delete', path, **options)
 
     def get_iterator(self, path, query, **options):
         options = self._merge_options(options, { 'full_payload': True })
-        query = query.copy()
-        query['limit'] = query.get('limit', options['limit'] or self.DEFAULT_LIMIT)
+        limit = query.get('limit', options['limit'] or self.DEFAULT_LIMIT)
+        query = _merge(query.copy(), { 'limit': limit })
         while True:
             result = self.get(path, query, **options)
             for item in result['data']:
@@ -94,7 +97,32 @@ class Client:
     def _merge_options(self, *objects):
         return _merge(self.options, *objects)
 
-    def _select_options(self, options, keys, key_prefix=''):
+    def _parse_query_options(self, options):
+        return self._select_options(options, ['limit', 'offset', 'sync'])
+
+    def _parse_api_options(self, options, query_string=False):
+        api_options = self._select_options(options, ['pretty', 'fields', 'expand'])
+        if query_string:
+            query_api_options = {}
+            for key in api_options:
+                if isinstance(api_options[key], (list, tuple)):
+                    query_api_options['opt_'+key] = ','.join(api_options[key])
+                else:
+                    query_api_options['opt_'+key] = api_options[key]
+            return query_api_options
+        else:
+            return api_options
+
+    def _parse_request_options(self, options):
+        request_options = self._select_options(options, ['headers', 'params', 'data'])
+        if 'params' in request_options:
+            params = request_options['params']
+            for key in params:
+                if isinstance(params[key], bool):
+                    params[key] = json.dumps(params[key])
+        return request_options
+
+    def _select_options(self, options, keys):
         options = self._merge_options(options)
         return { key: options[key] for key in keys if key in options }
 
