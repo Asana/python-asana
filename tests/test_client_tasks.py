@@ -204,7 +204,6 @@ class TestClientTasks(ClientTestCase):
         self.assertEqual(self.client.tasks.remove_followers(1001, req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
-    @unittest.skip("tasks.find_by_tag not yet implemented")
     def test_tasks_find_by_tag(self):
         res = {
             "data": [

@@ -46,6 +46,7 @@
             "find_by_id":           { "method": "get",    "url": "/tasks/%d",                   "args": ["task_id"] },
             "find_all":             { "method": "get",    "url": "/tasks", "collection": true },
             "find_by_project":      { "method": "get",    "url": "/projects/%d/tasks",          "args": ["project_id"], "collection": true },
+            "find_by_tag":          { "method": "get",    "url": "/tags/%d/tasks",              "args": ["tag_id"], "collection": true },
             "update":               { "method": "put",    "url": "/tasks/%d",                   "args": ["task_id"] },
             "delete":               { "method": "delete", "url": "/tasks/%d",                   "args": ["task_id"] },
             "add_followers":        { "method": "post",   "url": "/tasks/%d/addFollowers",      "args": ["task_id"] },

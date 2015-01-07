@@ -8,6 +8,14 @@ class _Tasks:
         path = '/tasks/%d/addFollowers' % (task_id)
         return self.client.post(path, params, **options)
 
+    def find_by_tag(self, tag_id, params={}, **options):
+        path = '/tags/%d/tasks' % (tag_id)
+        return self.client.get(path, params, **options)
+
+    def find_by_tag_iterator(self, tag_id, params={}, **options):
+        path = '/tags/%d/tasks' % (tag_id)
+        return self.client.get_iterator(path, params, **options)
+
     def tags(self, task_id, params={}, **options):
         path = '/tasks/%d/tags' % (task_id)
         return self.client.get(path, params, **options)
