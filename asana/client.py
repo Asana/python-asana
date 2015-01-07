@@ -44,7 +44,7 @@ class Client:
             try:
                 response = getattr(self.session, method)(url, auth=self.auth, **request_options)
                 if response.status_code in STATUS_MAP:
-                    raise STATUS_MAP[response.status_code](response.json())
+                    raise STATUS_MAP[response.status_code](response)
                 else:
                     if options['full_payload']:
                         return response.json()
@@ -52,8 +52,7 @@ class Client:
                         return response.json()['data']
             except error.RateLimitEnforcedError as e:
                 if options['rate_limit_retry']:
-                    seconds = float(response.headers['Retry-After'])
-                    time.sleep(seconds)
+                    time.sleep(e.retry_after)
                 else:
                     raise e
 

@@ -13,7 +13,7 @@ class Events(_Events):
             try:
                 self.get(params)
             except InvalidTokenError as e:
-                params['sync'] = e.value['sync']
+                params['sync'] = e.sync
         while True:
             result = self.get(params)
             if 'data' in result and len(result['data']) > 0:

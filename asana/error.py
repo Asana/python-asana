@@ -44,6 +44,7 @@ class InvalidTokenError(AsanaError):
             status=412,
             value=value
         )
+        self.sync = value != None and value.json()['sync']
 
 class RateLimitEnforcedError(AsanaError):
     def __init__(self, value=None):
@@ -52,6 +53,7 @@ class RateLimitEnforcedError(AsanaError):
             status=429,
             value=value
         )
+        self.retry_after = value != None and float(value.headers['Retry-After'])
 
 class ServerError(AsanaError):
     def __init__(self, value=None):
