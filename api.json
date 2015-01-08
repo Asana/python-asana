@@ -1,86 +1,86 @@
 {
   "resources": {
     "attachments": {
-        "methods": {
-            "find_by_id":           { "method": "get",   "url": "/attachments/%d",              "args": ["attachment_id"] },
-            "find_by_task":         { "method": "get",   "url": "/tasks/%d/attachments",        "args": ["task_id"], "collection": true }
-        }
+      "methods": {
+        "find_by_id":           { "method": "get",   "url": "/attachments/%d",              "args": ["attachment_id"] },
+        "find_by_task":         { "method": "get",   "url": "/tasks/%d/attachments",        "args": ["task_id"], "collection": true }
+      }
     },
     "events": {
-        "methods": {
-            "get":                  { "method": "get",   "url": "/events", "dispatch_options": { "full_payload": true } }
-        }
+      "methods": {
+        "get":                  { "method": "get",   "url": "/events", "dispatch_options": { "full_payload": true } }
+      }
     },
     "projects": {
-        "methods": {
-            "create":               { "method": "post",   "url": "/projects" },
-            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/projects",     "args": ["workspace_id"] },
-            "find_by_id":           { "method": "get",    "url": "/projects/%d",                "args": ["project_id"] },
-            "find_all":             { "method": "get",    "url": "/projects", "collection": true },
-            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/projects",     "args": ["workspace_id"], "collection": true },
-            "update":               { "method": "put",    "url": "/projects/%d",                "args": ["project_id"] },
-            "delete":               { "method": "delete", "url": "/projects/%d",                "args": ["project_id"] }
-        }
+      "methods": {
+        "create":               { "method": "post",   "url": "/projects" },
+        "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/projects",     "args": ["workspace_id"] },
+        "find_by_id":           { "method": "get",    "url": "/projects/%d",                "args": ["project_id"] },
+        "find_all":             { "method": "get",    "url": "/projects", "collection": true },
+        "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/projects",     "args": ["workspace_id"], "collection": true },
+        "update":               { "method": "put",    "url": "/projects/%d",                "args": ["project_id"] },
+        "delete":               { "method": "delete", "url": "/projects/%d",                "args": ["project_id"] }
+      }
     },
     "stories": {
-        "methods": {
-            "create_on_task":       { "method": "post",   "url": "/tasks/%d/stories",           "args": ["task_id"] },
-            "find_by_id":           { "method": "get",    "url": "/stories/%d",                 "args": ["story_id"] },
-            "find_by_task":         { "method": "get",    "url": "/tasks/%d/stories",           "args": ["task_id"], "collection": true }
-        }
+      "methods": {
+        "create_on_task":       { "method": "post",   "url": "/tasks/%d/stories",           "args": ["task_id"] },
+        "find_by_id":           { "method": "get",    "url": "/stories/%d",                 "args": ["story_id"] },
+        "find_by_task":         { "method": "get",    "url": "/tasks/%d/stories",           "args": ["task_id"], "collection": true }
+      }
     },
     "tags": {
-        "methods": {
-            "create":               { "method": "post",   "url": "/tags" },
-            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tags",         "args": ["workspace_id"] },
-            "find_by_id":           { "method": "get",    "url": "/tags/%d",                    "args": ["tag_id"] },
-            "find_all":             { "method": "get",    "url": "/tags", "collection": true },
-            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/tags",         "args": ["workspace_id"], "collection": true },
-            "update":               { "method": "put",    "url": "/tags/%d",                    "args": ["tag_id"] }
-        }
+      "methods": {
+        "create":               { "method": "post",   "url": "/tags" },
+        "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tags",         "args": ["workspace_id"] },
+        "find_by_id":           { "method": "get",    "url": "/tags/%d",                    "args": ["tag_id"] },
+        "find_all":             { "method": "get",    "url": "/tags", "collection": true },
+        "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/tags",         "args": ["workspace_id"], "collection": true },
+        "update":               { "method": "put",    "url": "/tags/%d",                    "args": ["tag_id"] }
+      }
     },
     "tasks": {
-        "methods": {
-            "create":               { "method": "post",   "url": "/tasks" },
-            "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tasks",        "args": ["workspace_id"] },
-            "find_by_id":           { "method": "get",    "url": "/tasks/%d",                   "args": ["task_id"] },
-            "find_all":             { "method": "get",    "url": "/tasks", "collection": true },
-            "find_by_project":      { "method": "get",    "url": "/projects/%d/tasks",          "args": ["project_id"], "collection": true },
-            "find_by_tag":          { "method": "get",    "url": "/tags/%d/tasks",              "args": ["tag_id"], "collection": true },
-            "update":               { "method": "put",    "url": "/tasks/%d",                   "args": ["task_id"] },
-            "delete":               { "method": "delete", "url": "/tasks/%d",                   "args": ["task_id"] },
-            "add_followers":        { "method": "post",   "url": "/tasks/%d/addFollowers",      "args": ["task_id"] },
-            "remove_followers":     { "method": "post",   "url": "/tasks/%d/removeFollowers",   "args": ["task_id"] },
-            "projects":             { "method": "get",    "url": "/tasks/%d/projects",          "args": ["task_id"], "collection": true },
-            "add_project":          { "method": "post",   "url": "/tasks/%d/addProject",        "args": ["task_id"] },
-            "remove_project":       { "method": "post",   "url": "/tasks/%d/removeProject",     "args": ["task_id"] },
-            "tags":                 { "method": "get",    "url": "/tasks/%d/tags",              "args": ["task_id"], "collection": true },
-            "add_tag":              { "method": "post",   "url": "/tasks/%d/addTag",            "args": ["task_id"] },
-            "remove_tag":           { "method": "post",   "url": "/tasks/%d/removeTag",         "args": ["task_id"] },
-            "subtasks":             { "method": "get",    "url": "/tasks/%d/subtasks",          "args": ["task_id"], "collection": true },
-            "add_subtask":          { "method": "post",   "url": "/tasks/%d/subtasks",          "args": ["task_id"] },
-            "set_parent":           { "method": "post",   "url": "/tasks/%d/setParent",         "args": ["task_id"] }
-        }
+      "methods": {
+        "create":               { "method": "post",   "url": "/tasks" },
+        "create_in_workspace":  { "method": "post",   "url": "/workspaces/%d/tasks",        "args": ["workspace_id"] },
+        "find_by_id":           { "method": "get",    "url": "/tasks/%d",                   "args": ["task_id"] },
+        "find_all":             { "method": "get",    "url": "/tasks", "collection": true },
+        "find_by_project":      { "method": "get",    "url": "/projects/%d/tasks",          "args": ["project_id"], "collection": true },
+        "find_by_tag":          { "method": "get",    "url": "/tags/%d/tasks",              "args": ["tag_id"], "collection": true },
+        "update":               { "method": "put",    "url": "/tasks/%d",                   "args": ["task_id"] },
+        "delete":               { "method": "delete", "url": "/tasks/%d",                   "args": ["task_id"] },
+        "add_followers":        { "method": "post",   "url": "/tasks/%d/addFollowers",      "args": ["task_id"] },
+        "remove_followers":     { "method": "post",   "url": "/tasks/%d/removeFollowers",   "args": ["task_id"] },
+        "projects":             { "method": "get",    "url": "/tasks/%d/projects",          "args": ["task_id"], "collection": true },
+        "add_project":          { "method": "post",   "url": "/tasks/%d/addProject",        "args": ["task_id"] },
+        "remove_project":       { "method": "post",   "url": "/tasks/%d/removeProject",     "args": ["task_id"] },
+        "tags":                 { "method": "get",    "url": "/tasks/%d/tags",              "args": ["task_id"], "collection": true },
+        "add_tag":              { "method": "post",   "url": "/tasks/%d/addTag",            "args": ["task_id"] },
+        "remove_tag":           { "method": "post",   "url": "/tasks/%d/removeTag",         "args": ["task_id"] },
+        "subtasks":             { "method": "get",    "url": "/tasks/%d/subtasks",          "args": ["task_id"], "collection": true },
+        "add_subtask":          { "method": "post",   "url": "/tasks/%d/subtasks",          "args": ["task_id"] },
+        "set_parent":           { "method": "post",   "url": "/tasks/%d/setParent",         "args": ["task_id"] }
+      }
     },
     "teams": {
-        "methods": {
-            "find_by_organization": { "method": "get",    "url": "/organizations/%d/teams",     "args": ["organization_id"], "collection": true }
-        }
+      "methods": {
+        "find_by_organization": { "method": "get",    "url": "/organizations/%d/teams",     "args": ["organization_id"], "collection": true }
+      }
     },
     "users": {
-        "methods": {
-            "find_all":             { "method": "get",    "url": "/users", "collection": true },
-            "me":                   { "method": "get",    "url": "/users/me" },
-            "find_by_id":           { "method": "get",    "url": "/users/%d",                   "args": ["user_id"] },
-            "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/users",        "args": ["workspace_id"], "collection": true }
-        }
+      "methods": {
+        "find_all":             { "method": "get",    "url": "/users", "collection": true },
+        "me":                   { "method": "get",    "url": "/users/me" },
+        "find_by_id":           { "method": "get",    "url": "/users/%d",                   "args": ["user_id"] },
+        "find_by_workspace":    { "method": "get",    "url": "/workspaces/%d/users",        "args": ["workspace_id"], "collection": true }
+      }
     },
     "workspaces": {
-        "methods": {
-            "find_all":             { "method": "get",    "url": "/workspaces", "collection": true },
-            "update":               { "method": "put",    "url": "/workspaces/%d",              "args": ["workspace_id"] },
-            "typeahead":            { "method": "get",    "url": "/workspaces/%d/typeahead",    "args": ["workspace_id"], "collection": true }
-        }
+      "methods": {
+        "find_all":             { "method": "get",    "url": "/workspaces", "collection": true },
+        "update":               { "method": "put",    "url": "/workspaces/%d",              "args": ["workspace_id"] },
+        "typeahead":            { "method": "get",    "url": "/workspaces/%d/typeahead",    "args": ["workspace_id"], "collection": true }
+      }
     }
   }
 }

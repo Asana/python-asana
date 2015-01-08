@@ -5,22 +5,28 @@ class _Users:
         self.client = client
 
     def me(self, params={}, **options):
+        """Returns the current user of the dispatcher"""
         return self.client.get('/users/me', params, **options)
 
     def find_by_workspace(self, workspace_id, params={}, **options):
+        """Finds a user by workspace"""
         path = '/workspaces/%d/users' % (workspace_id)
         return self.client.get(path, params, **options)
 
     def find_by_workspace_iterator(self, workspace_id, params={}, **options):
+        """Finds a user by workspace"""
         path = '/workspaces/%d/users' % (workspace_id)
         return self.client.get_iterator(path, params, **options)
 
     def find_all(self, params={}, **options):
+        """Returns all users that the dispatcher has access to"""
         return self.client.get('/users', params, **options)
 
     def find_all_iterator(self, params={}, **options):
+        """Returns all users that the dispatcher has access to"""
         return self.client.get_iterator('/users', params, **options)
 
     def find_by_id(self, user_id, params={}, **options):
+        """Finds a user by id"""
         path = '/users/%d' % (user_id)
         return self.client.get(path, params, **options)

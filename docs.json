@@ -1,0 +1,86 @@
+{
+  "resources": {
+    "attachments": {
+      "methods": {
+        "find_by_id":          { "doc": "Dispatches a GET request to /attachments/:attachmentId of the API to get information about the attachment." },
+        "find_by_task":        { "doc": "Dispatches a GET request to /tasks/:taskId/attachments of the API to get all attachments associated with the task." }
+      }
+    },
+    "events": {
+      "methods": {
+        "get":                 { "doc": "Dispatches a GET request to /events of the API to get a set of recent changes to a resource." }
+      }
+    },
+    "projects": {
+      "methods": {
+        "create":              { "doc": "Dispatches a POST request to /projects of the API to create a new project." },
+        "create_in_workspace": { "doc": "Dispatches a POST request to /workspaces/:workspaceId/projects of the API to create a new project within the workspace." },
+        "find_by_id":          { "doc": "Dispatches a GET request to /projects/:projectId of the API to get information about the project." },
+        "find_all":            { "doc": "Dispatches a GET request to /projects of the API to get information about all projects that the dispatcher as access to." },
+        "find_by_workspace":   { "doc": "Dispatches a GET request to /workspaces/:workspaceId/projects to get all the projects associated with the workspace." },
+        "update":              { "doc": "Dispatches a PUT request to /projects/:projectId to update the project." },
+        "delete":              { "doc": "Dispatches a DELETE requte to /projects/:projectId to delete the project." }
+      }
+    },
+    "stories": {
+      "methods": {
+        "create_on_task":      { "doc": "Creates a story on the task." },
+        "find_by_id":          { "doc": "Returns the story." },
+        "find_by_task":        { "doc": "Returns the stories on a task." }
+      }
+    },
+    "tags": {
+      "methods": {
+        "create":              { "doc": "Creates a new tag." },
+        "create_in_workspace": { "doc": "Creates a new tag in the workspace." },
+        "find_by_id":          { "doc": "Returns the tag." },
+        "find_all":            { "doc": "Returns all tags that the dispatcher has access to." },
+        "find_by_workspace":   { "doc": "Finds a tag by workspace." },
+        "update":              { "doc": "Update a tag." }
+      }
+    },
+    "tasks": {
+      "methods": {
+        "create":              { "doc": "Creates a new task." },
+        "create_in_workspace": { "doc": "Creates a new task in the workspace." },
+        "find_by_id":          { "doc": "Returns the task." },
+        "find_all":            { "doc": "Returns all tasks that the dispatcher has access to." },
+        "find_by_project":     { "doc": "Finds a task by project." },
+        "find_by_tag":         { "doc": "Finds a task by tag." },
+        "update":              { "doc": "Update a task" },
+        "delete":              { "doc": "Deletes a task" },
+        "add_followers":       { "doc": "Dispatches a POST request to /tasks/:taskId/addFollowers with to add followers to the task." },
+        "remove_followers":    { "doc": "Dispatches a POST request to /tasks/:taskId/removeFollowers with to remove followers from the task." },
+        "projects":            { "doc": "Dispatches a GET request to /tasks/:taskId/projects" },
+        "add_project":         { "doc": "Dispatches a POST request to /tasks/:taskId/addProject with the project to add to to the task." },
+        "remove_project":      { "doc": "Dispatches a POST request to /tasks/:taskId/removeProject with the project to remove from the task" },
+        "tags":                { "doc": "Get tags associated with a task" },
+        "add_tag":             { "doc": "Add a tag to a task" },
+        "remove_tag":          { "doc": "Dispatches a POST request to /tasks/:taskId/removeTag with the tag to remove from the task" },
+        "subtasks":            { "doc": "Gets all subtasks for a task" },
+        "add_subtask":         { "doc": "Creates a new subtask" },
+        "set_parent":          { "doc": "Sets the parent for a task" }
+      }
+    },
+    "teams": {
+      "methods": {
+        "find_by_organization":{ "doc": "Finds all teams that the user has access to" }
+      }
+    },
+    "users": {
+      "methods": {
+        "find_all":            { "doc": "Returns all users that the dispatcher has access to" },
+        "me":                  { "doc": "Returns the current user of the dispatcher" },
+        "find_by_id":          { "doc": "Finds a user by id" },
+        "find_by_workspace":   { "doc": "Finds a user by workspace" }
+      }
+    },
+    "workspaces": {
+      "methods": {
+        "find_all":            { "doc": "Show all available workspaces" },
+        "update":              { "doc": "Update a workspace" },
+        "typeahead":           { "doc": "Dispatches a GET request to /workspaces/:workspaceId/typeahead to run a typeahead search in the specified workspace" }
+      }
+    }
+  }
+}
