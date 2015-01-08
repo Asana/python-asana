@@ -47,39 +47,39 @@
         "find_all":            { "doc": "Returns all tasks that the dispatcher has access to." },
         "find_by_project":     { "doc": "Finds a task by project." },
         "find_by_tag":         { "doc": "Finds a task by tag." },
-        "update":              { "doc": "Update a task" },
-        "delete":              { "doc": "Deletes a task" },
+        "update":              { "doc": "Update a task." },
+        "delete":              { "doc": "Deletes a task." },
         "add_followers":       { "doc": "Dispatches a POST request to /tasks/:taskId/addFollowers with to add followers to the task." },
         "remove_followers":    { "doc": "Dispatches a POST request to /tasks/:taskId/removeFollowers with to remove followers from the task." },
-        "projects":            { "doc": "Dispatches a GET request to /tasks/:taskId/projects" },
+        "projects":            { "doc": "Dispatches a GET request to /tasks/:taskId/projects." },
         "add_project":         { "doc": "Dispatches a POST request to /tasks/:taskId/addProject with the project to add to to the task." },
-        "remove_project":      { "doc": "Dispatches a POST request to /tasks/:taskId/removeProject with the project to remove from the task" },
-        "tags":                { "doc": "Get tags associated with a task" },
-        "add_tag":             { "doc": "Add a tag to a task" },
-        "remove_tag":          { "doc": "Dispatches a POST request to /tasks/:taskId/removeTag with the tag to remove from the task" },
-        "subtasks":            { "doc": "Gets all subtasks for a task" },
-        "add_subtask":         { "doc": "Creates a new subtask" },
-        "set_parent":          { "doc": "Sets the parent for a task" }
+        "remove_project":      { "doc": "Dispatches a POST request to /tasks/:taskId/removeProject with the project to remove from the task." },
+        "tags":                { "doc": "Get tags associated with a task." },
+        "add_tag":             { "doc": "Add a tag to a task." },
+        "remove_tag":          { "doc": "Dispatches a POST request to /tasks/:taskId/removeTag with the tag to remove from the task." },
+        "subtasks":            { "doc": "Gets all subtasks for a task." },
+        "add_subtask":         { "doc": "Creates a new subtask." },
+        "set_parent":          { "doc": "Sets the parent for a task." }
       }
     },
     "teams": {
       "methods": {
-        "find_by_organization":{ "doc": "Finds all teams that the user has access to" }
+        "find_by_organization":{ "doc": "Finds all teams that the user has access to." }
       }
     },
     "users": {
       "methods": {
-        "find_all":            { "doc": "Returns all users that the dispatcher has access to" },
-        "me":                  { "doc": "Returns the current user of the dispatcher" },
-        "find_by_id":          { "doc": "Finds a user by id" },
-        "find_by_workspace":   { "doc": "Finds a user by workspace" }
+        "find_all":            { "doc": "Returns all users that the dispatcher has access to." },
+        "me":                  { "doc": "Returns the current user of the dispatcher." },
+        "find_by_id":          { "doc": "Finds a user by id." },
+        "find_by_workspace":   { "doc": "Finds a user by workspace." }
       }
     },
     "workspaces": {
       "methods": {
-        "find_all":            { "doc": "Show all available workspaces" },
-        "update":              { "doc": "Update a workspace" },
-        "typeahead":           { "doc": "Dispatches a GET request to /workspaces/:workspaceId/typeahead to run a typeahead search in the specified workspace" }
+        "find_all":            { "doc": "Show all available workspaces." },
+        "update":              { "doc": "Update a workspace." },
+        "typeahead":           { "doc": "Dispatches a GET request to /workspaces/:workspaceId/typeahead to run a typeahead search in the specified workspace." }
       }
     }
   }
