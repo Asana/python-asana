@@ -1,64 +1,71 @@
 
 class AsanaError(Exception):
-    def __init__(self, message=None, status=None, value=None):
+    def __init__(self, message=None, status=None, response=None):
+        try:
+            messages = [error['message'] for error in response.json()['errors']]
+            message = message + ': ' + '; '.join(messages)
+        except Exception:
+            pass
+
         super(AsanaError, self).__init__(message)
+
         self.status = status
-        self.value = value
+        self.response = response
 
 class InvalidRequestError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(InvalidRequestError, self).__init__(
             message='Invalid Request',
             status=400,
-            value=value
+            response=response
         )
 
 class NoAuthorizationError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(NoAuthorizationError, self).__init__(
             message='No Authorization',
             status=401,
-            value=value
+            response=response
         )
 
 class ForbiddenError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(ForbiddenError, self).__init__(
             message='Forbidden',
             status=403,
-            value=value
+            response=response
         )
 
 class NotFoundError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(NotFoundError, self).__init__(
             message='Not Found',
             status=404,
-            value=value
+            response=response
         )
 
 class InvalidTokenError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(InvalidTokenError, self).__init__(
             message='Sync token invalid or too old',
             status=412,
-            value=value
+            response=response
         )
-        self.sync = value != None and value.json()['sync']
+        self.sync = response != None and response.json()['sync']
 
 class RateLimitEnforcedError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(RateLimitEnforcedError, self).__init__(
             message='Rate Limit Enforced',
             status=429,
-            value=value
+            response=response
         )
-        self.retry_after = value != None and float(value.headers['Retry-After'])
+        self.retry_after = response != None and float(response.headers['Retry-After'])
 
 class ServerError(AsanaError):
-    def __init__(self, value=None):
+    def __init__(self, response=None):
         super(ServerError, self).__init__(
             message='Server Error',
             status=500,
-            value=value
+            response=response
         )
