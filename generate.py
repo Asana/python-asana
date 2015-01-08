@@ -32,17 +32,6 @@ RESOURCE_METHOD_TEMPLATE_WITH_ARGS = string.Template('''
         return self.client.$method(path, params, **options)
 ''')
 
-RESOURCE_METHOD_TEMPLATE_ITERATOR = string.Template('''
-    def ${name}_iterator(self, params={}, **options):$doc_string$options
-        return self.client.get_iterator('$url', params, **options)
-''')
-
-RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS = string.Template('''
-    def ${name}_iterator(self, $args, params={}, **options):$doc_string$options
-        path = '$url' % ($args)
-        return self.client.get_iterator(path, params, **options)
-''')
-
 api = json.loads(open('api.json', 'r').read())
 docs = json.loads(open('docs.json', 'r').read())
 
@@ -70,18 +59,15 @@ for resource_name, resource in api['resources'].iteritems():
                 'doc_string': '\n        """' + method_docs[method_name]['doc'] + '"""' if method_name in method_docs else ''
             }
 
+            if method.get('collection', False):
+                if method['method'] != 'get':
+                    raise Exception('"collection" set to true with "method" other than "get" is not supported')
+                template_vars['method'] = 'get_collection'
+
             if template_vars['args'] is None:
                 resource_base_py.write(RESOURCE_METHOD_TEMPLATE.substitute(**template_vars))
             else:
                 resource_base_py.write(RESOURCE_METHOD_TEMPLATE_WITH_ARGS.substitute(**template_vars))
-
-            if method.get('collection', False):
-                if method['method'] != 'get':
-                    raise Exception('"collection" set to true with "method" other than "get" is not supported')
-                if template_vars['args'] is None:
-                    resource_base_py.write(RESOURCE_METHOD_TEMPLATE_ITERATOR.substitute(**template_vars))
-                else:
-                    resource_base_py.write(RESOURCE_METHOD_TEMPLATE_ITERATOR_WITH_ARGS.substitute(**template_vars))
 
     resource_base_py.close()
 

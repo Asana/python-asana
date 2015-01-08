@@ -115,7 +115,7 @@ class TestClient(ClientTestCase):
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a' } }), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
 
-        iterator = self.client.tasks.find_by_project_iterator(1337, { 'limit': '2' })
+        iterator = self.client.tasks.find_by_project(1337, { 'limit': '2' }, iterator=True)
         self.assertEqual(next(iterator), 'a')
         self.assertEqual(next(iterator), 'b')
         self.assertEqual(next(iterator), 'c')

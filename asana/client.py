@@ -19,7 +19,7 @@ for name, Klass in error.__dict__.items():
 
 class Client:
 
-    DEFAULT_LIMIT = 10
+    DEFAULT_LIMIT = 100
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
@@ -61,6 +61,12 @@ class Client:
         query_options = self._parse_query_options(options)
         query = _merge(query_options, api_options, query) # options in the query takes precendence
         return self.request('get', path, params=query, **options)
+
+    def get_collection(self, path, query, **options):
+        if options.get('iterator', False):
+            return self.get_iterator(path, query, **options)
+        else:
+            return self.get(path, query, **options)
 
     def post(self, path, data, **options):
         body = { 'data': data }

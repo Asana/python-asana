@@ -5,11 +5,6 @@ class _Teams:
         self.client = client
 
     def find_by_organization(self, organization_id, params={}, **options):
-        """Finds all teams that the user has access to"""
+        """Finds all teams that the user has access to."""
         path = '/organizations/%d/teams' % (organization_id)
-        return self.client.get(path, params, **options)
-
-    def find_by_organization_iterator(self, organization_id, params={}, **options):
-        """Finds all teams that the user has access to"""
-        path = '/organizations/%d/teams' % (organization_id)
-        return self.client.get_iterator(path, params, **options)
+        return self.client.get_collection(path, params, **options)

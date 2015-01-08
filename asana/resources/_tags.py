@@ -21,20 +21,11 @@ class _Tags:
     def find_by_workspace(self, workspace_id, params={}, **options):
         """Finds a tag by workspace."""
         path = '/workspaces/%d/tags' % (workspace_id)
-        return self.client.get(path, params, **options)
-
-    def find_by_workspace_iterator(self, workspace_id, params={}, **options):
-        """Finds a tag by workspace."""
-        path = '/workspaces/%d/tags' % (workspace_id)
-        return self.client.get_iterator(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
     def find_all(self, params={}, **options):
         """Returns all tags that the dispatcher has access to."""
-        return self.client.get('/tags', params, **options)
-
-    def find_all_iterator(self, params={}, **options):
-        """Returns all tags that the dispatcher has access to."""
-        return self.client.get_iterator('/tags', params, **options)
+        return self.client.get_collection('/tags', params, **options)
 
     def create_in_workspace(self, workspace_id, params={}, **options):
         """Creates a new tag in the workspace."""
