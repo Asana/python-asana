@@ -1,0 +1,64 @@
+
+class AsanaError(Exception):
+    def __init__(self, message=None, status=None, value=None):
+        super(AsanaError, self).__init__(message)
+        self.status = status
+        self.value = value
+
+class InvalidRequestError(AsanaError):
+    def __init__(self, value=None):
+        super(InvalidRequestError, self).__init__(
+            message='Invalid Request',
+            status=400,
+            value=value
+        )
+
+class NoAuthorizationError(AsanaError):
+    def __init__(self, value=None):
+        super(NoAuthorizationError, self).__init__(
+            message='No Authorization',
+            status=401,
+            value=value
+        )
+
+class ForbiddenError(AsanaError):
+    def __init__(self, value=None):
+        super(ForbiddenError, self).__init__(
+            message='Forbidden',
+            status=403,
+            value=value
+        )
+
+class NotFoundError(AsanaError):
+    def __init__(self, value=None):
+        super(NotFoundError, self).__init__(
+            message='Not Found',
+            status=404,
+            value=value
+        )
+
+class InvalidTokenError(AsanaError):
+    def __init__(self, value=None):
+        super(InvalidTokenError, self).__init__(
+            message='Sync token invalid or too old',
+            status=412,
+            value=value
+        )
+        self.sync = value != None and value.json()['sync']
+
+class RateLimitEnforcedError(AsanaError):
+    def __init__(self, value=None):
+        super(RateLimitEnforcedError, self).__init__(
+            message='Rate Limit Enforced',
+            status=429,
+            value=value
+        )
+        self.retry_after = value != None and float(value.headers['Retry-After'])
+
+class ServerError(AsanaError):
+    def __init__(self, value=None):
+        super(ServerError, self).__init__(
+            message='Server Error',
+            status=500,
+            value=value
+        )
