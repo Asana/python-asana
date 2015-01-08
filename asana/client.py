@@ -23,10 +23,11 @@ class Client:
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
-        'limit': None,# DEFAULT_LIMIT,
+        'limit': DEFAULT_LIMIT,
         'poll_interval': 5,
         'rate_limit_retry': True,
-        'full_payload': False
+        'full_payload': False,
+        'iterator_type': 'pages'
     }
 
     def __init__(self, session=None, auth=None, **options):
@@ -63,10 +64,14 @@ class Client:
         return self.request('get', path, params=query, **options)
 
     def get_collection(self, path, query, **options):
-        if options.get('iterator', False):
-            return self.get_iterator(path, query, **options)
-        else:
+        options = self._merge_options(options)
+        if options['iterator_type'] == 'pages':
+            return self._get_page_iterator(path, query, **options)
+        if options['iterator_type'] == 'items':
+            return self._get_item_iterator(path, query, **options)
+        if options['iterator_type'] == None:
             return self.get(path, query, **options)
+        raise Error('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
     def post(self, path, data, **options):
         body = { 'data': data }
@@ -85,19 +90,14 @@ class Client:
     def delete(self, path, data, **options):
         return self.request('delete', path, **options)
 
-    def get_iterator(self, path, query, **options):
-        options = self._merge_options(options, { 'full_payload': True })
-        limit = query.get('limit', options['limit'] or self.DEFAULT_LIMIT)
-        query = _merge(query.copy(), { 'limit': limit })
-        while True:
-            result = self.get(path, query, **options)
-            for item in result['data']:
+    def _get_page_iterator(self, path, query, **options):
+        return _PageIterator(self, path, query, options)
+
+    def _get_item_iterator(self, path, query, **options):
+        for page in self._get_page_iterator(path, query, **options):
+            for item in page:
                 yield item
-            next_page = result.get('next_page', None)
-            if next_page is None:
-                return
-            else:
-                options['offset'] = next_page['offset']
+        raise StopIteration
 
     def _merge_options(self, *objects):
         return _merge(self.options, *objects)
@@ -138,6 +138,32 @@ class Client:
     @classmethod
     def oauth(Klass, **kwargs):
         return Klass(session.AsanaOAuth2Session(**kwargs))
+
+class _PageIterator:
+    def __init__(self, client, path, query, options):
+        self.client = client
+        self.path = path
+        self.query = query
+        self.options = _merge(options, { 'full_payload': True })
+        self.next_page = False
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.next_page != None:
+            if self.next_page == False:
+                result = self.client.get(self.path, self.query, **self.options)
+            else:
+                self.options.pop('offset', None) # if offset was set delete it because it will conflict
+                result = self.client.get(self.next_page['path'], {}, **self.options)
+            self.next_page = result.get('next_page', None)
+            return result['data']
+        else:
+            raise StopIteration
+
+    def next(self):
+        return self.__next__()
 
 def _merge(*objects):
     result = {}
