@@ -14,6 +14,7 @@ RUN pip3 install -r requirements.txt
 
 ADD pyasana /app/pyasana
 ADD tests /app/tests
+ADD setup.py /app/setup.py
 
 RUN find . -name '*.pyc' -delete
 
@@ -22,3 +23,6 @@ RUN python -m pytest
 
 RUN python3 --version
 RUN python3 -m pytest
+
+RUN python setup.py bdist_egg
+RUN python3 setup.py bdist_egg
