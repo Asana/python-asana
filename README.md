@@ -10,7 +10,7 @@ Authentication
 
 Create a client using your Asanna API key:
 
-    client = asana.Client.basic_auth('ASANA_API_KEY')
+    client = pyasana.Client.basic_auth('ASANA_API_KEY')
 
 ### OAuth 2
 
@@ -18,7 +18,7 @@ Asana supports OAuth 2. pyasana handles some of the details of the OAuth flow fo
 
 Create a client using your OAuth Client ID and secret:
 
-    client = asana.Client.oauth(
+    client = pyasana.Client.oauth(
       client_id='ASANA_CLIENT_ID',
       client_secret='ASANA_CLIENT_SECRET',
       redirect_uri='https://yourapp.com/auth/asana/callback'
@@ -57,10 +57,10 @@ Methods that return multiple items (e.x. `find_all`) return a page iterator by d
 Options
 -------
 
-Various options can be set globally on the `asana.Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
+Various options can be set globally on the `Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
 
   # global:
-  asana.Client.DEFAULTS['limit'] = 1000
+  pyasana.Client.DEFAULTS['limit'] = 1000
 
   # per-client:
   client.options['limit'] = 1000

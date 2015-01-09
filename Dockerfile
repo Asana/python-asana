@@ -12,7 +12,7 @@ ADD requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 
-ADD asana /app/asana
+ADD pyasana /app/pyasana
 ADD tests /app/tests
 
 RUN find . -name '*.pyc' -delete

@@ -1,5 +1,5 @@
 
-import asana
+import pyasana as asana
 import requests
 import responses
 import unittest
