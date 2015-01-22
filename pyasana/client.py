@@ -1,6 +1,7 @@
 from . import session
 from . import resources
 from . import error
+from .page_iterator import CollectionPageIterator
 
 from types import ModuleType
 from numbers import Number
@@ -102,13 +103,10 @@ class Client:
         return self.request('delete', path, **options)
 
     def _get_page_iterator(self, path, query, **options):
-        return _PageIterator(self, path, query, options)
+        return CollectionPageIterator(self, path, query, options)
 
     def _get_item_iterator(self, path, query, **options):
-        for page in self._get_page_iterator(path, query, **options):
-            for item in page:
-                yield item
-        raise StopIteration
+        return CollectionPageIterator(self, path, query, options).items()
 
     def _merge_options(self, *objects):
         return _merge(self.options, *objects)
@@ -149,32 +147,6 @@ class Client:
     @classmethod
     def oauth(Klass, **kwargs):
         return Klass(session.AsanaOAuth2Session(**kwargs))
-
-class _PageIterator:
-    def __init__(self, client, path, query, options):
-        self.client = client
-        self.path = path
-        self.query = query
-        self.options = _merge(options, { 'full_payload': True })
-        self.next_page = False
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.next_page != None:
-            if self.next_page == False:
-                result = self.client.get(self.path, self.query, **self.options)
-            else:
-                self.options.pop('offset', None) # if offset was set delete it because it will conflict
-                result = self.client.get(self.next_page['path'], {}, **self.options)
-            self.next_page = result.get('next_page', None)
-            return result['data']
-        else:
-            raise StopIteration
-
-    def next(self):
-        return self.__next__()
 
 def _merge(*objects):
     result = {}
