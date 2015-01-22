@@ -8,13 +8,13 @@ Authentication
 
 ### Basic Auth
 
-Create a client using your Asanna API key:
+Create a client using your Asana API key:
 
     client = pyasana.Client.basic_auth('ASANA_API_KEY')
 
 ### OAuth 2
 
-Asana supports OAuth 2. pyasana handles some of the details of the OAuth flow for you.
+Asana supports OAuth 2. `pyasana` handles some of the details of the OAuth flow for you.
 
 Create a client using your OAuth Client ID and secret:
 
@@ -36,12 +36,12 @@ When the user is redirected back to your callback, check the `state` URL paramet
     else:
       # error! possible CSRF attack
 
-Note: if you're writing an non-browser-based application (e.x. a command line tool) you can use the special redirect URI "urn:ietf:wg:oauth:2.0:oob" to prompt the user to copy and paste the code into the application.
+Note: if you're writing a non-browser-based application (e.x. a command line tool) you can use the special redirect URI `urn:ietf:wg:oauth:2.0:oob` to prompt the user to copy and paste the code into the application.
 
 Usage
 -----
 
-The client's methods are divided into several resources: attachments, events, projects, stories, tags, tasks, teams, users, and workspaces.
+The client's methods are divided into several resources: `attachments`, `events`, `projects`, `stories`, `tags`, `tasks`, `teams`, `users`, and `workspaces`.
 
 Methods that return a single object return that object directly:
 
@@ -59,19 +59,21 @@ Options
 
 Various options can be set globally on the `Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
 
-  # global:
-  pyasana.Client.DEFAULTS['limit'] = 1000
+    # global:
+    pyasana.Client.DEFAULTS['limit'] = 1000
 
-  # per-client:
-  client.options['limit'] = 1000
+    # per-client:
+    client.options['limit'] = 1000
 
-  # per-request:
-  client.tasks.find_all({ 'project': 1234 }, limit=1000)
+    # per-request:
+    client.tasks.find_all({ 'project': 1234 }, limit=1000)
 
 ### Available options
 
 * `base_url` (default: "https://app.asana.com/api/1.0"): API endpoint base URL to connect to
-* `rate_limit_retry` (default: True): if API rate limit is reached, delay until rate-limit expires and retry
+* `retries` (default: 5): retry if API rate limit is reached or a server error occures (integer, or `True` for infinite retries, `False` for zero). Rate limit retries delay until the rate limit expires, server errors delay according to `retry_delay` and `retry_backoff`.
+* `retry_delay` (default: 1.0) number of seconds to delay between retries
+* `retry_backoff` (default 2.0) retry delay backoff factor (e.x. 1.0 does not backoff at all, 2.0 doubles the delay each retry)
 * `full_payload` (default: False): return the entire JSON response instead of the 'data' propery (default for collection methods and `events.get`)
 * `fields` and `expand`: see [API documentation](http://developer.asana.com/documentation/#Options)
 

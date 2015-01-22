@@ -53,7 +53,11 @@ class InvalidTokenError(AsanaError):
         )
         self.sync = response != None and response.json()['sync']
 
-class RateLimitEnforcedError(AsanaError):
+class RetryableAsanaError(AsanaError):
+    def __init__(self, message=None, status=None, response=None):
+        super(RetryableAsanaError, self).__init__(message=message, status=status, response=response)
+
+class RateLimitEnforcedError(RetryableAsanaError):
     def __init__(self, response=None):
         super(RateLimitEnforcedError, self).__init__(
             message='Rate Limit Enforced',
@@ -62,7 +66,7 @@ class RateLimitEnforcedError(AsanaError):
         )
         self.retry_after = response != None and float(response.headers['Retry-After'])
 
-class ServerError(AsanaError):
+class ServerError(RetryableAsanaError):
     def __init__(self, response=None):
         super(ServerError, self).__init__(
             message='Server Error',

@@ -1,6 +1,6 @@
 from .helpers import *
 
-from mock import patch
+from mock import patch, call
 
 class TestClient(ClientTestCase):
 
@@ -32,7 +32,7 @@ class TestClient(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/users/me', status=500, body=json.dumps(res), match_querystring=True)
-        self.assertRaises(asana.error.ServerError, self.client.users.me)
+        self.assertRaises(asana.error.ServerError, self.client.users.me, retries=False)
 
     def test_users_find_by_id_not_found(self):
         res = {
@@ -140,7 +140,7 @@ class TestClient(ClientTestCase):
 
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(len(responses.calls), 2)
-        time_sleep.assert_called_once_with(10)
+        self.assertEqual(time_sleep.mock_calls, [call(10.0)])
 
     @patch('time.sleep')
     def test_rate_limited_twice(self, time_sleep):
@@ -153,4 +153,30 @@ class TestClient(ClientTestCase):
 
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(len(responses.calls), 3)
-        time_sleep.assert_called_twice()
+        self.assertEqual(time_sleep.mock_calls, [call(10.0), call(1.0)])
+
+    @patch('time.sleep')
+    def test_server_error_retry(self, time_sleep):
+        res = [
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (200, {}, json.dumps({ 'data': 'me' }))
+        ]
+        responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
+
+        self.assertRaises(asana.error.ServerError, self.client.users.me, retries=2, retry_delay=1.0, retry_backoff=1.0)
+        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(1.0)])
+
+    @patch('time.sleep')
+    def test_server_error_retry_backoff(self, time_sleep):
+        res = [
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (200, {}, json.dumps({ 'data': 'me' }))
+        ]
+        responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
+
+        self.assertEqual(self.client.users.me(retry_delay=2.0, retry_backoff=4.0), 'me')
+        self.assertEqual(time_sleep.mock_calls, [call(2.0), call(8.0), call(32.0)])

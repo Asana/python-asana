@@ -3,6 +3,7 @@ from . import resources
 from . import error
 
 from types import ModuleType
+from numbers import Number
 import requests
 import json
 import time
@@ -25,7 +26,9 @@ class Client:
         'base_url': 'https://app.asana.com/api/1.0',
         'limit': DEFAULT_LIMIT,
         'poll_interval': 5,
-        'rate_limit_retry': True,
+        'retries': 5,
+        'retry_delay': 1.0,
+        'retry_backoff': 2.0,
         'full_payload': False,
         'iterator_type': 'pages'
     }
@@ -40,6 +43,8 @@ class Client:
     def request(self, method, path, **options):
         options = self._merge_options(options)
         url = options['base_url'] + path
+        retries = float('inf') if options['retries'] == True else options['retries']
+        retry_delay = options['retry_delay']
         request_options = self._parse_request_options(options)
         while True:
             try:
@@ -51,9 +56,15 @@ class Client:
                         return response.json()
                     else:
                         return response.json()['data']
-            except error.RateLimitEnforcedError as e:
-                if options['rate_limit_retry']:
-                    time.sleep(e.retry_after)
+            except error.RetryableAsanaError as e:
+                if retries > 0:
+                    retries -= 1
+                    if isinstance(e, error.RateLimitEnforcedError):
+                        time.sleep(e.retry_after)
+                    else:
+                        time.sleep(retry_delay)
+                        # equivalent to (retry_delay * retry_backoff ^ retry_number):
+                        retry_delay = retry_delay * options['retry_backoff']
                 else:
                     raise e
 
