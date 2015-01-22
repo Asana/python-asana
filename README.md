@@ -71,9 +71,7 @@ Various options can be set globally on the `Client.DEFAULTS` object, per-client 
 ### Available options
 
 * `base_url` (default: "https://app.asana.com/api/1.0"): API endpoint base URL to connect to
-* `retries` (default: 5): retry if API rate limit is reached or a server error occures (integer, or `True` for infinite retries, `False` for zero). Rate limit retries delay until the rate limit expires, server errors delay according to `retry_delay` and `retry_backoff`.
-* `retry_delay` (default: 1.0) number of seconds to delay between retries
-* `retry_backoff` (default 2.0) retry delay backoff factor (e.x. 1.0 does not backoff at all, 2.0 doubles the delay each retry)
+* `max_retries` (default: 5): number to times to retry if API rate limit is reached or a server error occures. Rate limit retries delay until the rate limit expires, server errors exponentially backoff starting with a 1 second delay.
 * `full_payload` (default: False): return the entire JSON response instead of the 'data' propery (default for collection methods and `events.get`)
 * `fields` and `expand`: see [API documentation](http://developer.asana.com/documentation/#Options)
 

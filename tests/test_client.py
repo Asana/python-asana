@@ -32,7 +32,7 @@ class TestClient(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/users/me', status=500, body=json.dumps(res), match_querystring=True)
-        self.assertRaises(asana.error.ServerError, self.client.users.me, retries=False)
+        self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=0)
 
     def test_users_find_by_id_not_found(self):
         res = {
@@ -165,8 +165,8 @@ class TestClient(ClientTestCase):
         ]
         responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
 
-        self.assertRaises(asana.error.ServerError, self.client.users.me, retries=2, retry_delay=1.0, retry_backoff=1.0)
-        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(1.0)])
+        self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=2)
+        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(2.0)])
 
     @patch('time.sleep')
     def test_server_error_retry_backoff(self, time_sleep):
@@ -178,5 +178,5 @@ class TestClient(ClientTestCase):
         ]
         responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
 
-        self.assertEqual(self.client.users.me(retry_delay=2.0, retry_backoff=4.0), 'me')
-        self.assertEqual(time_sleep.mock_calls, [call(2.0), call(8.0), call(32.0)])
+        self.assertEqual(self.client.users.me(), 'me')
+        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(2.0), call(4.0)])

@@ -22,14 +22,14 @@ for name, Klass in error.__dict__.items():
 class Client:
 
     DEFAULT_LIMIT = 100
+    RETRY_DELAY = 1.0
+    RETRY_BACKOFF = 2.0
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
         'limit': DEFAULT_LIMIT,
         'poll_interval': 5,
-        'retries': 5,
-        'retry_delay': 1.0,
-        'retry_backoff': 2.0,
+        'max_retries': 5,
         'full_payload': False,
         'iterator_type': 'pages'
     }
@@ -44,8 +44,7 @@ class Client:
     def request(self, method, path, **options):
         options = self._merge_options(options)
         url = options['base_url'] + path
-        retries = float('inf') if options['retries'] == True else options['retries']
-        retry_delay = options['retry_delay']
+        retry_count = 0
         request_options = self._parse_request_options(options)
         while True:
             try:
@@ -58,16 +57,17 @@ class Client:
                     else:
                         return response.json()['data']
             except error.RetryableAsanaError as e:
-                if retries > 0:
-                    retries -= 1
-                    if isinstance(e, error.RateLimitEnforcedError):
-                        time.sleep(e.retry_after)
-                    else:
-                        time.sleep(retry_delay)
-                        # equivalent to (retry_delay * retry_backoff ^ retry_number):
-                        retry_delay = retry_delay * options['retry_backoff']
+                if retry_count < options['max_retries']:
+                    self.handle_retryable_error(e, retry_count)
+                    retry_count += 1
                 else:
                     raise e
+
+    def handle_retryable_error(self, e, retry_count):
+        if isinstance(e, error.RateLimitEnforcedError):
+            time.sleep(e.retry_after)
+        else:
+            time.sleep(self.RETRY_DELAY * (self.RETRY_BACKOFF ** retry_count))
 
     def get(self, path, query, **options):
         api_options = self._parse_api_options(options, query_string=True)
