@@ -9,6 +9,9 @@ class PageIterator(object):
         self.query = query
         self.options = client._merge_options(options, { 'full_payload': True })
 
+        self.limit = float('inf') if self.options['limit'] == None else self.options['limit']
+        self.count = 0
+
         self.continuation = False
 
     def __getattr__(self, name):
@@ -20,14 +23,19 @@ class PageIterator(object):
         return self
 
     def __next__(self):
-        if self.continuation == None:
+        self.options['limit'] = min(self.options['page_size'], self.limit - self.count)
+
+        if self.continuation == None or self.options['limit'] == 0:
             raise StopIteration
         elif self.continuation == False:
             result = self.get_initial()
         else:
             result = self.get_next()
         self.continuation = result.get(self.CONTINUATION_KEY, None)
-        return result.get('data', None)
+        data = result.get('data', None)
+        if data != None:
+            self.count += len(data)
+        return data
 
     def next(self):
         return self.__next__()
@@ -46,8 +54,8 @@ class CollectionPageIterator(PageIterator):
         return self.client.get(self.path, self.query, **self.options)
 
     def get_next(self):
-        self.options.pop('offset', None) # if offset was set delete it because it will conflict
-        return self.client.get(self.continuation['path'], {}, **self.options)
+        self.options['offset'] = self.continuation['offset']
+        return self.client.get(self.path, self.query, **self.options)
 
 
 class EventsPageIterator(PageIterator):
@@ -56,7 +64,7 @@ class EventsPageIterator(PageIterator):
     def get_initial(self):
         if 'sync' not in self.query:
             try:
-                self.client.events.get(self.query)
+                self.client.events.get(self.query, **self.options)
             except InvalidTokenError as e:
                 self.continuation = e.sync
         else:
@@ -65,7 +73,7 @@ class EventsPageIterator(PageIterator):
 
     def get_next(self):
         self.query['sync'] = self.continuation
-        return self.client.events.get(self.query)
+        return self.client.events.get(self.query, **self.options)
 
     def __next__(self):
         while True:

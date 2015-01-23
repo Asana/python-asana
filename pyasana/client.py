@@ -21,17 +21,17 @@ for name, Klass in error.__dict__.items():
 
 class Client:
 
-    DEFAULT_LIMIT = 100
     RETRY_DELAY = 1.0
     RETRY_BACKOFF = 2.0
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
-        'limit': DEFAULT_LIMIT,
+        'limit': None,
+        'page_size': 50,
         'poll_interval': 5,
         'max_retries': 5,
         'full_payload': False,
-        'iterator_type': 'pages'
+        'iterator_type': 'items'
     }
 
     def __init__(self, session=None, auth=None, **options):
@@ -78,9 +78,9 @@ class Client:
     def get_collection(self, path, query, **options):
         options = self._merge_options(options)
         if options['iterator_type'] == 'pages':
-            return self._get_page_iterator(path, query, **options)
+            return CollectionPageIterator(self, path, query, options)
         if options['iterator_type'] == 'items':
-            return self._get_item_iterator(path, query, **options)
+            return CollectionPageIterator(self, path, query, options).items()
         if options['iterator_type'] == None:
             return self.get(path, query, **options)
         raise Error('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
@@ -101,12 +101,6 @@ class Client:
 
     def delete(self, path, data, **options):
         return self.request('delete', path, **options)
-
-    def _get_page_iterator(self, path, query, **options):
-        return CollectionPageIterator(self, path, query, options)
-
-    def _get_item_iterator(self, path, query, **options):
-        return CollectionPageIterator(self, path, query, options).items()
 
     def _merge_options(self, *objects):
         return _merge(self.options, *objects)

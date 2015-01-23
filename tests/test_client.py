@@ -106,25 +106,59 @@ class TestClient(ClientTestCase):
                 "uri": "https://app.asana.com/api/1.0/tasks?project=1337&limit=5&offset=yJ0eXAiOiJKV1QiLCJhbGciOiJIRzI1NiJ9"
             }
         }
-        # responses.add(GET, 'http://app/tasks?project=1337&limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
 
         self.assertEqual(self.client.tasks.find_by_project(1337, { 'limit': 5, 'offset': 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9'}), res['data'])
 
-    def test_page_iterator(self):
+    def test_page_iterator_limit_lt_items(self):
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
 
-        iterator = self.client.tasks.find_by_project(1337, { 'limit': '2' }, iterator_type='pages')
+        iterator = self.client.tasks.find_by_project(1337, limit=2, page_size=2, iterator_type='pages')
+        self.assertEqual(next(iterator), ['a', 'b'])
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_page_iterator_limit_eq_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, limit=3, page_size=2, iterator_type='pages')
         self.assertEqual(next(iterator), ['a', 'b'])
         self.assertEqual(next(iterator), ['c'])
         self.assertRaises(StopIteration, next, (iterator))
 
-    def test_item_iterator(self):
+    def test_page_iterator_limit_gt_items(self):
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
 
-        iterator = self.client.tasks.find_by_project(1337, { 'limit': '2' }, iterator_type='items')
+        iterator = self.client.tasks.find_by_project(1337, limit=4, page_size=2, iterator_type='pages')
+        self.assertEqual(next(iterator), ['a', 'b'])
+        self.assertEqual(next(iterator), ['c'])
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_limit_lt_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, limit=2, page_size=2, iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_limit_eq_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, limit=3, page_size=2, iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertEqual(next(iterator), 'c')
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_limit_gt_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, limit=4, page_size=2, iterator_type='items')
         self.assertEqual(next(iterator), 'a')
         self.assertEqual(next(iterator), 'b')
         self.assertEqual(next(iterator), 'c')
