@@ -164,6 +164,16 @@ class TestClient(ClientTestCase):
         self.assertEqual(next(iterator), 'c')
         self.assertRaises(StopIteration, next, (iterator))
 
+    def test_item_iterator_preserve_opt_fields(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2&opt_fields=foo', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&opt_fields=foo&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, limit=3, page_size=2, fields=['foo'], iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertEqual(next(iterator), 'c')
+        self.assertRaises(StopIteration, next, (iterator))
+
     @patch('time.sleep')
     def test_rate_limiting(self, time_sleep):
         res = [
