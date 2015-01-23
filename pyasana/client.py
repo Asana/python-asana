@@ -26,7 +26,6 @@ class Client:
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
-        'limit': None,
         'page_size': 50,
         'poll_interval': 5,
         'max_retries': 5,

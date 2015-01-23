@@ -34,5 +34,4 @@ class ClientTestCase(unittest.TestCase):
             base_url='http://app',
             poll_interval=0, # no delay when polling to speed up tests
             iterator_type=None, # disable iterator and limit to match existing tests for now
-            limit=None,
         )

@@ -9,7 +9,7 @@ class PageIterator(object):
         self.query = query
         self.options = client._merge_options(options, { 'full_payload': True })
 
-        self.limit = float('inf') if self.options['limit'] == None else self.options['limit']
+        self.limit = float('inf') if self.options.get('limit', None) == None else self.options['limit']
         self.count = 0
 
         self.continuation = False
