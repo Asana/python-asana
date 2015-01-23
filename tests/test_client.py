@@ -224,3 +224,34 @@ class TestClient(ClientTestCase):
 
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(time_sleep.mock_calls, [call(1.0), call(2.0), call(4.0)])
+
+
+    def test_get_named_parameters(self):
+        responses.add(GET, 'http://app/tasks?workspace=14916&assignee=me', status=200, body=json.dumps({ 'data': 'dummy data' }), match_querystring=True)
+
+        self.assertEqual(self.client.tasks.find_all(workspace=14916, assignee="me"), 'dummy data')
+
+    def test_post_named_parameters(self):
+        responses.add(POST, 'http://app/tasks', status=201, body='{ "data": "dummy data" }', match_querystring=True)
+
+        self.assertEqual(self.client.tasks.create(assignee=1235, followers=[5678], name="Hello, world."), 'dummy data')
+        self.assertEqual(json.loads(responses.calls[0].request.body), {
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Hello, world."
+            }
+        })
+
+    def test_put_named_parameters(self):
+        responses.add(PUT, 'http://app/tasks/1001', status=200, body='{ "data": "dummy data" }', match_querystring=True)
+
+        self.assertEqual(self.client.tasks.update(1001, assignee=1235, followers=[5678], name="Hello, world."), 'dummy data')
+        self.assertEqual(json.loads(responses.calls[0].request.body), {
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Hello, world."
+            }
+        })
+

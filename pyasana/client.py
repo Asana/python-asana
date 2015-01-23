@@ -33,6 +33,13 @@ class Client:
         'iterator_type': 'items'
     }
 
+    CLIENT_OPTIONS  = set(DEFAULTS.keys())
+    QUERY_OPTIONS   = set(['limit', 'offset', 'sync'])
+    REQUEST_OPTIONS = set(['headers', 'params', 'data'])
+    API_OPTIONS     = set(['pretty', 'fields', 'expand'])
+
+    ALL_OPTIONS     = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
+
     def __init__(self, session=None, auth=None, **options):
         self.session = session or requests.Session()
         self.auth = auth
@@ -71,7 +78,8 @@ class Client:
     def get(self, path, query, **options):
         api_options = self._parse_api_options(options, query_string=True)
         query_options = self._parse_query_options(options)
-        query = _merge(query_options, api_options, query) # options in the query takes precendence
+        parameter_options = self._parse_parameter_options(options)
+        query = _merge(query_options, api_options, parameter_options, query) # options in the query takes precendence
         return self.request('get', path, params=query, **options)
 
     def get_collection(self, path, query, **options):
@@ -85,18 +93,18 @@ class Client:
         raise Error('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
     def post(self, path, data, **options):
-        body = { 'data': data }
-        api_options = self._parse_api_options(options)
-        if len(api_options) > 0:
-            body['options'] = api_options
-        return self.request('post', path, data=json.dumps(body), headers={'content-type': 'application/json'}, **options)
+        body = {
+            'data': _merge(data, self._parse_parameter_options(options)),
+            'options': self._parse_api_options(options)
+        }
+        return self.request('post', path, data=body, headers={'content-type': 'application/json'}, **options)
 
     def put(self, path, data, **options):
-        body = { 'data': data }
-        api_options = self._parse_api_options(options)
-        if len(api_options) > 0:
-            body['options'] = api_options
-        return self.request('put', path, data=json.dumps(body), headers={'content-type': 'application/json'}, **options)
+        body = {
+            'data': _merge(data, self._parse_parameter_options(options)),
+            'options': self._parse_api_options(options)
+        }
+        return self.request('put', path, data=body, headers={'content-type': 'application/json'}, **options)
 
     def delete(self, path, data, **options):
         return self.request('delete', path, **options)
@@ -105,10 +113,13 @@ class Client:
         return _merge(self.options, *objects)
 
     def _parse_query_options(self, options):
-        return self._select_options(options, ['limit', 'offset', 'sync'])
+        return self._select_options(options, self.QUERY_OPTIONS)
+
+    def _parse_parameter_options(self, options):
+        return self._select_options(options, self.ALL_OPTIONS, invert=True)
 
     def _parse_api_options(self, options, query_string=False):
-        api_options = self._select_options(options, ['pretty', 'fields', 'expand'])
+        api_options = self._select_options(options, self.API_OPTIONS)
         if query_string:
             query_api_options = {}
             for key in api_options:
@@ -121,17 +132,26 @@ class Client:
             return api_options
 
     def _parse_request_options(self, options):
-        request_options = self._select_options(options, ['headers', 'params', 'data'])
+        request_options = self._select_options(options, self.REQUEST_OPTIONS)
         if 'params' in request_options:
             params = request_options['params']
             for key in params:
                 if isinstance(params[key], bool):
                     params[key] = json.dumps(params[key])
+        if 'data' in request_options:
+            # remove empty 'options':
+            if 'options' in request_options['data'] and len(request_options['data']['options']) == 0:
+                del request_options['data']['options']
+            # serialize 'data' to JSON, requests doesn't do this automatically:
+            request_options['data'] = json.dumps(request_options['data'])
         return request_options
 
-    def _select_options(self, options, keys):
+    def _select_options(self, options, keys, invert=False):
         options = self._merge_options(options)
-        return { key: options[key] for key in keys if key in options }
+        if invert:
+            return { key: options[key] for key in options if key not in keys }
+        else:
+            return { key: options[key] for key in options if key in keys }
 
     @classmethod
     def basic_auth(Klass, apiKey):

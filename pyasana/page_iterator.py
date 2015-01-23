@@ -12,6 +12,9 @@ class PageIterator(object):
         self.limit = float('inf') if self.options.get('limit', None) == None else self.options['limit']
         self.count = 0
 
+        if 'limit' in self.query:
+            del self.query['limit']
+
         self.continuation = False
 
     def __getattr__(self, name):
