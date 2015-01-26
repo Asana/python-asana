@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-import pyasana as asana
+import asana
 import json
 from six import print_
 

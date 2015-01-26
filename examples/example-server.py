@@ -2,7 +2,7 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, request, session, redirect, render_template_string
-import pyasana as asana
+import asana
 import json
 
 # OAuth Instructions:
