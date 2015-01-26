@@ -93,15 +93,17 @@ class Client:
         raise Error('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
     def post(self, path, data, **options):
+        parameter_options = self._parse_parameter_options(options)
         body = {
-            'data': _merge(data, self._parse_parameter_options(options)),
+            'data': _merge(parameter_options, data), # values in the data body takes precendence
             'options': self._parse_api_options(options)
         }
         return self.request('post', path, data=body, headers={'content-type': 'application/json'}, **options)
 
     def put(self, path, data, **options):
+        parameter_options = self._parse_parameter_options(options)
         body = {
-            'data': _merge(data, self._parse_parameter_options(options)),
+            'data': _merge(parameter_options, data), # values in the data body takes precendence
             'options': self._parse_api_options(options)
         }
         return self.request('put', path, data=body, headers={'content-type': 'application/json'}, **options)
