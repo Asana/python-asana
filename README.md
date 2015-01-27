@@ -3,6 +3,8 @@ asana
 
 Python client library for Asana.
 
+![Build Status](https://api.travis-ci.org/Asana/python-asana.svg)
+
 Authentication
 --------------
 
