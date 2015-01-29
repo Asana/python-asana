@@ -12,4 +12,4 @@ deploy:
     secure: LnExGiuP6zNLUH86GGvx2w0dYynwD/xhopjLfZ1KQKnPW4g5l6MnkfUBSpnKIbqO338KXN7I/4+4f9LaPiPIhds5HzNn1sw1V1W9vPALUgOVh9W0O5uAet9KRdm/ah4PNRKqziydAd7V2nF+TgoRUO29BJkeBz5NC/BfJM8rul8=
   on:
     tags: true
-    branch: cofactor
+    all_branches: true
