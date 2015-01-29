@@ -1,6 +1,5 @@
 language: python
 python:
-- '2.6'
 - '2.7'
 - '3.3'
 - '3.4'
@@ -8,9 +7,10 @@ install: pip install -r requirements.txt
 script: py.test
 deploy:
   provider: pypi
-  user: tlrobinson@gmail.com
+  user: tlrobinson
   password:
-    secure: iTQ1gIOlZLhNUWJNHhORlwfdUEJyWcK6dNm1BJp48Yry0w+vc28XUNz0GGvbKB2p4bmzuZzb1E8ABpgKQB4T/pix3P3Ne7A6mInX4HAYeHWktiOb89fNHlPSyelKpW7b1It+h9wqPp/1SDXwLphcc9brC1UiVfeDFckoIVPWW+I=
+    secure: Amc8vecu328Q4CjDSEYT8RgZws2/RnOvzN2A0VKHvODnO5A70JMycpNKdGiNWg/tj+y6F6higMeTeFcxJHAgHLI1PYxAmfuIoYrHP94Qt1fIv7gSG+exEw6nAqzOQ3cJPHVLWx0rf3VyAaDAAWedWfE3yBfiJ5Dd9+tVvWb2SoI=
   on:
     tags: true
+    repo: Asana/python-asana
     all_branches: true
