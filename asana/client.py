@@ -26,6 +26,7 @@ class Client:
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
+        'item_limit': None,
         'page_size': 50,
         'poll_interval': 5,
         'max_retries': 5,
@@ -84,13 +85,11 @@ class Client:
 
     def get_collection(self, path, query, **options):
         options = self._merge_options(options)
-        if options['iterator_type'] == 'pages':
-            return CollectionPageIterator(self, path, query, options)
         if options['iterator_type'] == 'items':
             return CollectionPageIterator(self, path, query, options).items()
         if options['iterator_type'] == None:
             return self.get(path, query, **options)
-        raise Error('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
+        raise Exception('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
     def post(self, path, data, **options):
         parameter_options = self._parse_parameter_options(options)

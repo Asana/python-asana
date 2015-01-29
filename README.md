@@ -62,13 +62,13 @@ Options
 Various options can be set globally on the `Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
 
     # global:
-    asana.Client.DEFAULTS['limit'] = 1000
+    asana.Client.DEFAULTS['page_size'] = 1000
 
     # per-client:
-    client.options['limit'] = 1000
+    client.options['page_size'] = 1000
 
     # per-request:
-    client.tasks.find_all({ 'project': 1234 }, limit=1000)
+    client.tasks.find_all({ 'project': 1234 }, page_size=1000)
 
 ### Available options
 
@@ -79,8 +79,9 @@ Various options can be set globally on the `Client.DEFAULTS` object, per-client 
 
 Collections (methods returning an array as it's 'data' property):
 
-* `iterator_type` (default: "pages"): specifies which type of iterator (or not) to return. Valid values are "pages", "items", and `None`.
-* `limit` (default: 100): limits the number of items of a collection to return (`None` can be provided)
+* `iterator_type` (default: "items"): specifies which type of iterator (or not) to return. Valid values are "items" and `None`.
+* `item_limit` (default: None): limits the number of items of a collection to return.
+* `page_size` (default: 50): limits the number of items per page to fetch at a time.
 * `offset`: offset token returned by previous calls to the same method (in `response['next_page']['offset']`)
 
 Events:
@@ -91,32 +92,28 @@ Events:
 Collections
 -----------
 
-### Page Iterator
+### Items Iterator
 
-By default, methods that return a collection of objects return a page iterator with a page size of 100.
+By default, methods that return a collection of objects return an item iterator:
 
-    page_iterator = client.workspaces.find_all(limit=1)
-    print page_iterator.next() # a list of items in the page
-    print page_iterator.next() # raises StopIteration if there are no more pages
+    workspaces = client.workspaces.find_all(item_limit=1)
+    print workspaces.next()
+    print workspaces.next() # raises StopIteration if there are no more items
 
 Or:
 
-    for page_items in client.workspaces.find_all()
-      print page_items
+    for workspace in client.workspaces.find_all()
+      print workspace
 
-You can also get the next page's offset token from the iterator, then later provide that token to resume at the next page:
+### Raw API
 
-    page_iterator = client.workspaces.find_all(limit=1)
-    page_iterator.next()
-    offset = page_iterator.next_page['offset']
-    # ...
-    for page_items in client.workspaces.find_all(limit=1, offset=offset):
-        print page_items
+You can also use the raw API to fetch a page at a time:
 
-### Items Iterator
-
-If you pass the "iterator_type" option equal to "items" the method will return an iterator for individual items in the collection rather than pages. Internally it fetches one page at a time according to the "limit" option (default: 100).
-
-    for item in client.workspaces.find_all()
-      print item
-
+    offset = None
+    while True:
+      page = client.workspaces.find_all(offset=offset, iterator_type=None)
+      print page['data']
+      if 'next_page' in page:
+        offset = page['next_page']['offset']
+      else:
+        break

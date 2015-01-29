@@ -9,11 +9,9 @@ class PageIterator(object):
         self.query = query
         self.options = client._merge_options(options, { 'full_payload': True })
 
-        self.limit = float('inf') if self.options.get('limit', None) == None else self.options['limit']
+        self.item_limit = float('inf') if self.options.get('item_limit', None) == None else self.options['item_limit']
+        self.page_size = self.options['page_size']
         self.count = 0
-
-        if 'limit' in self.query:
-            del self.query['limit']
 
         self.continuation = False
 
@@ -26,7 +24,7 @@ class PageIterator(object):
         return self
 
     def __next__(self):
-        self.options['limit'] = min(self.options['page_size'], self.limit - self.count)
+        self.options['limit'] = min(self.page_size, self.item_limit - self.count)
 
         if self.continuation == None or self.options['limit'] == 0:
             raise StopIteration
