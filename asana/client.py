@@ -149,10 +149,11 @@ class Client:
 
     def _select_options(self, options, keys, invert=False):
         options = self._merge_options(options)
-        if invert:
-            return { key: options[key] for key in options if key not in keys }
-        else:
-            return { key: options[key] for key in options if key in keys }
+        result = {}
+        for key in options:
+            if (invert and key not in keys) or (not invert and key in keys):
+                result[key] = options[key]
+        return result
 
     @classmethod
     def basic_auth(Klass, apiKey):

@@ -1,9 +1,16 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-install: "pip install -r requirements.txt"
+- '2.6'
+- '2.7'
+- '3.3'
+- '3.4'
+install: pip install -r requirements.txt
 script: py.test
+deploy:
+  provider: pypi
+  user: tlrobinson@gmail.com
+  password:
+    secure: iTQ1gIOlZLhNUWJNHhORlwfdUEJyWcK6dNm1BJp48Yry0w+vc28XUNz0GGvbKB2p4bmzuZzb1E8ABpgKQB4T/pix3P3Ne7A6mInX4HAYeHWktiOb89fNHlPSyelKpW7b1It+h9wqPp/1SDXwLphcc9brC1UiVfeDFckoIVPWW+I=
+  on:
+    tags: true
+    all_branches: true
