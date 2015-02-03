@@ -1,6 +1,6 @@
 from .helpers import *
 
-from mock import patch
+from mock import patch, call
 
 class TestClient(ClientTestCase):
 
@@ -32,7 +32,7 @@ class TestClient(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/users/me', status=500, body=json.dumps(res), match_querystring=True)
-        self.assertRaises(asana.error.ServerError, self.client.users.me)
+        self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=0)
 
     def test_users_find_by_id_not_found(self):
         res = {
@@ -106,25 +106,72 @@ class TestClient(ClientTestCase):
                 "uri": "https://app.asana.com/api/1.0/tasks?project=1337&limit=5&offset=yJ0eXAiOiJKV1QiLCJhbGciOiJIRzI1NiJ9"
             }
         }
-        # responses.add(GET, 'http://app/tasks?project=1337&limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=5&offset=eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9', status=200, body=json.dumps(res), match_querystring=True)
 
         self.assertEqual(self.client.tasks.find_by_project(1337, { 'limit': 5, 'offset': 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9'}), res['data'])
 
-    def test_page_iterator(self):
+    @unittest.skip("iterator_type='pages' disabled")
+    def test_page_iterator_item_limit_lt_items(self):
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
 
-        iterator = self.client.tasks.find_by_project(1337, { 'limit': '2' }, iterator_type='pages')
+        iterator = self.client.tasks.find_by_project(1337, item_limit=2, page_size=2, iterator_type='pages')
+        self.assertEqual(next(iterator), ['a', 'b'])
+        self.assertRaises(StopIteration, next, (iterator))
+
+    @unittest.skip("iterator_type='pages' disabled")
+    def test_page_iterator_item_limit_eq_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, item_limit=3, page_size=2, iterator_type='pages')
         self.assertEqual(next(iterator), ['a', 'b'])
         self.assertEqual(next(iterator), ['c'])
         self.assertRaises(StopIteration, next, (iterator))
 
-    def test_item_iterator(self):
+    @unittest.skip("iterator_type='pages' disabled")
+    def test_page_iterator_item_limit_gt_items(self):
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
         responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
 
-        iterator = self.client.tasks.find_by_project(1337, { 'limit': '2' }, iterator_type='items')
+        iterator = self.client.tasks.find_by_project(1337, item_limit=4, page_size=2, iterator_type='pages')
+        self.assertEqual(next(iterator), ['a', 'b'])
+        self.assertEqual(next(iterator), ['c'])
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_item_limit_lt_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, item_limit=2, page_size=2, iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_item_limit_eq_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, item_limit=3, page_size=2, iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertEqual(next(iterator), 'c')
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_item_limit_gt_items(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, item_limit=4, page_size=2, iterator_type='items')
+        self.assertEqual(next(iterator), 'a')
+        self.assertEqual(next(iterator), 'b')
+        self.assertEqual(next(iterator), 'c')
+        self.assertRaises(StopIteration, next, (iterator))
+
+    def test_item_iterator_preserve_opt_fields(self):
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=2&opt_fields=foo', status=200, body=json.dumps({ 'data': ['a', 'b'], 'next_page': { 'offset': 'a', 'path': '/projects/1337/tasks?limit=2&offset=a' } }), match_querystring=True)
+        responses.add(GET, 'http://app/projects/1337/tasks?limit=1&opt_fields=foo&offset=a', status=200, body=json.dumps({ 'data': ['c'], 'next_page': null }), match_querystring=True)
+
+        iterator = self.client.tasks.find_by_project(1337, item_limit=3, page_size=2, fields=['foo'], iterator_type='items')
         self.assertEqual(next(iterator), 'a')
         self.assertEqual(next(iterator), 'b')
         self.assertEqual(next(iterator), 'c')
@@ -140,7 +187,7 @@ class TestClient(ClientTestCase):
 
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(len(responses.calls), 2)
-        time_sleep.assert_called_once_with(10)
+        self.assertEqual(time_sleep.mock_calls, [call(10.0)])
 
     @patch('time.sleep')
     def test_rate_limited_twice(self, time_sleep):
@@ -153,4 +200,61 @@ class TestClient(ClientTestCase):
 
         self.assertEqual(self.client.users.me(), 'me')
         self.assertEqual(len(responses.calls), 3)
-        time_sleep.assert_called_twice()
+        self.assertEqual(time_sleep.mock_calls, [call(10.0), call(1.0)])
+
+    @patch('time.sleep')
+    def test_server_error_retry(self, time_sleep):
+        res = [
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (200, {}, json.dumps({ 'data': 'me' }))
+        ]
+        responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
+
+        self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=2)
+        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(2.0)])
+
+    @patch('time.sleep')
+    def test_server_error_retry_backoff(self, time_sleep):
+        res = [
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (500, {}, '{}'),
+            (200, {}, json.dumps({ 'data': 'me' }))
+        ]
+        responses.add_callback(responses.GET, 'http://app/users/me', callback=lambda r: res.pop(0), content_type='application/json')
+
+        self.assertEqual(self.client.users.me(), 'me')
+        self.assertEqual(time_sleep.mock_calls, [call(1.0), call(2.0), call(4.0)])
+
+
+    def test_get_named_parameters(self):
+        responses.add(GET, 'http://app/tasks?workspace=14916&assignee=me', status=200, body=json.dumps({ 'data': 'dummy data' }), match_querystring=True)
+
+        self.assertEqual(self.client.tasks.find_all(workspace=14916, assignee="me"), 'dummy data')
+
+    def test_post_named_parameters(self):
+        responses.add(POST, 'http://app/tasks', status=201, body='{ "data": "dummy data" }', match_querystring=True)
+
+        self.assertEqual(self.client.tasks.create(assignee=1235, followers=[5678], name="Hello, world."), 'dummy data')
+        self.assertEqual(json.loads(responses.calls[0].request.body), {
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Hello, world."
+            }
+        })
+
+    def test_put_named_parameters(self):
+        responses.add(PUT, 'http://app/tasks/1001', status=200, body='{ "data": "dummy data" }', match_querystring=True)
+
+        self.assertEqual(self.client.tasks.update(1001, assignee=1235, followers=[5678], name="Hello, world."), 'dummy data')
+        self.assertEqual(json.loads(responses.calls[0].request.body), {
+            "data": {
+                "assignee": 1235,
+                "followers": [5678],
+                "name": "Hello, world."
+            }
+        })
+
