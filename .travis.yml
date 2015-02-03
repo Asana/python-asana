@@ -9,7 +9,7 @@ deploy:
   provider: pypi
   user: tlrobinson
   password:
-    secure: LnExGiuP6zNLUH86GGvx2w0dYynwD/xhopjLfZ1KQKnPW4g5l6MnkfUBSpnKIbqO338KXN7I/4+4f9LaPiPIhds5HzNn1sw1V1W9vPALUgOVh9W0O5uAet9KRdm/ah4PNRKqziydAd7V2nF+TgoRUO29BJkeBz5NC/BfJM8rul8=
+    secure: ka3jPc1ij9Gp7TzzQWErjYXVyGgpy4fvX/3am0mM4oizHMhSMJghdz+sSuJ9F4Kuuj8FDYnI2dRG4lASA6Xp6TOBR7yfpE1oGSR8AGSyzRRe115o2E8bjhfrHuEyzRsA+q7Q2LGa2XJu4j1FI+j/INiCTbZHVPZur4zVYrBXlZ4=
   on:
     tags: true
-    all_branches: true
+    repo: Asana/python-asana
