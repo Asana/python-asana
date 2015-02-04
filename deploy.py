@@ -23,7 +23,7 @@ if __name__ == '__main__':
   version_file = open('asana/version.py', 'w')
   print >>version_file, "VERSION = '%s'" % args.version
   subprocess.call(
-    'git commit -m "Releasing version %s"' % args.version, shell=True)
+    'git commit -a -m "Releasing version %s"' % args.version, shell=True)
   subprocess.call(
     'git tag %s' % args.version, shell=True)
   subprocess.call(
