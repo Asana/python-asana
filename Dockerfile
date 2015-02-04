@@ -12,7 +12,7 @@ ADD requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 
-ADD pyasana /app/pyasana
+ADD asana /app/asana
 ADD tests /app/tests
 ADD setup.py /app/setup.py
 

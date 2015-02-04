@@ -1,0 +1,16 @@
+language: python
+python:
+- '2.7'
+- '3.3'
+- '3.4'
+install: pip install -r requirements.txt
+script: py.test
+deploy:
+  provider: pypi
+  user: tlrobinson
+  password:
+    secure: Amc8vecu328Q4CjDSEYT8RgZws2/RnOvzN2A0VKHvODnO5A70JMycpNKdGiNWg/tj+y6F6higMeTeFcxJHAgHLI1PYxAmfuIoYrHP94Qt1fIv7gSG+exEw6nAqzOQ3cJPHVLWx0rf3VyAaDAAWedWfE3yBfiJ5Dd9+tVvWb2SoI=
+  on:
+    tags: true
+    repo: Asana/python-asana
+    all_branches: true
