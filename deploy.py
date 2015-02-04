@@ -21,9 +21,11 @@ if __name__ == '__main__':
     sys.exit(1)
 
   version_file = open('asana/version.py', 'w')
-  print >>version_file, "VERSION = '%s'" % args.version
+  version_file.write("VERSION = '%s'\n" % args.version)
+  version_file.close()
+
   subprocess.call(
-    'git commit -a -m "Releasing version %s"' % args.version, shell=True)
+    'git commit -m "Releasing version %s" asana/version.py' % args.version, shell=True)
   subprocess.call(
     'git tag %s' % args.version, shell=True)
   subprocess.call(
