@@ -67,7 +67,7 @@ if 'ASANA_API_KEY' in os.environ:
 
     # find your "Personal Projects" project
     personal_projects = next(workspace for workspace in me['workspaces'] if workspace['name'] == 'Personal Projects')
-    projects = client.projects.find_by_workspace(personal_projects['id'])
+    projects = client.projects.find_by_workspace(personal_projects['id'], iterator_type=None)
     print_("personal projects=" + json.dumps(projects, indent=2))
 
     # create a "demo project" if it doesn't exist

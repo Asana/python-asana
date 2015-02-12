@@ -3,8 +3,6 @@ from ._events import _Events
 from ..error import InvalidTokenError
 from ..page_iterator import EventsPageIterator
 
-import time
-
 class Events(_Events):
     """Events resource"""
 

@@ -40,7 +40,7 @@ class Client:
 
     CLIENT_OPTIONS  = set(DEFAULTS.keys())
     QUERY_OPTIONS   = set(['limit', 'offset', 'sync'])
-    REQUEST_OPTIONS = set(['headers', 'params', 'data'])
+    REQUEST_OPTIONS = set(['headers', 'params', 'data', 'files'])
     API_OPTIONS     = set(['pretty', 'fields', 'expand'])
 
     ALL_OPTIONS     = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
