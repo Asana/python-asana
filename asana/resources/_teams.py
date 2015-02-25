@@ -6,5 +6,5 @@ class _Teams:
 
     def find_by_organization(self, organization_id, params={}, **options):
         """Finds all teams that the user has access to."""
-        path = '/organizations/%d/teams' % (organization_id)
+        path = '/organizations/%s/teams' % (organization_id)
         return self.client.get_collection(path, params, **options)

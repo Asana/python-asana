@@ -6,7 +6,7 @@ class _Workspaces:
 
     def typeahead(self, workspace_id, params={}, **options):
         """Dispatches a GET request to /workspaces/:workspaceId/typeahead to run a typeahead search in the specified workspace."""
-        path = '/workspaces/%d/typeahead' % (workspace_id)
+        path = '/workspaces/%s/typeahead' % (workspace_id)
         return self.client.get_collection(path, params, **options)
 
     def find_all(self, params={}, **options):
@@ -15,5 +15,5 @@ class _Workspaces:
 
     def update(self, workspace_id, params={}, **options):
         """Update a workspace."""
-        path = '/workspaces/%d' % (workspace_id)
+        path = '/workspaces/%s' % (workspace_id)
         return self.client.put(path, params, **options)
