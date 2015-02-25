@@ -6,22 +6,22 @@ class _Tasks:
 
     def add_followers(self, task_id, params={}, **options):
         """Dispatches a POST request to /tasks/:taskId/addFollowers with to add followers to the task."""
-        path = '/tasks/%d/addFollowers' % (task_id)
+        path = '/tasks/%s/addFollowers' % (task_id)
         return self.client.post(path, params, **options)
 
     def find_by_tag(self, tag_id, params={}, **options):
         """Finds a task by tag."""
-        path = '/tags/%d/tasks' % (tag_id)
+        path = '/tags/%s/tasks' % (tag_id)
         return self.client.get_collection(path, params, **options)
 
     def tags(self, task_id, params={}, **options):
         """Get tags associated with a task."""
-        path = '/tasks/%d/tags' % (task_id)
+        path = '/tasks/%s/tags' % (task_id)
         return self.client.get_collection(path, params, **options)
 
     def add_project(self, task_id, params={}, **options):
         """Dispatches a POST request to /tasks/:taskId/addProject with the project to add to to the task."""
-        path = '/tasks/%d/addProject' % (task_id)
+        path = '/tasks/%s/addProject' % (task_id)
         return self.client.post(path, params, **options)
 
     def create(self, params={}, **options):
@@ -30,42 +30,42 @@ class _Tasks:
 
     def remove_tag(self, task_id, params={}, **options):
         """Dispatches a POST request to /tasks/:taskId/removeTag with the tag to remove from the task."""
-        path = '/tasks/%d/removeTag' % (task_id)
+        path = '/tasks/%s/removeTag' % (task_id)
         return self.client.post(path, params, **options)
 
     def update(self, task_id, params={}, **options):
         """Update a task."""
-        path = '/tasks/%d' % (task_id)
+        path = '/tasks/%s' % (task_id)
         return self.client.put(path, params, **options)
 
     def find_by_project(self, project_id, params={}, **options):
         """Finds a task by project."""
-        path = '/projects/%d/tasks' % (project_id)
+        path = '/projects/%s/tasks' % (project_id)
         return self.client.get_collection(path, params, **options)
 
     def find_by_id(self, task_id, params={}, **options):
         """Returns the task."""
-        path = '/tasks/%d' % (task_id)
+        path = '/tasks/%s' % (task_id)
         return self.client.get(path, params, **options)
 
     def subtasks(self, task_id, params={}, **options):
         """Gets all subtasks for a task."""
-        path = '/tasks/%d/subtasks' % (task_id)
+        path = '/tasks/%s/subtasks' % (task_id)
         return self.client.get_collection(path, params, **options)
 
     def add_subtask(self, task_id, params={}, **options):
         """Creates a new subtask."""
-        path = '/tasks/%d/subtasks' % (task_id)
+        path = '/tasks/%s/subtasks' % (task_id)
         return self.client.post(path, params, **options)
 
     def add_tag(self, task_id, params={}, **options):
         """Add a tag to a task."""
-        path = '/tasks/%d/addTag' % (task_id)
+        path = '/tasks/%s/addTag' % (task_id)
         return self.client.post(path, params, **options)
 
     def remove_followers(self, task_id, params={}, **options):
         """Dispatches a POST request to /tasks/:taskId/removeFollowers with to remove followers from the task."""
-        path = '/tasks/%d/removeFollowers' % (task_id)
+        path = '/tasks/%s/removeFollowers' % (task_id)
         return self.client.post(path, params, **options)
 
     def find_all(self, params={}, **options):
@@ -74,25 +74,25 @@ class _Tasks:
 
     def create_in_workspace(self, workspace_id, params={}, **options):
         """Creates a new task in the workspace."""
-        path = '/workspaces/%d/tasks' % (workspace_id)
+        path = '/workspaces/%s/tasks' % (workspace_id)
         return self.client.post(path, params, **options)
 
     def remove_project(self, task_id, params={}, **options):
         """Dispatches a POST request to /tasks/:taskId/removeProject with the project to remove from the task."""
-        path = '/tasks/%d/removeProject' % (task_id)
+        path = '/tasks/%s/removeProject' % (task_id)
         return self.client.post(path, params, **options)
 
     def set_parent(self, task_id, params={}, **options):
         """Sets the parent for a task."""
-        path = '/tasks/%d/setParent' % (task_id)
+        path = '/tasks/%s/setParent' % (task_id)
         return self.client.post(path, params, **options)
 
     def projects(self, task_id, params={}, **options):
         """Dispatches a GET request to /tasks/:taskId/projects."""
-        path = '/tasks/%d/projects' % (task_id)
+        path = '/tasks/%s/projects' % (task_id)
         return self.client.get_collection(path, params, **options)
 
     def delete(self, task_id, params={}, **options):
         """Deletes a task."""
-        path = '/tasks/%d' % (task_id)
+        path = '/tasks/%s' % (task_id)
         return self.client.delete(path, params, **options)

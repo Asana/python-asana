@@ -10,17 +10,17 @@ class _Tags:
 
     def update(self, tag_id, params={}, **options):
         """Update a tag."""
-        path = '/tags/%d' % (tag_id)
+        path = '/tags/%s' % (tag_id)
         return self.client.put(path, params, **options)
 
     def find_by_id(self, tag_id, params={}, **options):
         """Returns the tag."""
-        path = '/tags/%d' % (tag_id)
+        path = '/tags/%s' % (tag_id)
         return self.client.get(path, params, **options)
 
     def find_by_workspace(self, workspace_id, params={}, **options):
         """Finds a tag by workspace."""
-        path = '/workspaces/%d/tags' % (workspace_id)
+        path = '/workspaces/%s/tags' % (workspace_id)
         return self.client.get_collection(path, params, **options)
 
     def find_all(self, params={}, **options):
@@ -29,5 +29,5 @@ class _Tags:
 
     def create_in_workspace(self, workspace_id, params={}, **options):
         """Creates a new tag in the workspace."""
-        path = '/workspaces/%d/tags' % (workspace_id)
+        path = '/workspaces/%s/tags' % (workspace_id)
         return self.client.post(path, params, **options)
