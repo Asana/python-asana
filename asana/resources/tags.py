@@ -1,5 +1,5 @@
 
-from ._tags import _Tags
+from .gen.tags import _Tags
 
 class Tags(_Tags):
     """Tags resource"""
