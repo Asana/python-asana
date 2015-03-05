@@ -10,7 +10,7 @@ class _Users:
 
     def find_by_workspace(self, workspace_id, params={}, **options):
         """Finds a user by workspace."""
-        path = '/workspaces/%d/users' % (workspace_id)
+        path = '/workspaces/%s/users' % (workspace_id)
         return self.client.get_collection(path, params, **options)
 
     def find_all(self, params={}, **options):
@@ -19,5 +19,5 @@ class _Users:
 
     def find_by_id(self, user_id, params={}, **options):
         """Finds a user by id."""
-        path = '/users/%d' % (user_id)
+        path = '/users/%s' % (user_id)
         return self.client.get(path, params, **options)
