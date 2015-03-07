@@ -1,0 +1,85 @@
+
+class _Tags:
+    """A _tag_ is a label that can be attached to any task in Asana. It exists in a
+    single workspace or organization.
+    
+    Tags have some metadata associated with them, but it is possible that we will
+    simplify them in the future so it is not encouraged to rely too heavily on it.
+    Unlike tags, tags do not provide any ordering on the tasks they
+    are associated with."""
+
+    def __init__(self, client=None):
+        self.client = client
+  
+    def create(self, params={}, **options): 
+        """Creates a new tag in a workspace or organization.
+        
+        Every tag is required to be created in a specific workspace or
+        organization, and this cannot be changed once set. Note that you can use
+        the `workspace` parameter regardless of whether or not it is an
+        organization.
+        
+        Returns the full record of the newly created tag."""
+        
+        return self.client.post("/tags", params, **options)
+        
+  
+    def create_in_workspace(self, workspace, params={}, **options): 
+        """Creates a new tag in a workspace or organization.
+        
+        Every tag is required to be created in a specific workspace or
+        organization, and this cannot be changed once set. Note that you can use
+        the `workspace` parameter regardless of whether or not it is an
+        organization.
+        
+        Returns the full record of the newly created tag."""
+        
+        path = "/workspaces/%d/tags" % (workspace)
+        return self.client.post(path, params, **options)
+        
+  
+    def find_by_id(self, task, params={}, **options): 
+        """Returns the complete task record for a single task."""
+        
+        path = "/tags/%d" % (task)
+        return self.client.get(path, params, **options)
+        
+  
+    def update(self, tag, params={}, **options): 
+        """Updates the properties of a tag. Only the fields provided in the `data`
+        block will be updated; any unspecified fields will remain unchanged.
+        
+        When using this method, it is best to specify only those fields you wish
+        to change, or else you may overwrite changes made by another user since
+        you last retrieved the task.
+        
+        Returns the complete updated tag record."""
+        
+        path = "/tags/%d" % (tag)
+        return self.client.put(path, params, **options)
+        
+  
+    def delete(self, tag, params={}, **options): 
+        """A specific, existing tag can be deleted by making a DELETE request
+        on the URL for that tag.
+        
+        Returns an empty data record."""
+        
+        path = "/tags/%d" % (tag)
+        return self.client.delete(path, params, **options)
+        
+  
+    def find_all(self, params={}, **options): 
+        """Returns the compact tag records for some filtered set of tags.
+        Use one or more of the parameters provided to filter the tags returned."""
+        
+        return self.client.get_collection("/tags", params, **options)
+        
+  
+    def find_by_workspace(self, workspace, params={}, **options): 
+        """Returns the compact tag records for all tags in the workspace."""
+        
+        path = "/workspaces/%d/tags" % (workspace)
+        return self.client.get_collection(path, params, **options)
+        
+  
