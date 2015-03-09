@@ -23,7 +23,18 @@ class _Projects:
         If the workspace for your project _is_ an organization, you must also
         supply a `team` to share the project with.
         
-        Returns the full record of the newly created project."""
+        Returns the full record of the newly created project.
+
+        Parameters
+        ----------
+        data : Object
+          Data for the request
+        workspace : Id
+          The workspace or organization to create the project in.
+        team : Id
+          If creating in an organization, the specific team to create the
+          project in.
+        """
         
         return self.client.post("/projects", params, **options)
         
@@ -32,7 +43,15 @@ class _Projects:
         """If the workspace for your project _is_ an organization, you must also
         supply a `team` to share the project with.
         
-        Returns the full record of the newly created project."""
+        Returns the full record of the newly created project.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace or organization to create the project in.
+        data : Object
+          Data for the request
+        """
         
         path = "/workspaces/%d/projects" % (workspace)
         return self.client.post(path, params, **options)
@@ -41,14 +60,30 @@ class _Projects:
     def create_in_team(self, team, params={}, **options): 
         """Creates a project shared with the given team.
         
-        Returns the full record of the newly created project."""
+        Returns the full record of the newly created project.
+
+        Parameters
+        ----------
+        team : Id
+          The team to create the project in.
+        data : Object
+          Data for the request
+        """
         
         path = "/teams/%d/projects" % (team)
         return self.client.post(path, params, **options)
         
   
     def find_by_id(self, task, params={}, **options): 
-        """Returns the complete task record for a single task."""
+        """Returns the complete task record for a single task.
+
+        Parameters
+        ----------
+        task : Id
+          The task to get.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/projects/%d" % (task)
         return self.client.get(path, params, **options)
@@ -63,7 +98,15 @@ class _Projects:
         to change, or else you may overwrite changes made by another user since
         you last retrieved the task.
         
-        Returns the complete updated project record."""
+        Returns the complete updated project record.
+
+        Parameters
+        ----------
+        project : Id
+          The project to update.
+        data : Object
+          Data for the request
+        """
         
         path = "/projects/%d" % (project)
         return self.client.put(path, params, **options)
@@ -73,7 +116,13 @@ class _Projects:
         """A specific, existing project can be deleted by making a DELETE request
         on the URL for that project.
         
-        Returns an empty data record."""
+        Returns an empty data record.
+
+        Parameters
+        ----------
+        project : Id
+          The project to delete.
+        """
         
         path = "/projects/%d" % (project)
         return self.client.delete(path, params, **options)
@@ -81,20 +130,55 @@ class _Projects:
   
     def find_all(self, params={}, **options): 
         """Returns the compact project records for some filtered set of projects.
-        Use one or more of the parameters provided to filter the projects returned."""
+        Use one or more of the parameters provided to filter the projects returned.
+
+        Parameters
+        ----------
+        params : Object
+          Parameters for the request
+        workspace : Id
+          The workspace or organization to filter projects on.
+        team : Id
+          The team to filter projects on.
+        archived : Boolean
+          Only return projects whose `archived` field takes on the value of
+          this parameter.
+        """
         
         return self.client.get_collection("/projects", params, **options)
         
   
     def find_by_workspace(self, workspace, params={}, **options): 
-        """Returns the compact project records for all projects in the workspace."""
+        """Returns the compact project records for all projects in the workspace.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace or organization to find projects in.
+        params : Object
+          Parameters for the request
+        archived : Boolean
+          Only return projects whose `archived` field takes on the value of
+          this parameter.
+        """
         
         path = "/workspaces/%d/projects" % (workspace)
         return self.client.get_collection(path, params, **options)
         
   
     def find_by_team(self, team, params={}, **options): 
-        """Returns the compact project records for all projects in the team."""
+        """Returns the compact project records for all projects in the team.
+
+        Parameters
+        ----------
+        team : Id
+          The team to find projects in.
+        params : Object
+          Parameters for the request
+        archived : Boolean
+          Only return projects whose `archived` field takes on the value of
+          this parameter.
+        """
         
         path = "/teams/%d/projects" % (team)
         return self.client.get_collection(path, params, **options)

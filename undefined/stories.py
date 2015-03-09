@@ -12,14 +12,30 @@ class _Stories:
         self.client = client
   
     def find_by_id(self, story, params={}, **options): 
-        """Returns the full record for a single story."""
+        """Returns the full record for a single story.
+
+        Parameters
+        ----------
+        story : Id
+          Globally unique identifier for the team.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/stories/%d" % (story)
         return self.client.get(path, params, **options)
         
   
     def find_by_task(self, task, params={}, **options): 
-        """Returns the compact records for all stories on the task."""
+        """Returns the compact records for all stories on the task.
+
+        Parameters
+        ----------
+        task : Id
+          Globally unique identifier for the task.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/tasks/%d/stories" % (task)
         return self.client.get_collection(path, params, **options)
@@ -30,7 +46,17 @@ class _Stories:
         currently authenticated user, and timestamped when the server receives
         the request.
         
-        Returns the full record for the new story added to the task."""
+        Returns the full record for the new story added to the task.
+
+        Parameters
+        ----------
+        task : Id
+          Globally unique identifier for the task.
+        data : Object
+          Data for the request
+        text : String
+          The plain text of the comment to add.
+        """
         
         path = "/tasks/%d/stories" % (task)
         return self.client.post(path, params, **options)

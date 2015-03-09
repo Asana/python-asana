@@ -19,20 +19,42 @@ class _Workspaces:
         self.client = client
   
     def find_by_id(self, workspace, params={}, **options): 
-        """Returns the full workspace record for a single workspace."""
+        """Returns the full workspace record for a single workspace.
+
+        Parameters
+        ----------
+        workspace : Id
+          Globally unique identifier for the workspace or organization.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/workspaces/%d" % (workspace)
         return self.client.get(path, params, **options)
         
   
     def find_all(self, params={}, **options): 
-        """Returns the compact records for all workspaces visible to the authorized user."""
+        """Returns the compact records for all workspaces visible to the authorized user.
+
+        Parameters
+        ----------
+        params : Object
+          Parameters for the request
+        """
         
         return self.client.get_collection("/workspaces", params, **options)
         
   
     def update(self, workspace, params={}, **options): 
-        """Update properties on a workspace. Returns the complete, updated workspace record."""
+        """Update properties on a workspace. Returns the complete, updated workspace record.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace to update.
+        data : Object
+          Data for the request
+        """
         
         path = "/workspaces/%d" % (workspace)
         return self.client.put(path, params, **options)
@@ -43,7 +65,27 @@ class _Workspaces:
         search algorithm. This feature is meant to provide results quickly, so do
         not rely on this API to provide extremely accurate search results. The
         result set is limited to a single page of results with a maximum size,
-        so you won't be able to fetch large numbers of results."""
+        so you won't be able to fetch large numbers of results.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace to fetch objects from.
+        params : Object
+          Parameters for the request
+        type : Enum
+          The type of values the typeahead should return.
+          Note that unlike in the names of endpoints, the types listed here are
+          in singular form (e.g. `task`). Using multiple types is not yet supported.
+        query : String
+          The string that will be used to search for relevant objects. If an
+          empty string is passed in, the API will currently return an empty
+          result set.
+        count : Number
+          The number of results to return. The default is `20` if this
+          parameter is omitted, with a minimum of `1` and a maximum of `100`.
+          If there are fewer results found than requested, all will be returned.
+        """
         
         path = "/workspaces/%d/typeahead" % (workspace)
         return self.client.get_collection(path, params, **options)

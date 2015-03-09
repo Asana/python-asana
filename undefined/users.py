@@ -11,13 +11,27 @@ class _Users:
         self.client = client
   
     def me(self, params={}, **options): 
-        """Returns the full user record for the currently authenticated user."""
+        """Returns the full user record for the currently authenticated user.
+
+        Parameters
+        ----------
+        params : Object
+          Parameters for the request
+        """
         
         return self.client.get("/users/me", params, **options)
         
   
     def find_by_id(self, user, params={}, **options): 
-        """Returns the full user record for a single user."""
+        """Returns the full user record for a single user.
+
+        Parameters
+        ----------
+        user : Id
+          Globally unique identifier for the user.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/users/%d" % (user)
         return self.client.get(path, params, **options)
@@ -25,7 +39,15 @@ class _Users:
   
     def find_by_workspace(self, workspace, params={}, **options): 
         """Returns the user records for all users in all workspaces and organizations
-        accessible to the authenticated user."""
+        accessible to the authenticated user.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace in which to get users.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/workspaces/%d/users" % (workspace)
         return self.client.get_collection(path, params, **options)
@@ -33,7 +55,13 @@ class _Users:
   
     def find_all(self, params={}, **options): 
         """Returns the user records for all users in the specified workspace or
-        organization."""
+        organization.
+
+        Parameters
+        ----------
+        params : Object
+          Parameters for the request
+        """
         
         return self.client.get_collection("/users", params, **options)
         
