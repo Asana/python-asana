@@ -19,7 +19,15 @@ class _Tags:
         the `workspace` parameter regardless of whether or not it is an
         organization.
         
-        Returns the full record of the newly created tag."""
+        Returns the full record of the newly created tag.
+
+        Parameters
+        ----------
+        data : Object
+          Data for the request
+        workspace : Id
+          The workspace or organization to create the tag in.
+        """
         
         return self.client.post("/tags", params, **options)
         
@@ -32,14 +40,30 @@ class _Tags:
         the `workspace` parameter regardless of whether or not it is an
         organization.
         
-        Returns the full record of the newly created tag."""
+        Returns the full record of the newly created tag.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace or organization to create the tag in.
+        data : Object
+          Data for the request
+        """
         
         path = "/workspaces/%d/tags" % (workspace)
         return self.client.post(path, params, **options)
         
   
     def find_by_id(self, task, params={}, **options): 
-        """Returns the complete task record for a single task."""
+        """Returns the complete task record for a single task.
+
+        Parameters
+        ----------
+        task : Id
+          The task to get.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/tags/%d" % (task)
         return self.client.get(path, params, **options)
@@ -53,7 +77,15 @@ class _Tags:
         to change, or else you may overwrite changes made by another user since
         you last retrieved the task.
         
-        Returns the complete updated tag record."""
+        Returns the complete updated tag record.
+
+        Parameters
+        ----------
+        tag : Id
+          The tag to update.
+        data : Object
+          Data for the request
+        """
         
         path = "/tags/%d" % (tag)
         return self.client.put(path, params, **options)
@@ -63,7 +95,13 @@ class _Tags:
         """A specific, existing tag can be deleted by making a DELETE request
         on the URL for that tag.
         
-        Returns an empty data record."""
+        Returns an empty data record.
+
+        Parameters
+        ----------
+        tag : Id
+          The tag to delete.
+        """
         
         path = "/tags/%d" % (tag)
         return self.client.delete(path, params, **options)
@@ -71,13 +109,34 @@ class _Tags:
   
     def find_all(self, params={}, **options): 
         """Returns the compact tag records for some filtered set of tags.
-        Use one or more of the parameters provided to filter the tags returned."""
+        Use one or more of the parameters provided to filter the tags returned.
+
+        Parameters
+        ----------
+        params : Object
+          Parameters for the request
+        workspace : Id
+          The workspace or organization to filter tags on.
+        team : Id
+          The team to filter tags on.
+        archived : Boolean
+          Only return tags whose `archived` field takes on the value of
+          this parameter.
+        """
         
         return self.client.get_collection("/tags", params, **options)
         
   
     def find_by_workspace(self, workspace, params={}, **options): 
-        """Returns the compact tag records for all tags in the workspace."""
+        """Returns the compact tag records for all tags in the workspace.
+
+        Parameters
+        ----------
+        workspace : Id
+          The workspace or organization to find tags in.
+        params : Object
+          Parameters for the request
+        """
         
         path = "/workspaces/%d/tags" % (workspace)
         return self.client.get_collection(path, params, **options)
