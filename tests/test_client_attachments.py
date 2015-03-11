@@ -1,4 +1,6 @@
 from .helpers import *
+import six
+import cgi
 
 class TestClientAttachments(ClientTestCase):
 
@@ -27,7 +29,16 @@ class TestClientAttachments(ClientTestCase):
         responses.add(GET, 'http://app/tasks/1234/attachments', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.attachments.find_by_task(1234), res['data'])
 
-    @unittest.skip("attachments.upload not yet implemented")
-    def test_attachments_upload(self):
+    def test_attachments_create_on_task(self):
         res = { "data": { "id": 5678, "name": "file.txt" } }
-        responses.add(GET, 'http://app/tasks/1337/attachments', status=200, body=json.dumps(res), match_querystring=True)
+        responses.add(POST, 'http://app/tasks/1337/attachments', status=200, body=json.dumps(res), match_querystring=True)
+
+        self.assertEqual(self.client.attachments.create_on_task(1337, 'file content', 'file name', 'file content-type'), res['data'])
+
+        request_content_type, pdict = cgi.parse_header(responses.calls[0].request.headers['Content-Type'])
+        self.assertEqual(request_content_type, 'multipart/form-data')
+
+        content_file = six.BytesIO(responses.calls[0].request.body)
+        multipart = cgi.parse_multipart(content_file, { 'boundary': six.b(pdict['boundary']) })
+        self.assertEqual(multipart['file'][0], six.b('file content'))
+        # TODO: verify filename and content-type, possibly using a different multipart decoder

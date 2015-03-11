@@ -1,5 +1,6 @@
 
 class AsanaError(Exception):
+    """Base Asana error class"""
     def __init__(self, message=None, status=None, response=None):
         try:
             messages = [error['message'] for error in response.json()['errors']]
@@ -54,6 +55,7 @@ class InvalidTokenError(AsanaError):
         self.sync = response != None and response.json()['sync']
 
 class RetryableAsanaError(AsanaError):
+    """Base class for errors which should trigger a retry (if configured to do so)"""
     def __init__(self, message=None, status=None, response=None):
         super(RetryableAsanaError, self).__init__(message=message, status=status, response=response)
 

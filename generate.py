@@ -45,7 +45,7 @@ for resource_name, resource in api['resources'].iteritems():
     class_name = resource_name.capitalize()
     module_name = resource_name.lower()
     class_name_base = '_' + resource_name.capitalize()
-    module_name_base = '_' + resource_name.lower()
+    module_name_base = 'gen/' + resource_name.lower()
 
     resource_base_py = open(PACKAGE_NAME + '/resources/' + module_name_base + '.py', 'w')
     resource_base_py.write(GENERATED_WARNING)
@@ -78,7 +78,7 @@ for resource_name, resource in api['resources'].iteritems():
         resource_py.write(RESOURCE_CLASS_TEMPLATE.substitute(
             name=class_name,
             class_name_base=class_name_base,
-            module_name_base=module_name_base
+            module_name_base=module_name_base.replace("/",".")
         ))
         resource_py.close()
 
@@ -87,4 +87,9 @@ resource_names.sort()
 init_py = open(PACKAGE_NAME + '/resources/__init__.py', 'w')
 init_py.write(GENERATED_WARNING)
 init_py.write(RESOURCES_INIT_PY_TEMPLATE.substitute(resource_names=', '.join(resource_names)))
+init_py.close()
+
+init_py = open(PACKAGE_NAME + '/resources/gen/__init__.py', 'w')
+init_py.write(GENERATED_WARNING)
+# init_py.write(RESOURCES_INIT_PY_TEMPLATE.substitute(resource_names=', '.join(resource_names)))
 init_py.close()

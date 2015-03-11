@@ -9,20 +9,21 @@ import requests
 import json
 import time
 
+# Create a dict of resource classes
 RESOURCE_CLASSES = {}
 for name, module in resources.__dict__.items():
     if isinstance(module, ModuleType) and name.capitalize() in module.__dict__:
         RESOURCE_CLASSES[name] = module.__dict__[name.capitalize()]
 
+# Create a mapping of status codes to classes
 STATUS_MAP = {}
 for name, Klass in error.__dict__.items():
     if isinstance(Klass, type) and issubclass(Klass, error.AsanaError):
         STATUS_MAP[Klass().status] = Klass
 
-class Client:
 
-    RETRY_DELAY = 1.0
-    RETRY_BACKOFF = 2.0
+class Client:
+    """Asana client class"""
 
     DEFAULTS = {
         'base_url': 'https://app.asana.com/api/1.0',
@@ -34,21 +35,28 @@ class Client:
         'iterator_type': 'items'
     }
 
+    RETRY_DELAY = 1.0
+    RETRY_BACKOFF = 2.0
+
     CLIENT_OPTIONS  = set(DEFAULTS.keys())
     QUERY_OPTIONS   = set(['limit', 'offset', 'sync'])
-    REQUEST_OPTIONS = set(['headers', 'params', 'data'])
+    REQUEST_OPTIONS = set(['headers', 'params', 'data', 'files'])
     API_OPTIONS     = set(['pretty', 'fields', 'expand'])
 
     ALL_OPTIONS     = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
 
     def __init__(self, session=None, auth=None, **options):
+        """Initialize a Client object with session, optional auth handler, and options"""
         self.session = session or requests.Session()
         self.auth = auth
+        # merge the provided options (if any) with the global DEFAULTS
         self.options = _merge(self.DEFAULTS, options)
+        # intializes each resource, injecting this client object into the constructor
         for name, Klass in RESOURCE_CLASSES.items():
             setattr(self, name, Klass(self))
 
     def request(self, method, path, **options):
+        """Dispatches a request to the Asana HTTP API"""
         options = self._merge_options(options)
         url = options['base_url'] + path
         retry_count = 0
@@ -65,18 +73,21 @@ class Client:
                         return response.json()['data']
             except error.RetryableAsanaError as e:
                 if retry_count < options['max_retries']:
-                    self.handle_retryable_error(e, retry_count)
+                    self._handle_retryable_error(e, retry_count)
                     retry_count += 1
                 else:
                     raise e
 
-    def handle_retryable_error(self, e, retry_count):
+
+    def _handle_retryable_error(self, e, retry_count):
+        """Determines how long to sleep before retrying based on the type of RetryableAsanaError."""
         if isinstance(e, error.RateLimitEnforcedError):
             time.sleep(e.retry_after)
         else:
             time.sleep(self.RETRY_DELAY * (self.RETRY_BACKOFF ** retry_count))
 
     def get(self, path, query, **options):
+        """Parses GET request options and dispatches a request."""
         api_options = self._parse_api_options(options, query_string=True)
         query_options = self._parse_query_options(options)
         parameter_options = self._parse_parameter_options(options)
@@ -84,6 +95,7 @@ class Client:
         return self.request('get', path, params=query, **options)
 
     def get_collection(self, path, query, **options):
+        """Parses GET request options for a collection endpoint and dispatches a request."""
         options = self._merge_options(options)
         if options['iterator_type'] == 'items':
             return CollectionPageIterator(self, path, query, options).items()
@@ -92,6 +104,7 @@ class Client:
         raise Exception('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
     def post(self, path, data, **options):
+        """Parses POST request options and dispatches a request."""
         parameter_options = self._parse_parameter_options(options)
         body = {
             'data': _merge(parameter_options, data), # values in the data body takes precendence
@@ -100,6 +113,7 @@ class Client:
         return self.request('post', path, data=body, headers={'content-type': 'application/json'}, **options)
 
     def put(self, path, data, **options):
+        """Parses PUT request options and dispatches a request."""
         parameter_options = self._parse_parameter_options(options)
         body = {
             'data': _merge(parameter_options, data), # values in the data body takes precendence
@@ -108,22 +122,29 @@ class Client:
         return self.request('put', path, data=body, headers={'content-type': 'application/json'}, **options)
 
     def delete(self, path, data, **options):
+        """Dispatches a DELETE request."""
         return self.request('delete', path, **options)
 
     def _merge_options(self, *objects):
+        """Merges one or more options objects with client's options and returns a new options object"""
         return _merge(self.options, *objects)
 
     def _parse_query_options(self, options):
+        """Selects query string options out of the provided options object"""
         return self._select_options(options, self.QUERY_OPTIONS)
 
     def _parse_parameter_options(self, options):
+        """Selects all unknown options (not query string, API, or request options)"""
         return self._select_options(options, self.ALL_OPTIONS, invert=True)
 
     def _parse_api_options(self, options, query_string=False):
+        """Selects API string options out of the provided options object and formats for either request body (default) or query string."""
         api_options = self._select_options(options, self.API_OPTIONS)
         if query_string:
+            # Prefix all options with "opt_"
             query_api_options = {}
             for key in api_options:
+                # Transform list/tuples into comma separated list
                 if isinstance(api_options[key], (list, tuple)):
                     query_api_options['opt_'+key] = ','.join(api_options[key])
                 else:
@@ -133,6 +154,7 @@ class Client:
             return api_options
 
     def _parse_request_options(self, options):
+        """Select and formats options to be passed to the 'requests' library's request methods"""
         request_options = self._select_options(options, self.REQUEST_OPTIONS)
         if 'params' in request_options:
             params = request_options['params']
@@ -148,6 +170,7 @@ class Client:
         return request_options
 
     def _select_options(self, options, keys, invert=False):
+        """Selects the provided keys (or everything except the provided keys) out of an options object"""
         options = self._merge_options(options)
         result = {}
         for key in options:
@@ -157,13 +180,16 @@ class Client:
 
     @classmethod
     def basic_auth(Klass, apiKey):
+        """Construct an Asana Client with a Basic Auth API key"""
         return Klass(auth=requests.auth.HTTPBasicAuth(apiKey, ''))
 
     @classmethod
     def oauth(Klass, **kwargs):
+        """Construct an Asana Client with OAuth credentials ('client_id' and 'client_secret' or 'token')"""
         return Klass(session.AsanaOAuth2Session(**kwargs))
 
 def _merge(*objects):
+    """Merge one or more objects into a new object"""
     result = {}
     [result.update(obj) for obj in objects]
     return result
