@@ -61,6 +61,8 @@ class _Users:
         ----------
         params : Object
           Parameters for the request
+        workspace : Id
+          The workspace or organization to filter users on.
         """
         
         return self.client.get_collection("/users", params, **options)
