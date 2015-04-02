@@ -21,19 +21,19 @@ class _Teams:
         return self.client.get(path, params, **options)
         
   
-    def find_by_organization(self, team, params={}, **options): 
+    def find_by_organization(self, organization, params={}, **options): 
         """Returns the compact records for all teams in the organization visible to
         the authorized user.
 
         Parameters
         ----------
-        team : Id
-          Globally unique identifier for the team.
+        organization : Id
+          Globally unique identifier for the workspace or organization.
         params : Object
           Parameters for the request
         """
         
-        path = "/organizations/%d/teams" % (team)
+        path = "/organizations/%d/teams" % (organization)
         return self.client.get_collection(path, params, **options)
         
   
@@ -48,7 +48,7 @@ class _Teams:
           Parameters for the request
         """
         
-        path = "/team/%d/users" % (team)
+        path = "/teams/%d/users" % (team)
         return self.client.get_collection(path, params, **options)
         
   

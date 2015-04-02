@@ -54,18 +54,18 @@ class _Tags:
         return self.client.post(path, params, **options)
         
   
-    def find_by_id(self, task, params={}, **options): 
-        """Returns the complete task record for a single task.
+    def find_by_id(self, tag, params={}, **options): 
+        """Returns the complete tag record for a single tag.
 
         Parameters
         ----------
-        task : Id
-          The task to get.
+        tag : Id
+          The tag to get.
         params : Object
           Parameters for the request
         """
         
-        path = "/tags/%d" % (task)
+        path = "/tags/%d" % (tag)
         return self.client.get(path, params, **options)
         
   

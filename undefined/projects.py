@@ -74,18 +74,18 @@ class _Projects:
         return self.client.post(path, params, **options)
         
   
-    def find_by_id(self, task, params={}, **options): 
-        """Returns the complete task record for a single task.
+    def find_by_id(self, project, params={}, **options): 
+        """Returns the complete project record for a single project.
 
         Parameters
         ----------
-        task : Id
-          The task to get.
+        project : Id
+          The project to get.
         params : Object
           Parameters for the request
         """
         
-        path = "/projects/%d" % (task)
+        path = "/projects/%d" % (project)
         return self.client.get(path, params, **options)
         
   
