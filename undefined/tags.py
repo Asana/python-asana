@@ -5,7 +5,7 @@ class _Tags:
     
     Tags have some metadata associated with them, but it is possible that we will
     simplify them in the future so it is not encouraged to rely too heavily on it.
-    Unlike tags, tags do not provide any ordering on the tasks they
+    Unlike projects, tags do not provide any ordering on the tasks they
     are associated with."""
 
     def __init__(self, client=None):
