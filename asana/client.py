@@ -11,7 +11,11 @@ import json
 import platform
 import sys
 import time
-import urllib
+
+if sys.version_info.major == 3:
+    import urllib.parse as urlparse
+else:
+    import urllib as urlparse
 
 # Create a dict of resource classes
 RESOURCE_CLASSES = {}
@@ -195,7 +199,7 @@ class Client:
     def _versionHeader(self):
         """Generate the client version header to send on each request."""
         if not self._cached_version_header:
-            self._cached_version_header = urllib.urlencode(
+            self._cached_version_header = urlparse.urlencode(
                 self._versionValues())
         return self._cached_version_header
 
