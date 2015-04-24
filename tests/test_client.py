@@ -1,8 +1,19 @@
 from .helpers import *
-
 from mock import patch, call
 
 class TestClient(ClientTestCase):
+
+    def test_version_values(self):
+        values = self.client._versionValues()
+        self.assertEqual('Python', values['language'])
+        self.assertRegexpMatches(values['version'], r'[0-9]+[.][0-9]+[.][0-9]+')
+        self.assertSetEqual(set([
+            'language', 'version', 'language_version', 'os', 'os_version'
+        ]), set(values.keys()))
+
+    def test_version_header(self):
+        self.assertRegexpMatches(
+            self.client._versionHeader(), r'language=Python')
 
     def test_users_me_not_authorized(self):
         res = {
@@ -32,6 +43,11 @@ class TestClient(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/users/me', status=500, body=json.dumps(res), match_querystring=True)
+        self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=0)
+
+    def test_users_me_unfriendly_server_error(self):
+        res = "Crappy Response"
+        responses.add(GET, 'http://app/users/me', status=504, body=res, match_querystring=True)
         self.assertRaises(asana.error.ServerError, self.client.users.me, max_retries=0)
 
     def test_users_find_by_id_not_found(self):
