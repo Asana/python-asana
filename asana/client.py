@@ -1,13 +1,21 @@
 from . import session
 from . import resources
 from . import error
+from . import version
 from .page_iterator import CollectionPageIterator
 
 from types import ModuleType
 from numbers import Number
 import requests
 import json
+import platform
+import sys
 import time
+
+if sys.version_info.major == 3:
+    import urllib.parse as urlparse
+else:
+    import urllib as urlparse
 
 # Create a dict of resource classes
 RESOURCE_CLASSES = {}
@@ -40,7 +48,7 @@ class Client:
 
     CLIENT_OPTIONS  = set(DEFAULTS.keys())
     QUERY_OPTIONS   = set(['limit', 'offset', 'sync'])
-    REQUEST_OPTIONS = set(['headers', 'params', 'data', 'files'])
+    REQUEST_OPTIONS = set(['headers', 'params', 'data', 'files', 'verify'])
     API_OPTIONS     = set(['pretty', 'fields', 'expand'])
 
     ALL_OPTIONS     = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
@@ -61,11 +69,15 @@ class Client:
         url = options['base_url'] + path
         retry_count = 0
         request_options = self._parse_request_options(options)
+        self._add_version_header(request_options)
         while True:
             try:
                 response = getattr(self.session, method)(url, auth=self.auth, **request_options)
                 if response.status_code in STATUS_MAP:
                     raise STATUS_MAP[response.status_code](response)
+                elif response.status_code >= 500 and response.status_code < 600:
+                    # Any unhandled 500 is a server error.
+                    raise error.ServerError(response)
                 else:
                     if options['full_payload']:
                         return response.json()
@@ -177,6 +189,29 @@ class Client:
             if (invert and key not in keys) or (not invert and key in keys):
                 result[key] = options[key]
         return result
+
+    def _add_version_header(self, options):
+        """Add the client lib version header to the request."""
+        headers = options.setdefault('headers', {})
+        headers['X-Asana-Client-Lib'] = self._versionHeader()
+
+    _cached_version_header = None
+    def _versionHeader(self):
+        """Generate the client version header to send on each request."""
+        if not self._cached_version_header:
+            self._cached_version_header = urlparse.urlencode(
+                self._versionValues())
+        return self._cached_version_header
+
+    def _versionValues(self):
+        """Generate the values to go in the client version header."""
+        return {
+            'language': 'Python',
+            'version': version.VERSION,
+            'language_version': platform.python_version(),
+            'os': platform.system(),
+            'os_version': platform.release()
+        }
 
     @classmethod
     def basic_auth(Klass, apiKey):

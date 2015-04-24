@@ -70,8 +70,11 @@ class RateLimitEnforcedError(RetryableAsanaError):
 
 class ServerError(RetryableAsanaError):
     def __init__(self, response=None):
+        status = 500
+        if response:
+            status = response.status
         super(ServerError, self).__init__(
             message='Server Error',
-            status=500,
+            status=status,
             response=response
         )
