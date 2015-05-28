@@ -1,9 +1,6 @@
-asana
-=====
+# asana [![Build Status][travis-image]][travis-url] [![PyPi Version][pypi-image]][pypi-url]
 
 Python client library for Asana.
-
-![Build Status](https://api.travis-ci.org/Asana/python-asana.svg)
 
 Authentication
 --------------
@@ -117,3 +114,10 @@ You can also use the raw API to fetch a page at a time:
         offset = page['next_page']['offset']
       else:
         break
+
+
+[travis-url]: http://travis-ci.org/Asana/python-asana
+[travis-image]: https://api.travis-ci.org/Asana/python-asana.svg?style=flat-square
+
+[pypi-url]: https://pypi.python.org/pypi/asana/
+[pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
