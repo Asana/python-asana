@@ -65,7 +65,7 @@ if 'ASANA_API_KEY' in os.environ:
     me = client.users.me()
     print_("me=" + json.dumps(me, indent=2))
 
-    # find your "Personal Projects" project
+    # find your "Personal Projects" workspace
     personal_projects = next(workspace for workspace in me['workspaces'] if workspace['name'] == 'Personal Projects')
     projects = client.projects.find_by_workspace(personal_projects['id'], iterator_type=None)
     print_("personal projects=" + json.dumps(projects, indent=2))
