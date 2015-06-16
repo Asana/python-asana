@@ -117,7 +117,7 @@ You can also use the raw API to fetch a page at a time:
 
 
 [travis-url]: http://travis-ci.org/Asana/python-asana
-[travis-image]: https://api.travis-ci.org/Asana/python-asana.svg?style=flat-square
+[travis-image]: https://api.travis-ci.org/Asana/python-asana.svg?style=flat-square&branch=master
 
 [pypi-url]: https://pypi.python.org/pypi/asana/
 [pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
