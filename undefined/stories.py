@@ -17,7 +17,7 @@ class _Stories:
         Parameters
         ----------
         story : Id
-          Globally unique identifier for the team.
+          Globally unique identifier for the story.
         params : Object
           Parameters for the request
         """
