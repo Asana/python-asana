@@ -184,34 +184,3 @@ class _Projects:
         return self.client.get_collection(path, params, **options)
         
   
-    def sections(self, project, params={}, **options): 
-        """Returns compact records for all sections in the specified project.
-
-        Parameters
-        ----------
-        project : Id
-          The project to get sections from.
-        params : Object
-          Parameters for the request
-        """
-        
-        path = "/projects/%d/sections" % (project)
-        return self.client.get_collection(path, params, **options)
-        
-  
-    def get_tasks_in_project(self, projectId, params={}, **options): 
-        """Returns the compact task records for all tasks within the given project,
-        ordered by their priority within the project. Tasks can exist in more than one project at a time.
-
-        Parameters
-        ----------
-        projectId : Id
-          The project in which to search for tasks.
-        params : Object
-          Parameters for the request
-        """
-        
-        path = "/projects/%d/tasks" % (projectId)
-        return self.client.get_collection(path, params, **options)
-        
-  
