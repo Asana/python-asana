@@ -32,6 +32,10 @@ class _Projects:
         path = '/workspaces/%s/projects' % (workspace_id)
         return self.client.post(path, params, **options)
 
+    def sections(self, project_id, params={}, **options):
+        path = '/projects/%s/sections' % (project_id)
+        return self.client.get_collection(path, params, **options)
+
     def delete(self, project_id, params={}, **options):
         """Dispatches a DELETE requte to /projects/:projectId to delete the project."""
         path = '/projects/%s' % (project_id)
