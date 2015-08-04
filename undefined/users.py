@@ -23,7 +23,7 @@ class _Users:
         
   
     def find_by_id(self, user, params={}, **options): 
-        """Returns the full user record for a single user.
+        """Returns the full user record for the single user with the provided ID.
 
         Parameters
         ----------
@@ -38,8 +38,8 @@ class _Users:
         
   
     def find_by_workspace(self, workspace, params={}, **options): 
-        """Returns the user records for all users in all workspaces and organizations
-        accessible to the authenticated user.
+        """Returns the user records for all users in the specified workspace or
+        organization.
 
         Parameters
         ----------
@@ -54,8 +54,9 @@ class _Users:
         
   
     def find_all(self, params={}, **options): 
-        """Returns the user records for all users in the specified workspace or
-        organization.
+        """Returns the user records for all users in all workspaces and organizations
+        accessible to the authenticated user. Accepts an optional workspace ID
+        parameter.
 
         Parameters
         ----------

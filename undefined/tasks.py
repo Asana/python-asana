@@ -21,6 +21,8 @@ class _Tasks:
         ----------
         data : Object
           Data for the request
+        workspace : Id
+          The workspace to create a task in.
         """
         
         return self.client.post("/tasks", params, **options)
@@ -33,7 +35,7 @@ class _Tasks:
         
         Every task is required to be created in a specific workspace, and this
         workspace cannot be changed once set. The workspace need not be set
-        explicitly if you specify a project or a parent task instead.
+        explicitly if you specify a `project` or a `parent` task instead.
 
         Parameters
         ----------
@@ -325,7 +327,8 @@ class _Tasks:
         
   
     def add_subtask(self, task, params={}, **options): 
-        """Makes an existing task a subtask of another. Returns an empty data block.
+        """Creates a new subtask and adds it to the parent task. Returns the full record
+        for the newly created subtask.
 
         Parameters
         ----------
@@ -333,8 +336,6 @@ class _Tasks:
           The task to add a subtask to.
         data : Object
           Data for the request
-        subtask : Id
-          The subtask to add to the task.
         """
         
         path = "/tasks/%d/subtasks" % (task)
