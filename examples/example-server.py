@@ -49,7 +49,7 @@ def main():
         session['state'] = state
         # link the button to the authorization URL
         return render_template_string('''
-<p><a href="{{ auth_url }}"><img src="http://developer.asana.com/api/asana-oauth-button-blue.png"></a></p>''',
+<p><a href="{{ auth_url }}"><img src="https://luna1.co/7df202.png"></a></p>''',
             auth_url=auth_url
         )
 
