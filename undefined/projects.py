@@ -7,7 +7,8 @@ class _Projects:
     Projects in organizations are shared with a single team. You cannot currently
     change the team of a project via the API. Non-organization workspaces do not
     have teams and so you should not specify the team of project in a
-    regular workspace."""
+    regular workspace.
+    """
 
     def __init__(self, client=None):
         self.client = client
@@ -27,18 +28,13 @@ class _Projects:
 
         Parameters
         ----------
-        data : Object
-          Data for the request
-        workspace : Id
-          The workspace or organization to create the project in.
-        team : Id
-          If creating in an organization, the specific team to create the
+        [data] : {Object} Data for the request
+          - workspace : {Id} The workspace or organization to create the project in.
+          - [team] : {Id} If creating in an organization, the specific team to create the
           project in.
         """
-        
         return self.client.post("/projects", params, **options)
         
-  
     def create_in_workspace(self, workspace, params={}, **options): 
         """If the workspace for your project _is_ an organization, you must also
         supply a `team` to share the project with.
@@ -47,16 +43,12 @@ class _Projects:
 
         Parameters
         ----------
-        workspace : Id
-          The workspace or organization to create the project in.
-        data : Object
-          Data for the request
+        workspace : {Id} The workspace or organization to create the project in.
+        [data] : {Object} Data for the request
         """
-        
         path = "/workspaces/%d/projects" % (workspace)
         return self.client.post(path, params, **options)
         
-  
     def create_in_team(self, team, params={}, **options): 
         """Creates a project shared with the given team.
         
@@ -64,31 +56,23 @@ class _Projects:
 
         Parameters
         ----------
-        team : Id
-          The team to create the project in.
-        data : Object
-          Data for the request
+        team : {Id} The team to create the project in.
+        [data] : {Object} Data for the request
         """
-        
         path = "/teams/%d/projects" % (team)
         return self.client.post(path, params, **options)
         
-  
     def find_by_id(self, project, params={}, **options): 
         """Returns the complete project record for a single project.
 
         Parameters
         ----------
-        project : Id
-          The project to get.
-        params : Object
-          Parameters for the request
+        project : {Id} The project to get.
+        [params] : {Object} Parameters for the request
         """
-        
         path = "/projects/%d" % (project)
         return self.client.get(path, params, **options)
         
-  
     def update(self, project, params={}, **options): 
         """A specific, existing project can be updated by making a PUT request on the
         URL for that project. Only the fields provided in the `data` block will be
@@ -102,16 +86,12 @@ class _Projects:
 
         Parameters
         ----------
-        project : Id
-          The project to update.
-        data : Object
-          Data for the request
+        project : {Id} The project to update.
+        [data] : {Object} Data for the request
         """
-        
         path = "/projects/%d" % (project)
         return self.client.put(path, params, **options)
         
-  
     def delete(self, project, params={}, **options): 
         """A specific, existing project can be deleted by making a DELETE request
         on the URL for that project.
@@ -120,98 +100,71 @@ class _Projects:
 
         Parameters
         ----------
-        project : Id
-          The project to delete.
+        project : {Id} The project to delete.
         """
-        
         path = "/projects/%d" % (project)
         return self.client.delete(path, params, **options)
         
-  
     def find_all(self, params={}, **options): 
         """Returns the compact project records for some filtered set of projects.
         Use one or more of the parameters provided to filter the projects returned.
 
         Parameters
         ----------
-        params : Object
-          Parameters for the request
-        workspace : Id
-          The workspace or organization to filter projects on.
-        team : Id
-          The team to filter projects on.
-        archived : Boolean
-          Only return projects whose `archived` field takes on the value of
+        [params] : {Object} Parameters for the request
+          - [workspace] : {Id} The workspace or organization to filter projects on.
+          - [team] : {Id} The team to filter projects on.
+          - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
-        
         return self.client.get_collection("/projects", params, **options)
         
-  
     def find_by_workspace(self, workspace, params={}, **options): 
         """Returns the compact project records for all projects in the workspace.
 
         Parameters
         ----------
-        workspace : Id
-          The workspace or organization to find projects in.
-        params : Object
-          Parameters for the request
-        archived : Boolean
-          Only return projects whose `archived` field takes on the value of
+        workspace : {Id} The workspace or organization to find projects in.
+        [params] : {Object} Parameters for the request
+          - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
-        
         path = "/workspaces/%d/projects" % (workspace)
         return self.client.get_collection(path, params, **options)
         
-  
     def find_by_team(self, team, params={}, **options): 
         """Returns the compact project records for all projects in the team.
 
         Parameters
         ----------
-        team : Id
-          The team to find projects in.
-        params : Object
-          Parameters for the request
-        archived : Boolean
-          Only return projects whose `archived` field takes on the value of
+        team : {Id} The team to find projects in.
+        [params] : {Object} Parameters for the request
+          - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
-        
         path = "/teams/%d/projects" % (team)
         return self.client.get_collection(path, params, **options)
         
-  
     def sections(self, project, params={}, **options): 
         """Returns compact records for all sections in the specified project.
 
         Parameters
         ----------
-        project : Id
-          The project to get sections from.
-        params : Object
-          Parameters for the request
+        project : {Id} The project to get sections from.
+        [params] : {Object} Parameters for the request
         """
-        
         path = "/projects/%d/sections" % (project)
         return self.client.get_collection(path, params, **options)
         
-  
-    def get_tasks_in_project(self, projectId, params={}, **options): 
+    def get_tasks_in_project(self, project, params={}, **options): 
         """Returns the compact task records for all tasks within the given project,
         ordered by their priority within the project. Tasks can exist in more than one project at a time.
 
         Parameters
         ----------
-        projectId : Id
-          The project in which to search for tasks.
-        params : Object
-          Parameters for the request
+        project : {Id} The project in which to search for tasks.
+        [params] : {Object} Parameters for the request
         """
-        
-        path = "/projects/%d/tasks" % (projectId)
+        path = "/projects/%d/tasks" % (project)
         return self.client.get_collection(path, params, **options)
         
-  

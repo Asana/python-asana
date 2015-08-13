@@ -13,7 +13,8 @@ class _Workspaces:
     release more organization-specific functionality. We may eventually deprecate
     using workspace-based APIs for organizations. Currently, and until after
     some reasonable grace period following any further announcements, you can
-    still reference organizations in any `workspace` parameter."""
+    still reference organizations in any `workspace` parameter.
+    """
 
     def __init__(self, client=None):
         self.client = client
@@ -23,28 +24,21 @@ class _Workspaces:
 
         Parameters
         ----------
-        workspace : Id
-          Globally unique identifier for the workspace or organization.
-        params : Object
-          Parameters for the request
+        workspace : {Id} Globally unique identifier for the workspace or organization.
+        [params] : {Object} Parameters for the request
         """
-        
         path = "/workspaces/%d" % (workspace)
         return self.client.get(path, params, **options)
         
-  
     def find_all(self, params={}, **options): 
         """Returns the compact records for all workspaces visible to the authorized user.
 
         Parameters
         ----------
-        params : Object
-          Parameters for the request
+        [params] : {Object} Parameters for the request
         """
-        
         return self.client.get_collection("/workspaces", params, **options)
         
-  
     def update(self, workspace, params={}, **options): 
         """A specific, existing workspace can be updated by making a PUT request on
         the URL for that workspace. Only the fields provided in the data block
@@ -56,16 +50,12 @@ class _Workspaces:
 
         Parameters
         ----------
-        workspace : Id
-          The workspace to update.
-        data : Object
-          Data for the request
+        workspace : {Id} The workspace to update.
+        [data] : {Object} Data for the request
         """
-        
         path = "/workspaces/%d" % (workspace)
         return self.client.put(path, params, **options)
         
-  
     def typeahead(self, workspace, params={}, **options): 
         """Retrieves objects in the workspace based on an auto-completion/typeahead
         search algorithm. This feature is meant to provide results quickly, so do
@@ -75,25 +65,18 @@ class _Workspaces:
 
         Parameters
         ----------
-        workspace : Id
-          The workspace to fetch objects from.
-        params : Object
-          Parameters for the request
-        type : Enum
-          The type of values the typeahead should return.
+        workspace : {Id} The workspace to fetch objects from.
+        [params] : {Object} Parameters for the request
+          - type : {Enum} The type of values the typeahead should return.
           Note that unlike in the names of endpoints, the types listed here are
           in singular form (e.g. `task`). Using multiple types is not yet supported.
-        query : String
-          The string that will be used to search for relevant objects. If an
+          - [query] : {String} The string that will be used to search for relevant objects. If an
           empty string is passed in, the API will currently return an empty
           result set.
-        count : Number
-          The number of results to return. The default is `20` if this
+          - [count] : {Number} The number of results to return. The default is `20` if this
           parameter is omitted, with a minimum of `1` and a maximum of `100`.
           If there are fewer results found than requested, all will be returned.
         """
-        
         path = "/workspaces/%d/typeahead" % (workspace)
         return self.client.get_collection(path, params, **options)
         
-  

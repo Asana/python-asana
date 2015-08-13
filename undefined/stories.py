@@ -6,7 +6,8 @@ class _Stories:
     are also a form of user-generated story.
     
     Stories are a form of history in the system, and as such they are read-only.
-    Once generated, it is not possible to modify a story."""
+    Once generated, it is not possible to modify a story.
+    """
 
     def __init__(self, client=None):
         self.client = client
@@ -16,31 +17,23 @@ class _Stories:
 
         Parameters
         ----------
-        story : Id
-          Globally unique identifier for the story.
-        params : Object
-          Parameters for the request
+        story : {Id} Globally unique identifier for the story.
+        [params] : {Object} Parameters for the request
         """
-        
         path = "/stories/%d" % (story)
         return self.client.get(path, params, **options)
         
-  
     def find_by_task(self, task, params={}, **options): 
         """Returns the compact records for all stories on the task.
 
         Parameters
         ----------
-        task : Id
-          Globally unique identifier for the task.
-        params : Object
-          Parameters for the request
+        task : {Id} Globally unique identifier for the task.
+        [params] : {Object} Parameters for the request
         """
-        
         path = "/tasks/%d/stories" % (task)
         return self.client.get_collection(path, params, **options)
         
-  
     def create_on_task(self, task, params={}, **options): 
         """Adds a comment to a task. The comment will be authored by the
         currently authenticated user, and timestamped when the server receives
@@ -50,15 +43,10 @@ class _Stories:
 
         Parameters
         ----------
-        task : Id
-          Globally unique identifier for the task.
-        data : Object
-          Data for the request
-        text : String
-          The plain text of the comment to add.
+        task : {Id} Globally unique identifier for the task.
+        [data] : {Object} Data for the request
+          - text : {String} The plain text of the comment to add.
         """
-        
         path = "/tasks/%d/stories" % (task)
         return self.client.post(path, params, **options)
         
-  

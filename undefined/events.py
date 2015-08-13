@@ -24,7 +24,8 @@ class _Events:
     of data in sync, this signals you may need to re-crawl the data.
     
     Sync tokens always expire after 24 hours, but may expire sooner, depending on
-    load on the service."""
+    load on the service.
+    """
 
     def __init__(self, client=None):
         self.client = client
