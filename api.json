@@ -19,7 +19,6 @@
         "find_all":             { "method": "get",    "url": "/projects", "collection": true },
         "find_by_workspace":    { "method": "get",    "url": "/workspaces/%s/projects",     "args": ["workspace_id"], "collection": true },
         "update":               { "method": "put",    "url": "/projects/%s",                "args": ["project_id"] },
-        "sections":             { "method": "get",    "url": "/projects/%s/sections",       "args": ["project_id"],   "collection": true },
         "delete":               { "method": "delete", "url": "/projects/%s",                "args": ["project_id"] }
       }
     },
