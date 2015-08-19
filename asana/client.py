@@ -220,6 +220,7 @@ class Client:
 
     @classmethod
     def access_token(Klass, accessToken):
+        """Construct an Asana Client with a Personal Access Token"""
         return Klass(session.AsanaOAuth2Session(token={'access_token': accessToken}))
 
     @classmethod
