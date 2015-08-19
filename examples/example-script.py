@@ -59,9 +59,9 @@ if 'ASANA_TOKEN' in os.environ:
     print_("authorized=", client.session.authorized)
     print_("me=", client.users.me())
 
-if 'ASANA_API_KEY' in os.environ:
+if 'ASANA_PERSONAL_ACCESS_TOKEN' in os.environ:
     # create a client with your Asana API key
-    client = asana.Client.basic_auth(os.environ['ASANA_API_KEY'])
+    client = asana.Client.access_token(os.environ['ASANA_PERSONAL_ACCESS_TOKEN'])
     me = client.users.me()
     print_("me=" + json.dumps(me, indent=2))
 

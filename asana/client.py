@@ -5,7 +5,6 @@ from . import version
 from .page_iterator import CollectionPageIterator
 
 from types import ModuleType
-from numbers import Number
 import requests
 import json
 import platform
@@ -46,12 +45,12 @@ class Client:
     RETRY_DELAY = 1.0
     RETRY_BACKOFF = 2.0
 
-    CLIENT_OPTIONS  = set(DEFAULTS.keys())
-    QUERY_OPTIONS   = set(['limit', 'offset', 'sync'])
+    CLIENT_OPTIONS = set(DEFAULTS.keys())
+    QUERY_OPTIONS = set(['limit', 'offset', 'sync'])
     REQUEST_OPTIONS = set(['headers', 'params', 'data', 'files', 'verify'])
-    API_OPTIONS     = set(['pretty', 'fields', 'expand'])
+    API_OPTIONS = set(['pretty', 'fields', 'expand'])
 
-    ALL_OPTIONS     = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
+    ALL_OPTIONS = CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS
 
     def __init__(self, session=None, auth=None, **options):
         """Initialize a Client object with session, optional auth handler, and options"""
@@ -103,7 +102,7 @@ class Client:
         api_options = self._parse_api_options(options, query_string=True)
         query_options = self._parse_query_options(options)
         parameter_options = self._parse_parameter_options(options)
-        query = _merge(query_options, api_options, parameter_options, query) # options in the query takes precendence
+        query = _merge(query_options, api_options, parameter_options, query)  # options in the query takes precendence
         return self.request('get', path, params=query, **options)
 
     def get_collection(self, path, query, **options):
@@ -119,7 +118,7 @@ class Client:
         """Parses POST request options and dispatches a request."""
         parameter_options = self._parse_parameter_options(options)
         body = {
-            'data': _merge(parameter_options, data), # values in the data body takes precendence
+            'data': _merge(parameter_options, data),  # values in the data body takes precendence
             'options': self._parse_api_options(options)
         }
         return self.request('post', path, data=body, headers={'content-type': 'application/json'}, **options)
@@ -128,7 +127,7 @@ class Client:
         """Parses PUT request options and dispatches a request."""
         parameter_options = self._parse_parameter_options(options)
         body = {
-            'data': _merge(parameter_options, data), # values in the data body takes precendence
+            'data': _merge(parameter_options, data),  # values in the data body takes precendence
             'options': self._parse_api_options(options)
         }
         return self.request('put', path, data=body, headers={'content-type': 'application/json'}, **options)
@@ -158,9 +157,9 @@ class Client:
             for key in api_options:
                 # Transform list/tuples into comma separated list
                 if isinstance(api_options[key], (list, tuple)):
-                    query_api_options['opt_'+key] = ','.join(api_options[key])
+                    query_api_options['opt_' + key] = ','.join(api_options[key])
                 else:
-                    query_api_options['opt_'+key] = api_options[key]
+                    query_api_options['opt_' + key] = api_options[key]
             return query_api_options
         else:
             return api_options
@@ -196,6 +195,7 @@ class Client:
         headers['X-Asana-Client-Lib'] = self._versionHeader()
 
     _cached_version_header = None
+
     def _versionHeader(self):
         """Generate the client version header to send on each request."""
         if not self._cached_version_header:
@@ -217,6 +217,10 @@ class Client:
     def basic_auth(Klass, apiKey):
         """Construct an Asana Client with a Basic Auth API key"""
         return Klass(auth=requests.auth.HTTPBasicAuth(apiKey, ''))
+
+    @classmethod
+    def access_token(Klass, accessToken):
+        return Klass(session.AsanaOAuth2Session(token={'access_token': accessToken}))
 
     @classmethod
     def oauth(Klass, **kwargs):
