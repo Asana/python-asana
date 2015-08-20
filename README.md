@@ -5,11 +5,11 @@ Python client library for Asana.
 Authentication
 --------------
 
-### Basic Auth
+### Personal Access Token
 
-Create a client using your Asana API key:
+Create a client using your Asana Personal Access Token:
 
-    client = asana.Client.basic_auth('ASANA_API_KEY')
+    client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
 
 ### OAuth 2
 
