@@ -156,7 +156,7 @@ class _Projects:
         path = "/projects/%d/sections" % (project)
         return self.client.get_collection(path, params, **options)
         
-    def get_tasks_in_project(self, project, params={}, **options): 
+    def tasks(self, project, params={}, **options): 
         """Returns the compact task records for all tasks within the given project,
         ordered by their priority within the project. Tasks can exist in more than one project at a time.
 
