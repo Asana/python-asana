@@ -28,7 +28,7 @@ class _Users:
         user : {Id} Globally unique identifier for the user.
         [params] : {Object} Parameters for the request
         """
-        path = "/users/%d" % (user)
+        path = "/users/%s" % (user)
         return self.client.get(path, params, **options)
         
     def find_by_workspace(self, workspace, params={}, **options): 
@@ -40,7 +40,7 @@ class _Users:
         workspace : {Id} The workspace in which to get users.
         [params] : {Object} Parameters for the request
         """
-        path = "/workspaces/%d/users" % (workspace)
+        path = "/workspaces/%s/users" % (workspace)
         return self.client.get_collection(path, params, **options)
         
     def find_all(self, params={}, **options): 

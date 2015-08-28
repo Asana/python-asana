@@ -20,7 +20,7 @@ class _Stories:
         story : {Id} Globally unique identifier for the story.
         [params] : {Object} Parameters for the request
         """
-        path = "/stories/%d" % (story)
+        path = "/stories/%s" % (story)
         return self.client.get(path, params, **options)
         
     def find_by_task(self, task, params={}, **options): 
@@ -31,7 +31,7 @@ class _Stories:
         task : {Id} Globally unique identifier for the task.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/stories" % (task)
+        path = "/tasks/%s/stories" % (task)
         return self.client.get_collection(path, params, **options)
         
     def create_on_task(self, task, params={}, **options): 
@@ -47,6 +47,6 @@ class _Stories:
         [data] : {Object} Data for the request
           - text : {String} The plain text of the comment to add.
         """
-        path = "/tasks/%d/stories" % (task)
+        path = "/tasks/%s/stories" % (task)
         return self.client.post(path, params, **options)
         

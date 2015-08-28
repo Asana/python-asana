@@ -27,7 +27,7 @@ class _Workspaces:
         workspace : {Id} Globally unique identifier for the workspace or organization.
         [params] : {Object} Parameters for the request
         """
-        path = "/workspaces/%d" % (workspace)
+        path = "/workspaces/%s" % (workspace)
         return self.client.get(path, params, **options)
         
     def find_all(self, params={}, **options): 
@@ -53,7 +53,7 @@ class _Workspaces:
         workspace : {Id} The workspace to update.
         [data] : {Object} Data for the request
         """
-        path = "/workspaces/%d" % (workspace)
+        path = "/workspaces/%s" % (workspace)
         return self.client.put(path, params, **options)
         
     def typeahead(self, workspace, params={}, **options): 
@@ -77,6 +77,6 @@ class _Workspaces:
           parameter is omitted, with a minimum of `1` and a maximum of `100`.
           If there are fewer results found than requested, all will be returned.
         """
-        path = "/workspaces/%d/typeahead" % (workspace)
+        path = "/workspaces/%s/typeahead" % (workspace)
         return self.client.get_collection(path, params, **options)
         

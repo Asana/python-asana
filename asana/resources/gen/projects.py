@@ -46,7 +46,7 @@ class _Projects:
         workspace : {Id} The workspace or organization to create the project in.
         [data] : {Object} Data for the request
         """
-        path = "/workspaces/%d/projects" % (workspace)
+        path = "/workspaces/%s/projects" % (workspace)
         return self.client.post(path, params, **options)
         
     def create_in_team(self, team, params={}, **options): 
@@ -59,7 +59,7 @@ class _Projects:
         team : {Id} The team to create the project in.
         [data] : {Object} Data for the request
         """
-        path = "/teams/%d/projects" % (team)
+        path = "/teams/%s/projects" % (team)
         return self.client.post(path, params, **options)
         
     def find_by_id(self, project, params={}, **options): 
@@ -70,7 +70,7 @@ class _Projects:
         project : {Id} The project to get.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%d" % (project)
+        path = "/projects/%s" % (project)
         return self.client.get(path, params, **options)
         
     def update(self, project, params={}, **options): 
@@ -89,7 +89,7 @@ class _Projects:
         project : {Id} The project to update.
         [data] : {Object} Data for the request
         """
-        path = "/projects/%d" % (project)
+        path = "/projects/%s" % (project)
         return self.client.put(path, params, **options)
         
     def delete(self, project, params={}, **options): 
@@ -102,7 +102,7 @@ class _Projects:
         ----------
         project : {Id} The project to delete.
         """
-        path = "/projects/%d" % (project)
+        path = "/projects/%s" % (project)
         return self.client.delete(path, params, **options)
         
     def find_all(self, params={}, **options): 
@@ -129,7 +129,7 @@ class _Projects:
           - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
-        path = "/workspaces/%d/projects" % (workspace)
+        path = "/workspaces/%s/projects" % (workspace)
         return self.client.get_collection(path, params, **options)
         
     def find_by_team(self, team, params={}, **options): 
@@ -142,7 +142,7 @@ class _Projects:
           - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
-        path = "/teams/%d/projects" % (team)
+        path = "/teams/%s/projects" % (team)
         return self.client.get_collection(path, params, **options)
         
     def sections(self, project, params={}, **options): 
@@ -153,7 +153,7 @@ class _Projects:
         project : {Id} The project to get sections from.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%d/sections" % (project)
+        path = "/projects/%s/sections" % (project)
         return self.client.get_collection(path, params, **options)
         
     def tasks(self, project, params={}, **options): 
@@ -165,6 +165,6 @@ class _Projects:
         project : {Id} The project in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%d/tasks" % (project)
+        path = "/projects/%s/tasks" % (project)
         return self.client.get_collection(path, params, **options)
         

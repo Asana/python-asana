@@ -15,7 +15,7 @@ class _Teams:
         team : {Id} Globally unique identifier for the team.
         [params] : {Object} Parameters for the request
         """
-        path = "/teams/%d" % (team)
+        path = "/teams/%s" % (team)
         return self.client.get(path, params, **options)
         
     def find_by_organization(self, organization, params={}, **options): 
@@ -27,7 +27,7 @@ class _Teams:
         organization : {Id} Globally unique identifier for the workspace or organization.
         [params] : {Object} Parameters for the request
         """
-        path = "/organizations/%d/teams" % (organization)
+        path = "/organizations/%s/teams" % (organization)
         return self.client.get_collection(path, params, **options)
         
     def users(self, team, params={}, **options): 
@@ -38,6 +38,6 @@ class _Teams:
         team : {Id} Globally unique identifier for the team.
         [params] : {Object} Parameters for the request
         """
-        path = "/teams/%d/users" % (team)
+        path = "/teams/%s/users" % (team)
         return self.client.get_collection(path, params, **options)
         
