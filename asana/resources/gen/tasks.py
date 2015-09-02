@@ -1,4 +1,3 @@
-
 class _Tasks:
     """The _task_ is the basic object around which many operations in Asana are
     centered. In the Asana application, multiple tasks populate the middle pane
@@ -39,7 +38,7 @@ class _Tasks:
         workspace : {Id} The workspace to create a task in.
         [data] : {Object} Data for the request
         """
-        path = "/workspaces/%d/tasks" % (workspace)
+        path = "/workspaces/%s/tasks" % (workspace)
         return self.client.post(path, params, **options)
         
     def find_by_id(self, task, params={}, **options): 
@@ -50,7 +49,7 @@ class _Tasks:
         task : {Id} The task to get.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d" % (task)
+        path = "/tasks/%s" % (task)
         return self.client.get(path, params, **options)
         
     def update(self, task, params={}, **options): 
@@ -69,7 +68,7 @@ class _Tasks:
         task : {Id} The task to update.
         [data] : {Object} Data for the request
         """
-        path = "/tasks/%d" % (task)
+        path = "/tasks/%s" % (task)
         return self.client.put(path, params, **options)
         
     def delete(self, task, params={}, **options): 
@@ -84,7 +83,7 @@ class _Tasks:
         ----------
         task : {Id} The task to delete.
         """
-        path = "/tasks/%d" % (task)
+        path = "/tasks/%s" % (task)
         return self.client.delete(path, params, **options)
         
     def find_by_project(self, projectId, params={}, **options): 
@@ -96,7 +95,7 @@ class _Tasks:
         projectId : {Id} The project in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%d/tasks" % (projectId)
+        path = "/projects/%s/tasks" % (projectId)
         return self.client.get_collection(path, params, **options)
         
     def find_by_tag(self, tag, params={}, **options): 
@@ -107,7 +106,7 @@ class _Tasks:
         tag : {Id} The tag in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
-        path = "/tags/%d/tasks" % (tag)
+        path = "/tags/%s/tasks" % (tag)
         return self.client.get_collection(path, params, **options)
         
     def find_all(self, params={}, **options): 
@@ -135,7 +134,7 @@ class _Tasks:
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to add to the task.
         """
-        path = "/tasks/%d/addFollowers" % (task)
+        path = "/tasks/%s/addFollowers" % (task)
         return self.client.post(path, params, **options)
         
     def remove_followers(self, task, params={}, **options): 
@@ -148,7 +147,7 @@ class _Tasks:
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to remove from the task.
         """
-        path = "/tasks/%d/removeFollowers" % (task)
+        path = "/tasks/%s/removeFollowers" % (task)
         return self.client.post(path, params, **options)
         
     def projects(self, task, params={}, **options): 
@@ -159,7 +158,7 @@ class _Tasks:
         task : {Id} The task to get projects on.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/projects" % (task)
+        path = "/tasks/%s/projects" % (task)
         return self.client.get_collection(path, params, **options)
         
     def add_project(self, task, params={}, **options): 
@@ -184,7 +183,7 @@ class _Tasks:
           - [section] : {Id} A section in the project to insert the task into. The task will be
           inserted at the top of the section.
         """
-        path = "/tasks/%d/addProject" % (task)
+        path = "/tasks/%s/addProject" % (task)
         return self.client.post(path, params, **options)
         
     def remove_project(self, task, params={}, **options): 
@@ -199,7 +198,7 @@ class _Tasks:
         [data] : {Object} Data for the request
           - project : {Id} The project to remove the task from.
         """
-        path = "/tasks/%d/removeProject" % (task)
+        path = "/tasks/%s/removeProject" % (task)
         return self.client.post(path, params, **options)
         
     def tags(self, task, params={}, **options): 
@@ -210,7 +209,7 @@ class _Tasks:
         task : {Id} The task to get tags on.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/tags" % (task)
+        path = "/tasks/%s/tags" % (task)
         return self.client.get_collection(path, params, **options)
         
     def add_tag(self, task, params={}, **options): 
@@ -222,7 +221,7 @@ class _Tasks:
         [data] : {Object} Data for the request
           - tag : {Id} The tag to add to the task.
         """
-        path = "/tasks/%d/addTag" % (task)
+        path = "/tasks/%s/addTag" % (task)
         return self.client.post(path, params, **options)
         
     def remove_tag(self, task, params={}, **options): 
@@ -234,7 +233,7 @@ class _Tasks:
         [data] : {Object} Data for the request
           - tag : {Id} The tag to remove from the task.
         """
-        path = "/tasks/%d/removeTag" % (task)
+        path = "/tasks/%s/removeTag" % (task)
         return self.client.post(path, params, **options)
         
     def subtasks(self, task, params={}, **options): 
@@ -245,7 +244,7 @@ class _Tasks:
         task : {Id} The task to get the subtasks of.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/subtasks" % (task)
+        path = "/tasks/%s/subtasks" % (task)
         return self.client.get_collection(path, params, **options)
         
     def add_subtask(self, task, params={}, **options): 
@@ -257,7 +256,7 @@ class _Tasks:
         task : {Id} The task to add a subtask to.
         [data] : {Object} Data for the request
         """
-        path = "/tasks/%d/subtasks" % (task)
+        path = "/tasks/%s/subtasks" % (task)
         return self.client.post(path, params, **options)
         
     def stories(self, task, params={}, **options): 
@@ -268,7 +267,7 @@ class _Tasks:
         task : {Id} The task containing the stories to get.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/stories" % (task)
+        path = "/tasks/%s/stories" % (task)
         return self.client.get_collection(path, params, **options)
         
     def add_comment(self, task, params={}, **options): 
@@ -284,6 +283,5 @@ class _Tasks:
         [data] : {Object} Data for the request
           - text : {String} The plain text of the comment to add.
         """
-        path = "/tasks/%d/stories" % (task)
+        path = "/tasks/%s/stories" % (task)
         return self.client.post(path, params, **options)
-        

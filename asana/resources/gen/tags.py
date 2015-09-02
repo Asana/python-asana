@@ -1,4 +1,3 @@
-
 class _Tags:
     """A _tag_ is a label that can be attached to any task in Asana. It exists in a
     single workspace or organization.
@@ -44,7 +43,7 @@ class _Tags:
         workspace : {Id} The workspace or organization to create the tag in.
         [data] : {Object} Data for the request
         """
-        path = "/workspaces/%d/tags" % (workspace)
+        path = "/workspaces/%s/tags" % (workspace)
         return self.client.post(path, params, **options)
         
     def find_by_id(self, tag, params={}, **options): 
@@ -55,7 +54,7 @@ class _Tags:
         tag : {Id} The tag to get.
         [params] : {Object} Parameters for the request
         """
-        path = "/tags/%d" % (tag)
+        path = "/tags/%s" % (tag)
         return self.client.get(path, params, **options)
         
     def update(self, tag, params={}, **options): 
@@ -73,7 +72,7 @@ class _Tags:
         tag : {Id} The tag to update.
         [data] : {Object} Data for the request
         """
-        path = "/tags/%d" % (tag)
+        path = "/tags/%s" % (tag)
         return self.client.put(path, params, **options)
         
     def delete(self, tag, params={}, **options): 
@@ -86,7 +85,7 @@ class _Tags:
         ----------
         tag : {Id} The tag to delete.
         """
-        path = "/tags/%d" % (tag)
+        path = "/tags/%s" % (tag)
         return self.client.delete(path, params, **options)
         
     def find_all(self, params={}, **options): 
@@ -111,7 +110,7 @@ class _Tags:
         workspace : {Id} The workspace or organization to find tags in.
         [params] : {Object} Parameters for the request
         """
-        path = "/workspaces/%d/tags" % (workspace)
+        path = "/workspaces/%s/tags" % (workspace)
         return self.client.get_collection(path, params, **options)
         
     def get_tasks_with_tag(self, tag, params={}, **options): 
@@ -123,6 +122,5 @@ class _Tags:
         tag : {Id} The tag to fetch tasks from.
         [params] : {Object} Parameters for the request
         """
-        path = "/tags/%d/tasks" % (tag)
+        path = "/tags/%s/tasks" % (tag)
         return self.client.get_collection(path, params, **options)
-        
