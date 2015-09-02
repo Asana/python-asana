@@ -1,4 +1,3 @@
-
 class _Workspaces:
     """A _workspace_ is the highest-level organizational unit in Asana. All projects
     and tasks have an associated workspace.
@@ -79,4 +78,3 @@ class _Workspaces:
         """
         path = "/workspaces/%s/typeahead" % (workspace)
         return self.client.get_collection(path, params, **options)
-        

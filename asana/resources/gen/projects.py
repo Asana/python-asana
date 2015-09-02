@@ -1,4 +1,3 @@
-
 class _Projects:
     """A _project_ represents a prioritized list of tasks in Asana. It exists in a
     single workspace or organization and is accessible to a subset of users in
@@ -167,4 +166,3 @@ class _Projects:
         """
         path = "/projects/%s/tasks" % (project)
         return self.client.get_collection(path, params, **options)
-        

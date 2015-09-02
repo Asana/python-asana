@@ -1,4 +1,3 @@
-
 class _Attachments:
     """An _attachment_ object represents any file attached to a task in Asana,
     whether it's an uploaded file or one associated via a third-party service
@@ -29,4 +28,3 @@ class _Attachments:
         """
         path = "/tasks/%s/attachments" % (task)
         return self.client.get_collection(path, params, **options)
-        

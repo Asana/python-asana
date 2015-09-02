@@ -1,4 +1,3 @@
-
 class _Tasks:
     """The _task_ is the basic object around which many operations in Asana are
     centered. In the Asana application, multiple tasks populate the middle pane
@@ -286,4 +285,3 @@ class _Tasks:
         """
         path = "/tasks/%s/stories" % (task)
         return self.client.post(path, params, **options)
-        
