@@ -1,4 +1,3 @@
-
 class _Attachments:
     """An _attachment_ object represents any file attached to a task in Asana,
     whether it's an uploaded file or one associated via a third-party service
@@ -16,7 +15,7 @@ class _Attachments:
         attachment : {Id} Globally unique identifier for the attachment.
         [params] : {Object} Parameters for the request
         """
-        path = "/attachments/%d" % (attachment)
+        path = "/attachments/%s" % (attachment)
         return self.client.get(path, params, **options)
         
     def find_by_task(self, task, params={}, **options): 
@@ -27,6 +26,5 @@ class _Attachments:
         task : {Id} Globally unique identifier for the task.
         [params] : {Object} Parameters for the request
         """
-        path = "/tasks/%d/attachments" % (task)
+        path = "/tasks/%s/attachments" % (task)
         return self.client.get_collection(path, params, **options)
-        
