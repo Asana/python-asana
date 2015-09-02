@@ -39,35 +39,3 @@ class _Teams:
         """
         path = "/teams/%s/users" % (team)
         return self.client.get_collection(path, params, **options)
-        
-    def add_user(self, team, params={}, **options): 
-        """The user making this call must be a member of the team in order to invite others.
-        The user to invite must exist in the same organization as the team in order to be invited.
-        The user to invite can be referenced by their globally unique user ID or their email address.
-        Returns the full user record for the invited user.
-
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [data] : {Object} Data for the request
-          - user : {String} An identifier for the user. Can be one of an email address,
-          the globally unique identifier for the user, or the keyword `me`
-          to indicate the current user making the request.
-        """
-        path = "/teams/%s/addUser" % (team)
-        return self.client.post(path, params, **options)
-        
-    def remove_user(self, team, params={}, **options): 
-        """The user to remove can be referenced by their globally unique user ID or their email address.
-        Removes the user from the specified team. Returns an empty data record.
-
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [data] : {Object} Data for the request
-          - user : {String} An identifier for the user. Can be one of an email address,
-          the globally unique identifier for the user, or the keyword `me`
-          to indicate the current user making the request.
-        """
-        path = "/teams/%s/removeUser" % (team)
-        return self.client.post(path, params, **options)
