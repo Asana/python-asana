@@ -11,17 +11,6 @@ class _Stories:
     def __init__(self, client=None):
         self.client = client
   
-    def find_by_id(self, story, params={}, **options): 
-        """Returns the full record for a single story.
-
-        Parameters
-        ----------
-        story : {Id} Globally unique identifier for the story.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/stories/%s" % (story)
-        return self.client.get(path, params, **options)
-        
     def find_by_task(self, task, params={}, **options): 
         """Returns the compact records for all stories on the task.
 
@@ -32,6 +21,17 @@ class _Stories:
         """
         path = "/tasks/%s/stories" % (task)
         return self.client.get_collection(path, params, **options)
+        
+    def find_by_id(self, story, params={}, **options): 
+        """Returns the full record for a single story.
+
+        Parameters
+        ----------
+        story : {Id} Globally unique identifier for the story.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/stories/%s" % (story)
+        return self.client.get(path, params, **options)
         
     def create_on_task(self, task, params={}, **options): 
         """Adds a comment to a task. The comment will be authored by the
