@@ -5,15 +5,16 @@ import asana
 import json
 from six import print_
 
-# API Key Instructions:
-#
-# 1. set your ASANA_API_KEY environment variable to the API key found in Asana Account Settings
-#
 # OAuth Instructions:
 #
 # 1. create a new application in your Asana Account Settings ("App" panel)
 # 2. set the redirect URL to "urn:ietf:wg:oauth:2.0:oob"
 # 3. set your ASANA_CLIENT_ID and ASANA_CLIENT_SECRET environment variables
+#
+# Personal Access Token Instructions:
+#
+# 1. set your ASANA_ACCESS_TOKEN environment variable to a Personal Access Token obtained in your Asana Account Settings
+#
 
 if 'ASANA_CLIENT_ID' in os.environ:
     # create a client with the OAuth credentials:
