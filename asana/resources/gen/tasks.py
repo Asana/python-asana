@@ -116,7 +116,7 @@ class _Tasks:
         Parameters
         ----------
         [params] : {Object} Parameters for the request
-          - [assignee] : {Id} The assignee to filter tasks on.
+          - [assignee] : {String} The assignee to filter tasks on.
           - [workspace] : {Id} The workspace or organization to filter tasks on.
           - [completed_since] : {String} Only return tasks that are either incomplete or that have been
           completed since this time.
