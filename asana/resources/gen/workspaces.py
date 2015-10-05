@@ -78,3 +78,33 @@ class _Workspaces:
         """
         path = "/workspaces/%s/typeahead" % (workspace)
         return self.client.get_collection(path, params, **options)
+        
+    def add_user(self, workspace, params={}, **options): 
+        """The user can be referenced by their globally unique user ID or their email address.
+        Returns the full user record for the invited user.
+
+        Parameters
+        ----------
+        workspace : {Id} The workspace or organization to invite the user to.
+        [data] : {Object} Data for the request
+          - user : {String} An identifier for the user. Can be one of an email address,
+          the globally unique identifier for the user, or the keyword `me`
+          to indicate the current user making the request.
+        """
+        path = "/workspaces/%s/addUser" % (workspace)
+        return self.client.post(path, params, **options)
+        
+    def remove_user(self, workspace, params={}, **options): 
+        """The user making this call must be an admin in the workspace.
+        Returns an empty data record.
+
+        Parameters
+        ----------
+        workspace : {Id} The workspace or organization to invite the user to.
+        [data] : {Object} Data for the request
+          - user : {String} An identifier for the user. Can be one of an email address,
+          the globally unique identifier for the user, or the keyword `me`
+          to indicate the current user making the request.
+        """
+        path = "/workspaces/%s/removeUser" % (workspace)
+        return self.client.post(path, params, **options)

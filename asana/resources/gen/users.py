@@ -24,7 +24,9 @@ class _Users:
 
         Parameters
         ----------
-        user : {Id} Globally unique identifier for the user.
+        user : {String} An identifier for the user. Can be one of an email address,
+        the globally unique identifier for the user, or the keyword `me`
+        to indicate the current user making the request.
         [params] : {Object} Parameters for the request
         """
         path = "/users/%s" % (user)
