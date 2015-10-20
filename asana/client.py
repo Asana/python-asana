@@ -1,19 +1,19 @@
+from types import ModuleType
+import json
+import platform
+import time
+
+import requests
+
 from . import session
 from . import resources
 from . import error
 from . import version
 from .page_iterator import CollectionPageIterator
 
-from types import ModuleType
-import requests
-import json
-import platform
-import sys
-import time
-
-if sys.version_info.major == 3:
+try:
     import urllib.parse as urlparse
-else:
+except ImportError:
     import urllib as urlparse
 
 # Create a dict of resource classes
