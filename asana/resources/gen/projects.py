@@ -166,3 +166,54 @@ class _Projects:
         """
         path = "/projects/%s/tasks" % (project)
         return self.client.get_collection(path, params, **options)
+        
+    def add_followers(self, project, params={}, **options): 
+        """Adds the specified list of users as followers to the project. Followers are a subset of members, therefore if
+        the users are not already members of the project they will also become members as a result of this operation.
+        Returns the updated project record.
+
+        Parameters
+        ----------
+        project : {Id} The project to add followers to.
+        [data] : {Object} Data for the request
+          - followers : {Array} An array of followers to add to the project.
+        """
+        path = "/projects/%s/addFollowers" % (project)
+        return self.client.post(path, params, **options)
+        
+    def remove_followers(self, project, params={}, **options): 
+        """Removes the specified list of users from following the project, this will not affect project membership status.
+        Returns the updated project record.
+
+        Parameters
+        ----------
+        project : {Id} The project to remove followers from.
+        [data] : {Object} Data for the request
+          - followers : {Array} An array of followers to remove from the project.
+        """
+        path = "/projects/%s/removeFollowers" % (project)
+        return self.client.post(path, params, **options)
+        
+    def add_members(self, project, params={}, **options): 
+        """Adds the specified list of users as members of the project. Returns the updated project record.
+
+        Parameters
+        ----------
+        project : {Id} The project to add members to.
+        [data] : {Object} Data for the request
+          - members : {Array} An array of members to add to the project.
+        """
+        path = "/projects/%s/addMembers" % (project)
+        return self.client.post(path, params, **options)
+        
+    def remove_members(self, project, params={}, **options): 
+        """Removes the specified list of members from the project. Returns the updated project record.
+
+        Parameters
+        ----------
+        project : {Id} The project to remove members from.
+        [data] : {Object} Data for the request
+          - members : {Array} An array of members to remove from the project.
+        """
+        path = "/projects/%s/removeMembers" % (project)
+        return self.client.post(path, params, **options)
