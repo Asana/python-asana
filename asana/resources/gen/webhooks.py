@@ -1,3 +1,4 @@
+
 class _Webhooks:
     """**Webhooks are currently in BETA - The information here may change.**
     
@@ -85,7 +86,7 @@ class _Webhooks:
         [params] : {Object} Parameters for the request
           - [resource] : {Id} Only return webhooks for the given resource.
         """
-        return self.client.get("/webhooks", params, **options)
+        return self.client.get_collection("/webhooks", params, **options)
         
     def get_by_id(self, webhook, params={}, **options): 
         """Returns the full record for the given webhook.
@@ -109,3 +110,4 @@ class _Webhooks:
         """
         path = "/webhooks/%s" % (webhook)
         return self.client.delete(path, params, **options)
+        
