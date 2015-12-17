@@ -1,5 +1,5 @@
 requests
-requests_oauthlib
+requests_oauthlib==0.5.0
 
 pytest
 responses==0.3.0
