@@ -13,7 +13,11 @@ setup(name='asana',
       version=VERSION,
       description='Asana API client',
       # license='',
-      install_requires=['requests','requests_oauthlib','six'],
+      install_requires=[
+          'requests~=2.9.1',
+          'requests_oauthlib~=0.6.1',
+          'six~=1.10.0'
+      ],
       author='Asana, Inc',
       # author_email='',
       url='http://github.com/asana/python-asana',
