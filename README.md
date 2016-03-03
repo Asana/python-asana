@@ -131,14 +131,20 @@ generated code, hence they shouldn't be modified by hand. See the [asana-api-met
 
 **Repo Owners Only.** Take the following steps to issue a new release of the library.
 
+#### Automatic Deployment
+
+Run `deploy.py [version]`. See `deploy.py -h` for additional info.
+
+#### Manual Deployment
+
   1. Merge in the desired changes into the `master` branch and commit them.
   2. Clone the repo, work on master.
-  3. Edit package version in `asana/version.py` to indicate the [semantic version](http://semver.org/) change.
+  3. Edit package version in `asana/__init__.py` to indicate the [semantic version](http://semver.org/) change.
   4. Commit the change
   5. Tag the commit with `v` plus the same version number you set in the file.
      `git tag v1.2.3`
   6. Push changes to origin, including tags:
-     `git push origin master --tags` 
+     `git push origin master --tags`
 
 Travis CI will automatically build and deploy the tagged release to `pypi`.
 

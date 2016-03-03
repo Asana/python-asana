@@ -5,10 +5,7 @@ import time
 
 import requests
 
-from . import session
-from . import resources
-from . import error
-from . import version
+from . import error, resources, session, __version__
 from .page_iterator import CollectionPageIterator
 
 try:
@@ -89,7 +86,6 @@ class Client:
                 else:
                     raise e
 
-
     def _handle_retryable_error(self, e, retry_count):
         """Determines how long to sleep before retrying based on the type of RetryableAsanaError."""
         if isinstance(e, error.RateLimitEnforcedError):
@@ -110,7 +106,7 @@ class Client:
         options = self._merge_options(options)
         if options['iterator_type'] == 'items':
             return CollectionPageIterator(self, path, query, options).items()
-        if options['iterator_type'] == None:
+        if options['iterator_type'] is None:
             return self.get(path, query, **options)
         raise Exception('Unknown value for "iterator_type" option: ' + str(options['iterator_type']))
 
@@ -207,7 +203,7 @@ class Client:
         """Generate the values to go in the client version header."""
         return {
             'language': 'Python',
-            'version': version.VERSION,
+            'version': __version__,
             'language_version': platform.python_version(),
             'os': platform.system(),
             'os_version': platform.release()
@@ -227,6 +223,7 @@ class Client:
     def oauth(Klass, **kwargs):
         """Construct an Asana Client with OAuth credentials ('client_id' and 'client_secret' or 'token')"""
         return Klass(session.AsanaOAuth2Session(**kwargs))
+
 
 def _merge(*objects):
     """Merge one or more objects into a new object"""
