@@ -5,10 +5,7 @@ import time
 
 import requests
 
-from . import session
-from . import resources
-from . import error
-from . import version
+from . import error, resources, session, __version__
 from .page_iterator import CollectionPageIterator
 
 try:
@@ -206,7 +203,7 @@ class Client:
         """Generate the values to go in the client version header."""
         return {
             'language': 'Python',
-            'version': version.VERSION,
+            'version': __version__,
             'language_version': platform.python_version(),
             'os': platform.system(),
             'os_version': platform.release()
