@@ -15,7 +15,10 @@ class _Tasks:
         
         Every task is required to be created in a specific workspace, and this
         workspace cannot be changed once set. The workspace need not be set
-        explicitly if you specify a `project` or a `parent` task instead.
+        explicitly if you specify `projects` or a `parent` task instead.
+        
+        `projects` can be a comma separated list of projects, or just a single
+        project the task should belong to.
 
         Parameters
         ----------
@@ -111,7 +114,8 @@ class _Tasks:
         
     def find_all(self, params={}, **options): 
         """Returns the compact task records for some filtered set of tasks. Use one
-        or more of the parameters provided to filter the tasks returned.
+        or more of the parameters provided to filter the tasks returned. You must
+        specify a `project` or `tag` if you do not specify `assignee` and `workspace`.
 
         Parameters
         ----------
@@ -176,9 +180,9 @@ class _Tasks:
         task : {Id} The task to add to a project.
         [data] : {Object} Data for the request
           - project : {Id} The project to add the task to.
-          - [insertAfter] : {Id} A task in the project to insert the task after, or `null` to
+          - [insert_after] : {Id} A task in the project to insert the task after, or `null` to
           insert at the beginning of the list.
-          - [insertBefore] : {Id} A task in the project to insert the task before, or `null` to
+          - [insert_before] : {Id} A task in the project to insert the task before, or `null` to
           insert at the end of the list.
           - [section] : {Id} A section in the project to insert the task into. The task will be
           inserted at the top of the section.

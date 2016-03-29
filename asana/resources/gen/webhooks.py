@@ -1,4 +1,3 @@
-
 class _Webhooks:
     """**Webhooks are currently in BETA - The information here may change.**
     
@@ -110,4 +109,3 @@ class _Webhooks:
         """
         path = "/webhooks/%s" % (webhook)
         return self.client.delete(path, params, **options)
-        
