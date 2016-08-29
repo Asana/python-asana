@@ -21,15 +21,15 @@ If the version printed at the command line is older than `1.0.1`, when, in 2012,
 Fortunately, homebrew makes it easy to install both an updated OpenSSL and a Python interpreter that links to it. Run
 
     $ brew install openssl
-      ...
-    $ /usr/local/Cellar/openssl/*/bin/openssl version
+      ...                                               # homebrew installs
+    $ /usr/local/Cellar/openssl/*/bin/openssl version   # Just to verify...
     OpenSSL 1.0.2h  3 May 2016
 
 Finally, you have to install the homebrew version of python which links against the newer OpenSSL
 
     $ brew install python --with-brewed-openssl
-      ...
-    $ python -c "import ssl; print ssl.OPENSSL_VERSION"
+      ...                                                 # homebrew installs
+    $ python -c "import ssl; print ssl.OPENSSL_VERSION"   # Verify inside Python
     OpenSSL 1.0.2h  3 May 2016
 
 If you see the version of OpenSSL greater than OpenSSL 1.0.1, then you're all set to start using `python-asana`
