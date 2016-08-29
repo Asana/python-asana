@@ -10,7 +10,7 @@ Older versions of OpenSSL can cause a problem when using `python-asana` In parti
     $ openssl version
     OpenSSL 0.9.8zh 14 Jan 2016
 
-OpenSSL 0.9.8 was first released in 2005, and therefore only supports TLS (Transport Layer Security) version 1.0. Asana has deprecated and stopped accepting requests for clients which do not suport [TLS 1.0 and above](asa.na/tls), which unfortunately includes any software linked against this version of the library - this includes both the MacOS X provided Python interpreter and any homebrew installed Python that is not specifically configured to link against a newer version.
+OpenSSL 0.9.8 was first released in 2005, and therefore only supports TLS (Transport Layer Security) version 1.0. Asana has deprecated and stopped accepting requests for clients which do not suport [TLS 1.0 and above](https://asa.na/tls), which unfortunately includes any software linked against this version of the library - this includes both the MacOS X provided Python interpreter and any homebrew installed Python that is not specifically configured to link against a newer version.
 
 To see if your Python version is affected, run
    
