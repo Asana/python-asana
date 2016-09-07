@@ -1,3 +1,4 @@
+
 class _Events:
     """An _event_ is an object representing a change to a resource that was observed
     by an event subscription.
@@ -28,3 +29,4 @@ class _Events:
 
     def __init__(self, client=None):
         self.client = client
+  

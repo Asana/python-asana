@@ -72,3 +72,27 @@ class TestClientProjects(ClientTestCase):
         }
         responses.add(GET, 'http://app/projects', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.projects.find_all(), res['data'])
+
+    def test_projects_custom_field_settings(self):
+        res = {
+            "data": {
+                "id": 1331,
+                "name": "Things to Buy",
+                "notes": "These are things we want to purchase.",
+                "custom_field_settings": [
+                    { 
+                        "id": 258147, 
+                        "custom_field": {
+                            "id": 1646, 
+                            "name": 'Priority', 
+                            "type": 'enum'}, 
+                        "project": {
+                            "id": 1331, 
+                            "name": 'Bugs'}
+                    }
+                ]
+            }
+        }
+
+        responses.add(GET, 'http://app/projects/1331', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.projects.find_by_id(1331), res['data'])
