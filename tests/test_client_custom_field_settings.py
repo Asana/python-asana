@@ -1,7 +1,7 @@
 from .helpers import *
 
 class TestClientCustomFieldSettings(ClientTestCase):
-    def test_custom_field_settings_find_by_id(self):
+    def test_custom_field_settings_find_by_project(self):
         res = {
             "data": [
                 {
@@ -38,6 +38,6 @@ class TestClientCustomFieldSettings(ClientTestCase):
                 },
             ]
         }
-        responses.add(GET, 'http://app/custom_fields/258147', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.custom_fields.find_by_id(258147), res['data'])
+        responses.add(GET, 'http://app/projects/1331/custom_field_settings', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.custom_field_settings.find_by_project(1331), res['data'])
 
