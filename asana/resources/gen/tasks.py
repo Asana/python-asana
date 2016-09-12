@@ -1,3 +1,4 @@
+
 class _Tasks:
     """The _task_ is the basic object around which many operations in Asana are
     centered. In the Asana application, multiple tasks populate the middle pane
@@ -89,7 +90,7 @@ class _Tasks:
         path = "/tasks/%s" % (task)
         return self.client.delete(path, params, **options)
         
-    def find_by_project(self, projectId, params={}, **options): 
+    def find_by_project(self, project_id, params={}, **options): 
         """Returns the compact task records for all tasks within the given project,
         ordered by their priority within the project.
 
@@ -98,7 +99,7 @@ class _Tasks:
         projectId : {Id} The project in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%s/tasks" % (projectId)
+        path = "/projects/%s/tasks" % (project_id)
         return self.client.get_collection(path, params, **options)
         
     def find_by_tag(self, tag, params={}, **options): 
@@ -121,6 +122,7 @@ class _Tasks:
         ----------
         [params] : {Object} Parameters for the request
           - [assignee] : {String} The assignee to filter tasks on.
+          - [project] : {Id} The project to filter tasks on.
           - [workspace] : {Id} The workspace or organization to filter tasks on.
           - [completed_since] : {String} Only return tasks that are either incomplete or that have been
           completed since this time.
@@ -289,3 +291,4 @@ class _Tasks:
         """
         path = "/tasks/%s/stories" % (task)
         return self.client.post(path, params, **options)
+        

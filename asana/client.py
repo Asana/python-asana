@@ -2,6 +2,7 @@ from types import ModuleType
 import json
 import platform
 import time
+import string
 
 import requests
 
@@ -16,8 +17,9 @@ except ImportError:
 # Create a dict of resource classes
 RESOURCE_CLASSES = {}
 for name, module in resources.__dict__.items():
-    if isinstance(module, ModuleType) and name.capitalize() in module.__dict__:
-        RESOURCE_CLASSES[name] = module.__dict__[name.capitalize()]
+    classified_name = string.capwords(name, '_').replace('_', '')
+    if isinstance(module, ModuleType) and classified_name in module.__dict__:
+        RESOURCE_CLASSES[name] = module.__dict__[classified_name]
 
 # Create a mapping of status codes to classes
 STATUS_MAP = {}

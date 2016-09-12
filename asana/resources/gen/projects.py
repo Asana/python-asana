@@ -1,3 +1,4 @@
+
 class _Projects:
     """A _project_ represents a prioritized list of tasks in Asana. It exists in a
     single workspace or organization and is accessible to a subset of users in
@@ -217,3 +218,29 @@ class _Projects:
         """
         path = "/projects/%s/removeMembers" % (project)
         return self.client.post(path, params, **options)
+        
+    def add_custom_field_setting(self, project, params={}, **options): 
+        """Create a new custom field setting on the project.
+
+        Parameters
+        ----------
+        project : {Id} The project to associate the custom field with
+        [data] : {Object} Data for the request
+          - [custom_field] : {Id} The id of the custom field to associate with this project.
+          - [is_important] : {Boolean} Whether this field should be considered important to this project.
+        """
+        path = "/projects/%s/addCustomFieldSetting" % (project)
+        return self.client.post(path, params, **options)
+        
+    def remove_custom_field_setting(self, project, params={}, **options): 
+        """Remove a custom field setting on the project.
+
+        Parameters
+        ----------
+        project : {Id} The project to associate the custom field with
+        [data] : {Object} Data for the request
+          - [custom_field] : {Id} The id of the custom field to associate with this project.
+        """
+        path = "/projects/%s/removeCustomFieldSetting" % (project)
+        return self.client.post(path, params, **options)
+        

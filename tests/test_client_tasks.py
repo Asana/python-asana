@@ -213,3 +213,27 @@ class TestClientTasks(ClientTestCase):
         }
         responses.add(GET, 'http://app/tags/1331/tasks', status=200, body=json.dumps(res), match_querystring=True)
         self.assertEqual(self.client.tasks.find_by_tag(1331), res['data'])
+
+    def test_tasks_custom_field_data(self):
+        res = {
+            "data": {
+                "id": 1001,
+                "name": "Hello, world!",
+                "completed": false,
+                "custom_fields": [
+                    {
+                        "id": 124578,
+                        "name": "Priority",
+                        "type": "enum",
+                        "enum_value": {
+                          "id": 789,
+                          "name": "Low",
+                          "enabled": true,
+                          "color": "blue"
+                        }
+                    }
+                ]
+            }
+        }
+        responses.add(GET, 'http://app/tasks/1001', status=200, body=json.dumps(res), match_querystring=True)
+        self.assertEqual(self.client.tasks.find_by_id(1001), res['data'])
