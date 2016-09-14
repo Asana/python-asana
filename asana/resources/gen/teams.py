@@ -29,6 +29,20 @@ class _Teams:
         path = "/organizations/%s/teams" % (organization)
         return self.client.get_collection(path, params, **options)
         
+    def find_by_user(self, user, params={}, **options): 
+        """Returns the compact records for all teams to which user is assigned.
+
+        Parameters
+        ----------
+        user : {String} An identifier for the user. Can be one of an email address,
+        the globally unique identifier for the user, or the keyword `me`
+        to indicate the current user making the request.
+        [params] : {Object} Parameters for the request
+          - [organization] : {Id} The workspace or organization to filter teams on.
+        """
+        path = "/users/%s/teams" % (user)
+        return self.client.get_collection(path, params, **options)
+        
     def users(self, team, params={}, **options): 
         """Returns the compact records for all users that are members of the team.
 
