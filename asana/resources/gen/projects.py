@@ -1,4 +1,3 @@
-
 class _Projects:
     """A _project_ represents a prioritized list of tasks in Asana. It exists in a
     single workspace or organization and is accessible to a subset of users in
@@ -226,8 +225,12 @@ class _Projects:
         ----------
         project : {Id} The project to associate the custom field with
         [data] : {Object} Data for the request
-          - [custom_field] : {Id} The id of the custom field to associate with this project.
+          - custom_field : {Id} The id of the custom field to associate with this project.
           - [is_important] : {Boolean} Whether this field should be considered important to this project.
+          - [insert_before] : {Id} An id of a Custom Field Settings on this project, before which the new Custom Field Settings will be added.
+          `insert_before` and `insert_after` parameters cannot both be specified.
+          - [insert_after] : {Id} An id of a Custom Field Settings on this project, after which the new Custom Field Settings will be added.
+          `insert_before` and `insert_after` parameters cannot both be specified.
         """
         path = "/projects/%s/addCustomFieldSetting" % (project)
         return self.client.post(path, params, **options)
@@ -239,8 +242,7 @@ class _Projects:
         ----------
         project : {Id} The project to associate the custom field with
         [data] : {Object} Data for the request
-          - [custom_field] : {Id} The id of the custom field to associate with this project.
+          - [custom_field] : {Id} The id of the custom field to remove from this project.
         """
         path = "/projects/%s/removeCustomFieldSetting" % (project)
         return self.client.post(path, params, **options)
-        

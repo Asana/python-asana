@@ -1,4 +1,3 @@
-
 class _Teams:
     """A _team_ is used to group related projects and people together within an
     organization. Each project in an organization is associated with a team.
@@ -86,4 +85,3 @@ class _Teams:
         """
         path = "/teams/%s/removeUser" % (team)
         return self.client.post(path, params, **options)
-        

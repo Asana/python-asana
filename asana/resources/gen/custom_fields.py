@@ -1,4 +1,3 @@
-
 class _CustomFields:
     """Custom Fields store the metadata that is used in order to add user-specified
     information to tasks in Asana. Be sure to reference the [Custom
@@ -31,4 +30,3 @@ class _CustomFields:
         """
         path = "/workspaces/%s/custom_fields" % (workspace)
         return self.client.get(path, params, **options)
-        
