@@ -1,25 +1,18 @@
 #!/usr/bin/env python
 
-import os
-import re
 import sys
+import os
 from setuptools import setup, find_packages
 
-from deploy import INIT_FILE, VERSION_REGEX
+from asana import __version__
 
 assert sys.version_info >= (2, 6), 'We only support Python 2.6+'
-
-with open(INIT_FILE) as fobj:
-    version = re.search(VERSION_REGEX, fobj.read(), re.MULTILINE).group(2)
-
-if not version:
-    raise RuntimeError('Cannot find __version__ in {0}'.format(INIT_FILE))
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
 setup(
     name='asana',
-    version=version,
+    version=__version__,
     description='Asana API client',
     license='MIT',
     classifiers=[
