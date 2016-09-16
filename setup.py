@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
 setup(
     name='asana',
-    version='0.6.1',
+    version='0.6.2',
     description='Asana API client',
     license='MIT',
     classifiers=[
