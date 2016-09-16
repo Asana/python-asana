@@ -4,7 +4,7 @@ import sys
 import os
 from setuptools import setup, find_packages
 
-from version import VERSION
+from asana import __version__
 
 assert sys.version_info >= (2, 6), 'We only support Python 2.6+'
 
@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
 setup(
     name='asana',
-    version=VERSION,
+    version=__version__,
     description='Asana API client',
     license='MIT',
     classifiers=[
