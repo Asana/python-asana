@@ -169,10 +169,16 @@ class _Tasks:
     def add_project(self, task, params={}, **options): 
         """Adds the task to the specified project, in the optional location
         specified. If no location arguments are given, the task will be added to
-        the beginning of the project.
+        the end of the project.
         
-        `addProject` can also be used to reorder a task within a project that
+        `addProject` can also be used to reorder a task within a project or section that
         already contains it.
+        
+        At most one of `insert_before`, `insert_after`, or `section` should be
+        specified. Inserting into a section in an non-order-dependent way can be
+        done by specifying `section`, otherwise, to insert within a section in a
+        particular place, specify `insert_before` or `insert_after` and a task
+        within the section to anchor the position of this task.
         
         Returns an empty data block.
 
@@ -186,7 +192,7 @@ class _Tasks:
           - [insert_before] : {Id} A task in the project to insert the task before, or `null` to
           insert at the end of the list.
           - [section] : {Id} A section in the project to insert the task into. The task will be
-          inserted at the top of the section.
+          inserted at the bottom of the section.
         """
         path = "/tasks/%s/addProject" % (task)
         return self.client.post(path, params, **options)
