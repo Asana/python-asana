@@ -112,6 +112,17 @@ class _Tasks:
         path = "/tags/%s/tasks" % (tag)
         return self.client.get_collection(path, params, **options)
         
+    def find_by_section(self, section, params={}, **options): 
+        """<b>Board view only:</b> Returns the compact section records for all tasks within the given section.
+
+        Parameters
+        ----------
+        section : {Id} The section in which to search for tasks.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/sections/%s/tasks" % (section)
+        return self.client.get_collection(path, params, **options)
+        
     def find_all(self, params={}, **options): 
         """Returns the compact task records for some filtered set of tasks. Use one
         or more of the parameters provided to filter the tasks returned. You must
@@ -122,6 +133,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
           - [assignee] : {String} The assignee to filter tasks on.
           - [project] : {Id} The project to filter tasks on.
+          - [section] : {Id} The section to filter tasks on.
           - [workspace] : {Id} The workspace or organization to filter tasks on.
           - [completed_since] : {String} Only return tasks that are either incomplete or that have been
           completed since this time.
