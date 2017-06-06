@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
 setup(
     name='asana',
-    version='0.6.2',
+    version='0.6.5',
     description='Asana API client',
     license='MIT',
     classifiers=[
@@ -26,7 +26,7 @@ setup(
         'Programming Language :: Python :: 3.4'
     ],
     install_requires=[
-        'requests >=2.9.1, == 2.9.*',
+        'requests >=2.14.2, == 2.14.*',
         'requests_oauthlib >= 0.6.1, == 0.6.*',
         'six >= 1.10.0, == 1.10.*'
     ],
