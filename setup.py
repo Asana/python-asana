@@ -26,9 +26,9 @@ setup(
         'Programming Language :: Python :: 3.4'
     ],
     install_requires=[
-        'requests >=2.14.2, == 2.14.*',
-        'requests_oauthlib >= 0.6.1, == 0.6.*',
-        'six >= 1.10.0, == 1.10.*'
+        'requests >= 2.14, == 2.*',
+        'requests_oauthlib >= 0.8.0, == 0.8.*',
+        'six >= 1.10, == 1.*'
     ],
     author='Asana, Inc',
     # author_email='',

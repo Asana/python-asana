@@ -1,5 +1,5 @@
-pytest~=2.8.7
-requests_oauthlib~=0.6.1
-requests~=2.14.2
-responses~=0.5.1
-six~=1.10.0
+pytest~=2.8
+requests_oauthlib~=0.8.0
+requests~=2.14
+responses~=0.8.1
+six~=1.10
