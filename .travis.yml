@@ -14,4 +14,4 @@ deploy:
     tags: true
     repo: Asana/python-asana
     all_branches: true
-  distribution: "sdist bdist_wheel"
+  distributions: "sdist bdist_wheel"
