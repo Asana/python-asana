@@ -83,8 +83,16 @@ class Client(object):
                 response = getattr(self.session, method)(
                     url, auth=self.auth, **request_options)
                 if response.status_code in STATUS_MAP:
-                    raise STATUS_MAP[response.status_code](response)
-                elif response.status_code >= 500 and response.status_code < 600:
+                    # TODO: Change back to default behavior once 1.0 & 1.1 have
+                    # the same premium only response
+                    asana_error = STATUS_MAP[response.status_code](response)
+                    premium_only_str = "not available for free"
+                    if isinstance(asana_error, error.ForbiddenError) and (
+                            premium_only_str in asana_error.message):
+                        raise error.PremiumOnlyError(response)
+                    raise asana_error
+                elif response.status_code >= 500 and (
+                        response.status_code < 600):
                     # Any unhandled 500 is a server error.
                     raise error.ServerError(response)
                 else:

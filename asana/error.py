@@ -31,6 +31,16 @@ class NoAuthorizationError(AsanaError):
             response=response
         )
 
+
+class PremiumOnlyError(AsanaError):
+    def __init__(self, response=None):
+        super(PremiumOnlyError, self).__init__(
+            message='Payment Required',
+            status=402,
+            response=response
+        )
+
+
 class ForbiddenError(AsanaError):
     def __init__(self, response=None):
         super(ForbiddenError, self).__init__(
