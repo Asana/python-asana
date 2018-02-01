@@ -88,7 +88,7 @@ class Client(object):
                     asana_error = STATUS_MAP[response.status_code](response)
                     premium_only_str = "not available for free"
                     if isinstance(asana_error, error.ForbiddenError) and (
-                            premium_only_str in asana_error.message):
+                            premium_only_str in str(asana_error)):
                         raise error.PremiumOnlyError(response)
                     raise asana_error
                 elif response.status_code >= 500 and (
