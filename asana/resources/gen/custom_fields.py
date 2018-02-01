@@ -29,4 +29,4 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         """
         path = "/workspaces/%s/custom_fields" % (workspace)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)

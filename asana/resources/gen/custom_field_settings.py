@@ -18,4 +18,4 @@ class _CustomFieldSettings:
         [params] : {Object} Parameters for the request
         """
         path = "/projects/%s/custom_field_settings" % (project)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
