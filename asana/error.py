@@ -1,9 +1,9 @@
-
 class AsanaError(Exception):
     """Base Asana error class"""
     def __init__(self, message=None, status=None, response=None):
         try:
-            messages = [error['message'] for error in response.json()['errors']]
+            messages = [
+                error['message'] for error in response.json()['errors']]
             message = message + ': ' + '; '.join(messages)
         except Exception:
             pass
@@ -13,6 +13,7 @@ class AsanaError(Exception):
         self.status = status
         self.response = response
 
+
 class InvalidRequestError(AsanaError):
     def __init__(self, response=None):
         super(InvalidRequestError, self).__init__(
@@ -20,6 +21,7 @@ class InvalidRequestError(AsanaError):
             status=400,
             response=response
         )
+
 
 class NoAuthorizationError(AsanaError):
     def __init__(self, response=None):
@@ -37,6 +39,7 @@ class ForbiddenError(AsanaError):
             response=response
         )
 
+
 class NotFoundError(AsanaError):
     def __init__(self, response=None):
         super(NotFoundError, self).__init__(
@@ -45,6 +48,7 @@ class NotFoundError(AsanaError):
             response=response
         )
 
+
 class InvalidTokenError(AsanaError):
     def __init__(self, response=None):
         super(InvalidTokenError, self).__init__(
@@ -52,12 +56,20 @@ class InvalidTokenError(AsanaError):
             status=412,
             response=response
         )
-        self.sync = response != None and response.json()['sync']
+        self.sync = response is not None and response.json()['sync']
+
 
 class RetryableAsanaError(AsanaError):
-    """Base class for errors which should trigger a retry (if configured to do so)"""
+    """Base class for retryable errors.
+
+    Base class for errors which should trigger a retry (if configured to do
+    so).
+
+    """
     def __init__(self, message=None, status=None, response=None):
-        super(RetryableAsanaError, self).__init__(message=message, status=status, response=response)
+        super(RetryableAsanaError, self).__init__(
+            message=message, status=status, response=response)
+
 
 class RateLimitEnforcedError(RetryableAsanaError):
     def __init__(self, response=None):
@@ -66,7 +78,9 @@ class RateLimitEnforcedError(RetryableAsanaError):
             status=429,
             response=response
         )
-        self.retry_after = response != None and float(response.headers['Retry-After'])
+        self.retry_after = (
+            response is not None and float(response.headers['Retry-After']))
+
 
 class ServerError(RetryableAsanaError):
     def __init__(self, response=None):
