@@ -12,6 +12,7 @@ class AsanaError(Exception):
 
         self.status = status
         self.response = response
+        self.message = message
 
 
 class InvalidRequestError(AsanaError):

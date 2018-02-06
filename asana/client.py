@@ -56,6 +56,8 @@ class Client(object):
     ALL_OPTIONS = (
         CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS)
 
+    _PREMIUM_ONLY_STR = "not available for free"
+
     def __init__(self, session=None, auth=None, **options):
         """A :class:`Client` object for interacting with Asana's API.
 
@@ -86,12 +88,11 @@ class Client(object):
                     # TODO: Change back to default behavior once 1.0 & 1.1 have
                     # the same premium only response
                     asana_error = STATUS_MAP[response.status_code](response)
-                    premium_only_str = "not available for free"
-                    if isinstance(asana_error, error.ForbiddenError) and (
-                            premium_only_str in str(asana_error)):
+                    if (isinstance(asana_error, error.ForbiddenError) and
+                            self._PREMIUM_ONLY_STR in asana_error.message):
                         raise error.PremiumOnlyError(response)
                     raise asana_error
-                elif response.status_code >= 500 and (
+                elif (response.status_code >= 500 and
                         response.status_code < 600):
                     # Any unhandled 500 is a server error.
                     raise error.ServerError(response)
