@@ -6,7 +6,7 @@ from .helpers import ClientTestCase, GET, DELETE, POST, PUT
 
 
 class TestClientOrganizationExports(ClientTestCase):
-    def test_orginization_exports_find_by_id(self):
+    def test_organization_exports_find_by_id(self):
         resp = {
             "data": {
                 "id": 1234,
@@ -26,7 +26,7 @@ class TestClientOrganizationExports(ClientTestCase):
         self.assertEqual(
             self.client.organization_exports.find_by_id(1234), resp['data'])
 
-    def test_orginization_exports_create(self):
+    def test_organization_exports_create(self):
         resp = {
             "data": {
                 "organization": 14916
