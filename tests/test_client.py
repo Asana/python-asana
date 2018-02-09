@@ -1,5 +1,9 @@
+try:
+    from mock import patch, call
+except ImportError:
+    from unittest.mock import patch, call
+
 from .helpers import *
-from mock import patch, call
 
 class TestClient(ClientTestCase):
 
