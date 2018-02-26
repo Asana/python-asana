@@ -85,7 +85,9 @@ Methods that return a single object return that object directly:
     project = client.projects.create_in_workspace(workspace_id, { 'name': 'new project' })
     print "Created project with id: " + project['id']
 
-Methods that return multiple items (e.x. `find_all`) return a page iterator by default. See the "Collections" section
+Methods that return multiple items (e.x. `find_all`) return a page iterator by default. See the "Collections" section.
+
+#### See [the gen folder](asana/resources/gen) for methods available for each resource. 
 
 Options
 -------
