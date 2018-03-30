@@ -95,13 +95,13 @@ Options
 Various options can be set globally on the `Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
 
     # global:
-    asana.Client.DEFAULTS['page_size'] = 1000
+    asana.Client.DEFAULTS['page_size'] = 100
 
     # per-client:
-    client.options['page_size'] = 1000
+    client.options['page_size'] = 100
 
     # per-request:
-    client.tasks.find_all({ 'project': 1234 }, page_size=1000)
+    client.tasks.find_all({ 'project': 1234 }, page_size=100)
 
 ### Available options
 
