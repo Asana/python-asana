@@ -51,7 +51,7 @@ class Client(object):
     QUERY_OPTIONS = set(['limit', 'offset', 'sync'])
     REQUEST_OPTIONS = set(
         ['headers', 'params', 'data', 'files', 'verify', 'timeout'])
-    API_OPTIONS = set(['pretty', 'fields', 'expand'])
+    API_OPTIONS = set(['pretty', 'fields', 'expand', 'client_name'])
 
     ALL_OPTIONS = (
         CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS)
