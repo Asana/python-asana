@@ -1,3 +1,4 @@
+
 class _Tags:
     """A _tag_ is a label that can be attached to any task in Asana. It exists in a
     single workspace or organization.
@@ -124,3 +125,4 @@ class _Tags:
         """
         path = "/tags/%s/tasks" % (tag)
         return self.client.get_collection(path, params, **options)
+        

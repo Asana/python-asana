@@ -1,3 +1,4 @@
+
 class _Workspaces:
     """A _workspace_ is the highest-level organizational unit in Asana. All projects
     and tasks have an associated workspace.
@@ -109,3 +110,4 @@ class _Workspaces:
         """
         path = "/workspaces/%s/removeUser" % (workspace)
         return self.client.post(path, params, **options)
+        

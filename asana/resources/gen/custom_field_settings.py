@@ -1,3 +1,4 @@
+
 class _CustomFieldSettings:
     """Custom fields are attached to a particular project with the Custom
     Field Settings resource. This resource both represents the many-to-many join
@@ -19,3 +20,4 @@ class _CustomFieldSettings:
         """
         path = "/projects/%s/custom_field_settings" % (project)
         return self.client.get_collection(path, params, **options)
+        

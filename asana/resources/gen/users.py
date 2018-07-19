@@ -1,3 +1,4 @@
+
 class _Users:
     """A _user_ object represents an account in Asana that can be given access to
     various workspaces, projects, and tasks.
@@ -55,3 +56,4 @@ class _Users:
           - [workspace] : {Id} The workspace or organization to filter users on.
         """
         return self.client.get_collection("/users", params, **options)
+        
