@@ -33,7 +33,7 @@ setup(
     author='Asana, Inc',
     # author_email='',
     url='http://github.com/asana/python-asana',
-    packages=find_packages(exclude=('tests',)),
+    packages=find_packages(exclude=('tests', 'examples')),
     keywords='asana',
     zip_safe=True,
     test_suite='tests')
