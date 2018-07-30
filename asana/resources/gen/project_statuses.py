@@ -11,7 +11,7 @@ class _ProjectStatuses:
     def __init__(self, client=None):
         self.client = client
   
-    def create(self, project, params={}, **options): 
+    def create_in_project(self, project, params={}, **options): 
         """Creates a new status update on the project.
         
         Returns the full record of the newly created project status update.

@@ -82,7 +82,7 @@ class _CustomFields:
         path = "/custom_fields/%s" % (custom_field)
         return self.client.delete(path, params, **options)
         
-    def add_enum_option(self, custom_field, params={}, **options): 
+    def create_enum_option(self, custom_field, params={}, **options): 
         """Creates an enum option and adds it to this custom field's list of enum options. A custom field can have at most 50 enum options (including disabled options). By default new enum options are inserted at the end of a custom field's list.
         
         Returns the full record of the newly created enum option.
@@ -115,7 +115,7 @@ class _CustomFields:
         path = "/enum_options/%s" % (enum_option)
         return self.client.put(path, params, **options)
         
-    def reorder_enum_option(self, custom_field, params={}, **options): 
+    def insert_enum_option(self, custom_field, params={}, **options): 
         """Moves a particular enum option to be either before or after another specified enum option in the custom field.
 
         Parameters

@@ -9,7 +9,7 @@ class _ProjectMemberships:
     def __init__(self, client=None):
         self.client = client
   
-    def get_many(self, project, params={}, **options): 
+    def find_by_project(self, project, params={}, **options): 
         """Returns the compact project membership records for the project.
 
         Parameters
@@ -21,14 +21,14 @@ class _ProjectMemberships:
         path = "/projects/%s/project_memberships" % (project)
         return self.client.get_collection(path, params, **options)
         
-    def get_single(self, project, params={}, **options): 
+    def find_by_id(self, project_membership, params={}, **options): 
         """Returns the project membership record.
 
         Parameters
         ----------
-        project : {Id} Globally unique identifier for the project membership.
+        project_membership : {Id} Globally unique identifier for the project membership.
         [params] : {Object} Parameters for the request
         """
-        path = "/project_memberships/%s" % (project)
+        path = "/project_memberships/%s" % (project_membership)
         return self.client.get(path, params, **options)
         

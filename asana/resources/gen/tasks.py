@@ -142,7 +142,7 @@ class _Tasks:
         """
         return self.client.get_collection("/tasks", params, **options)
         
-    def search(self, workspace, params={}, **options): 
+    def search_in_workspace(self, workspace, params={}, **options): 
         """The search endpoint allows you to build complex queries to find and fetch exactly the data you need from Asana. For a more comprehensive description of all the query parameters and limitations of this endpoint, see our [long-form documentation](/developers/documentation/getting-started/search-api) for this feature.
 
         Parameters
