@@ -1,3 +1,4 @@
+
 class _Tasks:
     """The _task_ is the basic object around which many operations in Asana are
     centered. In the Asana application, multiple tasks populate the middle pane
@@ -140,6 +141,89 @@ class _Tasks:
           - [modified_since] : {String} Only return tasks that have been modified since the given time.
         """
         return self.client.get_collection("/tasks", params, **options)
+        
+    def search_in_workspace(self, workspace, params={}, **options): 
+        """The search endpoint allows you to build complex queries to find and fetch exactly the data you need from Asana. For a more comprehensive description of all the query parameters and limitations of this endpoint, see our [long-form documentation](/developers/documentation/getting-started/search-api) for this feature.
+
+        Parameters
+        ----------
+        workspace : {Id} The workspace or organization in which to search for tasks.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/workspaces/%s/tasks/search" % (workspace)
+        return self.client.get_collection(path, params, **options)
+        
+    def dependencies(self, task, params={}, **options): 
+        """Returns the compact representations of all of the dependencies of a task.
+
+        Parameters
+        ----------
+        task : {Id} The task to get dependencies on.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/tasks/%s/dependencies" % (task)
+        return self.client.get(path, params, **options)
+        
+    def dependents(self, task, params={}, **options): 
+        """Returns the compact representations of all of the dependents of a task.
+
+        Parameters
+        ----------
+        task : {Id} The task to get dependents on.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/tasks/%s/dependents" % (task)
+        return self.client.get(path, params, **options)
+        
+    def add_dependencies(self, task, params={}, **options): 
+        """Marks a set of tasks as dependencies of this task, if they are not
+        already dependencies. *A task can have at most 15 dependencies.*
+
+        Parameters
+        ----------
+        task : {Id} The task to add dependencies to.
+        [data] : {Object} Data for the request
+          - dependencies : {Array} An array of task IDs that this task should depend on.
+        """
+        path = "/tasks/%s/addDependencies" % (task)
+        return self.client.post(path, params, **options)
+        
+    def add_dependents(self, task, params={}, **options): 
+        """Marks a set of tasks as dependents of this task, if they are not already
+        dependents. *A task can have at most 30 dependents.*
+
+        Parameters
+        ----------
+        task : {Id} The task to add dependents to.
+        [data] : {Object} Data for the request
+          - dependents : {Array} An array of task IDs that should depend on this task.
+        """
+        path = "/tasks/%s/addDependents" % (task)
+        return self.client.post(path, params, **options)
+        
+    def remove_dependencies(self, task, params={}, **options): 
+        """Unlinks a set of dependencies from this task.
+
+        Parameters
+        ----------
+        task : {Id} The task to remove dependencies from.
+        [data] : {Object} Data for the request
+          - dependencies : {Array} An array of task IDs to remove as dependencies.
+        """
+        path = "/tasks/%s/removeDependencies" % (task)
+        return self.client.post(path, params, **options)
+        
+    def remove_dependents(self, task, params={}, **options): 
+        """Unlinks a set of dependents from this task.
+
+        Parameters
+        ----------
+        task : {Id} The task to remove dependents from.
+        [data] : {Object} Data for the request
+          - dependents : {Array} An array of task IDs to remove as dependents.
+        """
+        path = "/tasks/%s/removeDependents" % (task)
+        return self.client.post(path, params, **options)
         
     def add_followers(self, task, params={}, **options): 
         """Adds each of the specified followers to the task, if they are not already
@@ -308,3 +392,4 @@ class _Tasks:
         """
         path = "/tasks/%s/stories" % (task)
         return self.client.post(path, params, **options)
+        
