@@ -15,14 +15,12 @@ try:
 except ImportError:
     import urllib as urlparse
 
-
 # Create a dict of resource classes
 RESOURCE_CLASSES = {}
 for name, module in resources.__dict__.items():
     classified_name = string.capwords(name, '_').replace('_', '')
     if isinstance(module, ModuleType) and classified_name in module.__dict__:
         RESOURCE_CLASSES[name] = module.__dict__[classified_name]
-
 
 # Create a mapping of status codes to classes
 STATUS_MAP = {}
@@ -34,7 +32,7 @@ for name, Klass in error.__dict__.items():
 class Client(object):
     """Asana client class"""
 
-    DEFAULTS = {
+    DEFAULT_OPTIONS = {
         'base_url': 'https://app.asana.com/api/1.0',
         'item_limit': None,
         'page_size': 50,
@@ -47,16 +45,14 @@ class Client(object):
     RETRY_DELAY = 1.0
     RETRY_BACKOFF = 2.0
 
-    CLIENT_OPTIONS = set(DEFAULTS.keys())
-    QUERY_OPTIONS = set(['limit', 'offset', 'sync'])
-    REQUEST_OPTIONS = set(
-        ['headers', 'params', 'data', 'files', 'verify', 'timeout'])
-    API_OPTIONS = set(['pretty', 'fields', 'expand', 'client_name'])
+    CLIENT_OPTIONS = set(DEFAULT_OPTIONS.keys())
+    QUERY_OPTIONS = {'limit', 'offset', 'sync'}
+    REQUEST_OPTIONS = {'headers', 'params', 'data', 'files', 'verify',
+                       'timeout'}
+    API_OPTIONS = {'pretty', 'fields', 'expand', 'client_name'}
 
     ALL_OPTIONS = (
         CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS)
-
-    _PREMIUM_ONLY_STR = "not available for free"
 
     def __init__(self, session=None, auth=None, **options):
         """A :class:`Client` object for interacting with Asana's API.
@@ -66,8 +62,9 @@ class Client(object):
         """
         self.session = session or requests.Session()
         self.auth = auth
+        self.headers = options.pop('headers', {})
         # merge the provided options (if any) with the global DEFAULTS
-        self.options = _merge(self.DEFAULTS, options)
+        self.options = _merge(self.DEFAULT_OPTIONS, options)
         # intializes each resource, injecting this client object into the
         # constructor
         for name, Klass in RESOURCE_CLASSES.items():
@@ -85,15 +82,8 @@ class Client(object):
                 response = getattr(self.session, method)(
                     url, auth=self.auth, **request_options)
                 if response.status_code in STATUS_MAP:
-                    # TODO: Change back to default behavior once 1.0 & 1.1 have
-                    # the same premium only response
-                    asana_error = STATUS_MAP[response.status_code](response)
-                    if (isinstance(asana_error, error.ForbiddenError) and
-                            self._PREMIUM_ONLY_STR in asana_error.message):
-                        raise error.PremiumOnlyError(response)
-                    raise asana_error
-                elif (response.status_code >= 500 and
-                        response.status_code < 600):
+                    raise STATUS_MAP[response.status_code](response)
+                elif 500 <= response.status_code < 600:
                     # Any unhandled 500 is a server error.
                     raise error.ServerError(response)
                 else:
@@ -234,6 +224,10 @@ class Client(object):
                 del request_options['data']['options']
             # serialize 'data' to JSON, requests doesn't do this automatically:
             request_options['data'] = json.dumps(request_options['data'])
+
+        headers = self.headers.copy()
+        headers.update(request_options.get('headers', {}))
+        request_options['headers'] = headers
         return request_options
 
     def _select_options(self, options, keys, invert=False):
@@ -254,18 +248,18 @@ class Client(object):
     def _add_version_header(self, options):
         """Add the client lib version header to the request."""
         headers = options.setdefault('headers', {})
-        headers['X-Asana-Client-Lib'] = self._versionHeader()
+        headers['X-Asana-Client-Lib'] = self._version_header()
 
     _cached_version_header = None
 
-    def _versionHeader(self):
+    def _version_header(self):
         """Generate the client version header to send on each request."""
         if not self._cached_version_header:
             self._cached_version_header = urlparse.urlencode(
-                self._versionValues())
+                self._version_values())
         return self._cached_version_header
 
-    def _versionValues(self):
+    def _version_values(self):
         """Generate the values to go in the client version header."""
         return {
             'language': 'Python',
@@ -277,7 +271,14 @@ class Client(object):
 
     @classmethod
     def basic_auth(Klass, apiKey):
-        """Construct an Asana Client with a Basic Auth API key"""
+        """DEPRECATED: this is only present for backwards-compatibility.
+
+        This will be removed in the future; for new apps, prefer the
+        `access_token` method.
+
+        Construct an Asana Client using a Personal Access Token as if it
+        were an old (removed) Asana API Key.
+        """
         return Klass(auth=requests.auth.HTTPBasicAuth(apiKey, ''))
 
     @classmethod

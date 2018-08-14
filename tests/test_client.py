@@ -8,16 +8,35 @@ from .helpers import *
 class TestClient(ClientTestCase):
 
     def test_version_values(self):
-        values = self.client._versionValues()
+        values = self.client._version_values()
         self.assertEqual('Python', values['language'])
         self.assertRegexpMatches(values['version'], r'[0-9]+[.][0-9]+[.][0-9]+')
-        self.assertSetEqual(set([
-            'language', 'version', 'language_version', 'os', 'os_version'
-        ]), set(values.keys()))
+        self.assertSetEqual(
+            {'language', 'version', 'language_version', 'os', 'os_version'},
+            set(values.keys()))
 
     def test_version_header(self):
         self.assertRegexpMatches(
-            self.client._versionHeader(), r'language=Python')
+            self.client._version_header(), r'language=Python')
+
+    def test_default_headers(self):
+        self.client.headers['key'] = 'value'
+        responses.add(GET, 'http://app/users/me', status=200,
+                      body='{"data":{}}', adding_headers={'key': 'value'})
+        self.client.users.me()
+
+    def test_request_headers(self):
+        responses.add(GET, 'http://app/users/me', status=200,
+                      body='{"data":{}}', adding_headers={'key': 'value'})
+        self.client.users.me(headers={'key': 'value'})
+
+    def test_overriding_headers(self):
+        self.client.headers['key'] = 'value'
+        self.client.headers['key2'] = 'value2'
+        responses.add(GET, 'http://app/users/me', status=200,
+                      body='{"data":{}}',
+                      adding_headers={'key': 'value', 'key2': 'value3'})
+        self.client.users.me(headers={'key2': 'value3'})
 
     def test_users_me_not_authorized(self):
         res = {
@@ -76,9 +95,8 @@ class TestClient(ClientTestCase):
         res = {
             "data": { "email": "sanchez@...", "id": 999, "name": "Greg Sanchez" }
         }
-        # responses.add(GET, 'http://app/users/me?opt_pretty', status=200, body=json.dumps(res), match_querystring=True)
         responses.add(GET, 'http://app/users/me?opt_pretty=true', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.users.me(pretty=True), res['data']) 
+        self.assertEqual(self.client.users.me(pretty=True), res['data'])
 
     def test_option_fields(self):
         res = {

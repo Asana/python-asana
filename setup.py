@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
 setup(
     name='asana',
-    version='0.7.1',
+    version='0.8.0',
     description='Asana API client',
     license='MIT',
     classifiers=[
@@ -33,7 +33,7 @@ setup(
     author='Asana, Inc',
     # author_email='',
     url='http://github.com/asana/python-asana',
-    packages=find_packages(exclude=('tests',)),
+    packages=find_packages(exclude=('tests', 'examples')),
     keywords='asana',
     zip_safe=True,
     test_suite='tests')
