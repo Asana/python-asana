@@ -270,6 +270,18 @@ class Client(object):
         }
 
     @classmethod
+    def basic_auth(Klass, apiKey):
+        """DEPRECATED: this is only present for backwards-compatibility.
+
+        This will be removed in the future; for new apps, prefer the
+        `access_token` method.
+
+        Construct an Asana Client using a Personal Access Token as if it
+        were an old (removed) Asana API Key.
+        """
+        return Klass(auth=requests.auth.HTTPBasicAuth(apiKey, ''))
+
+    @classmethod
     def access_token(Klass, accessToken):
         """Construct an Asana Client with a Personal Access Token"""
         return Klass(
