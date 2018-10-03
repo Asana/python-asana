@@ -138,9 +138,11 @@ class Client(object):
             'data': _merge(parameter_options, data),
             'options': self._parse_api_options(options)
         }
-        return self.request(
-            'post', path, data=body,
-            headers={'content-type': 'application/json'}, **options)
+        headers = _merge(
+            {'content-type': 'application/json'},
+            options.pop('headers', {})
+        )
+        return self.request('post', path, data=body, headers=headers, **options)
 
     def put(self, path, data, **options):
         """Parses PUT request options and dispatches a request."""
@@ -150,9 +152,11 @@ class Client(object):
             'data': _merge(parameter_options, data),
             'options': self._parse_api_options(options)
         }
-        return self.request(
-            'put', path, data=body,
-            headers={'content-type': 'application/json'}, **options)
+        headers = _merge(
+            {'content-type': 'application/json'},
+            options.pop('headers', {})
+        )
+        return self.request('put', path, data=body, headers=headers, **options)
 
     def delete(self, path, data, **options):
         """Dispatches a DELETE request."""
