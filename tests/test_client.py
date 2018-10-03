@@ -24,16 +24,16 @@ class TestClient(ClientTestCase):
         responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me()
         self.assertLessEqual(
-            {'key': 'value'}.items(),
-            responses.calls[0].request.headers.items()
+            set({'key': 'value'}.items()),
+            set(responses.calls[0].request.headers.items())
         )
 
     def test_request_headers(self):
         responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me(headers={'key': 'value'})
         self.assertLessEqual(
-            {'key': 'value'}.items(),
-            responses.calls[0].request.headers.items()
+            set({'key': 'value'}.items()),
+            set(responses.calls[0].request.headers.items())
         )
 
     def test_overriding_headers(self):
@@ -42,8 +42,8 @@ class TestClient(ClientTestCase):
         responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me(headers={'key2': 'value3'})
         self.assertLessEqual(
-            {'key': 'value', 'key2': 'value3'}.items(),
-            responses.calls[0].request.headers.items()
+            set({'key': 'value', 'key2': 'value3'}.items()),
+            set(responses.calls[0].request.headers.items())
         )
 
     def test_content_type_headers(self):
@@ -52,8 +52,8 @@ class TestClient(ClientTestCase):
                       body='{"data":{}}')
         self.client.tasks.add_project(123, project=456, headers={'key2': 'value2'})
         self.assertLessEqual(
-            {'content-type': 'application/json'}.items(),
-            responses.calls[0].request.headers.items()
+            set({'content-type': 'application/json'}.items()),
+            set(responses.calls[0].request.headers.items())
         )
 
     def test_users_me_not_authorized(self):
