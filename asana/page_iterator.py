@@ -58,7 +58,6 @@ class PageIterator(object):
         for page in self:
             for item in page:
                 yield item
-        raise StopIteration
 
 
 class CollectionPageIterator(PageIterator):
