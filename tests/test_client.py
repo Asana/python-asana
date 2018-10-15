@@ -21,22 +21,40 @@ class TestClient(ClientTestCase):
 
     def test_default_headers(self):
         self.client.headers['key'] = 'value'
-        responses.add(GET, 'http://app/users/me', status=200,
-                      body='{"data":{}}', adding_headers={'key': 'value'})
+        responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me()
+        self.assertLessEqual(
+            set({'key': 'value'}.items()),
+            set(responses.calls[0].request.headers.items())
+        )
 
     def test_request_headers(self):
-        responses.add(GET, 'http://app/users/me', status=200,
-                      body='{"data":{}}', adding_headers={'key': 'value'})
+        responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me(headers={'key': 'value'})
+        self.assertLessEqual(
+            set({'key': 'value'}.items()),
+            set(responses.calls[0].request.headers.items())
+        )
 
     def test_overriding_headers(self):
         self.client.headers['key'] = 'value'
         self.client.headers['key2'] = 'value2'
-        responses.add(GET, 'http://app/users/me', status=200,
-                      body='{"data":{}}',
-                      adding_headers={'key': 'value', 'key2': 'value3'})
+        responses.add(GET, 'http://app/users/me', status=200, body='{"data":{}}')
         self.client.users.me(headers={'key2': 'value3'})
+        self.assertLessEqual(
+            set({'key': 'value', 'key2': 'value3'}.items()),
+            set(responses.calls[0].request.headers.items())
+        )
+
+    def test_content_type_headers(self):
+        self.client.headers['key'] = 'value'
+        responses.add(POST, 'http://app/tasks/123/addProject', status=200,
+                      body='{"data":{}}')
+        self.client.tasks.add_project(123, project=456, headers={'key2': 'value2'})
+        self.assertLessEqual(
+            set({'content-type': 'application/json'}.items()),
+            set(responses.calls[0].request.headers.items())
+        )
 
     def test_users_me_not_authorized(self):
         res = {
