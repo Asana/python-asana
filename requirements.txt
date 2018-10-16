@@ -1,4 +1,4 @@
-pytest~=2.8
+pytest~=3.0
 requests_oauthlib>=0.8.0<2.0
 requests~=2.14
 responses~=0.8.1
