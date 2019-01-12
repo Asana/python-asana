@@ -29,7 +29,7 @@ class _Projects:
 
         Parameters
         ----------
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - workspace : {Id} The workspace or organization to create the project in.
           - [team] : {Id} If creating in an organization, the specific team to create the
           project in.
@@ -45,7 +45,7 @@ class _Projects:
         Parameters
         ----------
         workspace : {Id} The workspace or organization to create the project in.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
         """
         path = "/workspaces/%s/projects" % (workspace)
         return self.client.post(path, params, **options)
@@ -58,7 +58,7 @@ class _Projects:
         Parameters
         ----------
         team : {Id} The team to create the project in.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
         """
         path = "/teams/%s/projects" % (team)
         return self.client.post(path, params, **options)
@@ -88,7 +88,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to update.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
         """
         path = "/projects/%s" % (project)
         return self.client.put(path, params, **options)
@@ -166,7 +166,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to add followers to.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - followers : {Array} An array of followers to add to the project.
         """
         path = "/projects/%s/addFollowers" % (project)
@@ -179,7 +179,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to remove followers from.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - followers : {Array} An array of followers to remove from the project.
         """
         path = "/projects/%s/removeFollowers" % (project)
@@ -191,7 +191,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to add members to.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - members : {Array} An array of members to add to the project.
         """
         path = "/projects/%s/addMembers" % (project)
@@ -203,7 +203,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to remove members from.
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - members : {Array} An array of members to remove from the project.
         """
         path = "/projects/%s/removeMembers" % (project)
@@ -215,7 +215,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to associate the custom field with
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - custom_field : {Id} The id of the custom field to associate with this project.
           - [is_important] : {Boolean} Whether this field should be considered important to this project.
           - [insert_before] : {Id} An id of a Custom Field Settings on this project, before which the new Custom Field Settings will be added.
@@ -232,7 +232,7 @@ class _Projects:
         Parameters
         ----------
         project : {Id} The project to associate the custom field with
-        [data] : {Object} Data for the request
+        [params] : {Object} Data for the request
           - [custom_field] : {Id} The id of the custom field to remove from this project.
         """
         path = "/projects/%s/removeCustomFieldSetting" % (project)
