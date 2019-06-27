@@ -314,3 +314,13 @@ class TestClient(ClientTestCase):
             }
         })
 
+    def test_asana_change_header_logging(self):
+        requestHeaders = {
+            'asana-enable': 'string_ids'
+        }
+        responseHeaders = {
+            'asana-change': 'name=string_ids;info=something;affected=true,'+
+                            'name=new_sections;info=something;affected=true'
+        }
+        self.client._log_asana_change_header(self.client, requestHeaders, responseHeaders)
+

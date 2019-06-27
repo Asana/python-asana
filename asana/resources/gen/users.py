@@ -33,6 +33,22 @@ class _Users:
         path = "/users/%s" % (user)
         return self.client.get(path, params, **options)
         
+    def get_user_favorites(self, user, params={}, **options): 
+        """Returns all of a user's favorites in the given workspace, of the given type.
+        Results are given in order (The same order as Asana's sidebar).
+
+        Parameters
+        ----------
+        user : {String} An identifier for the user. Can be one of an email address,
+        the globally unique identifier for the user, or the keyword `me`
+        to indicate the current user making the request.
+        [params] : {Object} Parameters for the request
+          - workspace : {Id} The workspace in which to get favorites.
+          - resource_type : {Enum} The resource type of favorites to be returned.
+        """
+        path = "/users/%s/favorites" % (user)
+        return self.client.get(path, params, **options)
+        
     def find_by_workspace(self, workspace, params={}, **options): 
         """Returns the user records for all users in the specified workspace or
         organization.

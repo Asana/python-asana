@@ -24,7 +24,7 @@ class _Tasks:
         Parameters
         ----------
         [data] : {Object} Data for the request
-          - [workspace] : {Id} The workspace to create a task in.
+          - [workspace] : {Gid} The workspace to create a task in.
         """
         return self.client.post("/tasks", params, **options)
         
@@ -39,7 +39,7 @@ class _Tasks:
 
         Parameters
         ----------
-        workspace : {Id} The workspace to create a task in.
+        workspace : {Gid} The workspace to create a task in.
         [data] : {Object} Data for the request
         """
         path = "/workspaces/%s/tasks" % (workspace)
@@ -50,7 +50,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get.
+        task : {Gid} The task to get.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s" % (task)
@@ -69,7 +69,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to update.
+        task : {Gid} The task to update.
         [data] : {Object} Data for the request
         """
         path = "/tasks/%s" % (task)
@@ -85,21 +85,34 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to delete.
+        task : {Gid} The task to delete.
         """
         path = "/tasks/%s" % (task)
         return self.client.delete(path, params, **options)
         
-    def find_by_project(self, project_id, params={}, **options): 
+    def duplicate_task(self, task, params={}, **options): 
+        """Creates and returns a job that will asynchronously handle the duplication.
+
+        Parameters
+        ----------
+        task : {Gid} The task to duplicate.
+        [data] : {Object} Data for the request
+          - name : {String} The name of the new task.
+          - [include] : {Array} The fields that will be duplicated to the new task.
+        """
+        path = "/tasks/%s/duplicate" % (task)
+        return self.client.post(path, params, **options)
+        
+    def find_by_project(self, project, params={}, **options): 
         """Returns the compact task records for all tasks within the given project,
         ordered by their priority within the project.
 
         Parameters
         ----------
-        projectId : {Id} The project in which to search for tasks.
+        project : {Gid} The project in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
-        path = "/projects/%s/tasks" % (project_id)
+        path = "/projects/%s/tasks" % (project)
         return self.client.get_collection(path, params, **options)
         
     def find_by_tag(self, tag, params={}, **options): 
@@ -107,7 +120,7 @@ class _Tasks:
 
         Parameters
         ----------
-        tag : {Id} The tag in which to search for tasks.
+        tag : {Gid} The tag in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
         path = "/tags/%s/tasks" % (tag)
@@ -118,37 +131,82 @@ class _Tasks:
 
         Parameters
         ----------
-        section : {Id} The section in which to search for tasks.
+        section : {Gid} The section in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
         path = "/sections/%s/tasks" % (section)
         return self.client.get_collection(path, params, **options)
         
+    def find_by_user_task_list(self, user_task_list, params={}, **options): 
+        """Returns the compact list of tasks in a user's My Tasks list. The returned
+        tasks will be in order within each assignee status group of `Inbox`,
+        `Today`, and `Upcoming`.
+        
+        **Note:** tasks in `Later` have a different ordering in the Asana web app
+        than the other assignee status groups; this endpoint will still return
+        them in list order in `Later` (differently than they show up in Asana,
+        but the same order as in Asana's mobile apps).
+        
+        **Note:** Access control is enforced for this endpoint as with all Asana
+        API endpoints, meaning a user's private tasks will be filtered out if the
+        API-authenticated user does not have access to them.
+        
+        **Note:** Both complete and incomplete tasks are returned by default
+        unless they are filtered out (for example, setting `completed_since=now`
+        will return only incomplete tasks, which is the default view for "My
+        Tasks" in Asana.)
+
+        Parameters
+        ----------
+        user_task_list : {Gid} The user task list in which to search for tasks.
+        [params] : {Object} Parameters for the request
+          - [completed_since] : {String} Only return tasks that are either incomplete or that have been
+          completed since this time.
+        """
+        path = "/user_task_lists/%s/tasks" % (user_task_list)
+        return self.client.get_collection(path, params, **options)
+        
     def find_all(self, params={}, **options): 
         """Returns the compact task records for some filtered set of tasks. Use one
         or more of the parameters provided to filter the tasks returned. You must
-        specify a `project` or `tag` if you do not specify `assignee` and `workspace`.
+        specify a `project`, `section`, `tag`, or `user_task_list` if you do not
+        specify `assignee` and `workspace`.
 
         Parameters
         ----------
         [params] : {Object} Parameters for the request
           - [assignee] : {String} The assignee to filter tasks on.
-          - [project] : {Id} The project to filter tasks on.
-          - [section] : {Id} The section to filter tasks on.
-          - [workspace] : {Id} The workspace or organization to filter tasks on.
+          - [workspace] : {Gid} The workspace or organization to filter tasks on.
+          - [project] : {Gid} The project to filter tasks on.
+          - [section] : {Gid} The section to filter tasks on.
+          - [tag] : {Gid} The tag to filter tasks on.
+          - [user_task_list] : {Gid} The user task list to filter tasks on.
           - [completed_since] : {String} Only return tasks that are either incomplete or that have been
           completed since this time.
           - [modified_since] : {String} Only return tasks that have been modified since the given time.
         """
         return self.client.get_collection("/tasks", params, **options)
         
+    def get_tasks_with_tag(self, tag, params={}, **options): 
+        """Returns the compact task records for all tasks with the given tag.
+        Tasks can have more than one tag at a time.
+
+        Parameters
+        ----------
+        tag : {Id} The tag to fetch tasks from.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/tags/%s/tasks" % (tag)
+        return self.client.get_collection(path, params, **options)
+        
     def search_in_workspace(self, workspace, params={}, **options): 
         """The search endpoint allows you to build complex queries to find and fetch exactly the data you need from Asana. For a more comprehensive description of all the query parameters and limitations of this endpoint, see our [long-form documentation](/developers/documentation/getting-started/search-api) for this feature.
 
         Parameters
         ----------
-        workspace : {Id} The workspace or organization in which to search for tasks.
+        workspace : {Gid} The workspace or organization in which to search for tasks.
         [params] : {Object} Parameters for the request
+          - [resource_subtype] : {Enum} Filters results by the task's resource_subtype.
         """
         path = "/workspaces/%s/tasks/search" % (workspace)
         return self.client.get_collection(path, params, **options)
@@ -158,7 +216,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get dependencies on.
+        task : {Gid} The task to get dependencies on.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/dependencies" % (task)
@@ -169,7 +227,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get dependents on.
+        task : {Gid} The task to get dependents on.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/dependents" % (task)
@@ -181,7 +239,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add dependencies to.
+        task : {Gid} The task to add dependencies to.
         [data] : {Object} Data for the request
           - dependencies : {Array} An array of task IDs that this task should depend on.
         """
@@ -194,7 +252,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add dependents to.
+        task : {Gid} The task to add dependents to.
         [data] : {Object} Data for the request
           - dependents : {Array} An array of task IDs that should depend on this task.
         """
@@ -206,7 +264,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to remove dependencies from.
+        task : {Gid} The task to remove dependencies from.
         [data] : {Object} Data for the request
           - dependencies : {Array} An array of task IDs to remove as dependencies.
         """
@@ -218,7 +276,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to remove dependents from.
+        task : {Gid} The task to remove dependents from.
         [data] : {Object} Data for the request
           - dependents : {Array} An array of task IDs to remove as dependents.
         """
@@ -231,7 +289,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add followers to.
+        task : {Gid} The task to add followers to.
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to add to the task.
         """
@@ -244,7 +302,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to remove followers from.
+        task : {Gid} The task to remove followers from.
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to remove from the task.
         """
@@ -256,7 +314,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get projects on.
+        task : {Gid} The task to get projects on.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/projects" % (task)
@@ -280,14 +338,14 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add to a project.
+        task : {Gid} The task to add to a project.
         [data] : {Object} Data for the request
-          - project : {Id} The project to add the task to.
-          - [insert_after] : {Id} A task in the project to insert the task after, or `null` to
+          - project : {Gid} The project to add the task to.
+          - [insert_after] : {Gid} A task in the project to insert the task after, or `null` to
           insert at the beginning of the list.
-          - [insert_before] : {Id} A task in the project to insert the task before, or `null` to
+          - [insert_before] : {Gid} A task in the project to insert the task before, or `null` to
           insert at the end of the list.
-          - [section] : {Id} A section in the project to insert the task into. The task will be
+          - [section] : {Gid} A section in the project to insert the task into. The task will be
           inserted at the bottom of the section.
         """
         path = "/tasks/%s/addProject" % (task)
@@ -301,9 +359,9 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to remove from a project.
+        task : {Gid} The task to remove from a project.
         [data] : {Object} Data for the request
-          - project : {Id} The project to remove the task from.
+          - project : {Gid} The project to remove the task from.
         """
         path = "/tasks/%s/removeProject" % (task)
         return self.client.post(path, params, **options)
@@ -313,7 +371,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get tags on.
+        task : {Gid} The task to get tags on.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/tags" % (task)
@@ -324,9 +382,9 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add a tag to.
+        task : {Gid} The task to add a tag to.
         [data] : {Object} Data for the request
-          - tag : {Id} The tag to add to the task.
+          - tag : {Gid} The tag to add to the task.
         """
         path = "/tasks/%s/addTag" % (task)
         return self.client.post(path, params, **options)
@@ -336,9 +394,9 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to remove a tag from.
+        task : {Gid} The task to remove a tag from.
         [data] : {Object} Data for the request
-          - tag : {Id} The tag to remove from the task.
+          - tag : {Gid} The tag to remove from the task.
         """
         path = "/tasks/%s/removeTag" % (task)
         return self.client.post(path, params, **options)
@@ -348,7 +406,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to get the subtasks of.
+        task : {Gid} The task to get the subtasks of.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/subtasks" % (task)
@@ -360,7 +418,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task to add a subtask to.
+        task : {Gid} The task to add a subtask to.
         [data] : {Object} Data for the request
         """
         path = "/tasks/%s/subtasks" % (task)
@@ -371,7 +429,7 @@ class _Tasks:
 
         Parameters
         ----------
-        task : {Id} The task containing the stories to get.
+        task : {Gid} The task containing the stories to get.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/stories" % (task)
@@ -391,5 +449,29 @@ class _Tasks:
           - text : {String} The plain text of the comment to add.
         """
         path = "/tasks/%s/stories" % (task)
+        return self.client.post(path, params, **options)
+        
+    def insert_in_user_task_list(self, user_task_list, params={}, **options): 
+        """Insert or reorder tasks in a user's My Tasks list. If the task was not
+        assigned to the owner of the user task list it will be reassigned when
+        this endpoint is called. If neither `insert_before` nor `insert_after`
+        are provided the task will be inserted at the top of the assignee's
+        inbox.
+        
+        Returns an empty data block.
+
+        Parameters
+        ----------
+        user_task_list : {Gid} Globally unique identifier for the user task list.
+        [data] : {Object} Data for the request
+          - task : {Gid} Globally unique identifier for the task.
+          - [insert_before] : {Gid} Insert the task before the task specified by this field. The inserted
+          task will inherit the `assignee_status` of this task. `insert_before`
+          and `insert_after` parameters cannot both be specified.
+          - [insert_after] : {Gid} Insert the task after the task specified by this field. The inserted
+          task will inherit the `assignee_status` of this task. `insert_before`
+          and `insert_after` parameters cannot both be specified.
+        """
+        path = "/user_task_lists/%s/tasks/insert" % (user_task_list)
         return self.client.post(path, params, **options)
         

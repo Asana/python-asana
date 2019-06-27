@@ -3,6 +3,7 @@ import json
 import platform
 import time
 import string
+import warnings
 
 import requests
 
@@ -81,6 +82,7 @@ class Client(object):
             try:
                 response = getattr(self.session, method)(
                     url, auth=self.auth, **request_options)
+                self._log_asana_change_header(self, self.headers, response.headers)
                 if response.status_code in STATUS_MAP:
                     raise STATUS_MAP[response.status_code](response)
                 elif 500 <= response.status_code < 600:
@@ -97,6 +99,55 @@ class Client(object):
                     retry_count += 1
                 else:
                     raise e
+
+    def _log_asana_change_header(self, req_headers, res_headers):
+        change_header_key = None
+
+        for key in res_headers:
+            if key.lower() == 'asana-change':
+                change_header_key = key
+
+        if change_header_key != None:
+            accounted_for_flags = []
+
+            # Grab the request's asana-enable flags
+            for reqHeader in req_headers:
+                if reqHeader.lower() == 'asana-enable':
+                    for flag in req_headers[reqHeader].split(','):
+                        accounted_for_flags.append(flag)
+                elif reqHeader.lower() == 'asana-disable':
+                    for flag in req_headers[reqHeader].split(','):
+                        accounted_for_flags.append(flag)
+
+            changes = res_headers[change_header_key].split(',')
+            for unsplit_change in changes:
+                change = unsplit_change.split(';')
+
+                name = None
+                info = None
+                affected = None
+
+                for unsplit_field in change:
+                    field = unsplit_field.split('=')
+
+                    field[0] = field[0].strip()
+                    if field[0].strip() == 'name':
+                        name = field[1].strip()
+                    elif field[0].strip() == 'info':
+                        info = field[1].strip()
+                    elif field[0].strip() == 'affected':
+                        affected = field[1].strip()
+
+                # Only show the error if the flag was not in the request's asana-enable header
+                if (not accounted_for_flags.includes(name) & affected == 'true'):
+                    message = 'This request is affected by the "' + name + \
+                    '" deprecation. Please visit this url for more info: ' + info + \
+                    '\n' + 'Adding "' + name + '" to your "Asana-Enable" or ' + \
+                    '"Asana-Disable" header will opt in/out to this deprecation ' + \
+                    'and suppress this warning.'
+
+                    warnings.warn(message)
+
 
     def _handle_retryable_error(self, e, retry_count):
         """Sleep based on the type of :class:`RetryableAsanaError`"""
