@@ -113,3 +113,14 @@ class _Tags:
         """
         path = "/workspaces/%s/tags" % (workspace)
         return self.client.get_collection(path, params, **options)
+
+    def get_tasks_with_tag(self, tag, params={}, **options):
+        """Returns the compact task records for all tasks with the given tag.
+        Tasks can have more than one tag at a time.
+        Parameters
+        ----------
+        tag : {Id} The tag to fetch tasks from.
+        [params] : {Object} Parameters for the request
+        """
+        path = "/tags/%s/tasks" % (tag)
+        return self.client.get_collection(path, params, **options)
