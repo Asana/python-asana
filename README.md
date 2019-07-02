@@ -122,6 +122,19 @@ Events:
 * `poll_interval` (default: 5): polling interval for getting new events via `events.get_next` and `events.get_iterator`
 * `sync`: sync token returned by previous calls to `events.get` (in `response['sync']`)
 
+### Asana Change Warnings
+
+You will receive warning logs if performing requests that may be affected by a deprecation. The warning contains a link that explains the deprecation.
+
+If you receive one of these warnings, you should:
+* Read about the deprecation.
+* Resolve sections of your code that would be affected by the deprecation.
+* Add the deprecation flag to your "asana-enable" header.
+
+If you would rather suppress these warnings, you can set
+
+    client.LOG_ASANA_CHANGE_WARNINGS = false;
+
 Collections
 -----------
 
