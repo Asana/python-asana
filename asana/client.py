@@ -52,6 +52,8 @@ class Client(object):
                        'timeout'}
     API_OPTIONS = {'pretty', 'fields', 'expand', 'client_name'}
 
+    LOG_ASANA_CHANGE_WARNINGS = True
+
     ALL_OPTIONS = (
         CLIENT_OPTIONS | QUERY_OPTIONS | REQUEST_OPTIONS | API_OPTIONS)
 
@@ -101,53 +103,54 @@ class Client(object):
                     raise e
 
     def _log_asana_change_header(self, req_headers, res_headers):
-        change_header_key = None
+        if self.LOG_ASANA_CHANGE_WARNINGS:
+            change_header_key = None
 
-        for key in res_headers:
-            if key.lower() == 'asana-change':
-                change_header_key = key
+            for key in res_headers:
+                if key.lower() == 'asana-change':
+                    change_header_key = key
 
-        if change_header_key is not None:
-            accounted_for_flags = []
+            if change_header_key is not None:
+                accounted_for_flags = []
 
-            # Grab the request's asana-enable flags
-            for reqHeader in req_headers:
-                if reqHeader.lower() == 'asana-enable':
-                    for flag in req_headers[reqHeader].split(','):
-                        accounted_for_flags.append(flag)
-                elif reqHeader.lower() == 'asana-disable':
-                    for flag in req_headers[reqHeader].split(','):
-                        accounted_for_flags.append(flag)
+                # Grab the request's asana-enable flags
+                for reqHeader in req_headers:
+                    if reqHeader.lower() == 'asana-enable':
+                        for flag in req_headers[reqHeader].split(','):
+                            accounted_for_flags.append(flag)
+                    elif reqHeader.lower() == 'asana-disable':
+                        for flag in req_headers[reqHeader].split(','):
+                            accounted_for_flags.append(flag)
 
-            changes = res_headers[change_header_key].split(',');
+                changes = res_headers[change_header_key].split(',');
 
-            for unsplit_change in changes:
-                change = unsplit_change.split(';')
+                for unsplit_change in changes:
+                    change = unsplit_change.split(';')
 
-                name = None
-                info = None
-                affected = None
+                    name = None
+                    info = None
+                    affected = None
 
-                for unsplit_field in change:
-                    field = unsplit_field.split('=')
+                    for unsplit_field in change:
+                        field = unsplit_field.split('=')
 
-                    field[0] = field[0].strip()
-                    if field[0].strip() == 'name':
-                        name = field[1].strip()
-                    elif field[0].strip() == 'info':
-                        info = field[1].strip()
-                    elif field[0].strip() == 'affected':
-                        affected = field[1].strip()
+                        field[0] = field[0].strip()
+                        if field[0].strip() == 'name':
+                            name = field[1].strip()
+                        elif field[0].strip() == 'info':
+                            info = field[1].strip()
+                        elif field[0].strip() == 'affected':
+                            affected = field[1].strip()
 
-                # Only show the error if the flag was not in the request's asana-enable header
-                if (name not in accounted_for_flags) & (affected == 'true'):
-                    message = 'This request is affected by the "' + name + \
-                    '" deprecation. Please visit this url for more info: ' + info + \
-                    '\n' + 'Adding "' + name + '" to your "Asana-Enable" or ' + \
-                    '"Asana-Disable" header will opt in/out to this deprecation ' + \
-                    'and suppress this warning.'
+                    # Only show the error if the flag was not in the request's asana-enable header
+                    if (name not in accounted_for_flags) & (affected == 'true'):
+                        message = 'This request is affected by the "' + name + \
+                        '" deprecation. Please visit this url for more info: ' + info + \
+                        '\n' + 'Adding "' + name + '" to your "Asana-Enable" or ' + \
+                        '"Asana-Disable" header will opt in/out to this deprecation ' + \
+                        'and suppress this warning.'
 
-                    warnings.warn(message)
+                        warnings.warn(message)
 
 
     def _handle_retryable_error(self, e, retry_count):
