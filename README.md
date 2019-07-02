@@ -74,7 +74,7 @@ Note: if you're writing a non-browser-based application (e.x. a command line too
 Usage
 -----
 
-The client's methods are divided into several resources: `attachments`, `events`, `projects`, `stories`, `tags`, `tasks`, `teams`, `users`, and `workspaces`.
+The client's methods are divided into several resources: `attachments`, `events`, `jobs`, `portfolios`, `portfolio_memberships`, `projects`, `project_memberships`, `stories`, `tags`, `tasks`, `teams`, `users`, `user_task_lists`, and `workspaces`.
 
 Methods that return a single object return that object directly:
 

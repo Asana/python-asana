@@ -82,7 +82,7 @@ class Client(object):
             try:
                 response = getattr(self.session, method)(
                     url, auth=self.auth, **request_options)
-                self._log_asana_change_header(self, self.headers, response.headers)
+                self._log_asana_change_header(self.headers, response.headers)
                 if response.status_code in STATUS_MAP:
                     raise STATUS_MAP[response.status_code](response)
                 elif 500 <= response.status_code < 600:
@@ -107,7 +107,7 @@ class Client(object):
             if key.lower() == 'asana-change':
                 change_header_key = key
 
-        if change_header_key != None:
+        if change_header_key is not None:
             accounted_for_flags = []
 
             # Grab the request's asana-enable flags
@@ -119,7 +119,8 @@ class Client(object):
                     for flag in req_headers[reqHeader].split(','):
                         accounted_for_flags.append(flag)
 
-            changes = res_headers[change_header_key].split(',')
+            changes = res_headers[change_header_key].split(',');
+
             for unsplit_change in changes:
                 change = unsplit_change.split(';')
 
@@ -139,7 +140,7 @@ class Client(object):
                         affected = field[1].strip()
 
                 # Only show the error if the flag was not in the request's asana-enable header
-                if (not accounted_for_flags.includes(name) & affected == 'true'):
+                if (name not in accounted_for_flags) & (affected == 'true'):
                     message = 'This request is affected by the "' + name + \
                     '" deprecation. Please visit this url for more info: ' + info + \
                     '\n' + 'Adding "' + name + '" to your "Asana-Enable" or ' + \

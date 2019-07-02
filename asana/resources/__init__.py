@@ -3,7 +3,10 @@ from . import (
     custom_field_settings,
     custom_fields,
     events,
+    jobs,
     organization_exports,
+    portfolios,
+    portfolio_memberships,
     project_memberships,
     project_statuses,
     projects,
@@ -13,6 +16,7 @@ from . import (
     tasks,
     teams,
     users,
+    user_task_lists,
     webhooks,
     workspaces
 )

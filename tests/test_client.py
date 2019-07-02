@@ -1,3 +1,4 @@
+import warnings
 try:
     from mock import patch, call
 except ImportError:
@@ -315,12 +316,79 @@ class TestClient(ClientTestCase):
         })
 
     def test_asana_change_header_logging(self):
-        requestHeaders = {
-            'asana-enable': 'string_ids'
-        }
-        responseHeaders = {
-            'asana-change': 'name=string_ids;info=something;affected=true,'+
-                            'name=new_sections;info=something;affected=true'
-        }
-        self.client._log_asana_change_header(self.client, requestHeaders, responseHeaders)
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
 
+            requestHeaders = {}
+            responseHeaders = {
+                'asana-change': 'name=string_ids;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 1
+
+    def test_asana_change_header_ignore_case(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            requestHeaders = {}
+            responseHeaders = {
+                'asANa-chANge': 'name=string_ids;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 1
+
+    def test_asana_change_header_enable(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            requestHeaders = {
+                'asana-enable': 'string_ids'
+            }
+            responseHeaders = {
+                'asana-change': 'name=string_ids;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 0
+
+    def test_asana_change_header_disable(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            requestHeaders = {
+                'asana-disable': 'string_ids'
+            }
+            responseHeaders = {
+                'asana-change': 'name=string_ids;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 0
+
+    def test_asana_change_header_multiple(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            requestHeaders = {}
+            responseHeaders = {
+                'asana-change': 'name=string_ids;info=something;affected=true,name=new_sections;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 2
+
+    def test_asana_change_header_multiple_disable(self):
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+
+            requestHeaders = {
+                'asana-disable': 'string_ids,new_sections'
+            }
+            responseHeaders = {
+                'asana-change': 'name=string_ids;info=something;affected=true,name=new_sections;info=something;affected=true'
+            }
+            self.client._log_asana_change_header(requestHeaders, responseHeaders)
+
+            assert len(w) == 0
