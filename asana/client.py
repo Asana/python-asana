@@ -84,7 +84,7 @@ class Client(object):
             try:
                 response = getattr(self.session, method)(
                     url, auth=self.auth, **request_options)
-                self._log_asana_change_header(self.headers, response.headers)
+                self._log_asana_change_header(request_options['headers'], response.headers)
                 if response.status_code in STATUS_MAP:
                     raise STATUS_MAP[response.status_code](response)
                 elif 500 <= response.status_code < 600:

@@ -4,17 +4,17 @@ class _Portfolios:
     initiatives in Asana.  Portfolios provide a dashboard overview of the state
     of multiple items, including a progress report and the most recent
     [project status](/developers/api-reference/project_statuses) update.
-    
+
     Portfolios have some restrictions on size. Each portfolio has a maximum of 250
     items and, like projects, a maximum of 20 custom fields.
     """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def create(self, params={}, **options): 
+
+    def create(self, params={}, **options):
         """Creates a new portfolio in the given workspace with the supplied name.
-        
+
         Note that portfolios created in the Asana UI may have some state
         (like the "Priority" custom field) which is automatically added to the
         portfolio when it is created. Portfolios created via our API will **not**
@@ -29,8 +29,8 @@ class _Portfolios:
           - [color] : {String} An optional color for the portfolio
         """
         return self.client.post("/portfolios", params, **options)
-        
-    def find_by_id(self, portfolio, params={}, **options): 
+
+    def find_by_id(self, portfolio, params={}, **options):
         """Returns the complete record for a single portfolio.
 
         Parameters
@@ -40,12 +40,12 @@ class _Portfolios:
         """
         path = "/portfolios/%s" % (portfolio)
         return self.client.get(path, params, **options)
-        
-    def update(self, portfolio, params={}, **options): 
+
+    def update(self, portfolio, params={}, **options):
         """An existing portfolio can be updated by making a PUT request on the
         URL for that portfolio. Only the fields provided in the `data` block will be
         updated; any unspecified fields will remain unchanged.
-        
+
         Returns the complete updated portfolio record.
 
         Parameters
@@ -55,11 +55,11 @@ class _Portfolios:
         """
         path = "/portfolios/%s" % (portfolio)
         return self.client.put(path, params, **options)
-        
-    def delete(self, portfolio, params={}, **options): 
+
+    def delete(self, portfolio, params={}, **options):
         """An existing portfolio can be deleted by making a DELETE request
         on the URL for that portfolio.
-        
+
         Returns an empty data record.
 
         Parameters
@@ -68,8 +68,8 @@ class _Portfolios:
         """
         path = "/portfolios/%s" % (portfolio)
         return self.client.delete(path, params, **options)
-        
-    def find_all(self, params={}, **options): 
+
+    def find_all(self, params={}, **options):
         """Returns a list of the portfolios in compact representation that are owned
         by the current API user.
 
@@ -81,8 +81,8 @@ class _Portfolios:
           list of portfolios that they themselves own.
         """
         return self.client.get_collection("/portfolios", params, **options)
-        
-    def get_items(self, portfolio, params={}, **options): 
+
+    def get_items(self, portfolio, params={}, **options):
         """Get a list of the items in compact form in a portfolio.
 
         Parameters
@@ -91,11 +91,11 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         """
         path = "/portfolios/%s/items" % (portfolio)
-        return self.client.get(path, params, **options)
-        
-    def add_item(self, portfolio, params={}, **options): 
+        return self.client.get_collection(path, params, **options)
+
+    def add_item(self, portfolio, params={}, **options):
         """Add an item to a portfolio.
-        
+
         Returns an empty data block.
 
         Parameters
@@ -110,10 +110,10 @@ class _Portfolios:
         """
         path = "/portfolios/%s/addItem" % (portfolio)
         return self.client.post(path, params, **options)
-        
-    def remove_item(self, portfolio, params={}, **options): 
+
+    def remove_item(self, portfolio, params={}, **options):
         """Remove an item to a portfolio.
-        
+
         Returns an empty data block.
 
         Parameters
@@ -124,8 +124,8 @@ class _Portfolios:
         """
         path = "/portfolios/%s/removeItem" % (portfolio)
         return self.client.post(path, params, **options)
-        
-    def add_members(self, portfolio, params={}, **options): 
+
+    def add_members(self, portfolio, params={}, **options):
         """Adds the specified list of users as members of the portfolio. Returns the updated portfolio record.
 
         Parameters
@@ -136,8 +136,8 @@ class _Portfolios:
         """
         path = "/portfolios/%s/addMembers" % (portfolio)
         return self.client.post(path, params, **options)
-        
-    def remove_members(self, portfolio, params={}, **options): 
+
+    def remove_members(self, portfolio, params={}, **options):
         """Removes the specified list of members from the portfolio. Returns the updated portfolio record.
 
         Parameters
@@ -148,8 +148,8 @@ class _Portfolios:
         """
         path = "/portfolios/%s/removeMembers" % (portfolio)
         return self.client.post(path, params, **options)
-        
-    def custom_field_settings(self, portfolio, params={}, **options): 
+
+    def custom_field_settings(self, portfolio, params={}, **options):
         """Get the custom field settings on a portfolio.
 
         Parameters
@@ -158,9 +158,9 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         """
         path = "/portfolios/%s/custom_field_settings" % (portfolio)
-        return self.client.get(path, params, **options)
-        
-    def add_custom_field_setting(self, portfolio, params={}, **options): 
+        return self.client.get_collection(path, params, **options)
+
+    def add_custom_field_setting(self, portfolio, params={}, **options):
         """Create a new custom field setting on the portfolio. Returns the full
         record for the new custom field setting.
 
@@ -177,8 +177,8 @@ class _Portfolios:
         """
         path = "/portfolios/%s/addCustomFieldSetting" % (portfolio)
         return self.client.post(path, params, **options)
-        
-    def remove_custom_field_setting(self, portfolio, params={}, **options): 
+
+    def remove_custom_field_setting(self, portfolio, params={}, **options):
         """Remove a custom field setting on the portfolio. Returns an empty data
         block.
 
@@ -190,4 +190,4 @@ class _Portfolios:
         """
         path = "/portfolios/%s/removeCustomFieldSetting" % (portfolio)
         return self.client.post(path, params, **options)
-        
+

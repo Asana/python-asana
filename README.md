@@ -131,6 +131,12 @@ If you receive one of these warnings, you should:
 * Resolve sections of your code that would be affected by the deprecation.
 * Add the deprecation flag to your "asana-enable" header.
 
+You can place it on the client for all requests, or place it on a single request.
+
+    client.headers={'asana-enable': 'string_ids'}
+    or
+    me = client.users.me(headers={'asana-enable': 'string_ids'})
+
 If you would rather suppress these warnings, you can set
 
     client.LOG_ASANA_CHANGE_WARNINGS = false;
