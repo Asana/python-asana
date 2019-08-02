@@ -26,7 +26,7 @@ setup(
         'Programming Language :: Python :: 3.6'
     ],
     install_requires=[
-        'requests >= 2.14, == 2.*',
+        'requests >= 2.20.0, == 2.*',
         'requests_oauthlib >= 0.8.0, == 0.8.*',
         'six >= 1.10, == 1.*'
     ],
