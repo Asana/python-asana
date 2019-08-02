@@ -1,5 +1,5 @@
 pytest~=3.0
 requests_oauthlib>=0.8.0<2.0
-requests~=2.14
+requests~=2.20
 responses~=0.8.1
 six~=1.10
