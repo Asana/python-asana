@@ -13,7 +13,7 @@ class _Attachments:
 
         Parameters
         ----------
-        attachment : {Id} Globally unique identifier for the attachment.
+        attachment : {Gid} Globally unique identifier for the attachment.
         [params] : {Object} Parameters for the request
         """
         path = "/attachments/%s" % (attachment)
@@ -24,7 +24,7 @@ class _Attachments:
 
         Parameters
         ----------
-        task : {Id} Globally unique identifier for the task.
+        task : {Gid} Globally unique identifier for the task.
         [params] : {Object} Parameters for the request
         """
         path = "/tasks/%s/attachments" % (task)

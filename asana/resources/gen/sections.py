@@ -15,7 +15,7 @@ class _Sections:
 
         Parameters
         ----------
-        project : {Id} The project to create the section in
+        project : {Gid} The project to create the section in
         [data] : {Object} Data for the request
           - name : {String} The text to be displayed as the section name. This cannot be an empty string.
         """
@@ -27,18 +27,18 @@ class _Sections:
 
         Parameters
         ----------
-        project : {Id} The project to get sections from.
+        project : {Gid} The project to get sections from.
         [params] : {Object} Parameters for the request
         """
         path = "/projects/%s/sections" % (project)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
         
     def find_by_id(self, section, params={}, **options): 
         """Returns the complete record for a single section.
 
         Parameters
         ----------
-        section : {Id} The section to get.
+        section : {Gid} The section to get.
         [params] : {Object} Parameters for the request
         """
         path = "/sections/%s" % (section)
@@ -58,7 +58,7 @@ class _Sections:
 
         Parameters
         ----------
-        section : {Id} The section to update.
+        section : {Gid} The section to update.
         [data] : {Object} Data for the request
         """
         path = "/sections/%s" % (section)
@@ -76,10 +76,27 @@ class _Sections:
 
         Parameters
         ----------
-        section : {Id} The section to delete.
+        section : {Gid} The section to delete.
         """
         path = "/sections/%s" % (section)
         return self.client.delete(path, params, **options)
+        
+    def add_task(self, task, params={}, **options): 
+        """Add a task to a specific, existing section. This will remove the task from other sections of the project.
+        
+        The task will be inserted at the top of a section unless an `insert_before` or `insert_after` parameter is declared.
+        
+        This does not work for separators (tasks with the `resource_subtype` of section).
+
+        Parameters
+        ----------
+        task : {Gid} The task to add to this section
+        [data] : {Object} Data for the request
+          - [insert_before] : {Gid} Insert the given task immediately before the task specified by this parameter. Cannot be provided together with `insert_after`.
+          - [insert_after] : {Gid} Insert the given task immediately after the task specified by this parameter. Cannot be provided together with `insert_before`.
+        """
+        path = "/sections/%s/addTask" % (task)
+        return self.client.post(path, params, **options)
         
     def insert_in_project(self, project, params={}, **options): 
         """Move sections relative to each other in a board view. One of
@@ -93,11 +110,11 @@ class _Sections:
 
         Parameters
         ----------
-        project : {Id} The project in which to reorder the given section
+        project : {Gid} The project in which to reorder the given section
         [data] : {Object} Data for the request
-          - section : {Id} The section to reorder
-          - [before_section] : {Id} Insert the given section immediately before the section specified by this parameter.
-          - [after_section] : {Id} Insert the given section immediately after the section specified by this parameter.
+          - section : {Gid} The section to reorder
+          - [before_section] : {Gid} Insert the given section immediately before the section specified by this parameter.
+          - [after_section] : {Gid} Insert the given section immediately after the section specified by this parameter.
         """
         path = "/projects/%s/sections/insert" % (project)
         return self.client.post(path, params, **options)

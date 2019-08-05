@@ -14,7 +14,7 @@ class _ProjectMemberships:
 
         Parameters
         ----------
-        project : {Id} The project for which to fetch memberships.
+        project : {Gid} The project for which to fetch memberships.
         [params] : {Object} Parameters for the request
           - [user] : {String} If present, the user to filter the memberships to.
         """
@@ -26,7 +26,7 @@ class _ProjectMemberships:
 
         Parameters
         ----------
-        project_membership : {Id} Globally unique identifier for the project membership.
+        project_membership : {Gid} Globally unique identifier for the project membership.
         [params] : {Object} Parameters for the request
         """
         path = "/project_memberships/%s" % (project_membership)

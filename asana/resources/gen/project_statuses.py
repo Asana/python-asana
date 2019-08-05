@@ -18,7 +18,7 @@ class _ProjectStatuses:
 
         Parameters
         ----------
-        project : {Id} The project on which to create a status update.
+        project : {Gid} The project on which to create a status update.
         [data] : {Object} Data for the request
           - text : {String} The text of the project status update.
           - color : {String} The color to associate with the status update. Must be one of `"red"`, `"yellow"`, or `"green"`.
@@ -31,7 +31,7 @@ class _ProjectStatuses:
 
         Parameters
         ----------
-        project : {Id} The project to find status updates for.
+        project : {Gid} The project to find status updates for.
         [params] : {Object} Parameters for the request
         """
         path = "/projects/%s/project_statuses" % (project)
@@ -42,7 +42,7 @@ class _ProjectStatuses:
 
         Parameters
         ----------
-        project-status : {Id} The project status update to get.
+        project-status : {Gid} The project status update to get.
         [params] : {Object} Parameters for the request
         """
         path = "/project_statuses/%s" % (project_status)
@@ -55,7 +55,7 @@ class _ProjectStatuses:
 
         Parameters
         ----------
-        project-status : {Id} The project status update to delete.
+        project-status : {Gid} The project status update to delete.
         """
         path = "/project_statuses/%s" % (project_status)
         return self.client.delete(path, params, **options)
