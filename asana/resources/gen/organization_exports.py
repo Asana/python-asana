@@ -23,7 +23,7 @@ class _OrganizationExports:
 
         Parameters
         ----------
-        organization_export : {Id} Globally unique identifier for the Organization export.
+        organization_export : {Gid} Globally unique identifier for the Organization export.
         [params] : {Object} Parameters for the request
         """
         path = "/organization_exports/%s" % (organization_export)
@@ -36,7 +36,7 @@ class _OrganizationExports:
         Parameters
         ----------
         [data] : {Object} Data for the request
-          - organization : {Id} Globally unique identifier for the workspace or organization.
+          - organization : {Gid} Globally unique identifier for the workspace or organization.
         """
         return self.client.post("/organization_exports", params, **options)
         

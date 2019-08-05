@@ -2,7 +2,7 @@
 class _Users:
     """A _user_ object represents an account in Asana that can be given access to
     various workspaces, projects, and tasks.
-    
+
     Like other objects in the system, users are referred to by numerical IDs.
     However, the special string identifier `me` can be used anywhere
     a user ID is accepted, to refer to the current authenticated user.
@@ -10,8 +10,8 @@ class _Users:
 
     def __init__(self, client=None):
         self.client = client
-  
-    def me(self, params={}, **options): 
+
+    def me(self, params={}, **options):
         """Returns the full user record for the currently authenticated user.
 
         Parameters
@@ -19,8 +19,8 @@ class _Users:
         [params] : {Object} Parameters for the request
         """
         return self.client.get("/users/me", params, **options)
-        
-    def find_by_id(self, user, params={}, **options): 
+
+    def find_by_id(self, user, params={}, **options):
         """Returns the full user record for the single user with the provided ID.
 
         Parameters
@@ -32,8 +32,24 @@ class _Users:
         """
         path = "/users/%s" % (user)
         return self.client.get(path, params, **options)
-        
-    def find_by_workspace(self, workspace, params={}, **options): 
+
+    def get_user_favorites(self, user, params={}, **options):
+        """Returns all of a user's favorites in the given workspace, of the given type.
+        Results are given in order (The same order as Asana's sidebar).
+
+        Parameters
+        ----------
+        user : {String} An identifier for the user. Can be one of an email address,
+        the globally unique identifier for the user, or the keyword `me`
+        to indicate the current user making the request.
+        [params] : {Object} Parameters for the request
+          - workspace : {Id} The workspace in which to get favorites.
+          - resource_type : {Enum} The resource type of favorites to be returned.
+        """
+        path = "/users/%s/favorites" % (user)
+        return self.client.get_collection(path, params, **options)
+
+    def find_by_workspace(self, workspace, params={}, **options):
         """Returns the user records for all users in the specified workspace or
         organization.
 
@@ -44,8 +60,8 @@ class _Users:
         """
         path = "/workspaces/%s/users" % (workspace)
         return self.client.get_collection(path, params, **options)
-        
-    def find_all(self, params={}, **options): 
+
+    def find_all(self, params={}, **options):
         """Returns the user records for all users in all workspaces and organizations
         accessible to the authenticated user. Accepts an optional workspace ID
         parameter.
@@ -56,4 +72,4 @@ class _Users:
           - [workspace] : {Id} The workspace or organization to filter users on.
         """
         return self.client.get_collection("/users", params, **options)
-        
+

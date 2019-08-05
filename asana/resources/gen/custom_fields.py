@@ -5,6 +5,11 @@ class _CustomFields:
     Fields](/developers/documentation/getting-started/custom-fields) developer
     documentation for more information about how custom fields relate to various
     resources in Asana.
+    
+    Users in Asana can [lock custom
+    fields](/guide/help/premium/custom-fields#gl-lock-fields), which will make
+    them read-only when accessed by other users. Attempting to edit a locked
+    custom field will return HTTP error code `403 Forbidden`.
     """
 
     def __init__(self, client=None):
@@ -20,8 +25,9 @@ class _CustomFields:
         Parameters
         ----------
         [data] : {Object} Data for the request
-          - workspace : {Id} The workspace to create a custom field in.
-          - type : {String} The type of the custom field.
+          - workspace : {Gid} The workspace to create a custom field in.
+          - resource_subtype : {String} The type of the custom field. Must be one of the given values.
+          - [type] : {String} **Deprecated: New integrations should prefer the `resource_subtype` parameter.**
           - name : {String} The name of the custom field.
           - [description] : {String} The description of the custom field.
           - [precision] : {Integer} The number of decimal places for the numerical values. Required if the custom field is of type 'number'.
@@ -34,7 +40,7 @@ class _CustomFields:
 
         Parameters
         ----------
-        custom_field : {Id} Globally unique identifier for the custom field.
+        custom_field : {Gid} Globally unique identifier for the custom field.
         [params] : {Object} Parameters for the request
         """
         path = "/custom_fields/%s" % (custom_field)
@@ -45,7 +51,7 @@ class _CustomFields:
 
         Parameters
         ----------
-        workspace : {Id} The workspace or organization to find custom field definitions in.
+        workspace : {Gid} The workspace or organization to find custom field definitions in.
         [params] : {Object} Parameters for the request
         """
         path = "/workspaces/%s/custom_fields" % (workspace)
@@ -56,15 +62,15 @@ class _CustomFields:
         
         When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field.
         
-        A custom field's `type` cannot be updated.
-        
         An enum custom field's `enum_options` cannot be updated with this endpoint. Instead see "Work With Enum Options" for information on how to update `enum_options`.
+        
+        Locked custom fields can only be updated by the user who locked the field.
         
         Returns the complete updated custom field record.
 
         Parameters
         ----------
-        custom_field : {Id} Globally unique identifier for the custom field.
+        custom_field : {Gid} Globally unique identifier for the custom field.
         [data] : {Object} Data for the request
         """
         path = "/custom_fields/%s" % (custom_field)
@@ -73,11 +79,13 @@ class _CustomFields:
     def delete(self, custom_field, params={}, **options): 
         """A specific, existing custom field can be deleted by making a DELETE request on the URL for that custom field.
         
+        Locked custom fields can only be deleted by the user who locked the field.
+        
         Returns an empty data record.
 
         Parameters
         ----------
-        custom_field : {Id} Globally unique identifier for the custom field.
+        custom_field : {Gid} Globally unique identifier for the custom field.
         """
         path = "/custom_fields/%s" % (custom_field)
         return self.client.delete(path, params, **options)
@@ -85,16 +93,18 @@ class _CustomFields:
     def create_enum_option(self, custom_field, params={}, **options): 
         """Creates an enum option and adds it to this custom field's list of enum options. A custom field can have at most 50 enum options (including disabled options). By default new enum options are inserted at the end of a custom field's list.
         
+        Locked custom fields can only have enum options added by the user who locked the field.
+        
         Returns the full record of the newly created enum option.
 
         Parameters
         ----------
-        custom_field : {Id} Globally unique identifier for the custom field.
+        custom_field : {Gid} Globally unique identifier for the custom field.
         [data] : {Object} Data for the request
           - name : {String} The name of the enum option.
           - [color] : {String} The color of the enum option. Defaults to 'none'.
-          - [insert_before] : {Id} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
-          - [insert_after] : {Id} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
+          - [insert_before] : {Gid} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
+          - [insert_after] : {Gid} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
         """
         path = "/custom_fields/%s/enum_options" % (custom_field)
         return self.client.post(path, params, **options)
@@ -102,11 +112,13 @@ class _CustomFields:
     def update_enum_option(self, enum_option, params={}, **options): 
         """Updates an existing enum option. Enum custom fields require at least one enabled enum option.
         
+        Locked custom fields can only be updated by the user who locked the field.
+        
         Returns the full record of the updated enum option.
 
         Parameters
         ----------
-        enum_option : {Id} Globally unique identifier for the enum option.
+        enum_option : {Gid} Globally unique identifier for the enum option.
         [data] : {Object} Data for the request
           - name : {String} The name of the enum option.
           - [color] : {String} The color of the enum option. Defaults to 'none'.
@@ -117,16 +129,18 @@ class _CustomFields:
         
     def insert_enum_option(self, custom_field, params={}, **options): 
         """Moves a particular enum option to be either before or after another specified enum option in the custom field.
+        
+        Locked custom fields can only be reordered by the user who locked the field.
 
         Parameters
         ----------
-        custom_field : {Id} Globally unique identifier for the custom field.
+        custom_field : {Gid} Globally unique identifier for the custom field.
         [data] : {Object} Data for the request
-          - enum_option : {Id} The ID of the enum option to relocate.
+          - enum_option : {Gid} The ID of the enum option to relocate.
           - name : {String} The name of the enum option.
           - [color] : {String} The color of the enum option. Defaults to 'none'.
-          - [before_enum_option] : {Id} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
-          - [after_enum_option] : {Id} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
+          - [before_enum_option] : {Gid} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
+          - [after_enum_option] : {Gid} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
         """
         path = "/custom_fields/%s/enum_options/insert" % (custom_field)
         return self.client.post(path, params, **options)

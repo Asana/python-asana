@@ -30,8 +30,8 @@ class _Projects:
         Parameters
         ----------
         [data] : {Object} Data for the request
-          - workspace : {Id} The workspace or organization to create the project in.
-          - [team] : {Id} If creating in an organization, the specific team to create the
+          - workspace : {Gid} The workspace or organization to create the project in.
+          - [team] : {Gid} If creating in an organization, the specific team to create the
           project in.
         """
         return self.client.post("/projects", params, **options)
@@ -44,7 +44,7 @@ class _Projects:
 
         Parameters
         ----------
-        workspace : {Id} The workspace or organization to create the project in.
+        workspace : {Gid} The workspace or organization to create the project in.
         [data] : {Object} Data for the request
         """
         path = "/workspaces/%s/projects" % (workspace)
@@ -57,7 +57,7 @@ class _Projects:
 
         Parameters
         ----------
-        team : {Id} The team to create the project in.
+        team : {Gid} The team to create the project in.
         [data] : {Object} Data for the request
         """
         path = "/teams/%s/projects" % (team)
@@ -68,7 +68,7 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to get.
+        project : {Gid} The project to get.
         [params] : {Object} Parameters for the request
         """
         path = "/projects/%s" % (project)
@@ -87,7 +87,7 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to update.
+        project : {Gid} The project to update.
         [data] : {Object} Data for the request
         """
         path = "/projects/%s" % (project)
@@ -101,10 +101,33 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to delete.
+        project : {Gid} The project to delete.
         """
         path = "/projects/%s" % (project)
         return self.client.delete(path, params, **options)
+        
+    def duplicate_project(self, project, params={}, **options): 
+        """Creates and returns a job that will asynchronously handle the duplication.
+
+        Parameters
+        ----------
+        project : {Gid} The project to duplicate.
+        [data] : {Object} Data for the request
+          - name : {String} The name of the new project.
+          - [team] : {Gid} Sets the team of the new project. If team is not defined, the new project
+          will be in the same team as the the original project.
+          - [include] : {Array} The elements that will be duplicated to the new project.
+          Tasks are always included.
+          - [schedule_dates] : {String} A dictionary of options to auto-shift dates.
+          `task_dates` must be included to use this option.
+          Requires either `start_on` or `due_on`, but not both.
+          `start_on` will set the first start date of the new
+          project to the given date, while `due_on` will set the last due date
+          to the given date. Both will offset the remaining dates by the same amount
+          of the original project.
+        """
+        path = "/projects/%s/duplicate" % (project)
+        return self.client.post(path, params, **options)
         
     def find_all(self, params={}, **options): 
         """Returns the compact project records for some filtered set of projects.
@@ -113,8 +136,10 @@ class _Projects:
         Parameters
         ----------
         [params] : {Object} Parameters for the request
-          - [workspace] : {Id} The workspace or organization to filter projects on.
-          - [team] : {Id} The team to filter projects on.
+          - [workspace] : {Gid} The workspace or organization to filter projects on.
+          - [team] : {Gid} The team to filter projects on.
+          - [is_template] : {Boolean} **Note: This parameter can only be included if a team is also defined, or the workspace is not an organization**
+          Filters results to include only template projects.
           - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
@@ -125,8 +150,10 @@ class _Projects:
 
         Parameters
         ----------
-        workspace : {Id} The workspace or organization to find projects in.
+        workspace : {Gid} The workspace or organization to find projects in.
         [params] : {Object} Parameters for the request
+          - [is_template] : {Boolean} **Note: This parameter can only be included if a team is also defined, or the workspace is not an organization**
+          Filters results to include only template projects.
           - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
@@ -138,8 +165,9 @@ class _Projects:
 
         Parameters
         ----------
-        team : {Id} The team to find projects in.
+        team : {Gid} The team to find projects in.
         [params] : {Object} Parameters for the request
+          - [is_template] : {Boolean} Filters results to include only template projects.
           - [archived] : {Boolean} Only return projects whose `archived` field takes on the value of
           this parameter.
         """
@@ -152,7 +180,7 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project in which to search for tasks.
+        project : {Gid} The project in which to search for tasks.
         [params] : {Object} Parameters for the request
         """
         path = "/projects/%s/tasks" % (project)
@@ -165,7 +193,7 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to add followers to.
+        project : {Gid} The project to add followers to.
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to add to the project.
         """
@@ -178,7 +206,7 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to remove followers from.
+        project : {Gid} The project to remove followers from.
         [data] : {Object} Data for the request
           - followers : {Array} An array of followers to remove from the project.
         """
@@ -190,9 +218,9 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to add members to.
+        project : {Gid} The project to add members to.
         [data] : {Object} Data for the request
-          - members : {Array} An array of members to add to the project.
+          - members : {Array} An array of user ids.
         """
         path = "/projects/%s/addMembers" % (project)
         return self.client.post(path, params, **options)
@@ -202,9 +230,9 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to remove members from.
+        project : {Gid} The project to remove members from.
         [data] : {Object} Data for the request
-          - members : {Array} An array of members to remove from the project.
+          - members : {Array} An array of user ids.
         """
         path = "/projects/%s/removeMembers" % (project)
         return self.client.post(path, params, **options)
@@ -214,13 +242,13 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to associate the custom field with
+        project : {Gid} The project to associate the custom field with
         [data] : {Object} Data for the request
-          - custom_field : {Id} The id of the custom field to associate with this project.
+          - custom_field : {Gid} The id of the custom field to associate with this project.
           - [is_important] : {Boolean} Whether this field should be considered important to this project.
-          - [insert_before] : {Id} An id of a Custom Field Settings on this project, before which the new Custom Field Settings will be added.
+          - [insert_before] : {Gid} An id of a Custom Field Settings on this project, before which the new Custom Field Settings will be added.
           `insert_before` and `insert_after` parameters cannot both be specified.
-          - [insert_after] : {Id} An id of a Custom Field Settings on this project, after which the new Custom Field Settings will be added.
+          - [insert_after] : {Gid} An id of a Custom Field Settings on this project, after which the new Custom Field Settings will be added.
           `insert_before` and `insert_after` parameters cannot both be specified.
         """
         path = "/projects/%s/addCustomFieldSetting" % (project)
@@ -231,9 +259,9 @@ class _Projects:
 
         Parameters
         ----------
-        project : {Id} The project to associate the custom field with
+        project : {Gid} The project to associate the custom field with
         [data] : {Object} Data for the request
-          - [custom_field] : {Id} The id of the custom field to remove from this project.
+          - [custom_field] : {Gid} The id of the custom field to remove from this project.
         """
         path = "/projects/%s/removeCustomFieldSetting" % (project)
         return self.client.post(path, params, **options)
