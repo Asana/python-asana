@@ -110,7 +110,7 @@ Various options can be set globally on the `Client.DEFAULTS` object, per-client 
 * `full_payload` (default: False): return the entire JSON response instead of the 'data' propery (default for collection methods and `events.get`)
 * `fields` and `expand`: see [API documentation](https://asana.com/developers/documentation/getting-started/input-output-options)
 
-Collections (methods returning an array as it's 'data' property):
+Collections (methods returning an array as its 'data' property):
 
 * `iterator_type` (default: "items"): specifies which type of iterator (or not) to return. Valid values are "items" and `None`.
 * `item_limit` (default: None): limits the number of items of a collection to return.
