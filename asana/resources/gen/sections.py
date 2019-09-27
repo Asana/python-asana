@@ -81,7 +81,7 @@ class _Sections:
         path = "/sections/%s" % (section)
         return self.client.delete(path, params, **options)
         
-    def add_task(self, task, params={}, **options): 
+    def add_task(self, section, params={}, **options): 
         """Add a task to a specific, existing section. This will remove the task from other sections of the project.
         
         The task will be inserted at the top of a section unless an `insert_before` or `insert_after` parameter is declared.
@@ -95,7 +95,7 @@ class _Sections:
           - [insert_before] : {Gid} Insert the given task immediately before the task specified by this parameter. Cannot be provided together with `insert_after`.
           - [insert_after] : {Gid} Insert the given task immediately after the task specified by this parameter. Cannot be provided together with `insert_before`.
         """
-        path = "/sections/%s/addTask" % (task)
+        path = "/sections/%s/addTask" % (section)
         return self.client.post(path, params, **options)
         
     def insert_in_project(self, project, params={}, **options): 
