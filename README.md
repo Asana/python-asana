@@ -139,7 +139,7 @@ You can place it on the client for all requests, or place it on a single request
 
 If you would rather suppress these warnings, you can set
 
-    client.LOG_ASANA_CHANGE_WARNINGS = false;
+    client.LOG_ASANA_CHANGE_WARNINGS = False
 
 Collections
 -----------
