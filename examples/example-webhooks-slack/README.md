@@ -1,6 +1,6 @@
 # Overview
 
-This project shows how Asana webhooks can be used to send a notification to Slack whenever a milestone is completed.
+This project shows how Asana webhooks can be used to send a celebratory message to Slack whenever a milestone is completed.
 It also contains examples of how to manage webhooks through the Python Asana client.
 
 ## Webhooks server
