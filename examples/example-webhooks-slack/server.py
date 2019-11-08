@@ -66,8 +66,8 @@ def notify_slack(user, milestone):
         print("Error sending message to Slack.")
 
 
-@app.route("/slack_webhook", methods=["POST"])
-def slack_webhook():
+@app.route("/receive_asana_webhook", methods=["POST"])
+def receive_asana_webhook():
 
     request_secret = request.headers.get("X-Hook-Secret")
     if request_secret:
