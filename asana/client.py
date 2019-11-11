@@ -122,7 +122,7 @@ class Client(object):
                         for flag in req_headers[reqHeader].split(','):
                             accounted_for_flags.append(flag)
 
-                changes = res_headers[change_header_key].split(',');
+                changes = res_headers[change_header_key].split(',')
 
                 for unsplit_change in changes:
                     change = unsplit_change.split(';')
