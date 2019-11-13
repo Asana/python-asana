@@ -90,8 +90,9 @@ class _Sections:
 
         Parameters
         ----------
-        task : {Gid} The task to add to this section
+        section : {Gid} The section to add a task to
         [data] : {Object} Data for the request
+          - task : {Gid} The task to add to this section
           - [insert_before] : {Gid} Insert the given task immediately before the task specified by this parameter. Cannot be provided together with `insert_after`.
           - [insert_after] : {Gid} Insert the given task immediately after the task specified by this parameter. Cannot be provided together with `insert_before`.
         """
