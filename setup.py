@@ -27,7 +27,7 @@ setup(
     ],
     install_requires=[
         'requests >= 2.20.0, == 2.*',
-        'requests_oauthlib >= 0.8.0, == 0.8.*',
+        'requests_oauthlib >= 0.8.0, <2.0',
         'six >= 1.10, == 1.*'
     ],
     author='Asana, Inc',
