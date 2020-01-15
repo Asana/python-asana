@@ -1,22 +1,15 @@
 
 class _Jobs:
-    """A _job_ represents a process that handles asynchronous work.
-    
-    Jobs are created when an endpoint requests an action that will be handled asynchronously.
-    Such as project or task duplication.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_id(self, job, params={}, **options): 
-        """Returns the complete job record for a single job.
 
-        Parameters
-        ----------
-        job : {Gid} The job to get.
+    def get_job(self, job_gid, params={}, **options):
+        """Get a job by id
+        :param str job_gid: Globally unique identifier for the job. (required)
         [params] : {Object} Parameters for the request
+        :return: JobResponse
         """
-        path = "/jobs/%s" % (job)
+        path = "/jobs/{job_gid}".replace("job_gid", job_gid)
         return self.client.get(path, params, **options)
-        
+

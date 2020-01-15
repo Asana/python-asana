@@ -1,34 +1,25 @@
 
 class _ProjectMemberships:
-    """With the introduction of "comment-only" projects in Asana, a user's membership
-    in a project comes with associated permissions. These permissions (whether a
-    user has full access to the project or comment-only access) are accessible
-    through the project memberships endpoints described here.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_project(self, project, params={}, **options): 
-        """Returns the compact project membership records for the project.
 
-        Parameters
-        ----------
-        project : {Gid} The project for which to fetch memberships.
+    def get_project_membership(self, project_membership_path_gid, params={}, **options):
+        """Get a project membership
+        :param str project_membership_path_gid: (required)
         [params] : {Object} Parameters for the request
-          - [user] : {String} If present, the user to filter the memberships to.
+        :return: ProjectMembershipResponse
         """
-        path = "/projects/%s/project_memberships" % (project)
-        return self.client.get_collection(path, params, **options)
-        
-    def find_by_id(self, project_membership, params={}, **options): 
-        """Returns the project membership record.
-
-        Parameters
-        ----------
-        project_membership : {Gid} Globally unique identifier for the project membership.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/project_memberships/%s" % (project_membership)
+        path = "/project_memberships/{project_membership_gid}".replace("project_membership_path_gid", project_membership_path_gid)
         return self.client.get(path, params, **options)
-        
+
+
+    def get_project_memberships_for_project(self, project_gid, params={}, **options):
+        """Get memberships from a project
+        :param str project_gid: Globally unique identifier for the project. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[ProjectMembershipCompact]
+        """
+        path = "/projects/{project_gid}/project_memberships".replace("project_gid", project_gid)
+        return self.client.get(path, params, **options)
+

@@ -1,35 +1,45 @@
 
 class _CustomFieldSettings:
-    """Custom fields are applied to a particular project or portfolio with the
-    Custom Field Settings resource. This resource both represents the
-    many-to-many join of the Custom Field and Project or Portfolio as well as
-    stores information that is relevant to that particular pairing; for instance,
-    the `is_important` property determines some possible application-specific
-    handling of that custom field and parent.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_project(self, project, params={}, **options): 
-        """Returns a list of all of the custom fields settings on a project.
 
-        Parameters
-        ----------
-        project : {Gid} The ID of the project for which to list custom field settings
+    def add_custom_field_setting_for_portfolio(self, portfolio_gid, params={}, **options):
+        """Add a custom field to a portfolio
+        :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
         [params] : {Object} Parameters for the request
+        :return: EmptyObject
         """
-        path = "/projects/%s/custom_field_settings" % (project)
-        return self.client.get_collection(path, params, **options)
-        
-    def find_by_portfolio(self, portfolio, params={}, **options): 
-        """Returns a list of all of the custom fields settings on a portfolio.
+        path = "/portfolios/{portfolio_gid}/addCustomFieldSetting".replace("portfolio_gid", portfolio_gid)
+        return self.client.get(path, params, **options)
 
-        Parameters
-        ----------
-        portfolio : {Gid} The ID of the portfolio for which to list custom field settings
+
+    def get_custom_field_settings_for_portfolio(self, portfolio_gid, params={}, **options):
+        """Get a portfolio's custom fields
+        :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
         [params] : {Object} Parameters for the request
+        :return: list[CustomFieldSettingResponse]
         """
-        path = "/portfolios/%s/custom_field_settings" % (portfolio)
-        return self.client.get_collection(path, params, **options)
-        
+        path = "/portfolios/{portfolio_gid}/custom_field_settings".replace("portfolio_gid", portfolio_gid)
+        return self.client.get(path, params, **options)
+
+
+    def get_custom_field_settings_for_project(self, project_gid, params={}, **options):
+        """Get a project's custom fields
+        :param str project_gid: Globally unique identifier for the project. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[CustomFieldSettingResponse]
+        """
+        path = "/projects/{project_gid}/custom_field_settings".replace("project_gid", project_gid)
+        return self.client.get(path, params, **options)
+
+
+    def remove_custom_field_setting_for_portfolio(self, portfolio_gid, params={}, **options):
+        """Remove a custom field from a portfolio
+        :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
+        [params] : {Object} Parameters for the request
+        :return: EmptyObject
+        """
+        path = "/portfolios/{portfolio_gid}/removeCustomFieldSetting".replace("portfolio_gid", portfolio_gid)
+        return self.client.get(path, params, **options)
+

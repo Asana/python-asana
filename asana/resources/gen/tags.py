@@ -1,126 +1,73 @@
 
 class _Tags:
-    """A _tag_ is a label that can be attached to any task in Asana. It exists in a
-    single workspace or organization.
-
-    Tags have some metadata associated with them, but it is possible that we will
-    simplify them in the future so it is not encouraged to rely too heavily on it.
-    Unlike projects, tags do not provide any ordering on the tasks they
-    are associated with.
-    """
 
     def __init__(self, client=None):
         self.client = client
 
-    def create(self, params={}, **options):
-        """Creates a new tag in a workspace or organization.
-
-        Every tag is required to be created in a specific workspace or
-        organization, and this cannot be changed once set. Note that you can use
-        the `workspace` parameter regardless of whether or not it is an
-        organization.
-
-        Returns the full record of the newly created tag.
-
-        Parameters
-        ----------
-        [data] : {Object} Data for the request
-          - workspace : {Gid} The workspace or organization to create the tag in.
-        """
-        return self.client.post("/tags", params, **options)
-
-    def create_in_workspace(self, workspace, params={}, **options):
-        """Creates a new tag in a workspace or organization.
-
-        Every tag is required to be created in a specific workspace or
-        organization, and this cannot be changed once set. Note that you can use
-        the `workspace` parameter regardless of whether or not it is an
-        organization.
-
-        Returns the full record of the newly created tag.
-
-        Parameters
-        ----------
-        workspace : {Gid} The workspace or organization to create the tag in.
-        [data] : {Object} Data for the request
-        """
-        path = "/workspaces/%s/tags" % (workspace)
-        return self.client.post(path, params, **options)
-
-    def find_by_id(self, tag, params={}, **options):
-        """Returns the complete tag record for a single tag.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to get.
+    def create_tag(self, params={}, **options):
+        """Create a tag
         [params] : {Object} Parameters for the request
+        :return: TagResponse
         """
-        path = "/tags/%s" % (tag)
+        path = "/tags"
         return self.client.get(path, params, **options)
 
-    def update(self, tag, params={}, **options):
-        """Updates the properties of a tag. Only the fields provided in the `data`
-        block will be updated; any unspecified fields will remain unchanged.
 
-        When using this method, it is best to specify only those fields you wish
-        to change, or else you may overwrite changes made by another user since
-        you last retrieved the task.
-
-        Returns the complete updated tag record.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to update.
-        [data] : {Object} Data for the request
-        """
-        path = "/tags/%s" % (tag)
-        return self.client.put(path, params, **options)
-
-    def delete(self, tag, params={}, **options):
-        """A specific, existing tag can be deleted by making a DELETE request
-        on the URL for that tag.
-
-        Returns an empty data record.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to delete.
-        """
-        path = "/tags/%s" % (tag)
-        return self.client.delete(path, params, **options)
-
-    def find_all(self, params={}, **options):
-        """Returns the compact tag records for some filtered set of tags.
-        Use one or more of the parameters provided to filter the tags returned.
-
-        Parameters
-        ----------
+    def create_tag_for_workspace(self, workspace_gid, params={}, **options):
+        """Create a tag in a workspace
+        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         [params] : {Object} Parameters for the request
-          - [workspace] : {Gid} The workspace or organization to filter tags on.
-          - [team] : {Gid} The team to filter tags on.
-          - [archived] : {Boolean} Only return tags whose `archived` field takes on the value of
-          this parameter.
+        :return: TagResponse
         """
-        return self.client.get_collection("/tags", params, **options)
+        path = "/workspaces/{workspace_gid}/tags".replace("workspace_gid", workspace_gid)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace(self, workspace, params={}, **options):
-        """Returns the compact tag records for all tags in the workspace.
 
-        Parameters
-        ----------
-        workspace : {Gid} The workspace or organization to find tags in.
+    def get_tag(self, tag_gid, params={}, **options):
+        """Get a tag
+        :param str tag_gid: Globally unique identifier for the tag. (required)
         [params] : {Object} Parameters for the request
+        :return: TagResponse
         """
-        path = "/workspaces/%s/tags" % (workspace)
-        return self.client.get_collection(path, params, **options)
+        path = "/tags/{tag_gid}".replace("tag_gid", tag_gid)
+        return self.client.get(path, params, **options)
 
-    def get_tasks_with_tag(self, tag, params={}, **options):
-        """Returns the compact task records for all tasks with the given tag.
-        Tasks can have more than one tag at a time.
-        Parameters
-        ----------
-        tag : {Id} The tag to fetch tasks from.
+
+    def get_tags(self, params={}, **options):
+        """Get multiple tags
         [params] : {Object} Parameters for the request
+        :return: list[TagCompact]
         """
-        path = "/tags/%s/tasks" % (tag)
-        return self.client.get_collection(path, params, **options)
+        path = "/tags"
+        return self.client.get(path, params, **options)
+
+
+    def get_tags_for_task(self, task_gid, params={}, **options):
+        """Get a task's tags
+        :param str task_gid: The task to operate on. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[TagCompact]
+        """
+        path = "/tasks/{task_gid}/tags".replace("task_gid", task_gid)
+        return self.client.get(path, params, **options)
+
+
+    def get_tags_for_workspace(self, workspace_gid, params={}, **options):
+        """Get tags in a workspace
+        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[TagCompact]
+        """
+        path = "/workspaces/{workspace_gid}/tags".replace("workspace_gid", workspace_gid)
+        return self.client.get(path, params, **options)
+
+
+    def update_tag(self, tag_gid, params={}, **options):
+        """Update a tag
+        :param str tag_gid: Globally unique identifier for the tag. (required)
+        [params] : {Object} Parameters for the request
+        :return: TagResponse
+        """
+        path = "/tags/{tag_gid}".replace("tag_gid", tag_gid)
+        return self.client.get(path, params, **options)
+

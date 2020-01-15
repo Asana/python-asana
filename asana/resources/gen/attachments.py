@@ -1,32 +1,45 @@
 
 class _Attachments:
-    """An _attachment_ object represents any file attached to a task in Asana,
-    whether it's an uploaded file or one associated via a third-party service
-    such as Dropbox or Google Drive.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_id(self, attachment, params={}, **options): 
-        """Returns the full record for a single attachment.
 
-        Parameters
-        ----------
-        attachment : {Gid} Globally unique identifier for the attachment.
+    def create_attachment_for_task(self, task_gid, params={}, **options):
+        """Upload an attachment
+        :param str task_gid: The task to operate on. (required)
         [params] : {Object} Parameters for the request
+        :return: AttachmentResponse
         """
-        path = "/attachments/%s" % (attachment)
+        path = "/tasks/{task_gid}/attachments".replace("task_gid", task_gid)
         return self.client.get(path, params, **options)
-        
-    def find_by_task(self, task, params={}, **options): 
-        """Returns the compact records for all attachments on the task.
 
-        Parameters
-        ----------
-        task : {Gid} Globally unique identifier for the task.
+
+    def delete_attachment(self, attachment_gid, params={}, **options):
+        """Delete an attachment
+        :param str attachment_gid: Globally unique identifier for the attachment. (required)
         [params] : {Object} Parameters for the request
+        :return: EmptyObject
         """
-        path = "/tasks/%s/attachments" % (task)
-        return self.client.get_collection(path, params, **options)
-        
+        path = "/attachments/{attachment_gid}".replace("attachment_gid", attachment_gid)
+        return self.client.get(path, params, **options)
+
+
+    def get_attachment(self, attachment_gid, params={}, **options):
+        """Get an attachment
+        :param str attachment_gid: Globally unique identifier for the attachment. (required)
+        [params] : {Object} Parameters for the request
+        :return: AttachmentResponse
+        """
+        path = "/attachments/{attachment_gid}".replace("attachment_gid", attachment_gid)
+        return self.client.get(path, params, **options)
+
+
+    def get_attachments_for_task(self, task_gid, params={}, **options):
+        """Get attachments for a task
+        :param str task_gid: The task to operate on. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[AttachmentCompact]
+        """
+        path = "/tasks/{task_gid}/attachments".replace("task_gid", task_gid)
+        return self.client.get(path, params, **options)
+

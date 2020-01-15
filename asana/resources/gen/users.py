@@ -1,75 +1,54 @@
 
 class _Users:
-    """A _user_ object represents an account in Asana that can be given access to
-    various workspaces, projects, and tasks.
-
-    Like other objects in the system, users are referred to by numerical IDs.
-    However, the special string identifier `me` can be used anywhere
-    a user ID is accepted, to refer to the current authenticated user.
-    """
 
     def __init__(self, client=None):
         self.client = client
 
-    def me(self, params={}, **options):
-        """Returns the full user record for the currently authenticated user.
-
-        Parameters
-        ----------
+    def get_favorites_for_user(self, user_gid, params={}, **options):
+        """Get a user's favorites
+        :param str user_gid: Globally unique identifier for the user. (required)
         [params] : {Object} Parameters for the request
+        :return: list[AsanaNamedResource]
         """
-        return self.client.get("/users/me", params, **options)
-
-    def find_by_id(self, user, params={}, **options):
-        """Returns the full user record for the single user with the provided ID.
-
-        Parameters
-        ----------
-        user : {String} An identifier for the user. Can be one of an email address,
-        the globally unique identifier for the user, or the keyword `me`
-        to indicate the current user making the request.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/users/%s" % (user)
+        path = "/users/{user_gid}/favorites".replace("user_gid", user_gid)
         return self.client.get(path, params, **options)
 
-    def get_user_favorites(self, user, params={}, **options):
-        """Returns all of a user's favorites in the given workspace, of the given type.
-        Results are given in order (The same order as Asana's sidebar).
 
-        Parameters
-        ----------
-        user : {String} An identifier for the user. Can be one of an email address,
-        the globally unique identifier for the user, or the keyword `me`
-        to indicate the current user making the request.
+    def get_user(self, user_gid, params={}, **options):
+        """Get a user
+        :param str user_gid: Globally unique identifier for the user. (required)
         [params] : {Object} Parameters for the request
-          - workspace : {Id} The workspace in which to get favorites.
-          - resource_type : {Enum} The resource type of favorites to be returned.
+        :return: UserResponse
         """
-        path = "/users/%s/favorites" % (user)
-        return self.client.get_collection(path, params, **options)
+        path = "/users/{user_gid}".replace("user_gid", user_gid)
+        return self.client.get(path, params, **options)
 
-    def find_by_workspace(self, workspace, params={}, **options):
-        """Returns the user records for all users in the specified workspace or
-        organization.
 
-        Parameters
-        ----------
-        workspace : {Id} The workspace in which to get users.
+    def get_users(self, params={}, **options):
+        """Get multiple users
         [params] : {Object} Parameters for the request
+        :return: list[UserCompact]
         """
-        path = "/workspaces/%s/users" % (workspace)
-        return self.client.get_collection(path, params, **options)
+        path = "/users"
+        return self.client.get(path, params, **options)
 
-    def find_all(self, params={}, **options):
-        """Returns the user records for all users in all workspaces and organizations
-        accessible to the authenticated user. Accepts an optional workspace ID
-        parameter.
 
-        Parameters
-        ----------
+    def get_users_for_team(self, team_gid, params={}, **options):
+        """Get users in a team
+        :param str team_gid: Globally unique identifier for the team. (required)
         [params] : {Object} Parameters for the request
-          - [workspace] : {Id} The workspace or organization to filter users on.
+        :return: list[UserCompact]
         """
-        return self.client.get_collection("/users", params, **options)
+        path = "/teams/{team_gid}/users".replace("team_gid", team_gid)
+        return self.client.get(path, params, **options)
+
+
+    def get_users_for_workspace(self, workspace_gid, params={}, **options):
+        """Get users in a workspace or organization
+        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[UserCompact]
+        """
+        path = "/workspaces/{workspace_gid}/users".replace("workspace_gid", workspace_gid)
+        return self.client.get(path, params, **options)
 

@@ -1,44 +1,34 @@
 
 class _PortfolioMemberships:
-    """This object determines if a user is a member of a portfolio.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_all(self, params={}, **options): 
-        """Returns the compact portfolio membership records for the portfolio. You must
-        specify `portfolio`, `portfolio` and `user`, or `workspace` and `user`.
 
-        Parameters
-        ----------
+    def get_portfolio_membership(self, portfolio_membership_path_gid, params={}, **options):
+        """Get a portfolio membership
+        :param str portfolio_membership_path_gid: (required)
         [params] : {Object} Parameters for the request
-          - [portfolio] : {Gid} The portfolio for which to fetch memberships.
-          - [workspace] : {Gid} The workspace for which to fetch memberships.
-          - [user] : {String} The user to filter the memberships to.
+        :return: PortfolioMembershipResponse
         """
-        return self.client.get_collection("/portfolio_memberships", params, **options)
-        
-    def find_by_portfolio(self, portfolio, params={}, **options): 
-        """Returns the compact portfolio membership records for the portfolio.
-
-        Parameters
-        ----------
-        portfolio : {Gid} The portfolio for which to fetch memberships.
-        [params] : {Object} Parameters for the request
-          - [user] : {String} If present, the user to filter the memberships to.
-        """
-        path = "/portfolios/%s/portfolio_memberships" % (portfolio)
-        return self.client.get_collection(path, params, **options)
-        
-    def find_by_id(self, portfolio_membership, params={}, **options): 
-        """Returns the portfolio membership record.
-
-        Parameters
-        ----------
-        portfolio_membership : {Gid} Globally unique identifier for the portfolio membership.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/portfolio_memberships/%s" % (portfolio_membership)
+        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("portfolio_membership_path_gid", portfolio_membership_path_gid)
         return self.client.get(path, params, **options)
-        
+
+
+    def get_portfolio_memberships(self, params={}, **options):
+        """Get multiple portfolio memberships
+        [params] : {Object} Parameters for the request
+        :return: list[PortfolioMembershipCompact]
+        """
+        path = "/portfolio_memberships"
+        return self.client.get(path, params, **options)
+
+
+    def get_portfolio_memberships_for_portfolio(self, portfolio_gid, params={}, **options):
+        """Get memberships from a portfolio
+        :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
+        [params] : {Object} Parameters for the request
+        :return: list[PortfolioMembershipCompact]
+        """
+        path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("portfolio_gid", portfolio_gid)
+        return self.client.get(path, params, **options)
+

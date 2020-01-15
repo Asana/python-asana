@@ -1,14 +1,14 @@
 
-class _Events:
+class _BatchAPI:
 
     def __init__(self, client=None):
         self.client = client
 
-    def get_events(self, params={}, **options):
-        """Get events on a resource
+    def create_batch_request_action(self, params={}, **options):
+        """Submit parallel requests
         [params] : {Object} Parameters for the request
-        :return: list[EventResponse]
+        :return: list[BatchResponse]
         """
-        path = "/events"
+        path = "/batch"
         return self.client.get(path, params, **options)
 
