@@ -19,7 +19,7 @@ class _Webhooks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/webhooks/{webhook_gid}".replace("webhook_gid", webhook_gid)
+        path = "/webhooks/{webhook_gid}".replace("{webhook_gid}", webhook_gid)
         return self.client.get(path, params, **options)
 
 
@@ -29,7 +29,7 @@ class _Webhooks:
         [params] : {Object} Parameters for the request
         :return: WebhookResponse
         """
-        path = "/webhooks/{webhook_gid}".replace("webhook_gid", webhook_gid)
+        path = "/webhooks/{webhook_gid}".replace("{webhook_gid}", webhook_gid)
         return self.client.get(path, params, **options)
 
 

@@ -10,7 +10,7 @@ class _PortfolioMemberships:
         [params] : {Object} Parameters for the request
         :return: PortfolioMembershipResponse
         """
-        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("portfolio_membership_path_gid", portfolio_membership_path_gid)
+        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("{portfolio_membership_path_gid}", portfolio_membership_path_gid)
         return self.client.get(path, params, **options)
 
 
@@ -29,6 +29,6 @@ class _PortfolioMemberships:
         [params] : {Object} Parameters for the request
         :return: list[PortfolioMembershipCompact]
         """
-        path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 

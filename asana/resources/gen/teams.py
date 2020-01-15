@@ -10,7 +10,7 @@ class _Teams:
         [params] : {Object} Parameters for the request
         :return: UserResponse
         """
-        path = "/teams/{team_gid}/addUser".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}/addUser".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Teams:
         [params] : {Object} Parameters for the request
         :return: TeamResponse
         """
-        path = "/teams/{team_gid}".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _Teams:
         [params] : {Object} Parameters for the request
         :return: list[TeamCompact]
         """
-        path = "/organizations/{workspace_gid}/teams".replace("workspace_gid", workspace_gid)
+        path = "/organizations/{workspace_gid}/teams".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,7 +40,7 @@ class _Teams:
         [params] : {Object} Parameters for the request
         :return: list[TeamCompact]
         """
-        path = "/users/{user_gid}/teams".replace("user_gid", user_gid)
+        path = "/users/{user_gid}/teams".replace("{user_gid}", user_gid)
         return self.client.get(path, params, **options)
 
 
@@ -50,6 +50,6 @@ class _Teams:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/teams/{team_gid}/removeUser".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}/removeUser".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 

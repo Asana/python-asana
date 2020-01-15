@@ -10,7 +10,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/addItem".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/addItem".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/addMembers".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/addMembers".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -39,7 +39,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -49,7 +49,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: list[ProjectCompact]
         """
-        path = "/portfolios/{portfolio_gid}/items".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/items".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -59,7 +59,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: PortfolioResponse
         """
-        path = "/portfolios/{portfolio_gid}".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -78,7 +78,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/removeItem".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/removeItem".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -88,7 +88,7 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/removeMembers".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/removeMembers".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -98,6 +98,6 @@ class _Portfolios:
         [params] : {Object} Parameters for the request
         :return: PortfolioResponse
         """
-        path = "/portfolios/{portfolio_gid}".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 

@@ -10,7 +10,7 @@ class _ProjectStatuses:
         [params] : {Object} Parameters for the request
         :return: ProjectStatusResponse
         """
-        path = "/projects/{project_gid}/project_statuses".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/project_statuses".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _ProjectStatuses:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/project_statuses/{project_status_gid}".replace("project_status_path_gid", project_status_path_gid)
+        path = "/project_statuses/{project_status_gid}".replace("{project_status_path_gid}", project_status_path_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _ProjectStatuses:
         [params] : {Object} Parameters for the request
         :return: ProjectStatusResponse
         """
-        path = "/project_statuses/{project_status_gid}".replace("project_status_path_gid", project_status_path_gid)
+        path = "/project_statuses/{project_status_gid}".replace("{project_status_path_gid}", project_status_path_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,6 +40,6 @@ class _ProjectStatuses:
         [params] : {Object} Parameters for the request
         :return: list[ProjectStatusCompact]
         """
-        path = "/projects/{project_gid}/project_statuses".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/project_statuses".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 

@@ -19,7 +19,7 @@ class _Tags:
         [params] : {Object} Parameters for the request
         :return: TagResponse
         """
-        path = "/workspaces/{workspace_gid}/tags".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -29,7 +29,7 @@ class _Tags:
         [params] : {Object} Parameters for the request
         :return: TagResponse
         """
-        path = "/tags/{tag_gid}".replace("tag_gid", tag_gid)
+        path = "/tags/{tag_gid}".replace("{tag_gid}", tag_gid)
         return self.client.get(path, params, **options)
 
 
@@ -48,7 +48,7 @@ class _Tags:
         [params] : {Object} Parameters for the request
         :return: list[TagCompact]
         """
-        path = "/tasks/{task_gid}/tags".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/tags".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -58,7 +58,7 @@ class _Tags:
         [params] : {Object} Parameters for the request
         :return: list[TagCompact]
         """
-        path = "/workspaces/{workspace_gid}/tags".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -68,6 +68,6 @@ class _Tags:
         [params] : {Object} Parameters for the request
         :return: TagResponse
         """
-        path = "/tags/{tag_gid}".replace("tag_gid", tag_gid)
+        path = "/tags/{tag_gid}".replace("{tag_gid}", tag_gid)
         return self.client.get(path, params, **options)
 

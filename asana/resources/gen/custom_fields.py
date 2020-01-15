@@ -19,7 +19,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: EnumOptionCompact
         """
-        path = "/custom_fields/{custom_field_gid}/enum_options".replace("custom_field_gid", custom_field_gid)
+        path = "/custom_fields/{custom_field_gid}/enum_options".replace("{custom_field_gid}", custom_field_gid)
         return self.client.get(path, params, **options)
 
 
@@ -29,7 +29,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/custom_fields/{custom_field_gid}".replace("custom_field_gid", custom_field_gid)
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
         return self.client.get(path, params, **options)
 
 
@@ -39,7 +39,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: CustomFieldResponse
         """
-        path = "/custom_fields/{custom_field_gid}".replace("custom_field_gid", custom_field_gid)
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
         return self.client.get(path, params, **options)
 
 
@@ -49,7 +49,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: list[EnumOptionCompact]
         """
-        path = "/workspaces/{workspace_gid}/custom_fields".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/custom_fields".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -59,7 +59,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: EnumOptionCompact
         """
-        path = "/custom_fields/{custom_field_gid}/enum_options/insert".replace("custom_field_gid", custom_field_gid)
+        path = "/custom_fields/{custom_field_gid}/enum_options/insert".replace("{custom_field_gid}", custom_field_gid)
         return self.client.get(path, params, **options)
 
 
@@ -69,7 +69,7 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: CustomFieldResponse
         """
-        path = "/custom_fields/{custom_field_gid}".replace("custom_field_gid", custom_field_gid)
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
         return self.client.get(path, params, **options)
 
 
@@ -79,6 +79,6 @@ class _CustomFields:
         [params] : {Object} Parameters for the request
         :return: EnumOptionCompact
         """
-        path = "/enum_options/{enum_option_gid}".replace("enum_option_gid", enum_option_gid)
+        path = "/enum_options/{enum_option_gid}".replace("{enum_option_gid}", enum_option_gid)
         return self.client.get(path, params, **options)
 

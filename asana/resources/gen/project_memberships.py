@@ -10,7 +10,7 @@ class _ProjectMemberships:
         [params] : {Object} Parameters for the request
         :return: ProjectMembershipResponse
         """
-        path = "/project_memberships/{project_membership_gid}".replace("project_membership_path_gid", project_membership_path_gid)
+        path = "/project_memberships/{project_membership_gid}".replace("{project_membership_path_gid}", project_membership_path_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,6 +20,6 @@ class _ProjectMemberships:
         [params] : {Object} Parameters for the request
         :return: list[ProjectMembershipCompact]
         """
-        path = "/projects/{project_gid}/project_memberships".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/project_memberships".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 

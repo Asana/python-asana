@@ -10,7 +10,7 @@ class _WorkspaceMemberships:
         [params] : {Object} Parameters for the request
         :return: WorkspaceMembershipResponse
         """
-        path = "/workspace_memberships/{workspace_membership_gid}".replace("workspace_membership_path_gid", workspace_membership_path_gid)
+        path = "/workspace_memberships/{workspace_membership_gid}".replace("{workspace_membership_path_gid}", workspace_membership_path_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _WorkspaceMemberships:
         [params] : {Object} Parameters for the request
         :return: list[WorkspaceMembershipCompact]
         """
-        path = "/users/{user_gid}/workspace_memberships".replace("user_gid", user_gid)
+        path = "/users/{user_gid}/workspace_memberships".replace("{user_gid}", user_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,6 +30,6 @@ class _WorkspaceMemberships:
         [params] : {Object} Parameters for the request
         :return: list[WorkspaceMembershipCompact]
         """
-        path = "/workspaces/{workspace_gid}/workspace_memberships".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/workspace_memberships".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 

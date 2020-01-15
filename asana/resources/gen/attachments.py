@@ -10,7 +10,7 @@ class _Attachments:
         [params] : {Object} Parameters for the request
         :return: AttachmentResponse
         """
-        path = "/tasks/{task_gid}/attachments".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/attachments".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Attachments:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/attachments/{attachment_gid}".replace("attachment_gid", attachment_gid)
+        path = "/attachments/{attachment_gid}".replace("{attachment_gid}", attachment_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _Attachments:
         [params] : {Object} Parameters for the request
         :return: AttachmentResponse
         """
-        path = "/attachments/{attachment_gid}".replace("attachment_gid", attachment_gid)
+        path = "/attachments/{attachment_gid}".replace("{attachment_gid}", attachment_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,6 +40,6 @@ class _Attachments:
         [params] : {Object} Parameters for the request
         :return: list[AttachmentCompact]
         """
-        path = "/tasks/{task_gid}/attachments".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/attachments".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 

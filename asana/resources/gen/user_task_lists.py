@@ -10,7 +10,7 @@ class _UserTaskLists:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/user_task_lists/{user_task_list_gid}/tasks".replace("user_task_list_gid", user_task_list_gid)
+        path = "/user_task_lists/{user_task_list_gid}/tasks".replace("{user_task_list_gid}", user_task_list_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _UserTaskLists:
         [params] : {Object} Parameters for the request
         :return: UserTaskListResponse
         """
-        path = "/user_task_list/{user_task_list_gid}".replace("user_task_list_gid", user_task_list_gid)
+        path = "/user_task_list/{user_task_list_gid}".replace("{user_task_list_gid}", user_task_list_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,6 +30,6 @@ class _UserTaskLists:
         [params] : {Object} Parameters for the request
         :return: UserTaskListResponse
         """
-        path = "/users/{user_gid}/user_task_list".replace("user_gid", user_gid)
+        path = "/users/{user_gid}/user_task_list".replace("{user_gid}", user_gid)
         return self.client.get(path, params, **options)
 

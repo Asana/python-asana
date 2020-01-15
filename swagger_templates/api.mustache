@@ -15,7 +15,7 @@ class _{{classname}}:
         [params] : {Object} Parameters for the request
         :return: {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}None{{/returnType}}
         """
-        path = "{{path}}"{{#pathParams}}.replace("{{baseName}}", {{paramName}}){{/pathParams}}
+        path = "{{path}}"{{#pathParams}}.replace("{ {{~baseName~}} }", {{paramName}}){{/pathParams}}
         return self.client.get(path, params, **options)
 
 {{/contents}}

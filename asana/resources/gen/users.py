@@ -10,7 +10,7 @@ class _Users:
         [params] : {Object} Parameters for the request
         :return: list[AsanaNamedResource]
         """
-        path = "/users/{user_gid}/favorites".replace("user_gid", user_gid)
+        path = "/users/{user_gid}/favorites".replace("{user_gid}", user_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Users:
         [params] : {Object} Parameters for the request
         :return: UserResponse
         """
-        path = "/users/{user_gid}".replace("user_gid", user_gid)
+        path = "/users/{user_gid}".replace("{user_gid}", user_gid)
         return self.client.get(path, params, **options)
 
 
@@ -39,7 +39,7 @@ class _Users:
         [params] : {Object} Parameters for the request
         :return: list[UserCompact]
         """
-        path = "/teams/{team_gid}/users".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}/users".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 
 
@@ -49,6 +49,6 @@ class _Users:
         [params] : {Object} Parameters for the request
         :return: list[UserCompact]
         """
-        path = "/workspaces/{workspace_gid}/users".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/users".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 

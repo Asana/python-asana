@@ -10,6 +10,6 @@ class _Jobs:
         [params] : {Object} Parameters for the request
         :return: JobResponse
         """
-        path = "/jobs/{job_gid}".replace("job_gid", job_gid)
+        path = "/jobs/{job_gid}".replace("{job_gid}", job_gid)
         return self.client.get(path, params, **options)
 

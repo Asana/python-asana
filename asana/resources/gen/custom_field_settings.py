@@ -10,7 +10,7 @@ class _CustomFieldSettings:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/addCustomFieldSetting".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/addCustomFieldSetting".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _CustomFieldSettings:
         [params] : {Object} Parameters for the request
         :return: list[CustomFieldSettingResponse]
         """
-        path = "/portfolios/{portfolio_gid}/custom_field_settings".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/custom_field_settings".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _CustomFieldSettings:
         [params] : {Object} Parameters for the request
         :return: list[CustomFieldSettingResponse]
         """
-        path = "/projects/{project_gid}/custom_field_settings".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/custom_field_settings".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,6 +40,6 @@ class _CustomFieldSettings:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/portfolios/{portfolio_gid}/removeCustomFieldSetting".replace("portfolio_gid", portfolio_gid)
+        path = "/portfolios/{portfolio_gid}/removeCustomFieldSetting".replace("{portfolio_gid}", portfolio_gid)
         return self.client.get(path, params, **options)
 

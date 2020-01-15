@@ -10,7 +10,7 @@ class _Workspaces:
         [params] : {Object} Parameters for the request
         :return: UserResponse
         """
-        path = "/workspaces/{workspace_gid}/addUser".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/addUser".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Workspaces:
         [params] : {Object} Parameters for the request
         :return: WorkspaceResponse
         """
-        path = "/workspaces/{workspace_gid}".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -39,7 +39,7 @@ class _Workspaces:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/workspaces/{workspace_gid}/removeUser".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/removeUser".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -49,6 +49,6 @@ class _Workspaces:
         [params] : {Object} Parameters for the request
         :return: WorkspaceResponse
         """
-        path = "/workspaces/{workspace_gid}".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 

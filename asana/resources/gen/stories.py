@@ -10,7 +10,7 @@ class _Stories:
         [params] : {Object} Parameters for the request
         :return: StoryResponse
         """
-        path = "/tasks/{task_gid}/stories".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/stories".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Stories:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/stories/{story_gid}".replace("story_gid", story_gid)
+        path = "/stories/{story_gid}".replace("{story_gid}", story_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _Stories:
         [params] : {Object} Parameters for the request
         :return: list[StoryCompact]
         """
-        path = "/tasks/{task_gid}/stories".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/stories".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,7 +40,7 @@ class _Stories:
         [params] : {Object} Parameters for the request
         :return: StoryResponse
         """
-        path = "/stories/{story_gid}".replace("story_gid", story_gid)
+        path = "/stories/{story_gid}".replace("{story_gid}", story_gid)
         return self.client.get(path, params, **options)
 
 
@@ -50,6 +50,6 @@ class _Stories:
         [params] : {Object} Parameters for the request
         :return: StoryResponse
         """
-        path = "/stories/{story_gid}".replace("story_gid", story_gid)
+        path = "/stories/{story_gid}".replace("{story_gid}", story_gid)
         return self.client.get(path, params, **options)
 

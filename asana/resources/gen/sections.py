@@ -10,7 +10,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/sections/{section_gid}/addTask".replace("section_gid", section_gid)
+        path = "/sections/{section_gid}/addTask".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: SectionResponse
         """
-        path = "/projects/{project_gid}/sections".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/sections/{section_gid}".replace("section_gid", section_gid)
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,7 +40,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: SectionResponse
         """
-        path = "/sections/{section_gid}".replace("section_gid", section_gid)
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
 
 
@@ -50,7 +50,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: list[SectionCompact]
         """
-        path = "/projects/{project_gid}/sections".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -60,7 +60,7 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/projects/{project_gid}/sections/insert".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/sections/insert".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -70,6 +70,6 @@ class _Sections:
         [params] : {Object} Parameters for the request
         :return: SectionResponse
         """
-        path = "/sections/{section_gid}".replace("section_gid", section_gid)
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
 

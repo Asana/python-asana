@@ -19,6 +19,6 @@ class _OrganizationExports:
         [params] : {Object} Parameters for the request
         :return: OrganizationExportResponse
         """
-        path = "/organization_exports/{organization_export_gid}".replace("organization_export_gid", organization_export_gid)
+        path = "/organization_exports/{organization_export_gid}".replace("{organization_export_gid}", organization_export_gid)
         return self.client.get(path, params, **options)
 

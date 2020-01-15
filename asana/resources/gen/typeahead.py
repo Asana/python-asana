@@ -10,6 +10,6 @@ class _Typeahead:
         [params] : {Object} Parameters for the request
         :return: list[AsanaNamedResource]
         """
-        path = "/workspaces/{workspace_gid}/typeahead".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/typeahead".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 

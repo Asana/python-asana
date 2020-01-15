@@ -10,7 +10,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/addDependencies".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/addDependencies".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -20,7 +20,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/addDependents".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/addDependents".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -30,7 +30,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/addFollowers".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/addFollowers".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -40,7 +40,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/addProject".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/addProject".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -50,7 +50,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/addTag".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/addTag".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -60,7 +60,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: TaskResponse
         """
-        path = "/tasks/{task_gid}/subtasks".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/subtasks".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -79,7 +79,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -89,7 +89,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: JobResponse
         """
-        path = "/tasks/{task_gid}/duplicate".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/duplicate".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -99,7 +99,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/dependencies".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/dependencies".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -109,7 +109,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/dependents".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/dependents".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -119,7 +119,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/subtasks".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/subtasks".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -129,7 +129,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: TaskResponse
         """
-        path = "/tasks/{task_gid}".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -148,7 +148,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/projects/{project_gid}/tasks".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/tasks".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -158,7 +158,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/sections/{section_gid}/tasks".replace("section_gid", section_gid)
+        path = "/sections/{section_gid}/tasks".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
 
 
@@ -168,7 +168,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tags/{tag_gid}/tasks".replace("tag_gid", tag_gid)
+        path = "/tags/{tag_gid}/tasks".replace("{tag_gid}", tag_gid)
         return self.client.get(path, params, **options)
 
 
@@ -178,7 +178,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/removeDependencies".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/removeDependencies".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -188,7 +188,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/tasks/{task_gid}/removeDependents".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/removeDependents".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -198,7 +198,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/removeFollowers".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/removeFollowers".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -208,7 +208,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/removeProject".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/removeProject".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -218,7 +218,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/tasks/{task_gid}/removeTag".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/removeTag".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -228,7 +228,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: list[TaskCompact]
         """
-        path = "/workspaces/{workspace_gid}/tasks/search".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/tasks/search".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -238,7 +238,7 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: TaskResponse
         """
-        path = "/tasks/{task_gid}/setParent".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/setParent".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -248,6 +248,6 @@ class _Tasks:
         [params] : {Object} Parameters for the request
         :return: TaskResponse
         """
-        path = "/tasks/{task_gid}".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 

@@ -10,7 +10,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/projects/{project_gid}/addCustomFieldSetting".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/addCustomFieldSetting".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -29,7 +29,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: ProjectResponse
         """
-        path = "/teams/{team_gid}/projects".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 
 
@@ -39,7 +39,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: ProjectResponse
         """
-        path = "/workspaces/{workspace_gid}/projects".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -49,7 +49,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/projects/{project_gid}".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -59,7 +59,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: JobResponse
         """
-        path = "/projects/{project_gid}/duplicate".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/duplicate".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -69,7 +69,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: ProjectResponse
         """
-        path = "/projects/{project_gid}".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -88,7 +88,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: list[ProjectCompact]
         """
-        path = "/tasks/{task_gid}/projects".replace("task_gid", task_gid)
+        path = "/tasks/{task_gid}/projects".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
 
 
@@ -98,7 +98,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: list[ProjectCompact]
         """
-        path = "/teams/{team_gid}/projects".replace("team_gid", team_gid)
+        path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
 
 
@@ -108,7 +108,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: list[ProjectCompact]
         """
-        path = "/workspaces/{workspace_gid}/projects".replace("workspace_gid", workspace_gid)
+        path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
 
 
@@ -118,7 +118,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: TaskCountResponse
         """
-        path = "/projects/{project_gid}/task_counts".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/task_counts".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -128,7 +128,7 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: EmptyObject
         """
-        path = "/projects/{project_gid}/removeCustomFieldSetting".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}/removeCustomFieldSetting".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
 
@@ -138,6 +138,6 @@ class _Projects:
         [params] : {Object} Parameters for the request
         :return: ProjectResponse
         """
-        path = "/projects/{project_gid}".replace("project_gid", project_gid)
+        path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
 
