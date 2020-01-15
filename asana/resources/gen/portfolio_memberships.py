@@ -29,7 +29,7 @@ class _PortfolioMemberships:
         :return: Object
         """
         path = "/portfolio_memberships"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_portfolio_memberships_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -44,5 +44,5 @@ class _PortfolioMemberships:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

@@ -10,7 +10,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/custom_fields"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_enum_option_for_custom_field(self, custom_field_gid, params={}, **options):
@@ -20,7 +20,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/custom_fields/{custom_field_gid}/enum_options".replace("{custom_field_gid}", custom_field_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_custom_field(self, custom_field_gid, params={}, **options):
@@ -30,7 +30,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_custom_field(self, custom_field_gid, params={}, **options):
@@ -56,7 +56,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/custom_fields".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def insert_enum_option_for_custom_field(self, custom_field_gid, params={}, **options):
@@ -66,7 +66,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/custom_fields/{custom_field_gid}/enum_options/insert".replace("{custom_field_gid}", custom_field_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_custom_field(self, custom_field_gid, params={}, **options):
@@ -76,7 +76,7 @@ class _CustomFields:
         :return: Object
         """
         path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 
 
     def update_enum_option(self, enum_option_gid, params={}, **options):
@@ -86,5 +86,5 @@ class _CustomFields:
         :return: Object
         """
         path = "/enum_options/{enum_option_gid}".replace("{enum_option_gid}", enum_option_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

@@ -11,7 +11,7 @@ class _Sections:
         :return: Object
         """
         path = "/sections/{section_gid}/addTask".replace("{section_gid}", section_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_section_for_project(self, project_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _Sections:
         :return: Object
         """
         path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_section(self, section_gid, params={}, **options):
@@ -31,7 +31,7 @@ class _Sections:
         :return: Object
         """
         path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_section(self, section_gid, params={}, **options):
@@ -57,7 +57,7 @@ class _Sections:
         :return: Object
         """
         path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def insert_section_for_project(self, project_gid, params={}, **options):
@@ -67,7 +67,7 @@ class _Sections:
         :return: Object
         """
         path = "/projects/{project_gid}/sections/insert".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_section(self, section_gid, params={}, **options):
@@ -77,5 +77,5 @@ class _Sections:
         :return: Object
         """
         path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

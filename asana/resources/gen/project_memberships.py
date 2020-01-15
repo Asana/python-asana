@@ -28,5 +28,5 @@ class _ProjectMemberships:
         :return: Object
         """
         path = "/projects/{project_gid}/project_memberships".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

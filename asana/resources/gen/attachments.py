@@ -11,7 +11,7 @@ class _Attachments:
         :return: Object
         """
         path = "/tasks/{task_gid}/attachments".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_attachment(self, attachment_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _Attachments:
         :return: Object
         """
         path = "/attachments/{attachment_gid}".replace("{attachment_gid}", attachment_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_attachment(self, attachment_gid, params={}, **options):
@@ -47,5 +47,5 @@ class _Attachments:
         :return: Object
         """
         path = "/tasks/{task_gid}/attachments".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

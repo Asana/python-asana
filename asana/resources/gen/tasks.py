@@ -11,7 +11,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/addDependencies".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def add_dependents_for_task(self, task_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/addDependents".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def add_followers_for_task(self, task_gid, params={}, **options):
@@ -31,7 +31,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/addFollowers".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def add_project_for_task(self, task_gid, params={}, **options):
@@ -41,7 +41,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/addProject".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def add_tag_for_task(self, task_gid, params={}, **options):
@@ -51,7 +51,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/addTag".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_subtask_for_task(self, task_gid, params={}, **options):
@@ -61,7 +61,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/subtasks".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_task(self, params={}, **options):
@@ -70,7 +70,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_task(self, task_gid, params={}, **options):
@@ -80,7 +80,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def duplicate_task(self, task_gid, params={}, **options):
@@ -90,7 +90,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/duplicate".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_dependencies_for_task(self, task_gid, params={}, **options):
@@ -104,7 +104,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/dependencies".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_dependents_for_task(self, task_gid, params={}, **options):
@@ -118,7 +118,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/dependents".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_subtasks_for_task(self, task_gid, params={}, **options):
@@ -132,7 +132,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/subtasks".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_task(self, task_gid, params={}, **options):
@@ -163,7 +163,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_tasks_for_project(self, project_gid, params={}, **options):
@@ -177,7 +177,7 @@ class _Tasks:
         :return: Object
         """
         path = "/projects/{project_gid}/tasks".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_tasks_for_section(self, section_gid, params={}, **options):
@@ -191,7 +191,7 @@ class _Tasks:
         :return: Object
         """
         path = "/sections/{section_gid}/tasks".replace("{section_gid}", section_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_tasks_for_tag(self, tag_gid, params={}, **options):
@@ -205,7 +205,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tags/{tag_gid}/tasks".replace("{tag_gid}", tag_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def remove_dependencies_for_task(self, task_gid, params={}, **options):
@@ -215,7 +215,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/removeDependencies".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def remove_dependents_for_task(self, task_gid, params={}, **options):
@@ -225,7 +225,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/removeDependents".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def remove_follower_for_task(self, task_gid, params={}, **options):
@@ -235,7 +235,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/removeFollowers".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def remove_project_for_task(self, task_gid, params={}, **options):
@@ -245,7 +245,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/removeProject".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def remove_tag_for_task(self, task_gid, params={}, **options):
@@ -255,7 +255,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/removeTag".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def search_tasks_for_workspace(self, workspace_gid, params={}, **options):
@@ -322,7 +322,7 @@ class _Tasks:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/tasks/search".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def set_parent_for_task(self, task_gid, params={}, **options):
@@ -332,7 +332,7 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}/setParent".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_task(self, task_gid, params={}, **options):
@@ -342,5 +342,5 @@ class _Tasks:
         :return: Object
         """
         path = "/tasks/{task_gid}".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

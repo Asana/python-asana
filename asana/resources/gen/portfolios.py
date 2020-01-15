@@ -11,7 +11,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/addItem".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def add_members_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/addMembers".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_portfolio(self, params={}, **options):
@@ -30,7 +30,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_portfolio(self, portfolio_gid, params={}, **options):
@@ -40,7 +40,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_items_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -54,7 +54,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/items".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_portfolio(self, portfolio_gid, params={}, **options):
@@ -81,7 +81,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def remove_item_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -91,7 +91,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/removeItem".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def remove_members_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -101,7 +101,7 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/removeMembers".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_portfolio(self, portfolio_gid, params={}, **options):
@@ -111,5 +111,5 @@ class _Portfolios:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

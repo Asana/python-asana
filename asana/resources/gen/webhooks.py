@@ -10,7 +10,7 @@ class _Webhooks:
         :return: Object
         """
         path = "/webhooks"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_webhook(self, webhook_gid, params={}, **options):
@@ -20,7 +20,7 @@ class _Webhooks:
         :return: Object
         """
         path = "/webhooks/{webhook_gid}".replace("{webhook_gid}", webhook_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_webhook(self, webhook_gid, params={}, **options):
@@ -47,5 +47,5 @@ class _Webhooks:
         :return: Object
         """
         path = "/webhooks"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

@@ -11,7 +11,7 @@ class _Stories:
         :return: Object
         """
         path = "/tasks/{task_gid}/stories".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_story(self, story_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _Stories:
         :return: Object
         """
         path = "/stories/{story_gid}".replace("{story_gid}", story_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_stories_for_task(self, task_gid, params={}, **options):
@@ -35,7 +35,7 @@ class _Stories:
         :return: Object
         """
         path = "/tasks/{task_gid}/stories".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_story(self, story_gid, params={}, **options):
@@ -59,5 +59,5 @@ class _Stories:
         :return: Object
         """
         path = "/stories/{story_gid}".replace("{story_gid}", story_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

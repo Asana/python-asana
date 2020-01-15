@@ -14,5 +14,5 @@ class _Events:
         :return: Object
         """
         path = "/events"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

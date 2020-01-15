@@ -15,7 +15,7 @@ class _Users:
         :return: Object
         """
         path = "/users/{user_gid}/favorites".replace("{user_gid}", user_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_user(self, user_gid, params={}, **options):
@@ -41,7 +41,7 @@ class _Users:
         :return: Object
         """
         path = "/users"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_users_for_team(self, team_gid, params={}, **options):
@@ -55,7 +55,7 @@ class _Users:
         :return: Object
         """
         path = "/teams/{team_gid}/users".replace("{team_gid}", team_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_users_for_workspace(self, workspace_gid, params={}, **options):
@@ -69,5 +69,5 @@ class _Users:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/users".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

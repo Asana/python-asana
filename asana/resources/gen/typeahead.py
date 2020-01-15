@@ -17,5 +17,5 @@ class _Typeahead:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/typeahead".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

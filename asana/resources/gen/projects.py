@@ -11,7 +11,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}/addCustomFieldSetting".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_project(self, params={}, **options):
@@ -20,7 +20,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_project_for_team(self, team_gid, params={}, **options):
@@ -30,7 +30,7 @@ class _Projects:
         :return: Object
         """
         path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_project_for_workspace(self, workspace_gid, params={}, **options):
@@ -40,7 +40,7 @@ class _Projects:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_project(self, project_gid, params={}, **options):
@@ -50,7 +50,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def duplicate_project(self, project_gid, params={}, **options):
@@ -60,7 +60,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}/duplicate".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_project(self, project_gid, params={}, **options):
@@ -88,7 +88,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_projects_for_task(self, task_gid, params={}, **options):
@@ -102,7 +102,7 @@ class _Projects:
         :return: Object
         """
         path = "/tasks/{task_gid}/projects".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_projects_for_team(self, team_gid, params={}, **options):
@@ -117,7 +117,7 @@ class _Projects:
         :return: Object
         """
         path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_projects_for_workspace(self, workspace_gid, params={}, **options):
@@ -132,7 +132,7 @@ class _Projects:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_task_counts_for_project(self, project_gid, params={}, **options):
@@ -156,7 +156,7 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}/removeCustomFieldSetting".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_project(self, project_gid, params={}, **options):
@@ -166,5 +166,5 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

@@ -27,7 +27,7 @@ class _WorkspaceMemberships:
         :return: Object
         """
         path = "/users/{user_gid}/workspace_memberships".replace("{user_gid}", user_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_workspace_memberships_for_workspace(self, workspace_gid, params={}, **options):
@@ -42,5 +42,5 @@ class _WorkspaceMemberships:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/workspace_memberships".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

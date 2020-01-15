@@ -11,7 +11,7 @@ class _CustomFieldSettings:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/addCustomFieldSetting".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_custom_field_settings_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -25,7 +25,7 @@ class _CustomFieldSettings:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/custom_field_settings".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_custom_field_settings_for_project(self, project_gid, params={}, **options):
@@ -39,7 +39,7 @@ class _CustomFieldSettings:
         :return: Object
         """
         path = "/projects/{project_gid}/custom_field_settings".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def remove_custom_field_setting_for_portfolio(self, portfolio_gid, params={}, **options):
@@ -49,5 +49,5 @@ class _CustomFieldSettings:
         :return: Object
         """
         path = "/portfolios/{portfolio_gid}/removeCustomFieldSetting".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 

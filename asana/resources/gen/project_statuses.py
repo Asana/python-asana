@@ -11,7 +11,7 @@ class _ProjectStatuses:
         :return: Object
         """
         path = "/projects/{project_gid}/project_statuses".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def delete_project_status(self, project_status_path_gid, params={}, **options):
@@ -21,7 +21,7 @@ class _ProjectStatuses:
         :return: Object
         """
         path = "/project_statuses/{project_status_gid}".replace("{project_status_path_gid}", project_status_path_gid)
-        return self.client.get(path, params, **options)
+        return self.client.delete(path, params, **options)
 
 
     def get_project_status(self, project_status_path_gid, params={}, **options):
@@ -47,5 +47,5 @@ class _ProjectStatuses:
         :return: Object
         """
         path = "/projects/{project_gid}/project_statuses".replace("{project_gid}", project_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 

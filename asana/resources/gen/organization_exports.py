@@ -10,7 +10,7 @@ class _OrganizationExports:
         :return: Object
         """
         path = "/organization_exports"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_organization_export(self, organization_export_gid, params={}, **options):

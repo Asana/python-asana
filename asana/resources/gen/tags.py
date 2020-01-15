@@ -10,7 +10,7 @@ class _Tags:
         :return: Object
         """
         path = "/tags"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def create_tag_for_workspace(self, workspace_gid, params={}, **options):
@@ -20,7 +20,7 @@ class _Tags:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_tag(self, tag_gid, params={}, **options):
@@ -49,7 +49,7 @@ class _Tags:
         :return: Object
         """
         path = "/tags"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_tags_for_task(self, task_gid, params={}, **options):
@@ -63,7 +63,7 @@ class _Tags:
         :return: Object
         """
         path = "/tasks/{task_gid}/tags".replace("{task_gid}", task_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_tags_for_workspace(self, workspace_gid, params={}, **options):
@@ -77,7 +77,7 @@ class _Tags:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def update_tag(self, tag_gid, params={}, **options):
@@ -87,5 +87,5 @@ class _Tags:
         :return: Object
         """
         path = "/tags/{tag_gid}".replace("{tag_gid}", tag_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 

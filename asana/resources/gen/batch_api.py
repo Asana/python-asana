@@ -10,5 +10,5 @@ class _BatchAPI:
         :return: Object
         """
         path = "/batch"
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 

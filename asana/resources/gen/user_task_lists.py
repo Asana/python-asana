@@ -16,7 +16,7 @@ class _UserTaskLists:
         :return: Object
         """
         path = "/user_task_lists/{user_task_list_gid}/tasks".replace("{user_task_list_gid}", user_task_list_gid)
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def get_user_task_list(self, user_task_list_gid, params={}, **options):

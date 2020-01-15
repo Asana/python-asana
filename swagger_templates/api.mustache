@@ -25,7 +25,7 @@ class _{{classname}}:
         :return: Object
         """
         path = "{{path}}"{{#pathParams}}.replace("{ {{~baseName~}} }", {{paramName}}){{/pathParams}}
-        return self.client.get(path, params, **options)
+        return self.client.{{#neq "GET" httpMethod}}{{toLowerCase httpMethod}}{{/neq}}{{#eq "GET" httpMethod}}{{returnContainer}}{{/eq}}(path, params, **options)
 
 {{/contents}}
 {{/operation}}

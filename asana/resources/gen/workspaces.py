@@ -11,7 +11,7 @@ class _Workspaces:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/addUser".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def get_workspace(self, workspace_gid, params={}, **options):
@@ -36,7 +36,7 @@ class _Workspaces:
         :return: Object
         """
         path = "/workspaces"
-        return self.client.get(path, params, **options)
+        return self.client.get_collection(path, params, **options)
 
 
     def remove_user_for_workspace(self, workspace_gid, params={}, **options):
@@ -46,7 +46,7 @@ class _Workspaces:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}/removeUser".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.post(path, params, **options)
 
 
     def update_workspace(self, workspace_gid, params={}, **options):
@@ -56,5 +56,5 @@ class _Workspaces:
         :return: Object
         """
         path = "/workspaces/{workspace_gid}".replace("{workspace_gid}", workspace_gid)
-        return self.client.get(path, params, **options)
+        return self.client.put(path, params, **options)
 
