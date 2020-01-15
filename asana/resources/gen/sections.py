@@ -1,4 +1,4 @@
-
+# coding=utf-8
 class _Sections:
 
     def __init__(self, client=None):
@@ -6,9 +6,9 @@ class _Sections:
 
     def add_task_for_section(self, section_gid, params={}, **options):
         """Add task to section
-        :param str section_gid: The globally unique identifier for the section. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/sections/{section_gid}/addTask".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
@@ -16,9 +16,9 @@ class _Sections:
 
     def create_section_for_project(self, project_gid, params={}, **options):
         """Create a section in a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: SectionResponse
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -26,9 +26,9 @@ class _Sections:
 
     def delete_section(self, section_gid, params={}, **options):
         """Delete a section
-        :param str section_gid: The globally unique identifier for the section. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
@@ -36,9 +36,11 @@ class _Sections:
 
     def get_section(self, section_gid, params={}, **options):
         """Get a section
-        :param str section_gid: The globally unique identifier for the section. (required)
-        [params] : {Object} Parameters for the request
-        :return: SectionResponse
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)
@@ -46,9 +48,13 @@ class _Sections:
 
     def get_sections_for_project(self, project_gid, params={}, **options):
         """Get sections in a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: list[SectionCompact]
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -56,9 +62,9 @@ class _Sections:
 
     def insert_section_for_project(self, project_gid, params={}, **options):
         """Move or Insert sections
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}/sections/insert".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -66,9 +72,9 @@ class _Sections:
 
     def update_section(self, section_gid, params={}, **options):
         """Update a section
-        :param str section_gid: The globally unique identifier for the section. (required)
-        [params] : {Object} Parameters for the request
-        :return: SectionResponse
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.get(path, params, **options)

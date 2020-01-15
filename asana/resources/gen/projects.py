@@ -1,4 +1,4 @@
-
+# coding=utf-8
 class _Projects:
 
     def __init__(self, client=None):
@@ -6,9 +6,9 @@ class _Projects:
 
     def add_custom_field_setting_for_project(self, project_gid, params={}, **options):
         """Add a custom field to a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}/addCustomFieldSetting".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -16,8 +16,8 @@ class _Projects:
 
     def create_project(self, params={}, **options):
         """Create a project
-        [params] : {Object} Parameters for the request
-        :return: ProjectResponse
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects"
         return self.client.get(path, params, **options)
@@ -25,9 +25,9 @@ class _Projects:
 
     def create_project_for_team(self, team_gid, params={}, **options):
         """Create a project in a team
-        :param str team_gid: Globally unique identifier for the team. (required)
-        [params] : {Object} Parameters for the request
-        :return: ProjectResponse
+        :param str team_gid: (required) Globally unique identifier for the team.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
@@ -35,9 +35,9 @@ class _Projects:
 
     def create_project_for_workspace(self, workspace_gid, params={}, **options):
         """Create a project in a workspace
-        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        [params] : {Object} Parameters for the request
-        :return: ProjectResponse
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
@@ -45,9 +45,9 @@ class _Projects:
 
     def delete_project(self, project_gid, params={}, **options):
         """Delete a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -55,9 +55,9 @@ class _Projects:
 
     def duplicate_project(self, project_gid, params={}, **options):
         """Duplicate a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: JobResponse
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}/duplicate".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -65,9 +65,11 @@ class _Projects:
 
     def get_project(self, project_gid, params={}, **options):
         """Get a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: ProjectResponse
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -75,8 +77,15 @@ class _Projects:
 
     def get_projects(self, params={}, **options):
         """Get multiple projects
-        [params] : {Object} Parameters for the request
-        :return: list[ProjectCompact]
+        :param Object params: Parameters for the request
+            - workspace {str}:  The workspace or organization to filter projects on.
+            - team {str}:  The team to filter projects on.
+            - archived {bool}:  Only return projects whose `archived` field takes on the value of this parameter.
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/projects"
         return self.client.get(path, params, **options)
@@ -84,9 +93,13 @@ class _Projects:
 
     def get_projects_for_task(self, task_gid, params={}, **options):
         """Get projects a task is in
-        :param str task_gid: The task to operate on. (required)
-        [params] : {Object} Parameters for the request
-        :return: list[ProjectCompact]
+        :param str task_gid: (required) The task to operate on.
+        :param Object params: Parameters for the request
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/tasks/{task_gid}/projects".replace("{task_gid}", task_gid)
         return self.client.get(path, params, **options)
@@ -94,9 +107,14 @@ class _Projects:
 
     def get_projects_for_team(self, team_gid, params={}, **options):
         """Get a team's projects
-        :param str team_gid: Globally unique identifier for the team. (required)
-        [params] : {Object} Parameters for the request
-        :return: list[ProjectCompact]
+        :param str team_gid: (required) Globally unique identifier for the team.
+        :param Object params: Parameters for the request
+            - archived {bool}:  Only return projects whose `archived` field takes on the value of this parameter.
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/teams/{team_gid}/projects".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
@@ -104,9 +122,14 @@ class _Projects:
 
     def get_projects_for_workspace(self, workspace_gid, params={}, **options):
         """Get all projects in a workspace
-        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        [params] : {Object} Parameters for the request
-        :return: list[ProjectCompact]
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+            - archived {bool}:  Only return projects whose `archived` field takes on the value of this parameter.
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/workspaces/{workspace_gid}/projects".replace("{workspace_gid}", workspace_gid)
         return self.client.get(path, params, **options)
@@ -114,9 +137,13 @@ class _Projects:
 
     def get_task_counts_for_project(self, project_gid, params={}, **options):
         """Get task count of a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: TaskCountResponse
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
         path = "/projects/{project_gid}/task_counts".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -124,9 +151,9 @@ class _Projects:
 
     def remove_custom_field_setting_for_project(self, project_gid, params={}, **options):
         """Remove a custom field from a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: EmptyObject
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}/removeCustomFieldSetting".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)
@@ -134,9 +161,9 @@ class _Projects:
 
     def update_project(self, project_gid, params={}, **options):
         """Update a project
-        :param str project_gid: Globally unique identifier for the project. (required)
-        [params] : {Object} Parameters for the request
-        :return: ProjectResponse
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/projects/{project_gid}".replace("{project_gid}", project_gid)
         return self.client.get(path, params, **options)

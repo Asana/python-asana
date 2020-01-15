@@ -1,4 +1,4 @@
-
+# coding=utf-8
 {{#operations}}
 class _{{classname}}:
 
@@ -10,10 +10,19 @@ class _{{classname}}:
     def {{operationId}}(self, {{#pathParams}}{{paramName}}, {{/pathParams}}params={}, **options):
         """{{#summary}}{{{.}}}{{/summary}}{{^summary}}{{operationId}}{{/summary}}
         {{#pathParams}}
-        :param {{dataType}} {{paramName}}:{{#description}} {{{description}}}{{/description}}{{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}
+        :param {{dataType}} {{paramName}}:{{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}
         {{/pathParams}}
-        [params] : {Object} Parameters for the request
-        :return: {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}None{{/returnType}}
+        :param Object params: Parameters for the request
+        {{#eq "GET" httpMethod}}
+        {{#queryParams}}
+            - {{paramName}} { {{~dataType~}} }: {{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}
+        {{/queryParams}}
+        {{/eq}}
+        {{#eq "POST" httpMethod}}
+        {{/eq}}
+        {{#eq "PUT" httpMethod}}
+        {{/eq}}
+        :return: Object
         """
         path = "{{path}}"{{#pathParams}}.replace("{ {{~baseName~}} }", {{paramName}}){{/pathParams}}
         return self.client.get(path, params, **options)

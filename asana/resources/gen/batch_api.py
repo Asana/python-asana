@@ -1,4 +1,4 @@
-
+# coding=utf-8
 class _BatchAPI:
 
     def __init__(self, client=None):
@@ -6,8 +6,8 @@ class _BatchAPI:
 
     def create_batch_request_action(self, params={}, **options):
         """Submit parallel requests
-        [params] : {Object} Parameters for the request
-        :return: list[BatchResponse]
+        :param Object params: Parameters for the request
+        :return: Object
         """
         path = "/batch"
         return self.client.get(path, params, **options)
