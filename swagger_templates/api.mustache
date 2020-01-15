@@ -1,0 +1,23 @@
+
+{{#operations}}
+class _{{classname}}:
+
+    def __init__(self, client=None):
+        self.client = client
+{{#operation}}
+{{#contents}}
+
+    def {{operationId}}(self, {{#pathParams}}{{paramName}}, {{/pathParams}}params={}, **options):
+        """{{#summary}}{{{.}}}{{/summary}}{{^summary}}{{operationId}}{{/summary}}
+        {{#pathParams}}
+        :param {{dataType}} {{paramName}}:{{#description}} {{{description}}}{{/description}}{{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}
+        {{/pathParams}}
+        [params] : {Object} Parameters for the request
+        :return: {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}None{{/returnType}}
+        """
+        path = "{{path}}"{{#pathParams}}.replace("{{baseName}}", {{paramName}}){{/pathParams}}
+        return self.client.get(path, params, **options)
+
+{{/contents}}
+{{/operation}}
+{{/operations}}

@@ -1,0 +1,4 @@
+# Swagger Codegen Ignore
+
+docs/*
+test/*
