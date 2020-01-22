@@ -27,7 +27,7 @@ class _UserTaskLists:
             - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
         :return: Object
         """
-        path = "/user_task_list/{user_task_list_gid}".replace("{user_task_list_gid}", user_task_list_gid)
+        path = "/user_task_lists/{user_task_list_gid}".replace("{user_task_list_gid}", user_task_list_gid)
         return self.client.get(path, params, **options)
 
 
