@@ -4,7 +4,7 @@ class _Stories:
     def __init__(self, client=None):
         self.client = client
 
-    def create_story(self, task_gid, params={}, **options):
+    def create_story_for_task(self, task_gid, params={}, **options):
         """Create a story on a task
         :param str task_gid: (required) The task to operate on.
         :param Object params: Parameters for the request

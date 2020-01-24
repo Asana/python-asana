@@ -4,7 +4,7 @@ class _ProjectStatuses:
     def __init__(self, client=None):
         self.client = client
 
-    def create_project_status(self, project_gid, params={}, **options):
+    def create_project_status_for_project(self, project_gid, params={}, **options):
         """Create a project status
         :param str project_gid: (required) Globally unique identifier for the project.
         :param Object params: Parameters for the request
@@ -36,7 +36,7 @@ class _ProjectStatuses:
         return self.client.get(path, params, **options)
 
 
-    def get_project_statuses(self, project_gid, params={}, **options):
+    def get_project_statuses_for_project(self, project_gid, params={}, **options):
         """Get statuses from a project
         :param str project_gid: (required) Globally unique identifier for the project.
         :param Object params: Parameters for the request

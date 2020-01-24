@@ -14,6 +14,26 @@ class _Projects:
         return self.client.post(path, params, **options)
 
 
+    def add_followers_for_project(self, project_gid, params={}, **options):
+        """Add users to a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
+        """
+        path = "/projects/{project_gid}/addFollowers".replace("{project_gid}", project_gid)
+        return self.client.post(path, params, **options)
+
+
+    def add_members_for_project(self, project_gid, params={}, **options):
+        """Add users to a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
+        """
+        path = "/projects/{project_gid}/addMembers".replace("{project_gid}", project_gid)
+        return self.client.post(path, params, **options)
+
+
     def create_project(self, params={}, **options):
         """Create a project
         :param Object params: Parameters for the request
@@ -156,6 +176,26 @@ class _Projects:
         :return: Object
         """
         path = "/projects/{project_gid}/removeCustomFieldSetting".replace("{project_gid}", project_gid)
+        return self.client.post(path, params, **options)
+
+
+    def remove_followers_for_project(self, project_gid, params={}, **options):
+        """Remove followers from a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
+        """
+        path = "/projects/{project_gid}/removeFollowers".replace("{project_gid}", project_gid)
+        return self.client.post(path, params, **options)
+
+
+    def remove_members_for_project(self, project_gid, params={}, **options):
+        """Remove users from a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :return: Object
+        """
+        path = "/projects/{project_gid}/removeMembers".replace("{project_gid}", project_gid)
         return self.client.post(path, params, **options)
 
 
