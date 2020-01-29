@@ -7,26 +7,21 @@ class _{{classname}}:
 {{#operation}}
 {{#contents}}
 
-    def {{operationId}}(self, {{#pathParams}}{{paramName}}, {{/pathParams}}params={}, **options):
+    def {{operationId}}(self, {{#pathParams}}{{paramName}}, {{/pathParams}}params=None, **options):
         """{{#summary}}{{{.}}}{{/summary}}{{^summary}}{{operationId}}{{/summary}}
         {{#pathParams}}
         :param {{dataType}} {{paramName}}:{{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}
         {{/pathParams}}
-        :param Object params: Parameters for the request
-        {{#eq "GET" httpMethod}}
-        {{#queryParams}}
-            - {{paramName}} { {{~dataType~}} }: {{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}
-        {{/queryParams}}
-        {{/eq}}
-        {{#eq "POST" httpMethod}}
-        {{/eq}}
-        {{#eq "PUT" httpMethod}}
-        {{/eq}}
+        :param Object params: Parameters for the request{{#queryParams}}{{#neq baseName 'opt_pretty' 'opt_fields' 'offset' 'limit'}}
+            - {{paramName}} { {{~dataType~}} }: {{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}{{/neq}}{{/queryParams}}
+        :param **options{{#queryParams}}{{#eq baseName 'opt_pretty' 'opt_fields' 'offset' 'limit'}}
+            - {{paramName}} { {{~dataType~}} }: {{#required}} (required){{/required}}{{#optional}}(optional){{/optional}}{{#description}} {{{description}}}{{/description}}{{/eq}}{{/queryParams}}
         :return: Object
         """
+        if params is None:
+            params = {}
         path = "{{path}}"{{#pathParams}}.replace("{ {{~baseName~}} }", {{paramName}}){{/pathParams}}
         return self.client.{{#neq "GET" httpMethod}}{{toLowerCase httpMethod}}{{/neq}}{{#eq "GET" httpMethod}}{{returnContainer}}{{/eq}}(path, params, **options)
-
 {{/contents}}
 {{/operation}}
 {{/operations}}
