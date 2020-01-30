@@ -4,7 +4,7 @@ class _BatchAPI:
     def __init__(self, client=None):
         self.client = client
 
-    def create_batch_request_action(self, params=None, **options):
+    def create_batch_request(self, params=None, **options):
         """Submit parallel requests
         :param Object params: Parameters for the request
         :param **options
