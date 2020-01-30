@@ -31,13 +31,13 @@ if 'ASANA_ACCESS_TOKEN' in os.environ:
 
     workspace = user_select_option("Please choose a workspace", workspaces)
 
-    projects = client.projects.find_all({'workspace': workspace['id']})
+    projects = client.projects.find_all({'workspace': workspace['gid']})
 
     project = user_select_option("Please choose a project", projects)
 
-    result = client.tasks.create_in_workspace(workspace['id'],
+    result = client.tasks.create_in_workspace(workspace['gid'],
                                               {'name': 'Learn to use Nunchucks',
                                                'notes': 'Note: This is a test task created with the python-asana client.',
-                                               'projects': [project['id']]})
+                                               'projects': [project['gid']]})
 
     print_(json.dumps(result, indent=4))
