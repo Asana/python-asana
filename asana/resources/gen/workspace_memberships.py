@@ -4,9 +4,9 @@ class _WorkspaceMemberships:
     def __init__(self, client=None):
         self.client = client
 
-    def get_workspace_membership(self, workspace_membership_path_gid, params=None, **options):
+    def get_workspace_membership(self, workspace_membership_gid, params=None, **options):
         """Get a workspace membership
-        :param str workspace_membership_path_gid: (required)
+        :param str workspace_membership_gid: (required)
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -15,7 +15,7 @@ class _WorkspaceMemberships:
         """
         if params is None:
             params = {}
-        path = "/workspace_memberships/{workspace_membership_gid}".replace("{workspace_membership_path_gid}", workspace_membership_path_gid)
+        path = "/workspace_memberships/{workspace_membership_gid}".replace("{workspace_membership_gid}", workspace_membership_gid)
         return self.client.get(path, params, **options)
 
     def get_workspace_memberships_for_user(self, user_gid, params=None, **options):

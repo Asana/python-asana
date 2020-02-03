@@ -4,9 +4,9 @@ class _PortfolioMemberships:
     def __init__(self, client=None):
         self.client = client
 
-    def get_portfolio_membership(self, portfolio_membership_path_gid, params=None, **options):
+    def get_portfolio_membership(self, portfolio_membership_gid, params=None, **options):
         """Get a portfolio membership
-        :param str portfolio_membership_path_gid: (required)
+        :param str portfolio_membership_gid: (required)
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -15,7 +15,7 @@ class _PortfolioMemberships:
         """
         if params is None:
             params = {}
-        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("{portfolio_membership_path_gid}", portfolio_membership_path_gid)
+        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("{portfolio_membership_gid}", portfolio_membership_gid)
         return self.client.get(path, params, **options)
 
     def get_portfolio_memberships(self, params=None, **options):
