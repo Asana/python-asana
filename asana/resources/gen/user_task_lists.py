@@ -20,7 +20,7 @@ class _UserTaskLists:
 
     def get_user_task_list_for_user(self, user_gid, params=None, **options):
         """Get a user's task list
-        :param str user_gid: (required) Globally unique identifier for the user.
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param Object params: Parameters for the request
             - workspace {str}:  (required) The workspace in which to get the user task list.
         :param **options

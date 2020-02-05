@@ -6,7 +6,7 @@ class _Users:
 
     def get_favorites_for_user(self, user_gid, params=None, **options):
         """Get a user's favorites
-        :param str user_gid: (required) Globally unique identifier for the user.
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param Object params: Parameters for the request
             - resource_type {str}:  (required) The resource type of favorites to be returned.
             - workspace {str}:  (required) The workspace in which to get favorites.
@@ -22,7 +22,7 @@ class _Users:
 
     def get_user(self, user_gid, params=None, **options):
         """Get a user
-        :param str user_gid: (required) Globally unique identifier for the user.
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.

@@ -52,7 +52,7 @@ class _Teams:
 
     def get_teams_for_user(self, user_gid, params=None, **options):
         """Get teams for a user
-        :param str user_gid: (required) Globally unique identifier for the user.
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param Object params: Parameters for the request
             - organization {str}:  (required) The workspace or organization to filter teams on.
         :param **options

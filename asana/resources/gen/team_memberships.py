@@ -22,7 +22,7 @@ class _TeamMemberships:
         """Get team memberships
         :param Object params: Parameters for the request
             - team {str}:  Globally unique identifier for the team.
-            - user {str}:  Globally unique identifier for the user. This parameter must be used with the workspace parameter.
+            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. This parameter must be used with the workspace parameter.
             - workspace {str}:  Globally unique identifier for the workspace. This parameter must be used with the user parameter.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
@@ -54,7 +54,7 @@ class _TeamMemberships:
 
     def get_team_memberships_for_user(self, user_gid, params=None, **options):
         """Get memberships from a user
-        :param str user_gid: (required) Globally unique identifier for the user.
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param Object params: Parameters for the request
             - workspace {str}:  (required) Globally unique identifier for the workspace.
         :param **options

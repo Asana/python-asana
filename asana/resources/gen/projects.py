@@ -18,7 +18,7 @@ class _Projects:
         return self.client.post(path, params, **options)
 
     def add_followers_for_project(self, project_gid, params=None, **options):
-        """Add users to a project
+        """Add followers to a project
         :param str project_gid: (required) Globally unique identifier for the project.
         :param Object params: Parameters for the request
         :param **options
