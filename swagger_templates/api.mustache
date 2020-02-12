@@ -4,7 +4,7 @@ class _{{classname}}:
 
     def __init__(self, client=None):
         self.client = client
-{{#operation}}
+{{#operation}}{{^formParams}}
 {{#contents}}
 
     def {{operationId}}(self, {{#pathParams}}{{paramName}}, {{/pathParams}}params=None, **options):
@@ -23,5 +23,5 @@ class _{{classname}}:
         path = "{{path}}"{{#pathParams}}.replace("{ {{~baseName~}} }", {{paramName}}){{/pathParams}}
         return self.client.{{#neq "GET" httpMethod}}{{toLowerCase httpMethod}}{{/neq}}{{#eq "GET" httpMethod}}{{returnContainer}}{{/eq}}(path, params, **options)
 {{/contents}}
-{{/operation}}
+{{/formParams}}{{/operation}}
 {{/operations}}
