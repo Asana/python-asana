@@ -1,122 +1,105 @@
-
+# coding=utf-8
 class _Sections:
-    """A _section_ is a subdivision of a project that groups tasks together. It can
-    either be a header above a list of tasks in a list view or a column in a
-    board view of a project.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def create_in_project(self, project, params={}, **options): 
-        """Creates a new section in a project.
-        
-        Returns the full record of the newly created section.
 
-        Parameters
-        ----------
-        project : {Gid} The project to create the section in
-        [data] : {Object} Data for the request
-          - name : {String} The text to be displayed as the section name. This cannot be an empty string.
+    def add_task_for_section(self, section_gid, params=None, **options):
+        """Add task to section
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/projects/%s/sections" % (project)
+        if params is None:
+            params = {}
+        path = "/sections/{section_gid}/addTask".replace("{section_gid}", section_gid)
         return self.client.post(path, params, **options)
-        
-    def find_by_project(self, project, params={}, **options): 
-        """Returns the compact records for all sections in the specified project.
 
-        Parameters
-        ----------
-        project : {Gid} The project to get sections from.
-        [params] : {Object} Parameters for the request
+    def create_section_for_project(self, project_gid, params=None, **options):
+        """Create a section in a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/projects/%s/sections" % (project)
-        return self.client.get_collection(path, params, **options)
-        
-    def find_by_id(self, section, params={}, **options): 
-        """Returns the complete record for a single section.
+        if params is None:
+            params = {}
+        path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
+        return self.client.post(path, params, **options)
 
-        Parameters
-        ----------
-        section : {Gid} The section to get.
-        [params] : {Object} Parameters for the request
+    def delete_section(self, section_gid, params=None, **options):
+        """Delete a section
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/sections/%s" % (section)
-        return self.client.get(path, params, **options)
-        
-    def update(self, section, params={}, **options): 
-        """A specific, existing section can be updated by making a PUT request on
-        the URL for that project. Only the fields provided in the `data` block
-        will be updated; any unspecified fields will remain unchanged. (note that
-        at this time, the only field that can be updated is the `name` field.)
-        
-        When using this method, it is best to specify only those fields you wish
-        to change, or else you may overwrite changes made by another user since
-        you last retrieved the task.
-        
-        Returns the complete updated section record.
-
-        Parameters
-        ----------
-        section : {Gid} The section to update.
-        [data] : {Object} Data for the request
-        """
-        path = "/sections/%s" % (section)
-        return self.client.put(path, params, **options)
-        
-    def delete(self, section, params={}, **options): 
-        """A specific, existing section can be deleted by making a DELETE request
-        on the URL for that section.
-        
-        Note that sections must be empty to be deleted.
-        
-        The last remaining section in a board view cannot be deleted.
-        
-        Returns an empty data block.
-
-        Parameters
-        ----------
-        section : {Gid} The section to delete.
-        """
-        path = "/sections/%s" % (section)
+        if params is None:
+            params = {}
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
         return self.client.delete(path, params, **options)
-        
-    def add_task(self, section, params={}, **options): 
-        """Add a task to a specific, existing section. This will remove the task from other sections of the project.
-        
-        The task will be inserted at the top of a section unless an `insert_before` or `insert_after` parameter is declared.
-        
-        This does not work for separators (tasks with the `resource_subtype` of section).
 
-        Parameters
-        ----------
-        section : {Gid} The section to add a task to
-        [data] : {Object} Data for the request
-          - task : {Gid} The task to add to this section
-          - [insert_before] : {Gid} Insert the given task immediately before the task specified by this parameter. Cannot be provided together with `insert_after`.
-          - [insert_after] : {Gid} Insert the given task immediately after the task specified by this parameter. Cannot be provided together with `insert_before`.
+    def get_section(self, section_gid, params=None, **options):
+        """Get a section
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/sections/%s/addTask" % (section)
-        return self.client.post(path, params, **options)
-        
-    def insert_in_project(self, project, params={}, **options): 
-        """Move sections relative to each other in a board view. One of
-        `before_section` or `after_section` is required.
-        
-        Sections cannot be moved between projects.
-        
-        At this point in time, moving sections is not supported in list views, only board views.
-        
-        Returns an empty data block.
+        if params is None:
+            params = {}
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
+        return self.client.get(path, params, **options)
 
-        Parameters
-        ----------
-        project : {Gid} The project in which to reorder the given section
-        [data] : {Object} Data for the request
-          - section : {Gid} The section to reorder
-          - [before_section] : {Gid} Insert the given section immediately before the section specified by this parameter.
-          - [after_section] : {Gid} Insert the given section immediately after the section specified by this parameter.
+    def get_sections_for_project(self, project_gid, params=None, **options):
+        """Get sections in a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/projects/%s/sections/insert" % (project)
+        if params is None:
+            params = {}
+        path = "/projects/{project_gid}/sections".replace("{project_gid}", project_gid)
+        return self.client.get_collection(path, params, **options)
+
+    def insert_section_for_project(self, project_gid, params=None, **options):
+        """Move or Insert sections
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/projects/{project_gid}/sections/insert".replace("{project_gid}", project_gid)
         return self.client.post(path, params, **options)
-        
+
+    def update_section(self, section_gid, params=None, **options):
+        """Update a section
+        :param str section_gid: (required) The globally unique identifier for the section.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/sections/{section_gid}".replace("{section_gid}", section_gid)
+        return self.client.put(path, params, **options)

@@ -1,89 +1,82 @@
-
+# coding=utf-8
 class _Teams:
-    """A _team_ is used to group related projects and people together within an
-    organization. Each project in an organization is associated with a team.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_id(self, team, params={}, **options): 
-        """Returns the full record for a single team.
 
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [params] : {Object} Parameters for the request
+    def add_user_for_team(self, team_gid, params=None, **options):
+        """Add a user to a team
+        :param str team_gid: (required) Globally unique identifier for the team.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/teams/%s" % (team)
+        if params is None:
+            params = {}
+        path = "/teams/{team_gid}/addUser".replace("{team_gid}", team_gid)
+        return self.client.post(path, params, **options)
+
+    def get_team(self, team_gid, params=None, **options):
+        """Get a team
+        :param str team_gid: (required) Globally unique identifier for the team.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/teams/{team_gid}".replace("{team_gid}", team_gid)
         return self.client.get(path, params, **options)
-        
-    def find_by_organization(self, organization, params={}, **options): 
-        """Returns the compact records for all teams in the organization visible to
-        the authorized user.
 
-        Parameters
-        ----------
-        organization : {Id} Globally unique identifier for the workspace or organization.
-        [params] : {Object} Parameters for the request
+    def get_teams_for_organization(self, workspace_gid, params=None, **options):
+        """Get teams in an organization
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/organizations/%s/teams" % (organization)
+        if params is None:
+            params = {}
+        path = "/organizations/{workspace_gid}/teams".replace("{workspace_gid}", workspace_gid)
         return self.client.get_collection(path, params, **options)
-        
-    def find_by_user(self, user, params={}, **options): 
-        """Returns the compact records for all teams to which user is assigned.
 
-        Parameters
-        ----------
-        user : {String} An identifier for the user. Can be one of an email address,
-        the globally unique identifier for the user, or the keyword `me`
-        to indicate the current user making the request.
-        [params] : {Object} Parameters for the request
-          - [organization] : {Id} The workspace or organization to filter teams on.
+    def get_teams_for_user(self, user_gid, params=None, **options):
+        """Get teams for a user
+        :param str user_gid: (required) A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+        :param Object params: Parameters for the request
+            - organization {str}:  (required) The workspace or organization to filter teams on.
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/users/%s/teams" % (user)
+        if params is None:
+            params = {}
+        path = "/users/{user_gid}/teams".replace("{user_gid}", user_gid)
         return self.client.get_collection(path, params, **options)
-        
-    def users(self, team, params={}, **options): 
-        """Returns the compact records for all users that are members of the team.
 
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [params] : {Object} Parameters for the request
+    def remove_user_for_team(self, team_gid, params=None, **options):
+        """Remove a user from a team
+        :param str team_gid: (required) Globally unique identifier for the team.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/teams/%s/users" % (team)
-        return self.client.get_collection(path, params, **options)
-        
-    def add_user(self, team, params={}, **options): 
-        """The user making this call must be a member of the team in order to add others.
-        The user to add must exist in the same organization as the team in order to be added.
-        The user to add can be referenced by their globally unique user ID or their email address.
-        Returns the full user record for the added user.
-
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [data] : {Object} Data for the request
-          - user : {String} An identifier for the user. Can be one of an email address,
-          the globally unique identifier for the user, or the keyword `me`
-          to indicate the current user making the request.
-        """
-        path = "/teams/%s/addUser" % (team)
+        if params is None:
+            params = {}
+        path = "/teams/{team_gid}/removeUser".replace("{team_gid}", team_gid)
         return self.client.post(path, params, **options)
-        
-    def remove_user(self, team, params={}, **options): 
-        """The user to remove can be referenced by their globally unique user ID or their email address.
-        Removes the user from the specified team. Returns an empty data record.
-
-        Parameters
-        ----------
-        team : {Id} Globally unique identifier for the team.
-        [data] : {Object} Data for the request
-          - user : {String} An identifier for the user. Can be one of an email address,
-          the globally unique identifier for the user, or the keyword `me`
-          to indicate the current user making the request.
-        """
-        path = "/teams/%s/removeUser" % (team)
-        return self.client.post(path, params, **options)
-        

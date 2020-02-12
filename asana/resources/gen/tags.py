@@ -1,126 +1,113 @@
-
+# coding=utf-8
 class _Tags:
-    """A _tag_ is a label that can be attached to any task in Asana. It exists in a
-    single workspace or organization.
-
-    Tags have some metadata associated with them, but it is possible that we will
-    simplify them in the future so it is not encouraged to rely too heavily on it.
-    Unlike projects, tags do not provide any ordering on the tasks they
-    are associated with.
-    """
 
     def __init__(self, client=None):
         self.client = client
 
-    def create(self, params={}, **options):
-        """Creates a new tag in a workspace or organization.
-
-        Every tag is required to be created in a specific workspace or
-        organization, and this cannot be changed once set. Note that you can use
-        the `workspace` parameter regardless of whether or not it is an
-        organization.
-
-        Returns the full record of the newly created tag.
-
-        Parameters
-        ----------
-        [data] : {Object} Data for the request
-          - workspace : {Gid} The workspace or organization to create the tag in.
+    def create_tag(self, params=None, **options):
+        """Create a tag
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        return self.client.post("/tags", params, **options)
-
-    def create_in_workspace(self, workspace, params={}, **options):
-        """Creates a new tag in a workspace or organization.
-
-        Every tag is required to be created in a specific workspace or
-        organization, and this cannot be changed once set. Note that you can use
-        the `workspace` parameter regardless of whether or not it is an
-        organization.
-
-        Returns the full record of the newly created tag.
-
-        Parameters
-        ----------
-        workspace : {Gid} The workspace or organization to create the tag in.
-        [data] : {Object} Data for the request
-        """
-        path = "/workspaces/%s/tags" % (workspace)
+        if params is None:
+            params = {}
+        path = "/tags"
         return self.client.post(path, params, **options)
 
-    def find_by_id(self, tag, params={}, **options):
-        """Returns the complete tag record for a single tag.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to get.
-        [params] : {Object} Parameters for the request
+    def create_tag_for_workspace(self, workspace_gid, params=None, **options):
+        """Create a tag in a workspace
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/tags/%s" % (tag)
+        if params is None:
+            params = {}
+        path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
+        return self.client.post(path, params, **options)
+
+    def get_tag(self, tag_gid, params=None, **options):
+        """Get a tag
+        :param str tag_gid: (required) Globally unique identifier for the tag.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/tags/{tag_gid}".replace("{tag_gid}", tag_gid)
         return self.client.get(path, params, **options)
 
-    def update(self, tag, params={}, **options):
-        """Updates the properties of a tag. Only the fields provided in the `data`
-        block will be updated; any unspecified fields will remain unchanged.
-
-        When using this method, it is best to specify only those fields you wish
-        to change, or else you may overwrite changes made by another user since
-        you last retrieved the task.
-
-        Returns the complete updated tag record.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to update.
-        [data] : {Object} Data for the request
+    def get_tags(self, params=None, **options):
+        """Get multiple tags
+        :param Object params: Parameters for the request
+            - workspace {str}:  The workspace to filter tags on.
+            - archived {bool}:  Only return tags whose `archived` field takes on the value of this parameter.
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/tags/%s" % (tag)
+        if params is None:
+            params = {}
+        path = "/tags"
+        return self.client.get_collection(path, params, **options)
+
+    def get_tags_for_task(self, task_gid, params=None, **options):
+        """Get a task's tags
+        :param str task_gid: (required) The task to operate on.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/tasks/{task_gid}/tags".replace("{task_gid}", task_gid)
+        return self.client.get_collection(path, params, **options)
+
+    def get_tags_for_workspace(self, workspace_gid, params=None, **options):
+        """Get tags in a workspace
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/workspaces/{workspace_gid}/tags".replace("{workspace_gid}", workspace_gid)
+        return self.client.get_collection(path, params, **options)
+
+    def update_tag(self, tag_gid, params=None, **options):
+        """Update a tag
+        :param str tag_gid: (required) Globally unique identifier for the tag.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/tags/{tag_gid}".replace("{tag_gid}", tag_gid)
         return self.client.put(path, params, **options)
-
-    def delete(self, tag, params={}, **options):
-        """A specific, existing tag can be deleted by making a DELETE request
-        on the URL for that tag.
-
-        Returns an empty data record.
-
-        Parameters
-        ----------
-        tag : {Gid} The tag to delete.
-        """
-        path = "/tags/%s" % (tag)
-        return self.client.delete(path, params, **options)
-
-    def find_all(self, params={}, **options):
-        """Returns the compact tag records for some filtered set of tags.
-        Use one or more of the parameters provided to filter the tags returned.
-
-        Parameters
-        ----------
-        [params] : {Object} Parameters for the request
-          - [workspace] : {Gid} The workspace or organization to filter tags on.
-          - [team] : {Gid} The team to filter tags on.
-          - [archived] : {Boolean} Only return tags whose `archived` field takes on the value of
-          this parameter.
-        """
-        return self.client.get_collection("/tags", params, **options)
-
-    def find_by_workspace(self, workspace, params={}, **options):
-        """Returns the compact tag records for all tags in the workspace.
-
-        Parameters
-        ----------
-        workspace : {Gid} The workspace or organization to find tags in.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/workspaces/%s/tags" % (workspace)
-        return self.client.get_collection(path, params, **options)
-
-    def get_tasks_with_tag(self, tag, params={}, **options):
-        """Returns the compact task records for all tasks with the given tag.
-        Tasks can have more than one tag at a time.
-        Parameters
-        ----------
-        tag : {Id} The tag to fetch tasks from.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/tags/%s/tasks" % (tag)
-        return self.client.get_collection(path, params, **options)

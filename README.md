@@ -180,7 +180,7 @@ lint and tests.
 ### Code generation
 
 The specific Asana resource classes under `gen` (`_Tag`, `_Workspace`, `_Task`, etc) are
-generated code, hence they shouldn't be modified by hand. See the [asana-api-meta][meta] repo for details.
+generated code, hence they shouldn't be modified by hand.
 
 ### Deployment
 
@@ -208,3 +208,5 @@ Travis CI will automatically build and deploy the tagged release to `pypi`.
 
 [pypi-url]: https://pypi.python.org/pypi/asana/
 [pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
+
+[asana-docs]: https://developers.asana.com/docs

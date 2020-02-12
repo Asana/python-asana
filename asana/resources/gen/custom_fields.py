@@ -1,147 +1,122 @@
-
+# coding=utf-8
 class _CustomFields:
-    """Custom Fields store the metadata that is used in order to add user-specified
-    information to tasks in Asana. Be sure to reference the [Custom
-    Fields](/developers/documentation/getting-started/custom-fields) developer
-    documentation for more information about how custom fields relate to various
-    resources in Asana.
-    
-    Users in Asana can [lock custom
-    fields](/guide/help/premium/custom-fields#gl-lock-fields), which will make
-    them read-only when accessed by other users. Attempting to edit a locked
-    custom field will return HTTP error code `403 Forbidden`.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def create(self, params={}, **options): 
-        """Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.
-        
-        A custom field's `name` must be unique within a workspace and not conflict with names of existing task properties such as 'Due Date' or 'Assignee'. A custom field's `type` must be one of  'text', 'enum', or 'number'.
-        
-        Returns the full record of the newly created custom field.
 
-        Parameters
-        ----------
-        [data] : {Object} Data for the request
-          - workspace : {Gid} The workspace to create a custom field in.
-          - resource_subtype : {String} The type of the custom field. Must be one of the given values.
-          - [type] : {String} **Deprecated: New integrations should prefer the `resource_subtype` parameter.**
-          - name : {String} The name of the custom field.
-          - [description] : {String} The description of the custom field.
-          - [precision] : {Integer} The number of decimal places for the numerical values. Required if the custom field is of type 'number'.
-          - [enum_options] : {String} The discrete values the custom field can assume. Required if the custom field is of type 'enum'.
+    def create_custom_field(self, params=None, **options):
+        """Create a custom field
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        return self.client.post("/custom_fields", params, **options)
-        
-    def find_by_id(self, custom_field, params={}, **options): 
-        """Returns the complete definition of a custom field's metadata.
+        if params is None:
+            params = {}
+        path = "/custom_fields"
+        return self.client.post(path, params, **options)
 
-        Parameters
-        ----------
-        custom_field : {Gid} Globally unique identifier for the custom field.
-        [params] : {Object} Parameters for the request
+    def create_enum_option_for_custom_field(self, custom_field_gid, params=None, **options):
+        """Create an enum option
+        :param str custom_field_gid: (required) Globally unique identifier for the custom field.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/custom_fields/%s" % (custom_field)
-        return self.client.get(path, params, **options)
-        
-    def find_by_workspace(self, workspace, params={}, **options): 
-        """Returns a list of the compact representation of all of the custom fields in a workspace.
+        if params is None:
+            params = {}
+        path = "/custom_fields/{custom_field_gid}/enum_options".replace("{custom_field_gid}", custom_field_gid)
+        return self.client.post(path, params, **options)
 
-        Parameters
-        ----------
-        workspace : {Gid} The workspace or organization to find custom field definitions in.
-        [params] : {Object} Parameters for the request
+    def delete_custom_field(self, custom_field_gid, params=None, **options):
+        """Delete a custom field
+        :param str custom_field_gid: (required) Globally unique identifier for the custom field.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/workspaces/%s/custom_fields" % (workspace)
-        return self.client.get_collection(path, params, **options)
-        
-    def update(self, custom_field, params={}, **options): 
-        """A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged
-        
-        When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field.
-        
-        An enum custom field's `enum_options` cannot be updated with this endpoint. Instead see "Work With Enum Options" for information on how to update `enum_options`.
-        
-        Locked custom fields can only be updated by the user who locked the field.
-        
-        Returns the complete updated custom field record.
-
-        Parameters
-        ----------
-        custom_field : {Gid} Globally unique identifier for the custom field.
-        [data] : {Object} Data for the request
-        """
-        path = "/custom_fields/%s" % (custom_field)
-        return self.client.put(path, params, **options)
-        
-    def delete(self, custom_field, params={}, **options): 
-        """A specific, existing custom field can be deleted by making a DELETE request on the URL for that custom field.
-        
-        Locked custom fields can only be deleted by the user who locked the field.
-        
-        Returns an empty data record.
-
-        Parameters
-        ----------
-        custom_field : {Gid} Globally unique identifier for the custom field.
-        """
-        path = "/custom_fields/%s" % (custom_field)
+        if params is None:
+            params = {}
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
         return self.client.delete(path, params, **options)
-        
-    def create_enum_option(self, custom_field, params={}, **options): 
-        """Creates an enum option and adds it to this custom field's list of enum options. A custom field can have at most 50 enum options (including disabled options). By default new enum options are inserted at the end of a custom field's list.
-        
-        Locked custom fields can only have enum options added by the user who locked the field.
-        
-        Returns the full record of the newly created enum option.
 
-        Parameters
-        ----------
-        custom_field : {Gid} Globally unique identifier for the custom field.
-        [data] : {Object} Data for the request
-          - name : {String} The name of the enum option.
-          - [color] : {String} The color of the enum option. Defaults to 'none'.
-          - [insert_before] : {Gid} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
-          - [insert_after] : {Gid} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
+    def get_custom_field(self, custom_field_gid, params=None, **options):
+        """Get a custom field
+        :param str custom_field_gid: (required) Globally unique identifier for the custom field.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/custom_fields/%s/enum_options" % (custom_field)
+        if params is None:
+            params = {}
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
+        return self.client.get(path, params, **options)
+
+    def get_custom_fields_for_workspace(self, workspace_gid, params=None, **options):
+        """Get a workspace's custom fields
+        :param str workspace_gid: (required) Globally unique identifier for the workspace or organization.
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/workspaces/{workspace_gid}/custom_fields".replace("{workspace_gid}", workspace_gid)
+        return self.client.get_collection(path, params, **options)
+
+    def insert_enum_option_for_custom_field(self, custom_field_gid, params=None, **options):
+        """Reorder a custom field's enum
+        :param str custom_field_gid: (required) Globally unique identifier for the custom field.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/custom_fields/{custom_field_gid}/enum_options/insert".replace("{custom_field_gid}", custom_field_gid)
         return self.client.post(path, params, **options)
-        
-    def update_enum_option(self, enum_option, params={}, **options): 
-        """Updates an existing enum option. Enum custom fields require at least one enabled enum option.
-        
-        Locked custom fields can only be updated by the user who locked the field.
-        
-        Returns the full record of the updated enum option.
 
-        Parameters
-        ----------
-        enum_option : {Gid} Globally unique identifier for the enum option.
-        [data] : {Object} Data for the request
-          - name : {String} The name of the enum option.
-          - [color] : {String} The color of the enum option. Defaults to 'none'.
-          - [enabled] : {Boolean} Whether or not the enum option is a selectable value for the custom field.
+    def update_custom_field(self, custom_field_gid, params=None, **options):
+        """Update a custom field
+        :param str custom_field_gid: (required) Globally unique identifier for the custom field.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/enum_options/%s" % (enum_option)
+        if params is None:
+            params = {}
+        path = "/custom_fields/{custom_field_gid}".replace("{custom_field_gid}", custom_field_gid)
         return self.client.put(path, params, **options)
-        
-    def insert_enum_option(self, custom_field, params={}, **options): 
-        """Moves a particular enum option to be either before or after another specified enum option in the custom field.
-        
-        Locked custom fields can only be reordered by the user who locked the field.
 
-        Parameters
-        ----------
-        custom_field : {Gid} Globally unique identifier for the custom field.
-        [data] : {Object} Data for the request
-          - enum_option : {Gid} The ID of the enum option to relocate.
-          - name : {String} The name of the enum option.
-          - [color] : {String} The color of the enum option. Defaults to 'none'.
-          - [before_enum_option] : {Gid} An existing enum option within this custom field before which the new enum option should be inserted. Cannot be provided together with after_enum_option.
-          - [after_enum_option] : {Gid} An existing enum option within this custom field after which the new enum option should be inserted. Cannot be provided together with before_enum_option.
+    def update_enum_option(self, enum_option_gid, params=None, **options):
+        """Update an enum option
+        :param str enum_option_gid: (required) Globally unique identifier for the enum option.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/custom_fields/%s/enum_options/insert" % (custom_field)
-        return self.client.post(path, params, **options)
-        
+        if params is None:
+            params = {}
+        path = "/enum_options/{enum_option_gid}".replace("{enum_option_gid}", enum_option_gid)
+        return self.client.put(path, params, **options)

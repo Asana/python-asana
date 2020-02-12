@@ -1,42 +1,34 @@
-
+# coding=utf-8
 class _OrganizationExports:
-    """An _organization_export_ object represents a request to export the complete data of an Organization
-    in JSON format.
-    
-    To export an Organization using this API:
-    
-    * Create an `organization_export` [request](#create) and store the id that is returned.\
-    * Request the `organization_export` every few minutes, until the `state` field contains 'finished'.\
-    * Download the file located at the URL in the `download_url` field.
-    
-    Exports can take a long time, from several minutes to a few hours for large Organizations.
-    
-    **Note:** These endpoints are only available to [Service Accounts](/guide/help/premium/service-accounts)
-    of an [Enterprise](/enterprise) Organization.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_id(self, organization_export, params={}, **options): 
-        """Returns details of a previously-requested Organization export.
 
-        Parameters
-        ----------
-        organization_export : {Gid} Globally unique identifier for the Organization export.
-        [params] : {Object} Parameters for the request
+    def create_organization_export(self, params=None, **options):
+        """Create an organization export request
+        :param Object params: Parameters for the request
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/organization_exports/%s" % (organization_export)
+        if params is None:
+            params = {}
+        path = "/organization_exports"
+        return self.client.post(path, params, **options)
+
+    def get_organization_export(self, organization_export_gid, params=None, **options):
+        """Get details on an org export request
+        :param str organization_export_gid: (required) Globally unique identifier for the organization export.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/organization_exports/{organization_export_gid}".replace("{organization_export_gid}", organization_export_gid)
         return self.client.get(path, params, **options)
-        
-    def create(self, params={}, **options): 
-        """This method creates a request to export an Organization. Asana will complete the export at some
-        point after you create the request.
-
-        Parameters
-        ----------
-        [data] : {Object} Data for the request
-          - organization : {Gid} Globally unique identifier for the workspace or organization.
-        """
-        return self.client.post("/organization_exports", params, **options)
-        

@@ -1,5 +1,6 @@
 from . import (
     attachments,
+    batch_api,
     custom_field_settings,
     custom_fields,
     events,
@@ -15,8 +16,10 @@ from . import (
     tags,
     tasks,
     teams,
+    typeahead,
     users,
     user_task_lists,
     webhooks,
+    workspace_memberships,
     workspaces
 )

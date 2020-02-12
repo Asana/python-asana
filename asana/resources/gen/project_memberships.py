@@ -1,34 +1,36 @@
-
+# coding=utf-8
 class _ProjectMemberships:
-    """With the introduction of "comment-only" projects in Asana, a user's membership
-    in a project comes with associated permissions. These permissions (whether a
-    user has full access to the project or comment-only access) are accessible
-    through the project memberships endpoints described here.
-    """
 
     def __init__(self, client=None):
         self.client = client
-  
-    def find_by_project(self, project, params={}, **options): 
-        """Returns the compact project membership records for the project.
 
-        Parameters
-        ----------
-        project : {Gid} The project for which to fetch memberships.
-        [params] : {Object} Parameters for the request
-          - [user] : {String} If present, the user to filter the memberships to.
+    def get_project_membership(self, project_membership_gid, params=None, **options):
+        """Get a project membership
+        :param str project_membership_gid: (required)
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
         """
-        path = "/projects/%s/project_memberships" % (project)
-        return self.client.get_collection(path, params, **options)
-        
-    def find_by_id(self, project_membership, params={}, **options): 
-        """Returns the project membership record.
-
-        Parameters
-        ----------
-        project_membership : {Gid} Globally unique identifier for the project membership.
-        [params] : {Object} Parameters for the request
-        """
-        path = "/project_memberships/%s" % (project_membership)
+        if params is None:
+            params = {}
+        path = "/project_memberships/{project_membership_gid}".replace("{project_membership_gid}", project_membership_gid)
         return self.client.get(path, params, **options)
-        
+
+    def get_project_memberships_for_project(self, project_gid, params=None, **options):
+        """Get memberships from a project
+        :param str project_gid: (required) Globally unique identifier for the project.
+        :param Object params: Parameters for the request
+            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+        :param **options
+            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/projects/{project_gid}/project_memberships".replace("{project_gid}", project_gid)
+        return self.client.get_collection(path, params, **options)
