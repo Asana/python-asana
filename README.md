@@ -2,40 +2,6 @@
 
 Python client library for Asana.
 
-Required: Security procedures for outdated OpenSSL versions
---------------
-
-Older versions of OpenSSL can cause a problem when using `python-asana` In particular, at the time of this writing, at least **MacOS X 10.11 and below** ship with a very old version of OpenSSL:
-    
-    $ openssl version
-    OpenSSL 0.9.8zh 14 Jan 2016
-
-OpenSSL 0.9.8 was first released in 2005, and therefore only supports TLS (Transport Layer Security) version 1.0. Asana has deprecated and stopped accepting requests for clients which do not suport [TLS 1.0 and above](https://asa.na/tls), which unfortunately includes any software linked against this version of the library - this includes both the MacOS X provided Python interpreter and any homebrew installed Python that is not specifically configured to link against a newer version.
-
-To see if your Python version is affected, run
-   
-    $ python -c "import ssl; print ssl.OPENSSL_VERSION"
-
-If the version printed at the command line is older than `1.0.1`, when, in 2012, OpenSSL first supported TLS 1.1 and 1.2, you will not be able to use `python-asana` to connect to Asana. Specifically, you will recieve `400 Bad Request` responses with an error message in the response body about the lack of support for TLS 1.1 and above.
-
-Fortunately, homebrew makes it easy to install both an updated OpenSSL and a Python interpreter that links to it. Run
-
-    $ brew install openssl
-      ...                                               # homebrew installs
-    $ /usr/local/Cellar/openssl/*/bin/openssl version   # Just to verify...
-    OpenSSL 1.0.2h  3 May 2016
-
-Finally, you have to install the homebrew version of python which links against the newer OpenSSL
-
-    $ brew install python --with-brewed-openssl
-      ...                                                 # homebrew installs
-    $ python -c "import ssl; print ssl.OPENSSL_VERSION"   # Verify inside Python
-    OpenSSL 1.0.2h  3 May 2016
-
-If you see the version of OpenSSL greater than OpenSSL 1.0.1, then you're all set to start using `python-asana`
-
-Similarly, if you're not using a homebrew version of Python (e.g. using macports or manually compiling) you'll have to make sure that your installation of Python is using an up-to-date version of OpenSSL. **Note**: this does _not_ apply to using `virtualenv`; `virtualenv` manages Python packages, but uses the system python and its standard library packages, including OpenSSL.
-
 Authentication
 --------------
 
