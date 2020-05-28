@@ -47,9 +47,9 @@ Methods that return a single object return that object directly:
     me = client.users.me()
     print "Hello " + me['name']
 
-    workspace_id = me['workspaces'][0]['id']
+    workspace_id = me['workspaces'][0]['gid']
     project = client.projects.create_in_workspace(workspace_id, { 'name': 'new project' })
-    print "Created project with id: " + project['id']
+    print "Created project with id: " + project['gid']
 
 Methods that return multiple items (e.x. `find_all`) return a page iterator by default. See the "Collections" section.
 
