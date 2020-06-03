@@ -1,0 +1,33 @@
+attachments: 
+    create_attachment_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.attachments.create_attachment_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_attachment: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.attachments.delete_attachment(attachment_gid, opt_pretty=True)
+    get_attachment: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.attachments.get_attachment(attachment_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_attachments_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.attachments.get_attachments_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)

@@ -1,0 +1,33 @@
+projectstatuses: 
+    create_project_status_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.project_statuses.create_project_status_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_project_status: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.project_statuses.delete_project_status(project_status_gid, opt_pretty=True)
+    get_project_status: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.project_statuses.get_project_status(project_status_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_project_statuses_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.project_statuses.get_project_statuses_for_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)

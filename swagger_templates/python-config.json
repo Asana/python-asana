@@ -2,6 +2,5 @@
   "packageName" : "asana",
   "templateDir": "swagger_templates",
   "hideGenerationTimestamp": true,
-  "apiTests": false,
-  "apiDocs": false
+  "apiTests": false
 }
