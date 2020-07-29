@@ -15,6 +15,14 @@ tags:
 
 
         result = client.tags.create_tag_for_workspace(workspace_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_tag: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tags.delete_tag(tag_gid, opt_pretty=True)
     get_tag: >-
         import asana
 
