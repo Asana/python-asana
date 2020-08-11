@@ -105,7 +105,7 @@ class _Portfolios:
     def get_portfolios(self, params=None, **options):
         """Get multiple portfolios
         :param Object params: Parameters for the request
-            - workspace {str}:  (required) The workspace or organization to filter portfolios on.
+            - workspace {str}:  The workspace or organization to filter portfolios on.
             - owner {str}:  (required) The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
