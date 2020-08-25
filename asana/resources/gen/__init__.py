@@ -15,6 +15,7 @@ from . import (
     stories,
     tags,
     tasks,
+    team_memberships,
     teams,
     typeahead,
     users,

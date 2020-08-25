@@ -16,6 +16,7 @@ from . import (
     tags,
     tasks,
     teams,
+    team_memberships,
     typeahead,
     users,
     user_task_lists,
