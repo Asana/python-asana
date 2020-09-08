@@ -1,5 +1,5 @@
 __title__ = 'asana'
-__version__ = '0.10.1'
+__version__ = '0.10.2'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2016 Asana, Inc.'
 
