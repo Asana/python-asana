@@ -61,7 +61,7 @@ Options
 Various options can be set globally on the `Client.DEFAULTS` object, per-client on `client.options`, or per-request as additional named arguments. For example:
 
     # global:
-    asana.Client.DEFAULTS['page_size'] = 100
+    asana.Client.DEFAULT_OPTIONS['page_size'] = 100
 
     # per-client:
     client.options['page_size'] = 100
