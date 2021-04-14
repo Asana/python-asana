@@ -355,7 +355,6 @@ class _Tasks:
             - resource_subtype {str}:  Filters results by the task's resource_subtype
             - assignee_any {str}:  Comma-separated list of user identifiers
             - assignee_not {str}:  Comma-separated list of user identifiers
-            - assignee_status {str}:  One of `inbox`, `today`, `upcoming`, or `later`
             - portfolios_any {str}:  Comma-separated list of portfolio IDs
             - projects_any {str}:  Comma-separated list of project IDs
             - projects_not {str}:  Comma-separated list of project IDs

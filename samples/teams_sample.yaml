@@ -7,6 +7,14 @@ teams:
 
 
         result = client.teams.add_user_for_team(team_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_team: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.teams.create_team({'field': 'value', 'field': 'value'}, opt_pretty=True)
     get_team: >-
         import asana
 
