@@ -23,6 +23,14 @@ goals:
 
 
         result = client.goals.add_supporting_work_for_goal({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.create_goal({'field': 'value', 'field': 'value'}, opt_pretty=True)
     create_goal_metric: >-
         import asana
 

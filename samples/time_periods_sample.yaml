@@ -1,0 +1,17 @@
+timeperiods: 
+    get_time_period: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.time_periods.get_time_period(time_period_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_time_periods: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.time_periods.get_time_periods({'param': 'value', 'param': 'value'}, opt_pretty=True)
