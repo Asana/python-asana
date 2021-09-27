@@ -31,3 +31,11 @@ webhooks:
 
 
         result = client.webhooks.get_webhooks({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    update_webhook: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.webhooks.update_webhook(webhook_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
