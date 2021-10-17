@@ -1,4 +1,5 @@
 import warnings
+import six
 try:
     from mock import patch, call
 except ImportError:
@@ -11,14 +12,14 @@ class TestClient(ClientTestCase):
     def test_version_values(self):
         values = self.client._version_values()
         self.assertEqual('Python', values['language'])
-        self.assertRegexpMatches(values['version'], r'[0-9]+[.][0-9]+[.][0-9]+')
+        six.assertRegex(self, values['version'], r'[0-9]+[.][0-9]+[.][0-9]+')
         self.assertSetEqual(
             {'language', 'version', 'language_version', 'os', 'os_version'},
             set(values.keys()))
 
     def test_version_header(self):
-        self.assertRegexpMatches(
-            self.client._version_header(), r'language=Python')
+        six.assertRegex(
+            self, self.client._version_header(), r'language=Python')
 
     def test_default_headers(self):
         self.client.headers['key'] = 'value'
