@@ -111,6 +111,14 @@ projects:
 
 
         result = client.projects.get_task_counts_for_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    project_save_as_template: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.project_save_as_template(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
     remove_custom_field_setting_for_project: >-
         import asana
 
