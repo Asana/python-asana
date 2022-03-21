@@ -22,6 +22,8 @@ for name, module in resources.__dict__.items():
     classified_name = string.capwords(name, '_').replace('_', '')
     if classified_name == "BatchApi":
         classified_name = "BatchAPI"
+    if classified_name == "AuditLogApi":
+        classified_name = "AuditLogAPI"
     if isinstance(module, ModuleType) and classified_name in module.__dict__:
         RESOURCE_CLASSES[name] = module.__dict__[classified_name]
 
