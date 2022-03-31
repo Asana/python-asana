@@ -102,3 +102,33 @@ class EventsPageIterator(PageIterator):
                 return results
             else:
                 time.sleep(self.options['poll_interval'])
+
+
+class AuditLogAPIIterator(CollectionPageIterator):
+    """Iterator that returns the next page of audit_log_api"""
+
+    def __next__(self):
+        """Override __next__ to stop when there is no more data"""
+
+        # Compute the limit from the page size, and remaining item limit
+        self.options['limit'] = min(
+            self.page_size, self.item_limit - self.count)
+        # If there is no continuation value or computed limit is 0, we're done
+        if self.continuation == None or self.options['limit'] == 0:
+            raise StopIteration
+        # First call to __next__
+        elif self.continuation == False:
+            result = self.get_initial()
+        # Subsequent calls to __next__
+        else:
+            result = self.get_next()
+        # Extract the continuation from the response
+        self.continuation = result.get(self.CONTINUATION_KEY, None)
+        # Get the data
+        data = result.get('data', None)
+        # If there is no more data we're done. Otherwise, we update the count and return the data
+        if not data:
+            raise StopIteration
+        else:
+            self.count += len(data)
+        return data
