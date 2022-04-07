@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master   
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: pytest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['2.7', '3.4', '3.5', '3.6']
+        include:
+          - os: ubuntu-18.04
+            python-version: '3.4'
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+    - run: pip install -r requirements.txt
+    - run: pytest
+  
