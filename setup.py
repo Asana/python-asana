@@ -13,7 +13,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 
 setup(
     name='asana',
-    version='0.10.11',
+    version='0.10.12',
     description='Asana API client',
     long_description=long_description,
     long_description_content_type='text/markdown',
