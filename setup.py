@@ -8,10 +8,15 @@ assert sys.version_info >= (2, 7), 'We only support Python 2.7+'
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'asana'))
 
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+    long_description = readme.read()
+
 setup(
     name='asana',
     version='0.10.11',
     description='Asana API client',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     license='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
