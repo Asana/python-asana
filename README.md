@@ -1,4 +1,4 @@
-# asana [![Build Status][travis-image]][travis-url] [![PyPi Version][pypi-image]][pypi-url]
+# asana [![Build][github-actions-image]][github-actions-url] [![PyPi Version][pypi-image]][pypi-url]
 
 Python client library for Asana.
 
@@ -167,10 +167,10 @@ Run `deploy.py [major|minor|patch]`. See `deploy.py -h` for additional info.
   6. Push changes to origin, including tags:
      `git push origin master --tags`
 
-Travis CI will automatically build and deploy the tagged release to `pypi`.
+GitHub Actions will automatically build and deploy the tagged release to [PyPI](https://pypi.org/).
 
-[travis-url]: http://travis-ci.org/Asana/python-asana
-[travis-image]: https://api.travis-ci.org/Asana/python-asana.svg?style=flat-square&branch=master
+[github-actions-url]: https://github.com/Asana/python-asana/actions
+[github-actions-image]: https://github.com/Asana/python-asana/workflows/Build/badge.svg
 
 [pypi-url]: https://pypi.python.org/pypi/asana/
 [pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
