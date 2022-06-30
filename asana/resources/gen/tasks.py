@@ -194,7 +194,7 @@ class _Tasks:
     def get_tasks(self, params=None, **options):
         """Get multiple tasks
         :param Object params: Parameters for the request
-            - assignee {str}:  The assignee to filter tasks on. *Note: If you specify `assignee`, you must also specify the `workspace` to filter on.*
+            - assignee {str}:  The assignee to filter tasks on. If searching for unassigned tasks, assignee.any = null can be specified. *Note: If you specify `assignee`, you must also specify the `workspace` to filter on.*
             - project {str}:  The project to filter tasks on.
             - section {str}:  The section to filter tasks on. *Note: Currently, this is only supported in board views.*
             - workspace {str}:  The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
@@ -216,6 +216,7 @@ class _Tasks:
         """Get tasks from a project
         :param str project_gid: (required) Globally unique identifier for the project.
         :param Object params: Parameters for the request
+            - completed_since {str}:  Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
             - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
