@@ -32,10 +32,10 @@ class _Attachments:
         path = "/attachments/{attachment_gid}".replace("{attachment_gid}", attachment_gid)
         return self.client.get(path, params, **options)
 
-    def get_attachments_for_task(self, task_gid, params=None, **options):
-        """Get attachments for a task
-        :param str task_gid: (required) The task to operate on.
+    def get_attachments_for_object(self, params=None, **options):
+        """Get attachments from an object
         :param Object params: Parameters for the request
+            - parent {str}:  (required) Globally unique identifier for object to fetch statuses from. Must be a GID for a task or project_brief.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
             - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -45,5 +45,5 @@ class _Attachments:
         """
         if params is None:
             params = {}
-        path = "/tasks/{task_gid}/attachments".replace("{task_gid}", task_gid)
+        path = "/attachments"
         return self.client.get_collection(path, params, **options)

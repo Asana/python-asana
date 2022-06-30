@@ -4,8 +4,9 @@ class _Goals:
     def __init__(self, client=None):
         self.client = client
 
-    def add_followers(self, params=None, **options):
+    def add_followers(self, goal_gid, params=None, **options):
         """Add a collaborator to a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -14,11 +15,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/addFollowers"
+        path = "/goals/{goal_gid}/addFollowers".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
-    def add_subgoal(self, params=None, **options):
+    def add_subgoal(self, goal_gid, params=None, **options):
         """Add a subgoal to a parent goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -27,11 +29,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/addSubgoal"
+        path = "/goals/{goal_gid}/addSubgoal".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
-    def add_supporting_work_for_goal(self, params=None, **options):
+    def add_supporting_work_for_goal(self, goal_gid, params=None, **options):
         """Add a project/portfolio as supporting work for a goal.
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -40,7 +43,7 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/addSupportingWork"
+        path = "/goals/{goal_gid}/addSupportingWork".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
     def create_goal(self, params=None, **options):
@@ -58,8 +61,9 @@ class _Goals:
         path = "/goals"
         return self.client.post(path, params, **options)
 
-    def create_goal_metric(self, params=None, **options):
+    def create_goal_metric(self, goal_gid, params=None, **options):
         """Create a goal metric
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -68,7 +72,7 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/setMetric"
+        path = "/goals/{goal_gid}/setMetric".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
     def delete_goal(self, goal_gid, params=None, **options):
@@ -120,8 +124,9 @@ class _Goals:
         path = "/goals"
         return self.client.get_collection(path, params, **options)
 
-    def get_parent_goals_for_goal(self, params=None, **options):
+    def get_parent_goals_for_goal(self, goal_gid, params=None, **options):
         """Get parent goals from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -130,11 +135,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/parentGoals"
+        path = "/goals/{goal_gid}/parentGoals".replace("{goal_gid}", goal_gid)
         return self.client.get_collection(path, params, **options)
 
-    def get_subgoals_for_goal(self, params=None, **options):
+    def get_subgoals_for_goal(self, goal_gid, params=None, **options):
         """Get subgoals from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -143,11 +149,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/subgoals"
+        path = "/goals/{goal_gid}/subgoals".replace("{goal_gid}", goal_gid)
         return self.client.get_collection(path, params, **options)
 
-    def remove_followers(self, params=None, **options):
+    def remove_followers(self, goal_gid, params=None, **options):
         """Remove a collaborator from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -156,11 +163,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/removeFollowers"
+        path = "/goals/{goal_gid}/removeFollowers".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
-    def remove_subgoal(self, params=None, **options):
+    def remove_subgoal(self, goal_gid, params=None, **options):
         """Remove a subgoal from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -169,11 +177,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/removeSubgoal"
+        path = "/goals/{goal_gid}/removeSubgoal".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
-    def remove_supporting_work_for_goal(self, params=None, **options):
+    def remove_supporting_work_for_goal(self, goal_gid, params=None, **options):
         """Remove a project/portfolio as supporting work for a goal.
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -182,11 +191,12 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/removeSupportingWork"
+        path = "/goals/{goal_gid}/removeSupportingWork".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
-    def supporting_work(self, params=None, **options):
+    def supporting_work(self, goal_gid, params=None, **options):
         """Get supporting work from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -195,7 +205,7 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/supportingWork"
+        path = "/goals/{goal_gid}/supportingWork".replace("{goal_gid}", goal_gid)
         return self.client.get_collection(path, params, **options)
 
     def update_goal(self, goal_gid, params=None, **options):
@@ -212,8 +222,9 @@ class _Goals:
         path = "/goals/{goal_gid}".replace("{goal_gid}", goal_gid)
         return self.client.put(path, params, **options)
 
-    def update_goal_metric(self, params=None, **options):
+    def update_goal_metric(self, goal_gid, params=None, **options):
         """Update a goal metric
+        :param str goal_gid: (required) Globally unique identifier for the goal.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
@@ -222,5 +233,5 @@ class _Goals:
         """
         if params is None:
             params = {}
-        path = "/goals/{goal_gid}/setMetricCurrentValue"
+        path = "/goals/{goal_gid}/setMetricCurrentValue".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)

@@ -50,7 +50,7 @@ class _StatusUpdates:
     def get_statuses_for_object(self, params=None, **options):
         """Get status updates from an object
         :param Object params: Parameters for the request
-            - parent {str}:  (required) Globally unique identifier for object to fetch statuses from.
+            - parent {str}:  (required) Globally unique identifier for object to fetch statuses from. Must be a GID for a project, portfolio, or goal.
             - created_since {datetime}:  Only return statuses that have been created since the given time.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
