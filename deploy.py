@@ -28,8 +28,11 @@ if __name__ == '__main__':
     # Bump version part based on argument provided
     if args.part == 'major':
         major = str(int(major) + 1)
+        minor = 0
+        patch = 0
     if args.part == 'minor':
         minor = str(int(minor) + 1)
+        patch = 0
     if args.part == 'patch':
         patch = str(int(patch) + 1)
 
