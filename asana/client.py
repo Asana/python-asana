@@ -1,6 +1,7 @@
 from types import ModuleType
 import json
 import platform
+import os
 import time
 import string
 import warnings
@@ -324,12 +325,18 @@ class Client(object):
 
     def _version_values(self):
         """Generate the values to go in the client version header."""
+        # Prefer os.uname() over platform.*() on systems that support
+        # it, as it does not call the uname(1) binary.
+        # Using [0] instead of .sysname and [2] instead of .release for
+        # python2 compatibility.
         return {
             'language': 'Python',
             'version': __version__,
             'language_version': platform.python_version(),
-            'os': platform.system(),
-            'os_version': platform.release()
+            'os': (
+                hasattr(os, 'uname') and os.uname()[0] or platform.system()),
+            'os_version': (
+                hasattr(os, 'uname') and os.uname()[2] or platform.release())
         }
 
     @classmethod
