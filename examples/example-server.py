@@ -31,14 +31,13 @@ def main():
         # example request gets information about logged in user
         me = Client(token=token).users.me()
         return render_template_string('''
-{%- if image_url -%}
-<img src="{{ image_url }}">
-{%- endif %}
+<script>
+    window.opener.postMessage("success", "https://app.asana.com");
+</script>
 <p>Hello {{ name }}.</p>
 <p><pre>{{ dump }}</pre></p>
 <p><a href="/logout">Logout</a></p>''',
             name=me['name'],
-            image_url=me.get('photo', {}).get('image_60x60', None),
             dump=json.dumps(me, indent=2)
         )
     # if we don't have a token show a "Sign in with Asana" button
