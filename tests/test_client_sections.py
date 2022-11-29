@@ -7,7 +7,7 @@ from .helpers import ClientTestCase, GET, DELETE, POST, PUT
 
 class TestClientSections(ClientTestCase):
 
-    def test_sections_create_in_project(self):
+    def test_sections_create_section_for_project(self):
         resp = {
             "data": {
                 "id": 2001,
@@ -24,9 +24,9 @@ class TestClientSections(ClientTestCase):
             POST, 'http://app/projects/1331/sections', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.create_in_project(1331), resp['data'])
+            self.client.sections.create_section_for_project('1331'), resp['data'])
 
-    def test_sections_find_by_project(self):
+    def test_sections_get_sections_for_project(self):
         resp = {
             "data": [
                 {
@@ -44,9 +44,9 @@ class TestClientSections(ClientTestCase):
             GET, 'http://app/projects/1331/sections', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.find_by_project(1331), resp['data'])
+            self.client.sections.get_sections_for_project('1331'), resp['data'])
 
-    def test_sections_find_by_id(self):
+    def test_sections_get_section(self):
         resp = {
             "data": {
                 "id": 2001,
@@ -63,9 +63,9 @@ class TestClientSections(ClientTestCase):
             GET, 'http://app/sections/2001', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.find_by_id(2001), resp['data'])
+            self.client.sections.get_section('2001'), resp['data'])
 
-    def test_sections_update(self):
+    def test_sections_update_section(self):
         req = {
             "name": "High Priority, renamed:"
         }
@@ -85,9 +85,9 @@ class TestClientSections(ClientTestCase):
             PUT, 'http://app/sections/2001', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.update(2001, req), resp['data'])
+            self.client.sections.update_section('2001', req), resp['data'])
 
-    def test_sections_delete(self):
+    def test_sections_delete_section(self):
         resp = {
             "data": {}
         }
@@ -96,9 +96,9 @@ class TestClientSections(ClientTestCase):
             DELETE, 'http://app/sections/2001', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.delete(2001), resp['data'])
+            self.client.sections.delete_section('2001'), resp['data'])
 
-    def test_sections_insert_in_project(self):
+    def test_sections_insert_section_for_project(self):
         resp = {
             "data": {
                 "section": 2001,
@@ -111,4 +111,4 @@ class TestClientSections(ClientTestCase):
             POST, 'http://app/projects/1331/sections/insert', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.sections.insert_in_project(1331), resp['data'])
+            self.client.sections.insert_section_for_project('1331'), resp['data'])

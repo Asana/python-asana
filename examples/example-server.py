@@ -29,7 +29,7 @@ def main():
     # if the user has a token they're logged in
     if token:
         # example request gets information about logged in user
-        me = Client(token=token).users.me()
+        me = Client(token=token).users.get_user('me')
         return render_template_string('''
 <script>
     window.opener.postMessage("success", "https://app.asana.com");

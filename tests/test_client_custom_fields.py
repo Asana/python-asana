@@ -1,7 +1,7 @@
 from .helpers import *
 
 class TestClientCustomFields(ClientTestCase):
-    def test_custom_fields_find_text_field_by_id(self):
+    def test_custom_fields_get_custom_field_text(self):
         res = {
             "data": [
                 {
@@ -13,9 +13,9 @@ class TestClientCustomFields(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/custom_fields/134679', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.custom_fields.find_by_id(134679), res['data'])
+        self.assertEqual(self.client.custom_fields.get_custom_field('134679'), res['data'])
 
-    def test_custom_fields_find_enum_field_by_id(self):
+    def test_custom_fields_get_custom_field_enum(self):
         res = {
             "data": [
                 {
@@ -47,9 +47,9 @@ class TestClientCustomFields(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/custom_fields/124578', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.custom_fields.find_by_id(124578), res['data'])
+        self.assertEqual(self.client.custom_fields.get_custom_field('124578'), res['data'])
 
-    def test_custom_fields_find_number_field_by_id(self):
+    def test_custom_fields_get_custom_field_number(self):
         res = {
             "data": [
                 {
@@ -62,4 +62,4 @@ class TestClientCustomFields(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/custom_fields/938271', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.custom_fields.find_by_id(938271), res['data'])
+        self.assertEqual(self.client.custom_fields.get_custom_field('938271'), res['data'])

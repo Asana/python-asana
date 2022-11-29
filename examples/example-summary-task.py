@@ -11,12 +11,12 @@ def summarize(client, project_id, post_project):
     Collect data from project_id, and create a summary task in the post_project.
     """
     # Get info on the project
-    project = client.projects.find_by_id(project_id)
+    project = client.projects.get_project(project_id)
 
     # Loop through the tasks, collecting data
     all_tasks = 0
     tasks_completed = 0
-    tasks = client.tasks.find_by_project(project_id, opt_fields=['completed'])
+    tasks = client.tasks.get_tasks_for_project(project_id, opt_fields=['completed'])
     for task in tasks:
         all_tasks += 1
         if task['completed']:
@@ -30,7 +30,7 @@ def summarize(client, project_id, post_project):
         'notes': "{} tasks\n{} ({:.0%}) tasks completed".format(
             all_tasks, tasks_completed, tasks_completed / all_tasks)
     }
-    client.tasks.create(**summary_task_fields)
+    client.tasks.create_task(**summary_task_fields)
 
 def main():
     """
@@ -58,7 +58,7 @@ def main():
 
         # try to get something to see if token has not expired.
         try:
-            client.users.me()
+            client.users.get_user('me')
             authorized = True
         except:
             print_("token expired. please update ASANA_TOKEN")

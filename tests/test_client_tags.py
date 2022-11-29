@@ -1,14 +1,14 @@
 from .helpers import *
 
 class TestClientTags(ClientTestCase):
-    def test_tags_create(self):
+    def test_tags_create_tag(self):
         req = { "data": { "name": "fluffy", "workspace": 14916 } }
         res = { "data": { "id": 1771, "name": "fluffy" } }
         responses.add(POST, 'http://app/tags', status=201, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tags.create(req['data']), res['data'])
+        self.assertEqual(self.client.tags.create_tag(req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
-    def test_tags_find_by_id(self):
+    def test_tags_get_tag(self):
         res = {
             "data": {
                 "id": 1331,
@@ -17,16 +17,16 @@ class TestClientTags(ClientTestCase):
             }
         }
         responses.add(GET, 'http://app/tags/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tags.find_by_id(1331), res['data'])
+        self.assertEqual(self.client.tags.get_tag('1331'), res['data'])
 
-    def test_tags_update(self):
+    def test_tags_update_tag(self):
         req = { "data": { "name": "Things to Sell" } }
         res = { "data": { "id": 1331, "name": "Things to Sell" } }
         responses.add(PUT, 'http://app/tags/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tags.update(1331, req['data']), res['data'])
+        self.assertEqual(self.client.tags.update_tag('1331', req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
-    def test_tags_find_by_workspace(self):
+    def test_tags_get_tags_for_workspace(self):
         res = {
             "data": [
                 { "id": 1331, "name": "Things to buy" },
@@ -34,4 +34,4 @@ class TestClientTags(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/workspaces/14916/tags', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.tags.find_by_workspace(14916), res['data'])
+        self.assertEqual(self.client.tags.get_tags_for_workspace('14916'), res['data'])

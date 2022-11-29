@@ -44,14 +44,14 @@ The client's methods are divided into several resources: `attachments`, `events`
 
 Methods that return a single object return that object directly:
 
-    me = client.users.me()
+    me = client.users.get_user('me')
     print "Hello " + me['name']
 
     workspace_id = me['workspaces'][0]['gid']
     project = client.projects.create_in_workspace(workspace_id, { 'name': 'new project' })
     print "Created project with id: " + project['gid']
 
-Methods that return multiple items (e.x. `find_all`) return a page iterator by default. See the "Collections" section.
+Methods that return multiple items (e.x. `get_tasks`, `get_projects`, `get_portfolios`, etc.) return a page iterator by default. See the "Collections" section.
 
 #### See [the gen folder](asana/resources/gen) for methods available for each resource. 
 
@@ -67,7 +67,7 @@ Various options can be set globally on the `Client.DEFAULTS` object, per-client 
     client.options['page_size'] = 100
 
     # per-request:
-    client.tasks.find_all({ 'project': 1234 }, page_size=100)
+    client.tasks.get_tasks({ 'project': 1234 }, page_size=100)
 
 ### Available options
 
@@ -101,7 +101,7 @@ You can place it on the client for all requests, or place it on a single request
 
     client.headers={'asana-enable': 'string_ids'}
     or
-    me = client.users.me(headers={'asana-enable': 'string_ids'})
+    me = client.users.get_user('me', headers={'asana-enable': 'string_ids'})
 
 If you would rather suppress these warnings, you can set
 
@@ -114,13 +114,13 @@ Collections
 
 By default, methods that return a collection of objects return an item iterator:
 
-    workspaces = client.workspaces.find_all(item_limit=1)
+    workspaces = client.workspaces.get_workspaces(item_limit=1)
     print workspaces.next()
     print workspaces.next() # raises StopIteration if there are no more items
 
 Or:
 
-    for workspace in client.workspaces.find_all()
+    for workspace in client.workspaces.get_workspaces()
       print workspace
 
 ### Raw API
@@ -129,7 +129,7 @@ You can also use the raw API to fetch a page at a time:
 
     offset = None
     while True:
-      page = client.workspaces.find_all(offset=offset, iterator_type=None)
+      page = client.workspaces.get_workspaces(offset=offset, iterator_type=None)
       print page['data']
       if 'next_page' in page:
         offset = page['next_page']['offset']

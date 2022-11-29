@@ -6,7 +6,7 @@ from .helpers import ClientTestCase, GET, DELETE, POST, PUT
 
 
 class TestClientOrganizationExports(ClientTestCase):
-    def test_organization_exports_find_by_id(self):
+    def test_organization_exports_get_organization_export(self):
         resp = {
             "data": {
                 "id": 1234,
@@ -24,9 +24,9 @@ class TestClientOrganizationExports(ClientTestCase):
             GET, 'http://app/organization_exports/1234', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.organization_exports.find_by_id(1234), resp['data'])
+            self.client.organization_exports.get_organization_export('1234'), resp['data'])
 
-    def test_organization_exports_create(self):
+    def test_organization_exports_create_organization_export(self):
         resp = {
             "data": {
                 "organization": 14916
@@ -37,4 +37,4 @@ class TestClientOrganizationExports(ClientTestCase):
             POST, 'http://app/organization_exports', status=200,
             body=json.dumps(resp), match_querystring=True)
         self.assertEqual(
-            self.client.organization_exports.create(), resp['data'])
+            self.client.organization_exports.create_organization_export(), resp['data'])

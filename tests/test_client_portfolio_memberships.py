@@ -1,7 +1,7 @@
 from .helpers import *
 
 class TestClientPortfolioMemberships(ClientTestCase):
-    def test_portfolio_memberships_find_by_id(self):
+    def test_portfolio_memberships_get_portfolio_membership(self):
         res = {
             "data": {
                 "id": 1331,
@@ -9,9 +9,9 @@ class TestClientPortfolioMemberships(ClientTestCase):
             }
         }
         responses.add(GET, 'http://app/portfolio_memberships/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolio_memberships.find_by_id(1331), res['data'])
+        self.assertEqual(self.client.portfolio_memberships.get_portfolio_membership('1331'), res['data'])
 
-    def test_portfolio_memberships_find_by_portfolio(self):
+    def test_portfolio_memberships_get_portfolio_memberships_for_portfolio(self):
         res = {
             "data": [
                 {
@@ -21,9 +21,9 @@ class TestClientPortfolioMemberships(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/portfolios/1331/portfolio_memberships', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolio_memberships.find_by_portfolio(1331), res['data'])
+        self.assertEqual(self.client.portfolio_memberships.get_portfolio_memberships_for_portfolio('1331'), res['data'])
 
-    def test_portfolio_memberships_find_all(self):
+    def test_portfolio_memberships_get_portfolio_memberships(self):
         res = {
             "data": [
                 { "id": 1331, "name": "Things to buy" },
@@ -31,5 +31,4 @@ class TestClientPortfolioMemberships(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/portfolio_memberships', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolio_memberships.find_all(), res['data'])
-
+        self.assertEqual(self.client.portfolio_memberships.get_portfolio_memberships(), res['data'])
