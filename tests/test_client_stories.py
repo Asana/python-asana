@@ -2,7 +2,7 @@ from .helpers import *
 
 class TestClientStories(ClientTestCase):
 
-    def test_stories_find_by_task(self):
+    def test_stories_get_stories_for_task(self):
         res = {
             "data": [
                 {
@@ -22,9 +22,9 @@ class TestClientStories(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/tasks/1001/stories', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.stories.find_by_task(1001), res['data'])
+        self.assertEqual(self.client.stories.get_stories_for_task('1001'), res['data'])
 
-    def test_stories_find_by_id(self):
+    def test_stories_get_story(self):
         res = {
             "data": {
                 "created_at": "2012-02-22T02:06:58.147Z",
@@ -37,9 +37,9 @@ class TestClientStories(ClientTestCase):
             }
         }
         responses.add(GET, 'http://app/stories/2001', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.stories.find_by_id(2001), res['data'])
+        self.assertEqual(self.client.stories.get_story('2001'), res['data'])
 
-    def test_stories_create_on_task(self):
+    def test_stories_create_story_for_task(self):
         req = { "data": { "text": "This is a very nice comment." } }
         res = {
             "data": {
@@ -53,5 +53,5 @@ class TestClientStories(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/tasks/1001/stories', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.stories.create_on_task(1001, req['data']), res['data'])
+        self.assertEqual(self.client.stories.create_story_for_task('1001', req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)

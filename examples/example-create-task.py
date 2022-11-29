@@ -27,17 +27,21 @@ def user_select_option(message, options):
 if 'ASANA_ACCESS_TOKEN' in os.environ:
     # create a client with a Personal Access Token
     client = asana.Client.access_token(os.environ['ASANA_ACCESS_TOKEN'])
-    workspaces = client.workspaces.find_all()
+    workspaces = client.workspaces.get_workspaces()
 
     workspace = user_select_option("Please choose a workspace", workspaces)
 
-    projects = client.projects.find_all({'workspace': workspace['gid']})
+    projects = client.projects.get_projects({'workspace': workspace['gid']})
 
     project = user_select_option("Please choose a project", projects)
 
-    result = client.tasks.create_in_workspace(workspace['gid'],
-                                              {'name': 'Learn to use Nunchucks',
-                                               'notes': 'Note: This is a test task created with the python-asana client.',
-                                               'projects': [project['gid']]})
+    result = client.tasks.create_task(
+        workspace['gid'],
+        {
+            'name': 'Learn to use Nunchucks',
+            'notes': 'Note: This is a test task created with the python-asana client.',
+            'projects': [project['gid']]
+        }
+    )
 
     print_(json.dumps(result, indent=4))

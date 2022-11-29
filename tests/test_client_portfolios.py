@@ -1,7 +1,7 @@
 from .helpers import *
 
 class TestClientPortfolios(ClientTestCase):
-    def test_portfolios_create(self):
+    def test_portfolios_create_portfolio(self):
         req = {
             "data": {
                 "name": "Things to Buy",
@@ -17,10 +17,10 @@ class TestClientPortfolios(ClientTestCase):
             }
         }
         responses.add(POST, 'http://app/portfolios', status=201, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.create(req['data']), res['data'])
+        self.assertEqual(self.client.portfolios.create_portfolio(req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
-    def test_portfolios_find_by_id(self):
+    def test_portfolios_get_portfolio(self):
         res = {
             "data": {
                 "id": 1331,
@@ -29,9 +29,9 @@ class TestClientPortfolios(ClientTestCase):
             }
         }
         responses.add(GET, 'http://app/portfolios/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.find_by_id(1331), res['data'])
+        self.assertEqual(self.client.portfolios.get_portfolio('1331'), res['data'])
 
-    def test_portfolios_update(self):
+    def test_portfolios_update_portfolio(self):
         req = {
             "data": {
                 "notes": "These are things we NEED to purchase."
@@ -45,15 +45,15 @@ class TestClientPortfolios(ClientTestCase):
             }
         }
         responses.add(PUT, 'http://app/portfolios/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.update(1331, req['data']), res['data'])
+        self.assertEqual(self.client.portfolios.update_portfolio('1331', req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 
-    def test_portfolios_delete(self):
+    def test_portfolios_delete_portfolio(self):
         res = { "data": {} }
         responses.add(DELETE, 'http://app/portfolios/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.delete(1331), res['data'])
+        self.assertEqual(self.client.portfolios.delete_portfolio('1331'), res['data'])
 
-    def test_portfolios_find_all(self):
+    def test_portfolios_get_portfolios(self):
         res = {
             "data": [
                 { "id": 1331, "name": "Things to buy" },
@@ -61,7 +61,7 @@ class TestClientPortfolios(ClientTestCase):
             ]
         }
         responses.add(GET, 'http://app/portfolios', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.find_all(), res['data'])
+        self.assertEqual(self.client.portfolios.get_portfolios(), res['data'])
 
     def test_portfolios_add_custom_field_settings(self):
         req = {
@@ -90,6 +90,6 @@ class TestClientPortfolios(ClientTestCase):
         }
 
         responses.add(POST, 'http://app/portfolios/1331/addCustomFieldSetting', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.portfolios.add_custom_field_setting(1331, req['data']), res['data'])
+        self.assertEqual(self.client.portfolios.add_custom_field_setting('1331', req['data']), res['data'])
         self.assertEqual(json.loads(responses.calls[0].request.body), req)
 

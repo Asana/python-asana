@@ -15,24 +15,24 @@ class TestClientWebhooks(ClientTestCase):
             "active": true
         }
 
-    def test_webhooks_create(self):
+    def test_webhooks_create_webhook(self):
         req = { "resource": 111, "target": "https://foo/123" }
         res = { "data": self.webhook_data }
         responses.add(POST, 'http://app/webhooks', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.webhooks.create(req), self.webhook_data)
+        self.assertEqual(self.client.webhooks.create_webhook(req), self.webhook_data)
 
-    def test_webhooks_get_all(self):
+    def test_webhooks_get_webhooks(self):
         req = { "workspace": 1337 }
         res = { "data": [self.webhook_data] }
         responses.add(GET, 'http://app/webhooks?workspace=1337', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.webhooks.get_all(req), [self.webhook_data])
+        self.assertEqual(self.client.webhooks.get_webhooks(req), [self.webhook_data])
 
-    def test_webhooks_get_by_id(self):
+    def test_webhooks_get_webhook(self):
         res = { "data": self.webhook_data }
         responses.add(GET, 'http://app/webhooks/222', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.webhooks.get_by_id(222), self.webhook_data)
+        self.assertEqual(self.client.webhooks.get_webhook('222'), self.webhook_data)
 
-    def test_delete_by_id(self):
+    def test_webhooks_delete_webhook(self):
         res = { "data": {} }
         responses.add(DELETE, 'http://app/webhooks/222', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.webhooks.delete_by_id(222), {})
+        self.assertEqual(self.client.webhooks.delete_webhook('222'), {})

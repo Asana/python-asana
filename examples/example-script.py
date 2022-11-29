@@ -46,7 +46,7 @@ if 'ASANA_CLIENT_ID' in os.environ:
 
     print_("token=", json.dumps(token))
     print_("authorized=", client.session.authorized)
-    print_("me=", client.users.me())
+    print_("me=", client.users.get_user('me'))
 
     # normally you'd persist this token somewhere
     os.environ['ASANA_TOKEN'] = json.dumps(token) # (see below)
@@ -58,17 +58,17 @@ if 'ASANA_TOKEN' in os.environ:
         token=json.loads(os.environ['ASANA_TOKEN'])
     )
     print_("authorized=", client.session.authorized)
-    print_("me=", client.users.me())
+    print_("me=", client.users.get_user('me'))
 
 if 'ASANA_ACCESS_TOKEN' in os.environ:
     # create a client with a Personal Access Token
     client = asana.Client.access_token(os.environ['ASANA_ACCESS_TOKEN'])
-    me = client.users.me()
+    me = client.users.get_user('me')
     print_("me=" + json.dumps(me, indent=2))
 
     # find your "Personal Projects" workspace
     personal_projects = next(workspace for workspace in me['workspaces'] if workspace['name'] == 'Personal Projects')
-    projects = client.projects.find_by_workspace(personal_projects['id'], iterator_type=None)
+    projects = client.projects.get_projects(personal_projects['id'], iterator_type=None)
     print_("personal projects=" + json.dumps(projects, indent=2))
 
     # create a "demo project" if it doesn't exist

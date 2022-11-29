@@ -1,7 +1,7 @@
 from .helpers import *
 
 class TestClientJobs(ClientTestCase):
-    def test_jobs_find_by_id(self):
+    def test_jobs_get_job(self):
         res = {
             "data": {
                 "id": 1331,
@@ -9,5 +9,5 @@ class TestClientJobs(ClientTestCase):
             }
         }
         responses.add(GET, 'http://app/jobs/1331', status=200, body=json.dumps(res), match_querystring=True)
-        self.assertEqual(self.client.jobs.find_by_id(1331), res['data'])
+        self.assertEqual(self.client.jobs.get_job('1331'), res['data'])
 
