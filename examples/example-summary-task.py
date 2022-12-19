@@ -1,6 +1,5 @@
 import asana
 import json
-from six import print_
 from datetime import date
 import argparse
 import sys, os
@@ -54,14 +53,14 @@ def main():
             client_id=os.environ['ASANA_CLIENT_ID'],
             token=json.loads(os.environ['ASANA_TOKEN'])
         )
-        print_("authorized=", client.session.authorized)
+        print("authorized=", client.session.authorized)
 
         # try to get something to see if token has not expired.
         try:
             client.users.get_user('me')
             authorized = True
         except:
-            print_("token expired. please update ASANA_TOKEN")
+            print("token expired. please update ASANA_TOKEN")
 
     # check if the user has the secret
     if not authorized and 'ASANA_CLIENT_ID' in os.environ and 'ASANA_CLIENT_SECRET' in os.environ:
@@ -82,22 +81,22 @@ def main():
             import webbrowser
             webbrowser.open(url)
         except Exception as e:
-            print_("Open the following URL in a browser to authorize:")
-            print_(url)
+            print("Open the following URL in a browser to authorize:")
+            print(url)
 
-        print_("Copy and paste the returned code from the browser and press enter:")
+        print("Copy and paste the returned code from the browser and press enter:")
 
         code = sys.stdin.readline().strip()
         # exchange the code for a bearer token will fail on incorrect code
         token = client.session.fetch_token(code=code)
 
-        print_("token=", json.dumps(token))
+        print("token=", json.dumps(token))
 
         # normally you'd persist this token somewhere
         os.environ['ASANA_TOKEN'] = json.dumps(token) # (see below)
 
     if not client or not client.session.authorized:
-        print_("COULD NOT AUTHORIZE")
+        print("COULD NOT AUTHORIZE")
         exit(1)
 
     # Summarize the project.

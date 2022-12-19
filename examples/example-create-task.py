@@ -5,7 +5,6 @@ import json
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 import asana
-from six import print_
 
 # Instructions
 #
@@ -44,4 +43,4 @@ if 'ASANA_ACCESS_TOKEN' in os.environ:
         }
     )
 
-    print_(json.dumps(result, indent=4))
+    print(json.dumps(result, indent=4))

@@ -4,7 +4,6 @@ import unittest
 import asana
 import requests
 import responses
-from six import add_metaclass, next
 from responses import GET, PUT, POST, DELETE
 
 # Define JSON primitives so we can just copy in JSON:
@@ -29,8 +28,7 @@ def create_decorating_metaclass(decorators, prefix='test_'):
 
 # TestCase subclass that automatically decorates test methods with
 # responses.activate and sets up a client instance
-@add_metaclass(create_decorating_metaclass((responses.activate,)))
-class ClientTestCase(unittest.TestCase):
+class ClientTestCase(unittest.TestCase, metaclass=create_decorating_metaclass((responses.activate,))):
 
     def setUp(self):
         self.client = asana.Client(

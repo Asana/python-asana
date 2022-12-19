@@ -9,12 +9,7 @@ import requests
 
 from . import error, resources, session, __version__
 from .page_iterator import CollectionPageIterator
-
-# TODO: Consider using six here instead
-try:
-    import urllib.parse as urlparse
-except ImportError:
-    import urllib as urlparse
+import urllib.parse as urlparse
 
 # Create a dict of resource classes
 RESOURCE_CLASSES = {}
