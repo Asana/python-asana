@@ -1,27 +1,33 @@
-
-from .error import InvalidTokenError
+import abc
 import time
 
-class PageIterator(object):
+from asana.error import InvalidTokenError
+from asana.helpers import merge_dicts
+
+
+class PageIterator(object, metaclass=abc.ABCMeta):
     """Generic page iterator class, used for collections and events"""
+
+    CONTINUATION_KEY = ''
 
     def __init__(self, client, path, query, options):
         self.client = client
         self.path = path
         self.query = query
-        self.options = client._merge_options(options, { 'full_payload': True })
+        self.options = merge_dicts(client.options, options, {'full_payload': True})
 
-        self.item_limit = float('inf') if self.options.get('item_limit', None) == None else self.options['item_limit']
+        self.item_limit = float('inf') if self.options.get('item_limit') is None else self.options['item_limit']
         self.page_size = self.options['page_size']
         self.count = 0
 
-        self.continuation = False
+        self._started = False
+        self._continuation_data = None
 
     def __getattr__(self, name):
         """Getter for the custom named 'continuation' object."""
         if name == self.CONTINUATION_KEY:
-            return self.continuation
-        raise AttributeError("%r object has no attribute %r" % (self.__class__, attr))
+            return self._continuation_data
+        raise AttributeError("%r object has no attribute %r" % (self.__class__, name))
 
     def __iter__(self):
         """Iterator interface, self is an iterator"""
@@ -30,24 +36,41 @@ class PageIterator(object):
     def __next__(self):
         """Iterator interface, returns the next 'page'"""
 
-        # Compute the limit from the page size, and remaining item limit
-        self.options['limit'] = min(self.page_size, self.item_limit - self.count)
-        # If there is no continuation value or computed limit is 0, we're done
-        if self.continuation == None or self.options['limit'] == 0:
+        self._update_limit_option()
+        if not self._has_next_page():
             raise StopIteration
         # First call to __next__
-        elif self.continuation == False:
-            result = self.get_initial()
+        if not self._started:
+            self._started = True
+            result = self._get_initial_page()
         # Subsequent calls to __next__
         else:
-            result = self.get_next()
-        # Extract the continuation from the response
-        self.continuation = result.get(self.CONTINUATION_KEY, None)
-        # Get the data, update the count, return the data
-        data = result.get('data', None)
-        if data != None:
-            self.count += len(data)
+            result = self._get_next_page()
+        self._process_continuation(result)
+        data = result.get('data')
+        self._process_data(data)
         return data
+
+    def _update_limit_option(self):
+        """ Compute the limit from the page size, and remaining item limit """
+        self.options['limit'] = min(self.page_size, self.item_limit - self.count)
+
+    def _has_next_page(self):
+        """ Returns a bool predicate for next page exists """
+        if self.options['limit'] == 0:
+            return False
+        if not self._started:
+            return True
+        return self._continuation_data is not None
+
+    def _process_continuation(self, result):
+        """ Extract the continuation data from the response """
+        self._continuation_data = result.get(self.CONTINUATION_KEY, None)
+
+    def _process_data(self, data):
+        """ Process data : update count"""
+        if data is not None:
+            self.count += len(data)
 
     def next(self):
         """Alias for __next__"""
@@ -59,17 +82,25 @@ class PageIterator(object):
             for item in page:
                 yield item
 
+    @abc.abstractmethod
+    def _get_initial_page(self):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def _get_next_page(self):
+        raise NotImplementedError
+
 
 class CollectionPageIterator(PageIterator):
     """Iterator that returns one page of a collection at a time"""
 
     CONTINUATION_KEY = 'next_page'
 
-    def get_initial(self):
+    def _get_initial_page(self):
         return self.client.get(self.path, self.query, **self.options)
 
-    def get_next(self):
-        self.options['offset'] = self.continuation['offset']
+    def _get_next_page(self):
+        self.options['offset'] = self._continuation_data['offset']
         return self.client.get(self.path, self.query, **self.options)
 
 
@@ -78,7 +109,7 @@ class EventsPageIterator(PageIterator):
 
     CONTINUATION_KEY = 'sync'
 
-    def get_initial(self):
+    def _get_initial_page(self):
         # If no sync token was provided, make a request to get one
         if 'sync' not in self.query:
             try:
@@ -88,9 +119,9 @@ class EventsPageIterator(PageIterator):
                 self.continuation = e.sync
         else:
             self.continuation = self.query['sync']
-        return self.get_next()
+        return self._get_next_page()
 
-    def get_next(self):
+    def _get_next_page(self):
         self.query['sync'] = self.continuation
         return self.client.events.get(self.query, **self.options)
 
@@ -107,28 +138,10 @@ class EventsPageIterator(PageIterator):
 class AuditLogAPIIterator(CollectionPageIterator):
     """Iterator that returns the next page of audit_log_api"""
 
-    def __next__(self):
-        """Override __next__ to stop when there is no more data"""
-
-        # Compute the limit from the page size, and remaining item limit
-        self.options['limit'] = min(
-            self.page_size, self.item_limit - self.count)
-        # If there is no continuation value or computed limit is 0, we're done
-        if self.continuation == None or self.options['limit'] == 0:
-            raise StopIteration
-        # First call to __next__
-        elif self.continuation == False:
-            result = self.get_initial()
-        # Subsequent calls to __next__
-        else:
-            result = self.get_next()
-        # Extract the continuation from the response
-        self.continuation = result.get(self.CONTINUATION_KEY, None)
-        # Get the data
-        data = result.get('data', None)
-        # If there is no more data we're done. Otherwise, we update the count and return the data
+    def _process_data(self, data):
+        """ Process data: raise StopIteration if data is absent, update count otherwise"""
         if not data:
             raise StopIteration
         else:
             self.count += len(data)
-        return data
+
