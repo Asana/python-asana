@@ -1,6 +1,8 @@
-from .helpers import *
-import six
+import io
 import cgi
+
+from .helpers import *
+
 
 class TestClientAttachments(ClientTestCase):
 
@@ -38,7 +40,7 @@ class TestClientAttachments(ClientTestCase):
         request_content_type, pdict = cgi.parse_header(responses.calls[0].request.headers['Content-Type'])
         self.assertEqual(request_content_type, 'multipart/form-data')
 
-        content_file = six.BytesIO(responses.calls[0].request.body)
-        multipart = cgi.parse_multipart(content_file, { 'boundary': six.b(pdict['boundary']) })
-        self.assertEqual(multipart['file'][0], six.b('file content'))
+        content_file = io.BytesIO(responses.calls[0].request.body)
+        multipart = cgi.parse_multipart(content_file, { 'boundary':  bytes(pdict['boundary'], "UTF-8") })
+        self.assertEqual(multipart['file'][0], bytes('file content', 'UTF-8'))
         # TODO: verify filename and content-type, possibly using a different multipart decoder
