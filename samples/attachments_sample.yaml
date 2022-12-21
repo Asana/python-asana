@@ -1,12 +1,12 @@
 attachments: 
-    create_attachment_for_object: >-
+    create_attachment_for_task: >-
         import asana
 
 
         client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
 
 
-        result = client.attachments.create_attachment_for_object({'field': 'value', 'field': 'value'}, opt_pretty=True)
+        result = client.attachments.create_attachment_for_task({'field': 'value', 'field': 'value'}, opt_pretty=True)
     delete_attachment: >-
         import asana
 

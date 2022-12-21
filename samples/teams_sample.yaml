@@ -47,11 +47,3 @@ teams:
 
 
         result = client.teams.remove_user_for_team(team_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
-    update_team: >-
-        import asana
-
-
-        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
-
-
-        result = client.teams.update_team({'field': 'value', 'field': 'value'}, opt_pretty=True)

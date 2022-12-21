@@ -18,6 +18,34 @@ class _Goals:
         path = "/goals/{goal_gid}/addFollowers".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
 
+    def add_subgoal(self, goal_gid, params=None, **options):
+        """Add a subgoal to a parent goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/addSubgoal".replace("{goal_gid}", goal_gid)
+        return self.client.post(path, params, **options)
+
+    def add_supporting_work_for_goal(self, goal_gid, params=None, **options):
+        """Add a project/portfolio as supporting work for a goal.
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/addSupportingWork".replace("{goal_gid}", goal_gid)
+        return self.client.post(path, params, **options)
+
     def create_goal(self, params=None, **options):
         """Create a goal
         :param Object params: Parameters for the request
@@ -110,6 +138,20 @@ class _Goals:
         path = "/goals/{goal_gid}/parentGoals".replace("{goal_gid}", goal_gid)
         return self.client.get_collection(path, params, **options)
 
+    def get_subgoals_for_goal(self, goal_gid, params=None, **options):
+        """Get subgoals from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/subgoals".replace("{goal_gid}", goal_gid)
+        return self.client.get_collection(path, params, **options)
+
     def remove_followers(self, goal_gid, params=None, **options):
         """Remove a collaborator from a goal
         :param str goal_gid: (required) Globally unique identifier for the goal.
@@ -123,6 +165,48 @@ class _Goals:
             params = {}
         path = "/goals/{goal_gid}/removeFollowers".replace("{goal_gid}", goal_gid)
         return self.client.post(path, params, **options)
+
+    def remove_subgoal(self, goal_gid, params=None, **options):
+        """Remove a subgoal from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/removeSubgoal".replace("{goal_gid}", goal_gid)
+        return self.client.post(path, params, **options)
+
+    def remove_supporting_work_for_goal(self, goal_gid, params=None, **options):
+        """Remove a project/portfolio as supporting work for a goal.
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/removeSupportingWork".replace("{goal_gid}", goal_gid)
+        return self.client.post(path, params, **options)
+
+    def supporting_work(self, goal_gid, params=None, **options):
+        """Get supporting work from a goal
+        :param str goal_gid: (required) Globally unique identifier for the goal.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  Defines fields to return. Some requests return *compact* representations of objects in order to conserve resources and complete the request more efficiently. Other times requests return more information than you may need. This option allows you to list the exact set of fields that the API should be sure to return for the objects. The field names should be provided as paths, described below. The id of included objects will always be returned, regardless of the field options.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/goals/{goal_gid}/supportingWork".replace("{goal_gid}", goal_gid)
+        return self.client.get_collection(path, params, **options)
 
     def update_goal(self, goal_gid, params=None, **options):
         """Update a goal
