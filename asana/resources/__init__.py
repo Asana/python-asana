@@ -9,6 +9,7 @@ from . import (
     goals,
     jobs,
     memberships,
+    message,
     organization_exports,
     portfolios,
     portfolio_memberships,
