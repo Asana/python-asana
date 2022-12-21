@@ -8,6 +8,7 @@ from . import (
     goal_relationships,
     goals,
     jobs,
+    memberships,
     organization_exports,
     portfolios,
     portfolio_memberships,
