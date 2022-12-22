@@ -1,0 +1,17 @@
+memberships: 
+    get_memberships: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.memberships.get_memberships({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    post_memberships: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.memberships.post_memberships({'field': 'value', 'field': 'value'}, opt_pretty=True)
