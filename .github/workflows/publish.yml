@@ -1,0 +1,87 @@
+name: Bump Version and Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      bumpVersion:
+        description: Choose a version number to bump
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  bump-semantic-versioning:
+    name: Bump the semantic versioning for the package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - name: Run deploy script
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          python deploy.py ${{ inputs.bumpVersion }}
+  publish-to-github:
+    needs: bump-semantic-versioning
+    name: Publish to GitHub Releases
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+      - name: Get version tag
+        id: tag
+        run: echo "version=v$(cat VERSION)" >> $GITHUB_OUTPUT
+      - name: Print version tag
+        run: echo ${{ steps.tag.outputs.version }}
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag.outputs.version }}
+          # Use the newest commit message as the release description
+          body: ${{ github.event.head_commit.message }}
+  build-n-publish-to-pypi:
+    needs: [bump-semantic-versioning, publish-to-github]
+    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - name: Install pypa/build
+        run: >-
+          python -m
+          pip install
+          build
+          --user
+      - name: Build a binary wheel and a source tarball
+        run: >-
+          python -m
+          build
+          --sdist
+          --wheel
+          --outdir dist/
+          .
+      - name: Publish distribution 📦 to Test PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+      - name: Publish distribution 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
