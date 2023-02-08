@@ -10,7 +10,7 @@ class _AuditLogAPI:
         :param Object params: Parameters for the request
             - start_at {datetime}:  Filter to events created after this time (inclusive).
             - end_at {datetime}:  Filter to events created before this time (exclusive).
-            - event_type {str}:  Filter to events of this type. Refer to the [Supported AuditLogEvents](/docs/supported-auditlogevents) for a full list of values.
+            - event_type {str}:  Filter to events of this type. Refer to the [supported audit log events](/docs/audit-log-events#supported-audit-log-events) for a full list of values.
             - actor_type {str}:  Filter to events with an actor of this type. This only needs to be included if querying for actor types without an ID. If `actor_gid` is included, this should be excluded.
             - actor_gid {str}:  Filter to events triggered by the actor with this ID.
             - resource_gid {str}:  Filter to events with this resource ID.
