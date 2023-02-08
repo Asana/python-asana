@@ -15,14 +15,6 @@ statusupdates:
 
 
         result = client.status_updates.delete_status(status_gid, opt_pretty=True)
-    delete_status_message: >-
-        import asana
-
-
-        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
-
-
-        result = client.status_updates.delete_status_message(message_gid, opt_pretty=True)
     get_status: >-
         import asana
 
