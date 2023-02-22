@@ -45,11 +45,11 @@ The client's methods are divided into several resources: `attachments`, `events`
 Methods that return a single object return that object directly:
 
     me = client.users.get_user('me')
-    print "Hello " + me['name']
+    print(f'Hello {me['name']}')
 
     workspace_id = me['workspaces'][0]['gid']
     project = client.projects.create_in_workspace(workspace_id, { 'name': 'new project' })
-    print "Created project with id: " + project['gid']
+    print(f'Created project with id: {project['gid']}')
 
 Methods that return multiple items (e.x. `get_tasks`, `get_projects`, `get_portfolios`, etc.) return a page iterator by default. See the "Collections" section.
 
@@ -115,13 +115,13 @@ Collections
 By default, methods that return a collection of objects return an item iterator:
 
     workspaces = client.workspaces.get_workspaces(item_limit=1)
-    print workspaces.next()
-    print workspaces.next() # raises StopIteration if there are no more items
+    print(next(workspaces))
+    print(next(workspaces)) # raises StopIteration if there are no more items
 
 Or:
 
     for workspace in client.workspaces.get_workspaces()
-      print workspace
+      print(workspace)
 
 ### Raw API
 
@@ -130,7 +130,7 @@ You can also use the raw API to fetch a page at a time:
     offset = None
     while True:
       page = client.workspaces.get_workspaces(offset=offset, iterator_type=None)
-      print page['data']
+      print(page['data'])
       if 'next_page' in page:
         offset = page['next_page']['offset']
       else:
