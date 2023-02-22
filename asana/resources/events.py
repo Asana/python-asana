@@ -14,7 +14,7 @@ class Events(_Events):
     def get_next(self, query, **options):
         """Returns a tuple containing the next page of events and a sync token for the given query (and optional 'sync' token)"""
         iterator = EventsPageIterator(self.client, '/events', query, options)
-        result = iterator.next()
+        result = next(iterator)
         return (result, iterator.sync)
 
     def get_iterator(self, query, **options):
