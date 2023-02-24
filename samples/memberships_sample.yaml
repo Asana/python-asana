@@ -1,4 +1,20 @@
 memberships: 
+    create_membership: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.memberships.create_membership({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_membership: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.memberships.delete_membership(membership_gid, opt_pretty=True)
     get_memberships: >-
         import asana
 
@@ -7,11 +23,11 @@ memberships:
 
 
         result = client.memberships.get_memberships({'param': 'value', 'param': 'value'}, opt_pretty=True)
-    post_memberships: >-
+    update_membership: >-
         import asana
 
 
         client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
 
 
-        result = client.memberships.post_memberships({'field': 'value', 'field': 'value'}, opt_pretty=True)
+        result = client.memberships.update_membership(membership_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

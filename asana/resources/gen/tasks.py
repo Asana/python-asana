@@ -196,7 +196,7 @@ class _Tasks:
         :param Object params: Parameters for the request
             - assignee {str}:  The assignee to filter tasks on. If searching for unassigned tasks, assignee.any = null can be specified. *Note: If you specify `assignee`, you must also specify the `workspace` to filter on.*
             - project {str}:  The project to filter tasks on.
-            - section {str}:  The section to filter tasks on. *Note: Currently, this is only supported in board views.*
+            - section {str}:  The section to filter tasks on.
             - workspace {str}:  The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
             - completed_since {datetime}:  Only return tasks that are either incomplete or that have been completed since this time.
             - modified_since {datetime}:  Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.*
