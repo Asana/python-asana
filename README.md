@@ -131,7 +131,7 @@ You can also use the raw API to fetch a page at a time:
     while True:
       page = client.workspaces.get_workspaces(offset=offset, iterator_type=None, full_payload=True)
       print(page['data'])
-      if 'next_page' in page and  page['next_page']:
+      if 'next_page' in page and page['next_page']:
         offset = page['next_page']['offset']
       else:
         break
