@@ -34,8 +34,10 @@ class _Memberships:
     def get_memberships(self, params=None, **options):
         """Get multiple memberships
         :param Object params: Parameters for the request
-            - parent {str}:  (required) Globally unique identifier for `project`, `portfolio`,   `team`, `goal`, and `workspace`.
-            - member {str}:  Globally unique identifier for `team` and `user`.
+            - parent {str}:  Globally unique identifier for `project`, `portfolio`,   `team`, `goal`, and `workspace`.
+            - member {str}:  Globally unique identifier for `team` or `user`.
+            - resource_subtype {str}:  The resource_subtype to filter on. Must be provided with `member` and `workspace` if `parent` is not provided. Valid values include `team_membership`, `workspace_membership`, `portfolio_membership`
+            - workspace {str}:  The workspace to filter on. Must be provided with `member` and `resource_subtype` if `parent` is not provided.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
             - limit {int}:  Pagination limit for the request.
