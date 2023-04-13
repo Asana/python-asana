@@ -81,8 +81,12 @@ class Client(object):
         self._add_version_header(request_options)
         while True:
             try:
-                response = getattr(self.session, method)(
-                    url, auth=self.auth, **request_options)
+                try:
+                    response = getattr(self.session, method)(
+                        url, auth=self.auth, **request_options)
+                except requests.exceptions.Timeout:
+                    raise error.RetryableAsanaError()
+
                 self._log_asana_change_header(request_options['headers'], response.headers)
                 if response.status_code in STATUS_MAP:
                     raise STATUS_MAP[response.status_code](response)
