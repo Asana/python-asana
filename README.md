@@ -2,6 +2,12 @@
 
 Python client library for Asana.
 
+<hr>
+
+### ✨ Try a preview of our new python client library: [python-asana-preview](https://github.com/Asana/python-asana-preview)
+
+<hr>
+
 Authentication
 --------------
 
