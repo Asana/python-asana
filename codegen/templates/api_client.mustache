@@ -75,7 +75,7 @@ class ApiClient(object):
         self.default_headers['X-Asana-Client-Lib'] = urlencode(
             {
                 'language': 'Python',
-                'version': {{{packageVersion}}},
+                'version': '{{{packageVersion}}}',
                 'language_version': platform.python_version(),
                 'os': platform.system(),
                 'os_version': platform.release()
