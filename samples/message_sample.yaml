@@ -1,9 +1,0 @@
-message: 
-    get_message: >-
-        import asana
-
-
-        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
-
-
-        result = client.message.get_message(message_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)

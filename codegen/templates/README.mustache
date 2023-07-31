@@ -1,0 +1,366 @@
+# {{{projectName}}} [![GitHub release][release-image]]() [![Build][github-actions-image]][github-actions-url] [![PyPi Version][pypi-image]][pypi-url]
+
+Python client library for Asana
+
+- API version: {{appVersion}}
+- Package version: {{packageVersion}}
+{{^hideGenerationTimestamp}}
+- Build date: {{generatedDate}}
+{{/hideGenerationTimestamp}}
+
+## Requirements.
+
+Python 3.4+
+
+## Installation & Usage
+### pip install from [PyPI](https://pypi.org/project/asana/)
+
+```sh
+pip install {{{projectName}}}
+```
+
+Then import the package:
+```python
+import {{{packageName}}} 
+```
+
+### Setuptools
+
+Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
+
+```sh
+python setup.py install --user
+```
+(or `sudo python setup.py install` to install the package for all users)
+
+Then import the package:
+```python
+import {{{packageName}}}
+```
+
+## Getting Started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
+
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+
+# create an instance of the API class
+users_api_instance = {{{packageName}}}.UsersApi({{{packageName}}}.ApiClient(configuration))
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | Properties to include in the response. Set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+
+try:
+    # Get a user
+    api_response = users_api_instance.get_user(user_gid, opt_fields=opt_fields)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+### Example: GET, POST, PUT, DELETE on tasks
+
+#### GET - get multiple tasks
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+limit = 50
+project = "<YOUR_PROJECT_GID>"
+opt_fields = [
+    "assignee_section",
+    "due_at",
+    "name",
+    "completed_at",
+    "completed_by",
+    "tags",
+    "dependents",
+    "hearts",
+    "liked",
+    "projects",
+    "completed",
+    "num_hearts",
+    "permalink_url",
+    "parent",
+    "assignee",
+    "assignee_status",
+    "num_subtasks",
+    "start_on",
+    "dependencies",
+    "is_rendered_as_separator",
+    "modified_at",
+    "approval_status",
+    "notes",
+    "memberships",
+    "workspace",
+    "due_on",
+    "hearted",
+    "created_at",
+    "likes",
+    "num_likes",
+    "custom_fields",
+    "external",
+    "html_notes",
+    "followers",
+    "start_at",
+    "resource_subtype",
+    "actual_time_minutes",
+]
+
+try:
+    # GET - get multiple tasks
+    api_response = tasks_api_instance.get_tasks(
+        limit=limit, project=project, opt_fields=opt_fields
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+#### POST - create a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+body = {{{packageName}}}.TasksBody(
+    {
+        "name": "New Task",
+        "projects": ["<YOUR_PROJECT_GID>"],
+    }
+)
+
+try:
+    # POST - create a task
+    api_response = tasks_api_instance.create_task(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TasksApi->create_task: %s\n" % e)
+```
+
+#### PUT - update a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+task_gid = "<YOUR_TASK_GID>"
+body = {{{packageName}}}.TasksBody(
+    {
+        "name": "Updated Task",
+    }
+)
+
+try:
+    # PUT - update a task
+    api_response = tasks_api_instance.update_task(body, task_gid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TasksApi->update_task: %s\n" % e)
+```
+
+#### DELETE - delete a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+task_gid = "<YOUR_TASK_GID>"
+
+try:
+    # DELETE - delete a task
+    api_response = tasks_api_instance.delete_task(task_gid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TasksApi->delete_task: %s\n" % e)
+```
+
+## Documentation for API Endpoints
+
+All URIs are relative to *{{basePath}}*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+
+## Documentation For Models
+
+{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
+{{/model}}{{/models}}
+
+## Documentation For Authorization
+
+{{^authMethods}} All endpoints do not require authorization.
+{{/authMethods}}{{#authMethods}}{{#last}} Authentication schemes defined for the API:{{/last}}{{/authMethods}}
+{{#authMethods}}## {{{name}}}
+
+{{#isApiKey}}- **Type**: API key
+- **API key parameter name**: {{{keyParamName}}}
+- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
+{{/isApiKey}}
+{{#isBasic}}- **Type**: HTTP basic authentication
+{{/isBasic}}
+{{#isOAuth}}- **Type**: OAuth
+- **Flow**: {{{flow}}}
+- **Authorization URL**: {{{authorizationUrl}}}
+- **Scopes**: {{^scopes}}N/A{{/scopes}}
+{{#each scopes}} - **{{@key}}**: {{this}}
+{{/each}}
+{{/isOAuth}}
+
+{{/authMethods}}
+
+## Documentation for Using the `callApi` method
+
+Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+# GET - get a task
+api_response = api_client.call_api(
+    "/tasks/{task_gid}",
+    "GET",
+    path_params={"task_gid": "<YOUR_TASK_GID>"},
+    query_params=[],
+    header_params={"Accept": "application/json; charset=utf-8"},
+    body=None,
+    post_params=[],
+    files={},
+    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+    auth_settings=["oauth2"],
+    async_req=None,
+    _return_http_data_only=True,
+    _preload_content=True,
+    _request_timeout=None,
+    collection_formats={},
+)
+pprint(api_response)
+
+# POST - create a task
+api_response = api_client.call_api(
+    "/tasks",
+    "POST",
+    path_params={},
+    query_params=[],
+    header_params={
+        "Accept": "application/json; charset=utf-8",
+        "Content-Type": "application/json; charset=utf-8",
+    },
+    body={
+        "data": {
+            "name": "New Task",
+            "projects": ["<YOUR_PROJECT_GID>"],
+        }
+    },
+    post_params=[],
+    files={},
+    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+    auth_settings=["oauth2"],
+    async_req=None,
+    _return_http_data_only=True,
+    _preload_content=True,
+    _request_timeout=None,
+    collection_formats={},
+)
+pprint(api_response)
+
+# PUT - update a task
+api_response = api_client.call_api(
+    "/tasks/{task_gid}",
+    "PUT",
+    path_params={"task_gid": "<YOUR_TASK_GID>"},
+    query_params=[],
+    header_params={
+        "Accept": "application/json; charset=utf-8",
+        "Content-Type": "application/json; charset=utf-8",
+    },
+    body={
+        "data": {
+            "name": "Updated Task",
+        }
+    },
+    post_params=[],
+    files={},
+    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+    auth_settings=["oauth2"],
+    async_req=None,
+    _return_http_data_only=True,
+    _preload_content=True,
+    _request_timeout=None,
+    collection_formats={},
+)
+pprint(api_response)
+
+# DELETE - delete a task
+api_response = api_client.call_api(
+    "/tasks/{task_gid}",
+    "DELETE",
+    path_params={"task_gid": "<YOUR_TASK_GID>"},
+    query_params=[],
+    header_params={"Accept": "application/json; charset=utf-8"},
+    body=None,
+    post_params=[],
+    files={},
+    response_type=object, # If there is an existing response model for the resource you can use that EX: "EmptyResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+    auth_settings=["oauth2"],
+    async_req=None,
+    _return_http_data_only=True,
+    _preload_content=True,
+    _request_timeout=None,
+    collection_formats={},
+)
+pprint(api_response)
+```
+
+## Author
+
+{{#apiInfo}}{{#apis}}{{^hasMore}}{{infoEmail}}
+{{/hasMore}}{{/apis}}{{/apiInfo}}
+
+[release-image]: https://img.shields.io/github/release/asana/python-asana.svg
+
+[github-actions-image]: https://github.com/Asana/python-asana/workflows/Build/badge.svg
+[github-actions-url]: https://github.com/Asana/python-asana/actions
+
+[pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
+[pypi-url]: https://pypi.python.org/pypi/asana/
