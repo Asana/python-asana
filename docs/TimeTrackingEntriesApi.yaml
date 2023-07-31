@@ -1,0 +1,104 @@
+TimeTrackingEntriesApi:
+  create_time_tracking_entry: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
+    body = asana.TaskGidTimeTrackingEntriesBody({"param1": "value1", "param2": "value2",}) # TaskGidTimeTrackingEntriesBody | Information about the time tracking entry.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a time tracking entry
+        api_response = api_instance.create_time_tracking_entry(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TimeTrackingEntriesApi->create_time_tracking_entry: %s\n" % e)
+  delete_time_tracking_entry: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
+    time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
+    
+    try:
+        # Delete a time tracking entry
+        api_response = api_instance.delete_time_tracking_entry(time_tracking_entry_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TimeTrackingEntriesApi->delete_time_tracking_entry: %s\n" % e)
+  get_time_tracking_entries_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["created_by","created_by.name","duration_minutes","entered_on","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get time tracking entries for a task
+        api_response = api_instance.get_time_tracking_entries_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TimeTrackingEntriesApi->get_time_tracking_entries_for_task: %s\n" % e)
+  get_time_tracking_entry: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
+    time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a time tracking entry
+        api_response = api_instance.get_time_tracking_entry(time_tracking_entry_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TimeTrackingEntriesApi->get_time_tracking_entry: %s\n" % e)
+  update_time_tracking_entry: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
+    body = asana.TimeTrackingEntriesTimeTrackingEntryGidBody({"param1": "value1", "param2": "value2",}) # TimeTrackingEntriesTimeTrackingEntryGidBody | The updated fields for the time tracking entry.
+    time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Update a time tracking entry
+        api_response = api_instance.update_time_tracking_entry(body, time_tracking_entry_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TimeTrackingEntriesApi->update_time_tracking_entry: %s\n" % e)

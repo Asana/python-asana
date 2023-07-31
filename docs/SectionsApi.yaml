@@ -1,0 +1,144 @@
+SectionsApi:
+  add_task_for_section: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    section_gid = '321654' # str | The globally unique identifier for the section.
+    body = asana.SectionGidAddTaskBody({"param1": "value1", "param2": "value2",}) # SectionGidAddTaskBody | The task and optionally the insert location. (optional)
+    
+    try:
+        # Add task to section
+        api_response = api_instance.add_task_for_section(section_gid, body=body)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->add_task_for_section: %s\n" % e)
+  create_section_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    body = asana.ProjectGidSectionsBody({"param1": "value1", "param2": "value2",}) # ProjectGidSectionsBody | The section to create. (optional)
+    opt_fields = ["created_at","name","project","project.name","projects","projects.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a section in a project
+        api_response = api_instance.create_section_for_project(project_gid, body=body, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->create_section_for_project: %s\n" % e)
+  delete_section: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    section_gid = '321654' # str | The globally unique identifier for the section.
+    
+    try:
+        # Delete a section
+        api_response = api_instance.delete_section(section_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->delete_section: %s\n" % e)
+  get_section: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    section_gid = '321654' # str | The globally unique identifier for the section.
+    opt_fields = ["created_at","name","project","project.name","projects","projects.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a section
+        api_response = api_instance.get_section(section_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->get_section: %s\n" % e)
+  get_sections_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["created_at","name","offset","path","project","project.name","projects","projects.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get sections in a project
+        api_response = api_instance.get_sections_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->get_sections_for_project: %s\n" % e)
+  insert_section_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    body = asana.SectionsInsertBody({"param1": "value1", "param2": "value2",}) # SectionsInsertBody | The section's move action. (optional)
+    
+    try:
+        # Move or Insert sections
+        api_response = api_instance.insert_section_for_project(project_gid, body=body)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->insert_section_for_project: %s\n" % e)
+  update_section: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.SectionsApi(asana.ApiClient(configuration))
+    section_gid = '321654' # str | The globally unique identifier for the section.
+    body = asana.SectionsSectionGidBody({"param1": "value1", "param2": "value2",}) # SectionsSectionGidBody | The section to create. (optional)
+    opt_fields = ["created_at","name","project","project.name","projects","projects.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Update a section
+        api_response = api_instance.update_section(section_gid, body=body, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling SectionsApi->update_section: %s\n" % e)

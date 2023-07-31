@@ -1,0 +1,601 @@
+TasksApi:
+  add_dependencies_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidAddDependenciesBody({"param1": "value1", "param2": "value2",}) # TaskGidAddDependenciesBody | The list of tasks to set as dependencies.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Set dependencies for a task
+        api_response = api_instance.add_dependencies_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->add_dependencies_for_task: %s\n" % e)
+  add_dependents_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidAddDependentsBody({"param1": "value1", "param2": "value2",}) # TaskGidAddDependentsBody | The list of tasks to add as dependents.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Set dependents for a task
+        api_response = api_instance.add_dependents_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->add_dependents_for_task: %s\n" % e)
+  add_followers_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidAddFollowersBody({"param1": "value1", "param2": "value2",}) # TaskGidAddFollowersBody | The followers to add to the task.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Add followers to a task
+        api_response = api_instance.add_followers_for_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->add_followers_for_task: %s\n" % e)
+  add_project_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidAddProjectBody({"param1": "value1", "param2": "value2",}) # TaskGidAddProjectBody | The project to add the task to.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Add a project to a task
+        api_response = api_instance.add_project_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->add_project_for_task: %s\n" % e)
+  add_tag_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidAddTagBody({"param1": "value1", "param2": "value2",}) # TaskGidAddTagBody | The tag to add to the task.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Add a tag to a task
+        api_response = api_instance.add_tag_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->add_tag_for_task: %s\n" % e)
+  create_subtask_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidSubtasksBody({"param1": "value1", "param2": "value2",}) # TaskGidSubtasksBody | The new subtask to create.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a subtask
+        api_response = api_instance.create_subtask_for_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->create_subtask_for_task: %s\n" % e)
+  create_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TasksBody({"param1": "value1", "param2": "value2",}) # TasksBody | The task to create.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a task
+        api_response = api_instance.create_task(body, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->create_task: %s\n" % e)
+  delete_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Delete a task
+        api_response = api_instance.delete_task(task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->delete_task: %s\n" % e)
+  duplicate_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidDuplicateBody({"param1": "value1", "param2": "value2",}) # TaskGidDuplicateBody | Describes the duplicate's name and the fields that will be duplicated.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Duplicate a task
+        api_response = api_instance.duplicate_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->duplicate_task: %s\n" % e)
+  get_dependencies_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get dependencies from a task
+        api_response = api_instance.get_dependencies_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_dependencies_for_task: %s\n" % e)
+  get_dependents_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get dependents from a task
+        api_response = api_instance.get_dependents_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_dependents_for_task: %s\n" % e)
+  get_subtasks_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get subtasks from a task
+        api_response = api_instance.get_subtasks_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_subtasks_for_task: %s\n" % e)
+  get_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a task
+        api_response = api_instance.get_task(task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_task: %s\n" % e)
+  get_tasks: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    assignee = '14641' # str | The assignee to filter tasks on. If searching for unassigned tasks, assignee.any = null can be specified. *Note: If you specify `assignee`, you must also specify the `workspace` to filter on.* (optional)
+    project = '321654' # str | The project to filter tasks on. (optional)
+    section = '321654' # str | The section to filter tasks on. (optional)
+    workspace = '321654' # str | The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.* (optional)
+    completed_since = '2012-02-22T02:06:58.158Z' # datetime | Only return tasks that are either incomplete or that have been completed since this time. (optional)
+    modified_since = '2012-02-22T02:06:58.158Z' # datetime | Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.* (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get multiple tasks
+        api_response = api_instance.get_tasks(limit=limit, offset=offset, assignee=assignee, project=project, section=section, workspace=workspace, completed_since=completed_since, modified_since=modified_since, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+  get_tasks_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    completed_since = '2012-02-22T02:06:58.158Z' # str | Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*.  (optional)
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get tasks from a project
+        api_response = api_instance.get_tasks_for_project(project_gid, completed_since=completed_since, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_tasks_for_project: %s\n" % e)
+  get_tasks_for_section: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    section_gid = '321654' # str | The globally unique identifier for the section.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get tasks from a section
+        api_response = api_instance.get_tasks_for_section(section_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_tasks_for_section: %s\n" % e)
+  get_tasks_for_tag: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    tag_gid = '11235' # str | Globally unique identifier for the tag.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get tasks from a tag
+        api_response = api_instance.get_tasks_for_tag(tag_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_tasks_for_tag: %s\n" % e)
+  get_tasks_for_user_task_list: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    user_task_list_gid = '12345' # str | Globally unique identifier for the user task list.
+    completed_since = '2012-02-22T02:06:58.158Z' # str | Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*.  (optional)
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","offset","parent","parent.name","parent.resource_subtype","path","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get tasks from a user task list
+        api_response = api_instance.get_tasks_for_user_task_list(user_task_list_gid, completed_since=completed_since, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->get_tasks_for_user_task_list: %s\n" % e)
+  remove_dependencies_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidRemoveDependenciesBody({"param1": "value1", "param2": "value2",}) # TaskGidRemoveDependenciesBody | The list of tasks to unlink as dependencies.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Unlink dependencies from a task
+        api_response = api_instance.remove_dependencies_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->remove_dependencies_for_task: %s\n" % e)
+  remove_dependents_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidRemoveDependentsBody({"param1": "value1", "param2": "value2",}) # TaskGidRemoveDependentsBody | The list of tasks to remove as dependents.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Unlink dependents from a task
+        api_response = api_instance.remove_dependents_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->remove_dependents_for_task: %s\n" % e)
+  remove_follower_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidRemoveFollowersBody({"param1": "value1", "param2": "value2",}) # TaskGidRemoveFollowersBody | The followers to remove from the task.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Remove followers from a task
+        api_response = api_instance.remove_follower_for_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->remove_follower_for_task: %s\n" % e)
+  remove_project_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidRemoveProjectBody({"param1": "value1", "param2": "value2",}) # TaskGidRemoveProjectBody | The project to remove the task from.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Remove a project from a task
+        api_response = api_instance.remove_project_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->remove_project_for_task: %s\n" % e)
+  remove_tag_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidRemoveTagBody({"param1": "value1", "param2": "value2",}) # TaskGidRemoveTagBody | The tag to remove from the task.
+    task_gid = '321654' # str | The task to operate on.
+    
+    try:
+        # Remove a tag from a task
+        api_response = api_instance.remove_tag_for_task(body, task_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->remove_tag_for_task: %s\n" % e)
+  search_tasks_for_workspace: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
+    text = 'Bug' # str | Performs full-text search on both task name and description (optional)
+    resource_subtype = 'milestone' # str | Filters results by the task's resource_subtype (optional) (default to milestone)
+    assignee_any = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    assignee_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    portfolios_any = '12345,23456,34567' # str | Comma-separated list of portfolio IDs (optional)
+    projects_any = '12345,23456,34567' # str | Comma-separated list of project IDs (optional)
+    projects_not = '12345,23456,34567' # str | Comma-separated list of project IDs (optional)
+    projects_all = '12345,23456,34567' # str | Comma-separated list of project IDs (optional)
+    sections_any = '12345,23456,34567' # str | Comma-separated list of section or column IDs (optional)
+    sections_not = '12345,23456,34567' # str | Comma-separated list of section or column IDs (optional)
+    sections_all = '12345,23456,34567' # str | Comma-separated list of section or column IDs (optional)
+    tags_any = '12345,23456,34567' # str | Comma-separated list of tag IDs (optional)
+    tags_not = '12345,23456,34567' # str | Comma-separated list of tag IDs (optional)
+    tags_all = '12345,23456,34567' # str | Comma-separated list of tag IDs (optional)
+    teams_any = '12345,23456,34567' # str | Comma-separated list of team IDs (optional)
+    followers_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    created_by_any = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    created_by_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    assigned_by_any = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    assigned_by_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    liked_by_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    commented_on_by_not = '12345,23456,34567' # str | Comma-separated list of user identifiers (optional)
+    due_on_before = '2019-09-15' # date | ISO 8601 date string (optional)
+    due_on_after = '2019-09-15' # date | ISO 8601 date string (optional)
+    due_on = '2019-09-15' # date | ISO 8601 date string or `null` (optional)
+    due_at_before = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    due_at_after = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    start_on_before = '2019-09-15' # date | ISO 8601 date string (optional)
+    start_on_after = '2019-09-15' # date | ISO 8601 date string (optional)
+    start_on = '2019-09-15' # date | ISO 8601 date string or `null` (optional)
+    created_on_before = '2019-09-15' # date | ISO 8601 date string (optional)
+    created_on_after = '2019-09-15' # date | ISO 8601 date string (optional)
+    created_on = '2019-09-15' # date | ISO 8601 date string or `null` (optional)
+    created_at_before = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    created_at_after = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    completed_on_before = '2019-09-15' # date | ISO 8601 date string (optional)
+    completed_on_after = '2019-09-15' # date | ISO 8601 date string (optional)
+    completed_on = '2019-09-15' # date | ISO 8601 date string or `null` (optional)
+    completed_at_before = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    completed_at_after = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    modified_on_before = '2019-09-15' # date | ISO 8601 date string (optional)
+    modified_on_after = '2019-09-15' # date | ISO 8601 date string (optional)
+    modified_on = '2019-09-15' # date | ISO 8601 date string or `null` (optional)
+    modified_at_before = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    modified_at_after = '2019-04-15T01:01:46.055Z' # datetime | ISO 8601 datetime string (optional)
+    is_blocking = false # bool | Filter to incomplete tasks with dependents (optional)
+    is_blocked = false # bool | Filter to tasks with incomplete dependencies (optional)
+    has_attachment = false # bool | Filter to tasks with attachments (optional)
+    completed = false # bool | Filter to completed tasks (optional)
+    is_subtask = false # bool | Filter to subtasks (optional)
+    sort_by = 'modified_at' # str | One of `due_date`, `created_at`, `completed_at`, `likes`, or `modified_at`, defaults to `modified_at` (optional) (default to modified_at)
+    sort_ascending = false # bool | Default `false` (optional) (default to false)
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Search tasks in a workspace
+        api_response = api_instance.search_tasks_for_workspace(workspace_gid, text=text, resource_subtype=resource_subtype, assignee_any=assignee_any, assignee_not=assignee_not, portfolios_any=portfolios_any, projects_any=projects_any, projects_not=projects_not, projects_all=projects_all, sections_any=sections_any, sections_not=sections_not, sections_all=sections_all, tags_any=tags_any, tags_not=tags_not, tags_all=tags_all, teams_any=teams_any, followers_not=followers_not, created_by_any=created_by_any, created_by_not=created_by_not, assigned_by_any=assigned_by_any, assigned_by_not=assigned_by_not, liked_by_not=liked_by_not, commented_on_by_not=commented_on_by_not, due_on_before=due_on_before, due_on_after=due_on_after, due_on=due_on, due_at_before=due_at_before, due_at_after=due_at_after, start_on_before=start_on_before, start_on_after=start_on_after, start_on=start_on, created_on_before=created_on_before, created_on_after=created_on_after, created_on=created_on, created_at_before=created_at_before, created_at_after=created_at_after, completed_on_before=completed_on_before, completed_on_after=completed_on_after, completed_on=completed_on, completed_at_before=completed_at_before, completed_at_after=completed_at_after, modified_on_before=modified_on_before, modified_on_after=modified_on_after, modified_on=modified_on, modified_at_before=modified_at_before, modified_at_after=modified_at_after, is_blocking=is_blocking, is_blocked=is_blocked, has_attachment=has_attachment, completed=completed, is_subtask=is_subtask, sort_by=sort_by, sort_ascending=sort_ascending, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->search_tasks_for_workspace: %s\n" % e)
+  set_parent_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TaskGidSetParentBody({"param1": "value1", "param2": "value2",}) # TaskGidSetParentBody | The new parent of the subtask.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Set the parent of a task
+        api_response = api_instance.set_parent_for_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->set_parent_for_task: %s\n" % e)
+  update_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.TasksApi(asana.ApiClient(configuration))
+    body = asana.TasksTaskGidBody({"param1": "value1", "param2": "value2",}) # TasksTaskGidBody | The task to update.
+    task_gid = '321654' # str | The task to operate on.
+    opt_fields = ["actual_time_minutes","approval_status","assignee","assignee.name","assignee_section","assignee_section.name","assignee_status","completed","completed_at","completed_by","completed_by.name","created_at","custom_fields","custom_fields.asana_created_field","custom_fields.created_by","custom_fields.created_by.name","custom_fields.currency_code","custom_fields.custom_label","custom_fields.custom_label_position","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.description","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.format","custom_fields.has_notifications_enabled","custom_fields.is_formula_field","custom_fields.is_global_to_workspace","custom_fields.is_value_read_only","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.people_value","custom_fields.people_value.name","custom_fields.precision","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","dependencies","dependents","due_at","due_on","external","external.data","followers","followers.name","hearted","hearts","hearts.user","hearts.user.name","html_notes","is_rendered_as_separator","liked","likes","likes.user","likes.user.name","memberships","memberships.project","memberships.project.name","memberships.section","memberships.section.name","modified_at","name","notes","num_hearts","num_likes","num_subtasks","parent","parent.name","parent.resource_subtype","permalink_url","projects","projects.name","resource_subtype","start_at","start_on","tags","tags.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Update a task
+        api_response = api_instance.update_task(body, task_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling TasksApi->update_task: %s\n" % e)

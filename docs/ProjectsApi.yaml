@@ -1,0 +1,401 @@
+ProjectsApi:
+  add_custom_field_setting_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidAddCustomFieldSettingBody({"param1": "value1", "param2": "value2",}) # ProjectGidAddCustomFieldSettingBody | Information about the custom field setting.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    
+    try:
+        # Add a custom field to a project
+        api_response = api_instance.add_custom_field_setting_for_project(body, project_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->add_custom_field_setting_for_project: %s\n" % e)
+  add_followers_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidAddFollowersBody({"param1": "value1", "param2": "value2",}) # ProjectGidAddFollowersBody | Information about the followers being added.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Add followers to a project
+        api_response = api_instance.add_followers_for_project(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->add_followers_for_project: %s\n" % e)
+  add_members_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidAddMembersBody({"param1": "value1", "param2": "value2",}) # ProjectGidAddMembersBody | Information about the members being added.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Add users to a project
+        api_response = api_instance.add_members_for_project(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->add_members_for_project: %s\n" % e)
+  create_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectsBody({"param1": "value1", "param2": "value2",}) # ProjectsBody | The project to create.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a project
+        api_response = api_instance.create_project(body, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->create_project: %s\n" % e)
+  create_project_for_team: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.TeamGidProjectsBody({"param1": "value1", "param2": "value2",}) # TeamGidProjectsBody | The new project to create.
+    team_gid = '159874' # str | Globally unique identifier for the team.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a project in a team
+        api_response = api_instance.create_project_for_team(body, team_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->create_project_for_team: %s\n" % e)
+  create_project_for_workspace: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.WorkspaceGidProjectsBody({"param1": "value1", "param2": "value2",}) # WorkspaceGidProjectsBody | The new project to create.
+    workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a project in a workspace
+        api_response = api_instance.create_project_for_workspace(body, workspace_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->create_project_for_workspace: %s\n" % e)
+  delete_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    
+    try:
+        # Delete a project
+        api_response = api_instance.delete_project(project_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->delete_project: %s\n" % e)
+  duplicate_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    body = asana.ProjectGidDuplicateBody({"param1": "value1", "param2": "value2",}) # ProjectGidDuplicateBody | Describes the duplicate's name and the elements that will be duplicated. (optional)
+    opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Duplicate a project
+        api_response = api_instance.duplicate_project(project_gid, body=body, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->duplicate_project: %s\n" % e)
+  get_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a project
+        api_response = api_instance.get_project(project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_project: %s\n" % e)
+  get_projects: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    workspace = '1331' # str | The workspace or organization to filter projects on. (optional)
+    team = '14916' # str | The team to filter projects on. (optional)
+    archived = false # bool | Only return projects whose `archived` field takes on the value of this parameter. (optional)
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","offset","owner","path","permalink_url","project_brief","public","start_on","team","team.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get multiple projects
+        api_response = api_instance.get_projects(limit=limit, offset=offset, workspace=workspace, team=team, archived=archived, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_projects: %s\n" % e)
+  get_projects_for_task: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    task_gid = '321654' # str | The task to operate on.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","offset","owner","path","permalink_url","project_brief","public","start_on","team","team.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get projects a task is in
+        api_response = api_instance.get_projects_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_projects_for_task: %s\n" % e)
+  get_projects_for_team: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    team_gid = '159874' # str | Globally unique identifier for the team.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    archived = false # bool | Only return projects whose `archived` field takes on the value of this parameter. (optional)
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","offset","owner","path","permalink_url","project_brief","public","start_on","team","team.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a team's projects
+        api_response = api_instance.get_projects_for_team(team_gid, limit=limit, offset=offset, archived=archived, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_projects_for_team: %s\n" % e)
+  get_projects_for_workspace: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
+    limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+    offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
+    archived = false # bool | Only return projects whose `archived` field takes on the value of this parameter. (optional)
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","offset","owner","path","permalink_url","project_brief","public","start_on","team","team.name","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get all projects in a workspace
+        api_response = api_instance.get_projects_for_workspace(workspace_gid, limit=limit, offset=offset, archived=archived, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_projects_for_workspace: %s\n" % e)
+  get_task_counts_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["num_completed_milestones","num_completed_tasks","num_incomplete_milestones","num_incomplete_tasks","num_milestones","num_tasks"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get task count of a project
+        api_response = api_instance.get_task_counts_for_project(project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->get_task_counts_for_project: %s\n" % e)
+  project_save_as_template: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidSaveAsTemplateBody({"param1": "value1", "param2": "value2",}) # ProjectGidSaveAsTemplateBody | Describes the inputs used for creating a project template, such as the resulting project template's name, which team it should be created in.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Create a project template from a project
+        api_response = api_instance.project_save_as_template(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->project_save_as_template: %s\n" % e)
+  remove_custom_field_setting_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidRemoveCustomFieldSettingBody({"param1": "value1", "param2": "value2",}) # ProjectGidRemoveCustomFieldSettingBody | Information about the custom field setting being removed.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    
+    try:
+        # Remove a custom field from a project
+        api_response = api_instance.remove_custom_field_setting_for_project(body, project_gid)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->remove_custom_field_setting_for_project: %s\n" % e)
+  remove_followers_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidRemoveFollowersBody({"param1": "value1", "param2": "value2",}) # ProjectGidRemoveFollowersBody | Information about the followers being removed.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Remove followers from a project
+        api_response = api_instance.remove_followers_for_project(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->remove_followers_for_project: %s\n" % e)
+  remove_members_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectGidRemoveMembersBody({"param1": "value1", "param2": "value2",}) # ProjectGidRemoveMembersBody | Information about the members being removed.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Remove users from a project
+        api_response = api_instance.remove_members_for_project(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->remove_members_for_project: %s\n" % e)
+  update_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
+    body = asana.ProjectsProjectGidBody({"param1": "value1", "param2": "value2",}) # ProjectsProjectGidBody | The updated fields for the project.
+    project_gid = '1331' # str | Globally unique identifier for the project.
+    opt_fields = ["archived","color","completed","completed_at","completed_by","completed_by.name","created_at","created_from_template","created_from_template.name","current_status","current_status.author","current_status.author.name","current_status.color","current_status.created_at","current_status.created_by","current_status.created_by.name","current_status.html_text","current_status.modified_at","current_status.text","current_status.title","current_status_update","current_status_update.resource_subtype","current_status_update.title","custom_field_settings","custom_field_settings.custom_field","custom_field_settings.custom_field.asana_created_field","custom_field_settings.custom_field.created_by","custom_field_settings.custom_field.created_by.name","custom_field_settings.custom_field.currency_code","custom_field_settings.custom_field.custom_label","custom_field_settings.custom_field.custom_label_position","custom_field_settings.custom_field.date_value","custom_field_settings.custom_field.date_value.date","custom_field_settings.custom_field.date_value.date_time","custom_field_settings.custom_field.description","custom_field_settings.custom_field.display_value","custom_field_settings.custom_field.enabled","custom_field_settings.custom_field.enum_options","custom_field_settings.custom_field.enum_options.color","custom_field_settings.custom_field.enum_options.enabled","custom_field_settings.custom_field.enum_options.name","custom_field_settings.custom_field.enum_value","custom_field_settings.custom_field.enum_value.color","custom_field_settings.custom_field.enum_value.enabled","custom_field_settings.custom_field.enum_value.name","custom_field_settings.custom_field.format","custom_field_settings.custom_field.has_notifications_enabled","custom_field_settings.custom_field.is_formula_field","custom_field_settings.custom_field.is_global_to_workspace","custom_field_settings.custom_field.is_value_read_only","custom_field_settings.custom_field.multi_enum_values","custom_field_settings.custom_field.multi_enum_values.color","custom_field_settings.custom_field.multi_enum_values.enabled","custom_field_settings.custom_field.multi_enum_values.name","custom_field_settings.custom_field.name","custom_field_settings.custom_field.number_value","custom_field_settings.custom_field.people_value","custom_field_settings.custom_field.people_value.name","custom_field_settings.custom_field.precision","custom_field_settings.custom_field.resource_subtype","custom_field_settings.custom_field.text_value","custom_field_settings.custom_field.type","custom_field_settings.is_important","custom_field_settings.parent","custom_field_settings.parent.name","custom_field_settings.project","custom_field_settings.project.name","custom_fields","custom_fields.date_value","custom_fields.date_value.date","custom_fields.date_value.date_time","custom_fields.display_value","custom_fields.enabled","custom_fields.enum_options","custom_fields.enum_options.color","custom_fields.enum_options.enabled","custom_fields.enum_options.name","custom_fields.enum_value","custom_fields.enum_value.color","custom_fields.enum_value.enabled","custom_fields.enum_value.name","custom_fields.is_formula_field","custom_fields.multi_enum_values","custom_fields.multi_enum_values.color","custom_fields.multi_enum_values.enabled","custom_fields.multi_enum_values.name","custom_fields.name","custom_fields.number_value","custom_fields.resource_subtype","custom_fields.text_value","custom_fields.type","default_view","due_date","due_on","followers","followers.name","html_notes","icon","members","members.name","modified_at","name","notes","owner","permalink_url","project_brief","public","start_on","team","team.name","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Update a project
+        api_response = api_instance.update_project(body, project_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling ProjectsApi->update_project: %s\n" % e)

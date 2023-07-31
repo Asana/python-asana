@@ -1,0 +1,42 @@
+UserTaskListsApi:
+  get_user_task_list: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.UserTaskListsApi(asana.ApiClient(configuration))
+    user_task_list_gid = '12345' # str | Globally unique identifier for the user task list.
+    opt_fields = ["name","owner","workspace"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a user task list
+        api_response = api_instance.get_user_task_list(user_task_list_gid, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling UserTaskListsApi->get_user_task_list: %s\n" % e)
+  get_user_task_list_for_user: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    
+    # create an instance of the API class
+    api_instance = asana.UserTaskListsApi(asana.ApiClient(configuration))
+    user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+    workspace = '1234' # str | The workspace in which to get the user task list.
+    opt_fields = ["name","owner","workspace"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a user's task list
+        api_response = api_instance.get_user_task_list_for_user(user_gid, workspace, opt_fields=opt_fields)
+      pprint(api_response)
+    except ApiException as e:
+      print("Exception when calling UserTaskListsApi->get_user_task_list_for_user: %s\n" % e)
