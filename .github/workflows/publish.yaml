@@ -85,7 +85,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
-publish-to-github:
+  publish-to-github:
     needs: build-n-publish-to-pypi
     name: Publish to GitHub Releases
     runs-on: ubuntu-latest
