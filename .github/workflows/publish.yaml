@@ -1,4 +1,4 @@
-name: Publish Python 🐍 distributions 📦 to PyPI and GitHub Releases
+name: Generate client library + Publish 📦 to PyPI + Publish to GitHub Releases
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   generate-python-library:
-    name: Generate updated python client library
+    name: Generate python client library
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -49,8 +49,10 @@ jobs:
           message: Updated Python SDK
           committer_name: GitHub Actions
           committer_email: actions@github.com
+          tag: 'v${{ inputs.version }} --force'
+          tag_push: '--force'
   build-n-publish-to-pypi:
-    needs: [generate-python-library]
+    needs: generate-python-library
     name: Build and publish Python 🐍 distributions 📦 to PyPI
     runs-on: ubuntu-latest
     steps:
@@ -77,12 +79,12 @@ jobs:
           --outdir dist/
           .
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
       - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
   publish-to-github:
@@ -94,11 +96,6 @@ jobs:
         with:
           fetch-depth: 0
           ref: master
-      - name: Get version tag
-        id: tag
-        run: echo "version=v$(cat VERSION)" >> $GITHUB_OUTPUT
-      - name: Print version tag
-        run: echo ${{ inputs.version }}
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v1
         env:
