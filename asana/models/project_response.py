@@ -46,7 +46,6 @@ class ProjectResponse(object):
         'notes': 'str',
         'public': 'bool',
         'start_on': 'date',
-        'workspace': 'ProjectBaseWorkspace',
         'custom_fields': 'list[PortfolioResponseCustomFields]',
         'completed': 'bool',
         'completed_at': 'datetime',
@@ -57,7 +56,9 @@ class ProjectResponse(object):
         'icon': 'str',
         'permalink_url': 'str',
         'project_brief': 'ProjectResponseProjectBrief',
-        'created_from_template': 'ProjectResponseCreatedFromTemplate'
+        'created_from_template': 'ProjectResponseCreatedFromTemplate',
+        'default_access_level': 'str',
+        'workspace': 'ProjectResponseWorkspace'
     }
 
     attribute_map = {
@@ -79,7 +80,6 @@ class ProjectResponse(object):
         'notes': 'notes',
         'public': 'public',
         'start_on': 'start_on',
-        'workspace': 'workspace',
         'custom_fields': 'custom_fields',
         'completed': 'completed',
         'completed_at': 'completed_at',
@@ -90,10 +90,12 @@ class ProjectResponse(object):
         'icon': 'icon',
         'permalink_url': 'permalink_url',
         'project_brief': 'project_brief',
-        'created_from_template': 'created_from_template'
+        'created_from_template': 'created_from_template',
+        'default_access_level': 'default_access_level',
+        'workspace': 'workspace'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, workspace=None, custom_fields=None, completed=None, completed_at=None, completed_by=None, followers=None, owner=None, team=None, icon=None, permalink_url=None, project_brief=None, created_from_template=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, custom_fields=None, completed=None, completed_at=None, completed_by=None, followers=None, owner=None, team=None, icon=None, permalink_url=None, project_brief=None, created_from_template=None, default_access_level=None, workspace=None):  # noqa: E501
         """ProjectResponse - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
@@ -113,7 +115,6 @@ class ProjectResponse(object):
         self._notes = None
         self._public = None
         self._start_on = None
-        self._workspace = None
         self._custom_fields = None
         self._completed = None
         self._completed_at = None
@@ -125,6 +126,8 @@ class ProjectResponse(object):
         self._permalink_url = None
         self._project_brief = None
         self._created_from_template = None
+        self._default_access_level = None
+        self._workspace = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
@@ -162,8 +165,6 @@ class ProjectResponse(object):
             self.public = public
         if start_on is not None:
             self.start_on = start_on
-        if workspace is not None:
-            self.workspace = workspace
         if custom_fields is not None:
             self.custom_fields = custom_fields
         if completed is not None:
@@ -186,6 +187,10 @@ class ProjectResponse(object):
             self.project_brief = project_brief
         if created_from_template is not None:
             self.created_from_template = created_from_template
+        if default_access_level is not None:
+            self.default_access_level = default_access_level
+        if workspace is not None:
+            self.workspace = workspace
 
     @property
     def gid(self):
@@ -610,27 +615,6 @@ class ProjectResponse(object):
         self._start_on = start_on
 
     @property
-    def workspace(self):
-        """Gets the workspace of this ProjectResponse.  # noqa: E501
-
-
-        :return: The workspace of this ProjectResponse.  # noqa: E501
-        :rtype: ProjectBaseWorkspace
-        """
-        return self._workspace
-
-    @workspace.setter
-    def workspace(self, workspace):
-        """Sets the workspace of this ProjectResponse.
-
-
-        :param workspace: The workspace of this ProjectResponse.  # noqa: E501
-        :type: ProjectBaseWorkspace
-        """
-
-        self._workspace = workspace
-
-    @property
     def custom_fields(self):
         """Gets the custom_fields of this ProjectResponse.  # noqa: E501
 
@@ -880,6 +864,56 @@ class ProjectResponse(object):
         """
 
         self._created_from_template = created_from_template
+
+    @property
+    def default_access_level(self):
+        """Gets the default_access_level of this ProjectResponse.  # noqa: E501
+
+        The default access users for users who join or are added as members to the project.  # noqa: E501
+
+        :return: The default_access_level of this ProjectResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_access_level
+
+    @default_access_level.setter
+    def default_access_level(self, default_access_level):
+        """Sets the default_access_level of this ProjectResponse.
+
+        The default access users for users who join or are added as members to the project.  # noqa: E501
+
+        :param default_access_level: The default_access_level of this ProjectResponse.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor", "commenter", "viewer"]  # noqa: E501
+        if default_access_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `default_access_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_access_level, allowed_values)
+            )
+
+        self._default_access_level = default_access_level
+
+    @property
+    def workspace(self):
+        """Gets the workspace of this ProjectResponse.  # noqa: E501
+
+
+        :return: The workspace of this ProjectResponse.  # noqa: E501
+        :rtype: ProjectResponseWorkspace
+        """
+        return self._workspace
+
+    @workspace.setter
+    def workspace(self, workspace):
+        """Sets the workspace of this ProjectResponse.
+
+
+        :param workspace: The workspace of this ProjectResponse.  # noqa: E501
+        :type: ProjectResponseWorkspace
+        """
+
+        self._workspace = workspace
 
     def to_dict(self):
         """Returns the model properties as a dict"""

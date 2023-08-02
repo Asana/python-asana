@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**get_project_memberships_for_project**](ProjectMembershipsApi.md#get_project_memberships_for_project) | **GET** /projects/{project_gid}/project_memberships | Get memberships from a project
 
 # **get_project_membership**
-> ProjectMembershipResponseData get_project_membership(project_membership_gid, opt_fields=opt_fields)
+> ProjectMembershipNormalResponseData get_project_membership(project_membership_gid, opt_fields=opt_fields)
 
 Get a project membership
 
@@ -27,7 +27,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 # create an instance of the API class
 api_instance = asana.ProjectMembershipsApi(asana.ApiClient(configuration))
 project_membership_gid = '1331' # str | 
-opt_fields = ["access_level","member","member.name","project","project.name","user","user.name","write_access"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+opt_fields = ["access_level","member","member.name","parent","parent.name","project","project.name","user","user.name","write_access"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
     # Get a project membership
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectMembershipResponseData**](ProjectMembershipResponseData.md)
+[**ProjectMembershipNormalResponseData**](ProjectMembershipNormalResponseData.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project_memberships_for_project**
-> ProjectMembershipResponseArray get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+> ProjectMembershipCompactArray get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
 
 Get memberships from a project
 
@@ -82,7 +82,7 @@ project_gid = '1331' # str | Globally unique identifier for the project.
 user = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (optional)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
-opt_fields = ["access_level","member","member.name","offset","path","project","project.name","uri","user","user.name","write_access"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+opt_fields = ["access_level","member","member.name","offset","parent","parent.name","path","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
     # Get memberships from a project
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectMembershipResponseArray**](ProjectMembershipResponseArray.md)
+[**ProjectMembershipCompactArray**](ProjectMembershipCompactArray.md)
 
 ### Authorization
 

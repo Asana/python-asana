@@ -44,7 +44,7 @@ class ProjectMembershipsApi(object):
         :param async_req bool
         :param str project_membership_gid: (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectMembershipResponseData
+        :return: ProjectMembershipNormalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67,7 +67,7 @@ class ProjectMembershipsApi(object):
         :param async_req bool
         :param str project_membership_gid: (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectMembershipResponseData
+        :return: ProjectMembershipNormalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -124,7 +124,7 @@ class ProjectMembershipsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProjectMembershipResponseData',  # noqa: E501
+            response_type='ProjectMembershipNormalResponseData',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -147,7 +147,7 @@ class ProjectMembershipsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectMembershipResponseArray
+        :return: ProjectMembershipCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -173,7 +173,7 @@ class ProjectMembershipsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectMembershipResponseArray
+        :return: ProjectMembershipCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -236,7 +236,7 @@ class ProjectMembershipsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProjectMembershipResponseArray',  # noqa: E501
+            response_type='ProjectMembershipCompactArray',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

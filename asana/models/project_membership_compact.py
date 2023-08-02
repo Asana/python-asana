@@ -30,20 +30,29 @@ class ProjectMembershipCompact(object):
     swagger_types = {
         'gid': 'str',
         'resource_type': 'str',
-        'user': 'CustomFieldResponsePeopleValue'
+        'user': 'CustomFieldResponsePeopleValue',
+        'parent': 'JobBaseNewProject',
+        'member': 'MembershipCompactMember',
+        'access_level': 'str'
     }
 
     attribute_map = {
         'gid': 'gid',
         'resource_type': 'resource_type',
-        'user': 'user'
+        'user': 'user',
+        'parent': 'parent',
+        'member': 'member',
+        'access_level': 'access_level'
     }
 
-    def __init__(self, gid=None, resource_type=None, user=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, user=None, parent=None, member=None, access_level=None):  # noqa: E501
         """ProjectMembershipCompact - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
         self._user = None
+        self._parent = None
+        self._member = None
+        self._access_level = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
@@ -51,6 +60,12 @@ class ProjectMembershipCompact(object):
             self.resource_type = resource_type
         if user is not None:
             self.user = user
+        if parent is not None:
+            self.parent = parent
+        if member is not None:
+            self.member = member
+        if access_level is not None:
+            self.access_level = access_level
 
     @property
     def gid(self):
@@ -118,6 +133,77 @@ class ProjectMembershipCompact(object):
         """
 
         self._user = user
+
+    @property
+    def parent(self):
+        """Gets the parent of this ProjectMembershipCompact.  # noqa: E501
+
+
+        :return: The parent of this ProjectMembershipCompact.  # noqa: E501
+        :rtype: JobBaseNewProject
+        """
+        return self._parent
+
+    @parent.setter
+    def parent(self, parent):
+        """Sets the parent of this ProjectMembershipCompact.
+
+
+        :param parent: The parent of this ProjectMembershipCompact.  # noqa: E501
+        :type: JobBaseNewProject
+        """
+
+        self._parent = parent
+
+    @property
+    def member(self):
+        """Gets the member of this ProjectMembershipCompact.  # noqa: E501
+
+
+        :return: The member of this ProjectMembershipCompact.  # noqa: E501
+        :rtype: MembershipCompactMember
+        """
+        return self._member
+
+    @member.setter
+    def member(self, member):
+        """Sets the member of this ProjectMembershipCompact.
+
+
+        :param member: The member of this ProjectMembershipCompact.  # noqa: E501
+        :type: MembershipCompactMember
+        """
+
+        self._member = member
+
+    @property
+    def access_level(self):
+        """Gets the access_level of this ProjectMembershipCompact.  # noqa: E501
+
+        Whether the member has admin, editor, commenter, or viewer access to the project.  # noqa: E501
+
+        :return: The access_level of this ProjectMembershipCompact.  # noqa: E501
+        :rtype: str
+        """
+        return self._access_level
+
+    @access_level.setter
+    def access_level(self, access_level):
+        """Sets the access_level of this ProjectMembershipCompact.
+
+        Whether the member has admin, editor, commenter, or viewer access to the project.  # noqa: E501
+
+        :param access_level: The access_level of this ProjectMembershipCompact.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor", "commenter", "viewer"]  # noqa: E501
+        if access_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `access_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(access_level, allowed_values)
+            )
+
+        self._access_level = access_level
 
     def to_dict(self):
         """Returns the model properties as a dict"""

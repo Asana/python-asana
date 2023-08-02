@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**update_enum_option**](CustomFieldsApi.md#update_enum_option) | **PUT** /enum_options/{enum_option_gid} | Update an enum option
 
 # **create_custom_field**
-> CustomFieldResponseData create_custom_field(body=body, opt_fields=opt_fields)
+> CustomFieldResponseData create_custom_field(body, opt_fields=opt_fields)
 
 Create a custom field
 
@@ -32,12 +32,12 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 
 # create an instance of the API class
 api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
-body = asana.CustomFieldsBody({"param1": "value1", "param2": "value2",}) # CustomFieldsBody | The custom field object to create. (optional)
+body = asana.CustomFieldsBody({"param1": "value1", "param2": "value2",}) # CustomFieldsBody | The custom field object to create.
 opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
     # Create a custom field
-    api_response = api_instance.create_custom_field(body=body, opt_fields=opt_fields)
+    api_response = api_instance.create_custom_field(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling CustomFieldsApi->create_custom_field: %s\n" % e)
@@ -47,7 +47,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CustomFieldsBody**](CustomFieldsBody.md)| The custom field object to create. | [optional] 
+ **body** | [**CustomFieldsBody**](CustomFieldsBody.md)| The custom field object to create. | 
  **opt_fields** | [**list[str]**](str.md)| This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
 
 ### Return type

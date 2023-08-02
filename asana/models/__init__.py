@@ -111,9 +111,10 @@ from asana.models.goal_gid_remove_supporting_relationship_body import GoalGidRem
 from asana.models.goal_gid_set_metric_body import GoalGidSetMetricBody
 from asana.models.goal_gid_set_metric_current_value_body import GoalGidSetMetricCurrentValueBody
 from asana.models.goal_membership_base import GoalMembershipBase
-from asana.models.goal_membership_base_goal import GoalMembershipBaseGoal
 from asana.models.goal_membership_compact import GoalMembershipCompact
 from asana.models.goal_membership_response import GoalMembershipResponse
+from asana.models.goal_membership_response_user import GoalMembershipResponseUser
+from asana.models.goal_membership_response_workspace import GoalMembershipResponseWorkspace
 from asana.models.goal_metric_base import GoalMetricBase
 from asana.models.goal_metric_current_value_request import GoalMetricCurrentValueRequest
 from asana.models.goal_metric_request import GoalMetricRequest
@@ -153,6 +154,10 @@ from asana.models.job_response import JobResponse
 from asana.models.job_response_data import JobResponseData
 from asana.models.like import Like
 from asana.models.member_compact import MemberCompact
+from asana.models.membership_compact import MembershipCompact
+from asana.models.membership_compact_goal import MembershipCompactGoal
+from asana.models.membership_compact_member import MembershipCompactMember
+from asana.models.membership_compact_parent import MembershipCompactParent
 from asana.models.membership_request import MembershipRequest
 from asana.models.membership_response import MembershipResponse
 from asana.models.membership_response_array import MembershipResponseArray
@@ -197,7 +202,6 @@ from asana.models.preview import Preview
 from asana.models.project_base import ProjectBase
 from asana.models.project_base_current_status import ProjectBaseCurrentStatus
 from asana.models.project_base_current_status_update import ProjectBaseCurrentStatusUpdate
-from asana.models.project_base_workspace import ProjectBaseWorkspace
 from asana.models.project_brief_base import ProjectBriefBase
 from asana.models.project_brief_compact import ProjectBriefCompact
 from asana.models.project_brief_request import ProjectBriefRequest
@@ -221,10 +225,10 @@ from asana.models.project_gid_save_as_template_body import ProjectGidSaveAsTempl
 from asana.models.project_gid_sections_body import ProjectGidSectionsBody
 from asana.models.project_membership_base import ProjectMembershipBase
 from asana.models.project_membership_compact import ProjectMembershipCompact
-from asana.models.project_membership_response import ProjectMembershipResponse
-from asana.models.project_membership_response_array import ProjectMembershipResponseArray
-from asana.models.project_membership_response_data import ProjectMembershipResponseData
-from asana.models.project_membership_response_member import ProjectMembershipResponseMember
+from asana.models.project_membership_compact_array import ProjectMembershipCompactArray
+from asana.models.project_membership_compact_response import ProjectMembershipCompactResponse
+from asana.models.project_membership_normal_response import ProjectMembershipNormalResponse
+from asana.models.project_membership_normal_response_data import ProjectMembershipNormalResponseData
 from asana.models.project_request import ProjectRequest
 from asana.models.project_response import ProjectResponse
 from asana.models.project_response_array import ProjectResponseArray
@@ -233,6 +237,7 @@ from asana.models.project_response_created_from_template import ProjectResponseC
 from asana.models.project_response_data import ProjectResponseData
 from asana.models.project_response_project_brief import ProjectResponseProjectBrief
 from asana.models.project_response_team import ProjectResponseTeam
+from asana.models.project_response_workspace import ProjectResponseWorkspace
 from asana.models.project_save_as_template_request import ProjectSaveAsTemplateRequest
 from asana.models.project_section_insert_request import ProjectSectionInsertRequest
 from asana.models.project_status_base import ProjectStatusBase
@@ -253,6 +258,7 @@ from asana.models.project_template_instantiate_project_request_requested_roles i
 from asana.models.project_template_response import ProjectTemplateResponse
 from asana.models.project_template_response_array import ProjectTemplateResponseArray
 from asana.models.project_template_response_data import ProjectTemplateResponseData
+from asana.models.project_update_request import ProjectUpdateRequest
 from asana.models.projects_body import ProjectsBody
 from asana.models.projects_project_gid_body import ProjectsProjectGidBody
 from asana.models.remove_custom_field_setting_request import RemoveCustomFieldSettingRequest

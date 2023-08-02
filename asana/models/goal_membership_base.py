@@ -30,42 +30,47 @@ class GoalMembershipBase(object):
     swagger_types = {
         'gid': 'str',
         'resource_type': 'str',
-        'member': 'ProjectMembershipResponseMember',
-        'goal': 'GoalMembershipBaseGoal',
-        'is_commenter': 'bool',
-        'is_editor': 'bool'
+        'resource_subtype': 'str',
+        'member': 'MembershipCompactMember',
+        'parent': 'MembershipCompactParent',
+        'role': 'str',
+        'goal': 'MembershipCompactGoal'
     }
 
     attribute_map = {
         'gid': 'gid',
         'resource_type': 'resource_type',
+        'resource_subtype': 'resource_subtype',
         'member': 'member',
-        'goal': 'goal',
-        'is_commenter': 'is_commenter',
-        'is_editor': 'is_editor'
+        'parent': 'parent',
+        'role': 'role',
+        'goal': 'goal'
     }
 
-    def __init__(self, gid=None, resource_type=None, member=None, goal=None, is_commenter=None, is_editor=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, resource_subtype=None, member=None, parent=None, role=None, goal=None):  # noqa: E501
         """GoalMembershipBase - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
+        self._resource_subtype = None
         self._member = None
+        self._parent = None
+        self._role = None
         self._goal = None
-        self._is_commenter = None
-        self._is_editor = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
         if resource_type is not None:
             self.resource_type = resource_type
+        if resource_subtype is not None:
+            self.resource_subtype = resource_subtype
         if member is not None:
             self.member = member
+        if parent is not None:
+            self.parent = parent
+        if role is not None:
+            self.role = role
         if goal is not None:
             self.goal = goal
-        if is_commenter is not None:
-            self.is_commenter = is_commenter
-        if is_editor is not None:
-            self.is_editor = is_editor
 
     @property
     def gid(self):
@@ -114,12 +119,35 @@ class GoalMembershipBase(object):
         self._resource_type = resource_type
 
     @property
+    def resource_subtype(self):
+        """Gets the resource_subtype of this GoalMembershipBase.  # noqa: E501
+
+        The type of membership.  # noqa: E501
+
+        :return: The resource_subtype of this GoalMembershipBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource_subtype
+
+    @resource_subtype.setter
+    def resource_subtype(self, resource_subtype):
+        """Sets the resource_subtype of this GoalMembershipBase.
+
+        The type of membership.  # noqa: E501
+
+        :param resource_subtype: The resource_subtype of this GoalMembershipBase.  # noqa: E501
+        :type: str
+        """
+
+        self._resource_subtype = resource_subtype
+
+    @property
     def member(self):
         """Gets the member of this GoalMembershipBase.  # noqa: E501
 
 
         :return: The member of this GoalMembershipBase.  # noqa: E501
-        :rtype: ProjectMembershipResponseMember
+        :rtype: MembershipCompactMember
         """
         return self._member
 
@@ -129,10 +157,60 @@ class GoalMembershipBase(object):
 
 
         :param member: The member of this GoalMembershipBase.  # noqa: E501
-        :type: ProjectMembershipResponseMember
+        :type: MembershipCompactMember
         """
 
         self._member = member
+
+    @property
+    def parent(self):
+        """Gets the parent of this GoalMembershipBase.  # noqa: E501
+
+
+        :return: The parent of this GoalMembershipBase.  # noqa: E501
+        :rtype: MembershipCompactParent
+        """
+        return self._parent
+
+    @parent.setter
+    def parent(self, parent):
+        """Sets the parent of this GoalMembershipBase.
+
+
+        :param parent: The parent of this GoalMembershipBase.  # noqa: E501
+        :type: MembershipCompactParent
+        """
+
+        self._parent = parent
+
+    @property
+    def role(self):
+        """Gets the role of this GoalMembershipBase.  # noqa: E501
+
+        Describes if the member is a commenter or editor in goal.  # noqa: E501
+
+        :return: The role of this GoalMembershipBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this GoalMembershipBase.
+
+        Describes if the member is a commenter or editor in goal.  # noqa: E501
+
+        :param role: The role of this GoalMembershipBase.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["commenter", "editor"]  # noqa: E501
+        if role not in allowed_values:
+            raise ValueError(
+                "Invalid value for `role` ({0}), must be one of {1}"  # noqa: E501
+                .format(role, allowed_values)
+            )
+
+        self._role = role
 
     @property
     def goal(self):
@@ -140,7 +218,7 @@ class GoalMembershipBase(object):
 
 
         :return: The goal of this GoalMembershipBase.  # noqa: E501
-        :rtype: GoalMembershipBaseGoal
+        :rtype: MembershipCompactGoal
         """
         return self._goal
 
@@ -150,56 +228,10 @@ class GoalMembershipBase(object):
 
 
         :param goal: The goal of this GoalMembershipBase.  # noqa: E501
-        :type: GoalMembershipBaseGoal
+        :type: MembershipCompactGoal
         """
 
         self._goal = goal
-
-    @property
-    def is_commenter(self):
-        """Gets the is_commenter of this GoalMembershipBase.  # noqa: E501
-
-        Describes if the member is comment only in goal.  # noqa: E501
-
-        :return: The is_commenter of this GoalMembershipBase.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_commenter
-
-    @is_commenter.setter
-    def is_commenter(self, is_commenter):
-        """Sets the is_commenter of this GoalMembershipBase.
-
-        Describes if the member is comment only in goal.  # noqa: E501
-
-        :param is_commenter: The is_commenter of this GoalMembershipBase.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_commenter = is_commenter
-
-    @property
-    def is_editor(self):
-        """Gets the is_editor of this GoalMembershipBase.  # noqa: E501
-
-        Describes if the member is editor in goal.  # noqa: E501
-
-        :return: The is_editor of this GoalMembershipBase.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_editor
-
-    @is_editor.setter
-    def is_editor(self, is_editor):
-        """Sets the is_editor of this GoalMembershipBase.
-
-        Describes if the member is editor in goal.  # noqa: E501
-
-        :param is_editor: The is_editor of this GoalMembershipBase.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_editor = is_editor
 
     def to_dict(self):
         """Returns the model properties as a dict"""

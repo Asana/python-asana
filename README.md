@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.1
+- Package version: 4.0.2
 
 ## Requirements.
 
@@ -486,9 +486,10 @@ Class | Method | HTTP request | Description
  - [GoalGidSetMetricBody](docs/GoalGidSetMetricBody.md)
  - [GoalGidSetMetricCurrentValueBody](docs/GoalGidSetMetricCurrentValueBody.md)
  - [GoalMembershipBase](docs/GoalMembershipBase.md)
- - [GoalMembershipBaseGoal](docs/GoalMembershipBaseGoal.md)
  - [GoalMembershipCompact](docs/GoalMembershipCompact.md)
  - [GoalMembershipResponse](docs/GoalMembershipResponse.md)
+ - [GoalMembershipResponseUser](docs/GoalMembershipResponseUser.md)
+ - [GoalMembershipResponseWorkspace](docs/GoalMembershipResponseWorkspace.md)
  - [GoalMetricBase](docs/GoalMetricBase.md)
  - [GoalMetricCurrentValueRequest](docs/GoalMetricCurrentValueRequest.md)
  - [GoalMetricRequest](docs/GoalMetricRequest.md)
@@ -528,6 +529,10 @@ Class | Method | HTTP request | Description
  - [JobResponseData](docs/JobResponseData.md)
  - [Like](docs/Like.md)
  - [MemberCompact](docs/MemberCompact.md)
+ - [MembershipCompact](docs/MembershipCompact.md)
+ - [MembershipCompactGoal](docs/MembershipCompactGoal.md)
+ - [MembershipCompactMember](docs/MembershipCompactMember.md)
+ - [MembershipCompactParent](docs/MembershipCompactParent.md)
  - [MembershipRequest](docs/MembershipRequest.md)
  - [MembershipResponse](docs/MembershipResponse.md)
  - [MembershipResponseArray](docs/MembershipResponseArray.md)
@@ -572,7 +577,6 @@ Class | Method | HTTP request | Description
  - [ProjectBase](docs/ProjectBase.md)
  - [ProjectBaseCurrentStatus](docs/ProjectBaseCurrentStatus.md)
  - [ProjectBaseCurrentStatusUpdate](docs/ProjectBaseCurrentStatusUpdate.md)
- - [ProjectBaseWorkspace](docs/ProjectBaseWorkspace.md)
  - [ProjectBriefBase](docs/ProjectBriefBase.md)
  - [ProjectBriefCompact](docs/ProjectBriefCompact.md)
  - [ProjectBriefRequest](docs/ProjectBriefRequest.md)
@@ -596,10 +600,10 @@ Class | Method | HTTP request | Description
  - [ProjectGidSectionsBody](docs/ProjectGidSectionsBody.md)
  - [ProjectMembershipBase](docs/ProjectMembershipBase.md)
  - [ProjectMembershipCompact](docs/ProjectMembershipCompact.md)
- - [ProjectMembershipResponse](docs/ProjectMembershipResponse.md)
- - [ProjectMembershipResponseArray](docs/ProjectMembershipResponseArray.md)
- - [ProjectMembershipResponseData](docs/ProjectMembershipResponseData.md)
- - [ProjectMembershipResponseMember](docs/ProjectMembershipResponseMember.md)
+ - [ProjectMembershipCompactArray](docs/ProjectMembershipCompactArray.md)
+ - [ProjectMembershipCompactResponse](docs/ProjectMembershipCompactResponse.md)
+ - [ProjectMembershipNormalResponse](docs/ProjectMembershipNormalResponse.md)
+ - [ProjectMembershipNormalResponseData](docs/ProjectMembershipNormalResponseData.md)
  - [ProjectRequest](docs/ProjectRequest.md)
  - [ProjectResponse](docs/ProjectResponse.md)
  - [ProjectResponseArray](docs/ProjectResponseArray.md)
@@ -608,6 +612,7 @@ Class | Method | HTTP request | Description
  - [ProjectResponseData](docs/ProjectResponseData.md)
  - [ProjectResponseProjectBrief](docs/ProjectResponseProjectBrief.md)
  - [ProjectResponseTeam](docs/ProjectResponseTeam.md)
+ - [ProjectResponseWorkspace](docs/ProjectResponseWorkspace.md)
  - [ProjectSaveAsTemplateRequest](docs/ProjectSaveAsTemplateRequest.md)
  - [ProjectSectionInsertRequest](docs/ProjectSectionInsertRequest.md)
  - [ProjectStatusBase](docs/ProjectStatusBase.md)
@@ -628,6 +633,7 @@ Class | Method | HTTP request | Description
  - [ProjectTemplateResponse](docs/ProjectTemplateResponse.md)
  - [ProjectTemplateResponseArray](docs/ProjectTemplateResponseArray.md)
  - [ProjectTemplateResponseData](docs/ProjectTemplateResponseData.md)
+ - [ProjectUpdateRequest](docs/ProjectUpdateRequest.md)
  - [ProjectsBody](docs/ProjectsBody.md)
  - [ProjectsProjectGidBody](docs/ProjectsProjectGidBody.md)
  - [RemoveCustomFieldSettingRequest](docs/RemoveCustomFieldSettingRequest.md)

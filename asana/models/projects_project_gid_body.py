@@ -28,7 +28,7 @@ class ProjectsProjectGidBody(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'ProjectRequest'
+        'data': 'ProjectUpdateRequest'
     }
 
     attribute_map = {
@@ -48,7 +48,7 @@ class ProjectsProjectGidBody(object):
 
 
         :return: The data of this ProjectsProjectGidBody.  # noqa: E501
-        :rtype: ProjectRequest
+        :rtype: ProjectUpdateRequest
         """
         return self._data
 
@@ -58,7 +58,7 @@ class ProjectsProjectGidBody(object):
 
 
         :param data: The data of this ProjectsProjectGidBody.  # noqa: E501
-        :type: ProjectRequest
+        :type: ProjectUpdateRequest
         """
 
         self._data = data

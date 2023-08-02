@@ -45,8 +45,7 @@ class ProjectBase(object):
         'modified_at': 'datetime',
         'notes': 'str',
         'public': 'bool',
-        'start_on': 'date',
-        'workspace': 'ProjectBaseWorkspace'
+        'start_on': 'date'
     }
 
     attribute_map = {
@@ -67,11 +66,10 @@ class ProjectBase(object):
         'modified_at': 'modified_at',
         'notes': 'notes',
         'public': 'public',
-        'start_on': 'start_on',
-        'workspace': 'workspace'
+        'start_on': 'start_on'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, workspace=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None):  # noqa: E501
         """ProjectBase - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
@@ -91,7 +89,6 @@ class ProjectBase(object):
         self._notes = None
         self._public = None
         self._start_on = None
-        self._workspace = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
@@ -129,8 +126,6 @@ class ProjectBase(object):
             self.public = public
         if start_on is not None:
             self.start_on = start_on
-        if workspace is not None:
-            self.workspace = workspace
 
     @property
     def gid(self):
@@ -553,27 +548,6 @@ class ProjectBase(object):
         """
 
         self._start_on = start_on
-
-    @property
-    def workspace(self):
-        """Gets the workspace of this ProjectBase.  # noqa: E501
-
-
-        :return: The workspace of this ProjectBase.  # noqa: E501
-        :rtype: ProjectBaseWorkspace
-        """
-        return self._workspace
-
-    @workspace.setter
-    def workspace(self, workspace):
-        """Sets the workspace of this ProjectBase.
-
-
-        :param workspace: The workspace of this ProjectBase.  # noqa: E501
-        :type: ProjectBaseWorkspace
-        """
-
-        self._workspace = workspace
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -32,17 +32,17 @@ class CustomFieldsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_custom_field(self, **kwargs):  # noqa: E501
+    def create_custom_field(self, body, **kwargs):  # noqa: E501
         """Create a custom field  # noqa: E501
 
         Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_custom_field(async_req=True)
+        >>> thread = api.create_custom_field(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CustomFieldsBody body: The custom field object to create.
+        :param CustomFieldsBody body: The custom field object to create. (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: CustomFieldResponseData
                  If the method is called asynchronously,
@@ -50,22 +50,22 @@ class CustomFieldsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_custom_field_with_http_info(**kwargs)  # noqa: E501
+            return self.create_custom_field_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_custom_field_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.create_custom_field_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_custom_field_with_http_info(self, **kwargs):  # noqa: E501
+    def create_custom_field_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create a custom field  # noqa: E501
 
         Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_custom_field_with_http_info(async_req=True)
+        >>> thread = api.create_custom_field_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CustomFieldsBody body: The custom field object to create.
+        :param CustomFieldsBody body: The custom field object to create. (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: CustomFieldResponseData
                  If the method is called asynchronously,
@@ -87,6 +87,10 @@ class CustomFieldsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_custom_field`")  # noqa: E501
 
         collection_formats = {}
 
