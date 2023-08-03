@@ -21,8 +21,8 @@ AuditLogAPIApi:
     offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
     
     try:
-        # Get audit log events
-        api_response = api_instance.get_audit_log_events(workspace_gid, start_at=start_at, end_at=end_at, event_type=event_type, actor_type=actor_type, actor_gid=actor_gid, resource_gid=resource_gid, limit=limit, offset=offset)
+      # Get audit log events
+      api_response = api_instance.get_audit_log_events(workspace_gid, start_at=start_at, end_at=end_at, event_type=event_type, actor_type=actor_type, actor_gid=actor_gid, resource_gid=resource_gid, limit=limit, offset=offset)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling AuditLogAPIApi->get_audit_log_events: %s\n" % e)

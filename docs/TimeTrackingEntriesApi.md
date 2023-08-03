@@ -34,8 +34,8 @@ task_gid = '321654' # str | The task to operate on.
 opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a time tracking entry
-    api_response = api_instance.create_time_tracking_entry(body, task_gid, opt_fields=opt_fields)
+  # Create a time tracking entry
+  api_response = api_instance.create_time_tracking_entry(body, task_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimeTrackingEntriesApi->create_time_tracking_entry: %s\n" % e)
@@ -86,8 +86,8 @@ api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
 time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
 
 try:
-    # Delete a time tracking entry
-    api_response = api_instance.delete_time_tracking_entry(time_tracking_entry_gid)
+  # Delete a time tracking entry
+  api_response = api_instance.delete_time_tracking_entry(time_tracking_entry_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimeTrackingEntriesApi->delete_time_tracking_entry: %s\n" % e)
@@ -139,8 +139,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["created_by","created_by.name","duration_minutes","entered_on","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get time tracking entries for a task
-    api_response = api_instance.get_time_tracking_entries_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get time tracking entries for a task
+  api_response = api_instance.get_time_tracking_entries_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimeTrackingEntriesApi->get_time_tracking_entries_for_task: %s\n" % e)
@@ -193,8 +193,8 @@ time_tracking_entry_gid = '917392' # str | Globally unique identifier for the ti
 opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a time tracking entry
-    api_response = api_instance.get_time_tracking_entry(time_tracking_entry_gid, opt_fields=opt_fields)
+  # Get a time tracking entry
+  api_response = api_instance.get_time_tracking_entry(time_tracking_entry_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimeTrackingEntriesApi->get_time_tracking_entry: %s\n" % e)
@@ -246,8 +246,8 @@ time_tracking_entry_gid = '917392' # str | Globally unique identifier for the ti
 opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a time tracking entry
-    api_response = api_instance.update_time_tracking_entry(body, time_tracking_entry_gid, opt_fields=opt_fields)
+  # Update a time tracking entry
+  api_response = api_instance.update_time_tracking_entry(body, time_tracking_entry_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimeTrackingEntriesApi->update_time_tracking_entry: %s\n" % e)

@@ -33,8 +33,8 @@ project_gid = '1331' # str | Globally unique identifier for the project.
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a project brief
-    api_response = api_instance.create_project_brief(body, project_gid, opt_fields=opt_fields)
+  # Create a project brief
+  api_response = api_instance.create_project_brief(body, project_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectBriefsApi->create_project_brief: %s\n" % e)
@@ -85,8 +85,8 @@ api_instance = asana.ProjectBriefsApi(asana.ApiClient(configuration))
 project_brief_gid = '12345' # str | Globally unique identifier for the project brief.
 
 try:
-    # Delete a project brief
-    api_response = api_instance.delete_project_brief(project_brief_gid)
+  # Delete a project brief
+  api_response = api_instance.delete_project_brief(project_brief_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectBriefsApi->delete_project_brief: %s\n" % e)
@@ -136,8 +136,8 @@ project_brief_gid = '12345' # str | Globally unique identifier for the project b
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a project brief
-    api_response = api_instance.get_project_brief(project_brief_gid, opt_fields=opt_fields)
+  # Get a project brief
+  api_response = api_instance.get_project_brief(project_brief_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectBriefsApi->get_project_brief: %s\n" % e)
@@ -189,8 +189,8 @@ project_brief_gid = '12345' # str | Globally unique identifier for the project b
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a project brief
-    api_response = api_instance.update_project_brief(body, project_brief_gid, opt_fields=opt_fields)
+  # Update a project brief
+  api_response = api_instance.update_project_brief(body, project_brief_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectBriefsApi->update_project_brief: %s\n" % e)

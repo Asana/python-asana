@@ -37,8 +37,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["name","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a user's favorites
-    api_response = api_instance.get_favorites_for_user(user_gid, resource_type, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get a user's favorites
+  api_response = api_instance.get_favorites_for_user(user_gid, resource_type, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling UsersApi->get_favorites_for_user: %s\n" % e)
@@ -93,8 +93,8 @@ user_gid = 'me' # str | A string identifying a user. This can either be the stri
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a user
-    api_response = api_instance.get_user(user_gid, opt_fields=opt_fields)
+  # Get a user
+  api_response = api_instance.get_user(user_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling UsersApi->get_user: %s\n" % e)
@@ -148,8 +148,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["email","name","offset","path","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","uri","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple users
-    api_response = api_instance.get_users(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get multiple users
+  api_response = api_instance.get_users(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling UsersApi->get_users: %s\n" % e)
@@ -204,8 +204,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get users in a team
-    api_response = api_instance.get_users_for_team(team_gid, offset=offset, opt_fields=opt_fields)
+  # Get users in a team
+  api_response = api_instance.get_users_for_team(team_gid, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling UsersApi->get_users_for_team: %s\n" % e)
@@ -258,8 +258,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get users in a workspace or organization
-    api_response = api_instance.get_users_for_workspace(workspace_gid, offset=offset, opt_fields=opt_fields)
+  # Get users in a workspace or organization
+  api_response = api_instance.get_users_for_workspace(workspace_gid, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling UsersApi->get_users_for_workspace: %s\n" % e)

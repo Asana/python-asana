@@ -32,8 +32,8 @@ team_membership_gid = '724362' # str |
 opt_fields = ["is_admin","is_guest","is_limited_access","team","team.name","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a team membership
-    api_response = api_instance.get_team_membership(team_membership_gid, opt_fields=opt_fields)
+  # Get a team membership
+  api_response = api_instance.get_team_membership(team_membership_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamMembershipsApi->get_team_membership: %s\n" % e)
@@ -88,8 +88,8 @@ workspace = '31326' # str | Globally unique identifier for the workspace. This p
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get team memberships
-    api_response = api_instance.get_team_memberships(limit=limit, offset=offset, team=team, user=user, workspace=workspace, opt_fields=opt_fields)
+  # Get team memberships
+  api_response = api_instance.get_team_memberships(limit=limit, offset=offset, team=team, user=user, workspace=workspace, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamMembershipsApi->get_team_memberships: %s\n" % e)
@@ -146,8 +146,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get memberships from a team
-    api_response = api_instance.get_team_memberships_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get memberships from a team
+  api_response = api_instance.get_team_memberships_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamMembershipsApi->get_team_memberships_for_team: %s\n" % e)
@@ -203,8 +203,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get memberships from a user
-    api_response = api_instance.get_team_memberships_for_user(user_gid, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get memberships from a user
+  api_response = api_instance.get_team_memberships_for_user(user_gid, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamMembershipsApi->get_team_memberships_for_user: %s\n" % e)

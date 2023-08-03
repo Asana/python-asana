@@ -32,8 +32,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["custom_field","custom_field.asana_created_field","custom_field.created_by","custom_field.created_by.name","custom_field.currency_code","custom_field.custom_label","custom_field.custom_label_position","custom_field.date_value","custom_field.date_value.date","custom_field.date_value.date_time","custom_field.description","custom_field.display_value","custom_field.enabled","custom_field.enum_options","custom_field.enum_options.color","custom_field.enum_options.enabled","custom_field.enum_options.name","custom_field.enum_value","custom_field.enum_value.color","custom_field.enum_value.enabled","custom_field.enum_value.name","custom_field.format","custom_field.has_notifications_enabled","custom_field.is_formula_field","custom_field.is_global_to_workspace","custom_field.is_value_read_only","custom_field.multi_enum_values","custom_field.multi_enum_values.color","custom_field.multi_enum_values.enabled","custom_field.multi_enum_values.name","custom_field.name","custom_field.number_value","custom_field.people_value","custom_field.people_value.name","custom_field.precision","custom_field.resource_subtype","custom_field.text_value","custom_field.type","is_important","offset","parent","parent.name","path","project","project.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a portfolio's custom fields
-    api_response = api_instance.get_custom_field_settings_for_portfolio(portfolio_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get a portfolio's custom fields
+  api_response = api_instance.get_custom_field_settings_for_portfolio(portfolio_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling CustomFieldSettingsApi->get_custom_field_settings_for_portfolio: %s\n" % e)
@@ -88,8 +88,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["custom_field","custom_field.asana_created_field","custom_field.created_by","custom_field.created_by.name","custom_field.currency_code","custom_field.custom_label","custom_field.custom_label_position","custom_field.date_value","custom_field.date_value.date","custom_field.date_value.date_time","custom_field.description","custom_field.display_value","custom_field.enabled","custom_field.enum_options","custom_field.enum_options.color","custom_field.enum_options.enabled","custom_field.enum_options.name","custom_field.enum_value","custom_field.enum_value.color","custom_field.enum_value.enabled","custom_field.enum_value.name","custom_field.format","custom_field.has_notifications_enabled","custom_field.is_formula_field","custom_field.is_global_to_workspace","custom_field.is_value_read_only","custom_field.multi_enum_values","custom_field.multi_enum_values.color","custom_field.multi_enum_values.enabled","custom_field.multi_enum_values.name","custom_field.name","custom_field.number_value","custom_field.people_value","custom_field.people_value.name","custom_field.precision","custom_field.resource_subtype","custom_field.text_value","custom_field.type","is_important","offset","parent","parent.name","path","project","project.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a project's custom fields
-    api_response = api_instance.get_custom_field_settings_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get a project's custom fields
+  api_response = api_instance.get_custom_field_settings_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling CustomFieldSettingsApi->get_custom_field_settings_for_project: %s\n" % e)

@@ -14,8 +14,8 @@ ProjectMembershipsApi:
     opt_fields = ["access_level","member","member.name","parent","parent.name","project","project.name","user","user.name","write_access"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get a project membership
-        api_response = api_instance.get_project_membership(project_membership_gid, opt_fields=opt_fields)
+      # Get a project membership
+      api_response = api_instance.get_project_membership(project_membership_gid, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling ProjectMembershipsApi->get_project_membership: %s\n" % e)
@@ -37,8 +37,8 @@ ProjectMembershipsApi:
     opt_fields = ["access_level","member","member.name","offset","parent","parent.name","path","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get memberships from a project
-        api_response = api_instance.get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+      # Get memberships from a project
+      api_response = api_instance.get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling ProjectMembershipsApi->get_project_memberships_for_project: %s\n" % e)

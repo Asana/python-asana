@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.2
+- Package version: 4.0.3
 
 ## Requirements.
 

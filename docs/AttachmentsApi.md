@@ -37,8 +37,8 @@ connect_to_app = true # bool |  (optional)
 opt_fields = ["connected_to_app","created_at","download_url","host","name","parent","parent.name","parent.resource_subtype","permanent_url","resource_subtype","size","view_url"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Upload an attachment
-    api_response = api_instance.create_attachment_for_object(resource_subtype=resource_subtype, file=file, parent=parent, url=url, name=name, connect_to_app=connect_to_app, opt_fields=opt_fields)
+  # Upload an attachment
+  api_response = api_instance.create_attachment_for_object(resource_subtype=resource_subtype, file=file, parent=parent, url=url, name=name, connect_to_app=connect_to_app, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling AttachmentsApi->create_attachment_for_object: %s\n" % e)
@@ -93,8 +93,8 @@ api_instance = asana.AttachmentsApi(asana.ApiClient(configuration))
 attachment_gid = '12345' # str | Globally unique identifier for the attachment.
 
 try:
-    # Delete an attachment
-    api_response = api_instance.delete_attachment(attachment_gid)
+  # Delete an attachment
+  api_response = api_instance.delete_attachment(attachment_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling AttachmentsApi->delete_attachment: %s\n" % e)
@@ -144,8 +144,8 @@ attachment_gid = '12345' # str | Globally unique identifier for the attachment.
 opt_fields = ["connected_to_app","created_at","download_url","host","name","parent","parent.name","parent.resource_subtype","permanent_url","resource_subtype","size","view_url"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get an attachment
-    api_response = api_instance.get_attachment(attachment_gid, opt_fields=opt_fields)
+  # Get an attachment
+  api_response = api_instance.get_attachment(attachment_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling AttachmentsApi->get_attachment: %s\n" % e)
@@ -198,8 +198,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["connected_to_app","created_at","download_url","host","name","offset","parent","parent.name","parent.resource_subtype","path","permanent_url","resource_subtype","size","uri","view_url"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get attachments from an object
-    api_response = api_instance.get_attachments_for_object(parent, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get attachments from an object
+  api_response = api_instance.get_attachments_for_object(parent, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling AttachmentsApi->get_attachments_for_object: %s\n" % e)

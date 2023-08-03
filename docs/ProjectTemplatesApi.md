@@ -32,8 +32,8 @@ api_instance = asana.ProjectTemplatesApi(asana.ApiClient(configuration))
 project_template_gid = '1331' # str | Globally unique identifier for the project template.
 
 try:
-    # Delete a project template
-    api_response = api_instance.delete_project_template(project_template_gid)
+  # Delete a project template
+  api_response = api_instance.delete_project_template(project_template_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectTemplatesApi->delete_project_template: %s\n" % e)
@@ -83,8 +83,8 @@ project_template_gid = '1331' # str | Globally unique identifier for the project
 opt_fields = ["color","description","html_description","name","owner","public","requested_dates","requested_dates.description","requested_dates.name","requested_roles","requested_roles.name","team","team.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a project template
-    api_response = api_instance.get_project_template(project_template_gid, opt_fields=opt_fields)
+  # Get a project template
+  api_response = api_instance.get_project_template(project_template_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectTemplatesApi->get_project_template: %s\n" % e)
@@ -138,8 +138,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["color","description","html_description","name","offset","owner","path","public","requested_dates","requested_dates.description","requested_dates.name","requested_roles","requested_roles.name","team","team.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple project templates
-    api_response = api_instance.get_project_templates(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get multiple project templates
+  api_response = api_instance.get_project_templates(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectTemplatesApi->get_project_templates: %s\n" % e)
@@ -195,8 +195,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["color","description","html_description","name","offset","owner","path","public","requested_dates","requested_dates.description","requested_dates.name","requested_roles","requested_roles.name","team","team.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a team's project templates
-    api_response = api_instance.get_project_templates_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get a team's project templates
+  api_response = api_instance.get_project_templates_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectTemplatesApi->get_project_templates_for_team: %s\n" % e)
@@ -250,8 +250,8 @@ body = asana.ProjectTemplateGidInstantiateProjectBody({"param1": "value1", "para
 opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Instantiate a project from a project template
-    api_response = api_instance.instantiate_project(project_template_gid, body=body, opt_fields=opt_fields)
+  # Instantiate a project from a project template
+  api_response = api_instance.instantiate_project(project_template_gid, body=body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectTemplatesApi->instantiate_project: %s\n" % e)

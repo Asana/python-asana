@@ -36,8 +36,8 @@ body = asana.TagsBody({"param1": "value1", "param2": "value2",}) # TagsBody | Th
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a tag
-    api_response = api_instance.create_tag(body, opt_fields=opt_fields)
+  # Create a tag
+  api_response = api_instance.create_tag(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->create_tag: %s\n" % e)
@@ -89,8 +89,8 @@ workspace_gid = '12345' # str | Globally unique identifier for the workspace or 
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a tag in a workspace
-    api_response = api_instance.create_tag_for_workspace(body, workspace_gid, opt_fields=opt_fields)
+  # Create a tag in a workspace
+  api_response = api_instance.create_tag_for_workspace(body, workspace_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->create_tag_for_workspace: %s\n" % e)
@@ -141,8 +141,8 @@ api_instance = asana.TagsApi(asana.ApiClient(configuration))
 tag_gid = '11235' # str | Globally unique identifier for the tag.
 
 try:
-    # Delete a tag
-    api_response = api_instance.delete_tag(tag_gid)
+  # Delete a tag
+  api_response = api_instance.delete_tag(tag_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->delete_tag: %s\n" % e)
@@ -192,8 +192,8 @@ tag_gid = '11235' # str | Globally unique identifier for the tag.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a tag
-    api_response = api_instance.get_tag(tag_gid, opt_fields=opt_fields)
+  # Get a tag
+  api_response = api_instance.get_tag(tag_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->get_tag: %s\n" % e)
@@ -246,8 +246,8 @@ workspace = '1331' # str | The workspace to filter tags on. (optional)
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple tags
-    api_response = api_instance.get_tags(limit=limit, offset=offset, workspace=workspace, opt_fields=opt_fields)
+  # Get multiple tags
+  api_response = api_instance.get_tags(limit=limit, offset=offset, workspace=workspace, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->get_tags: %s\n" % e)
@@ -302,8 +302,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a task's tags
-    api_response = api_instance.get_tags_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get a task's tags
+  api_response = api_instance.get_tags_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->get_tags_for_task: %s\n" % e)
@@ -358,8 +358,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get tags in a workspace
-    api_response = api_instance.get_tags_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get tags in a workspace
+  api_response = api_instance.get_tags_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->get_tags_for_workspace: %s\n" % e)
@@ -412,8 +412,8 @@ tag_gid = '11235' # str | Globally unique identifier for the tag.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a tag
-    api_response = api_instance.update_tag(tag_gid, opt_fields=opt_fields)
+  # Update a tag
+  api_response = api_instance.update_tag(tag_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TagsApi->update_tag: %s\n" % e)

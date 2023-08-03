@@ -29,8 +29,8 @@ body = asana.BatchBody({"param1": "value1", "param2": "value2",}) # BatchBody | 
 opt_fields = ["body","headers","status_code"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Submit parallel requests
-    api_response = api_instance.create_batch_request(body, opt_fields=opt_fields)
+  # Submit parallel requests
+  api_response = api_instance.create_batch_request(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling BatchAPIApi->create_batch_request: %s\n" % e)

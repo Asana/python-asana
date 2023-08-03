@@ -31,8 +31,8 @@ workspace_membership_gid = '12345' # str |
 opt_fields = ["created_at","is_active","is_admin","is_guest","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a workspace membership
-    api_response = api_instance.get_workspace_membership(workspace_membership_gid, opt_fields=opt_fields)
+  # Get a workspace membership
+  api_response = api_instance.get_workspace_membership(workspace_membership_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspaceMembershipsApi->get_workspace_membership: %s\n" % e)
@@ -85,8 +85,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["created_at","is_active","is_admin","is_guest","offset","path","uri","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get workspace memberships for a user
-    api_response = api_instance.get_workspace_memberships_for_user(user_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get workspace memberships for a user
+  api_response = api_instance.get_workspace_memberships_for_user(user_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_user: %s\n" % e)
@@ -142,8 +142,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["created_at","is_active","is_admin","is_guest","offset","path","uri","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get the workspace memberships for a workspace
-    api_response = api_instance.get_workspace_memberships_for_workspace(workspace_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get the workspace memberships for a workspace
+  api_response = api_instance.get_workspace_memberships_for_workspace(workspace_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_workspace: %s\n" % e)

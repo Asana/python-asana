@@ -30,8 +30,8 @@ time_period_gid = '917392' # str | Globally unique identifier for the time perio
 opt_fields = ["display_name","end_on","parent","parent.display_name","parent.end_on","parent.period","parent.start_on","period","start_on"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a time period
-    api_response = api_instance.get_time_period(time_period_gid, opt_fields=opt_fields)
+  # Get a time period
+  api_response = api_instance.get_time_period(time_period_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimePeriodsApi->get_time_period: %s\n" % e)
@@ -86,8 +86,8 @@ end_on = '2019-09-15' # date | ISO 8601 date string (optional)
 opt_fields = ["display_name","end_on","offset","parent","parent.display_name","parent.end_on","parent.period","parent.start_on","path","period","start_on","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get time periods
-    api_response = api_instance.get_time_periods(workspace, limit=limit, offset=offset, start_on=start_on, end_on=end_on, opt_fields=opt_fields)
+  # Get time periods
+  api_response = api_instance.get_time_periods(workspace, limit=limit, offset=offset, start_on=start_on, end_on=end_on, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TimePeriodsApi->get_time_periods: %s\n" % e)

@@ -29,8 +29,8 @@ body = asana.RuleTriggerGidRunBody({"param1": "value1", "param2": "value2",}) # 
 rule_trigger_gid = '12345' # str | The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
 
 try:
-    # Trigger a rule
-    api_response = api_instance.trigger_rule(body, rule_trigger_gid)
+  # Trigger a rule
+  api_response = api_instance.trigger_rule(body, rule_trigger_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling RulesApi->trigger_rule: %s\n" % e)

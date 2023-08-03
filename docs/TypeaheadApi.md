@@ -33,8 +33,8 @@ count = 20 # int | The number of results to return. The default is 20 if this pa
 opt_fields = ["name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get objects via typeahead
-    api_response = api_instance.typeahead_for_workspace(workspace_gid, resource_type, type=type, query=query, count=count, opt_fields=opt_fields)
+  # Get objects via typeahead
+  api_response = api_instance.typeahead_for_workspace(workspace_gid, resource_type, type=type, query=query, count=count, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TypeaheadApi->typeahead_for_workspace: %s\n" % e)

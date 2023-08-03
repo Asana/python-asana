@@ -33,8 +33,8 @@ body = asana.WebhooksBody({"param1": "value1", "param2": "value2",}) # WebhooksB
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Establish a webhook
-    api_response = api_instance.create_webhook(body, opt_fields=opt_fields)
+  # Establish a webhook
+  api_response = api_instance.create_webhook(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WebhooksApi->create_webhook: %s\n" % e)
@@ -84,8 +84,8 @@ api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
 webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 
 try:
-    # Delete a webhook
-    api_response = api_instance.delete_webhook(webhook_gid)
+  # Delete a webhook
+  api_response = api_instance.delete_webhook(webhook_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WebhooksApi->delete_webhook: %s\n" % e)
@@ -135,8 +135,8 @@ webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a webhook
-    api_response = api_instance.get_webhook(webhook_gid, opt_fields=opt_fields)
+  # Get a webhook
+  api_response = api_instance.get_webhook(webhook_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WebhooksApi->get_webhook: %s\n" % e)
@@ -190,8 +190,8 @@ resource = '51648' # str | Only return webhooks for the given resource. (optiona
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","offset","path","resource","resource.name","target","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple webhooks
-    api_response = api_instance.get_webhooks(workspace, limit=limit, offset=offset, resource=resource, opt_fields=opt_fields)
+  # Get multiple webhooks
+  api_response = api_instance.get_webhooks(workspace, limit=limit, offset=offset, resource=resource, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WebhooksApi->get_webhooks: %s\n" % e)
@@ -246,8 +246,8 @@ webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a webhook
-    api_response = api_instance.update_webhook(body, webhook_gid, opt_fields=opt_fields)
+  # Update a webhook
+  api_response = api_instance.update_webhook(body, webhook_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WebhooksApi->update_webhook: %s\n" % e)

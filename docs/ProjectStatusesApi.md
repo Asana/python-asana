@@ -33,8 +33,8 @@ project_gid = '1331' # str | Globally unique identifier for the project.
 opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a project status
-    api_response = api_instance.create_project_status_for_project(body, project_gid, opt_fields=opt_fields)
+  # Create a project status
+  api_response = api_instance.create_project_status_for_project(body, project_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectStatusesApi->create_project_status_for_project: %s\n" % e)
@@ -85,8 +85,8 @@ api_instance = asana.ProjectStatusesApi(asana.ApiClient(configuration))
 project_status_gid = '321654' # str | The project status update to get.
 
 try:
-    # Delete a project status
-    api_response = api_instance.delete_project_status(project_status_gid)
+  # Delete a project status
+  api_response = api_instance.delete_project_status(project_status_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectStatusesApi->delete_project_status: %s\n" % e)
@@ -136,8 +136,8 @@ project_status_gid = '321654' # str | The project status update to get.
 opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a project status
-    api_response = api_instance.get_project_status(project_status_gid, opt_fields=opt_fields)
+  # Get a project status
+  api_response = api_instance.get_project_status(project_status_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectStatusesApi->get_project_status: %s\n" % e)
@@ -190,8 +190,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","offset","path","text","title","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get statuses from a project
-    api_response = api_instance.get_project_statuses_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get statuses from a project
+  api_response = api_instance.get_project_statuses_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling ProjectStatusesApi->get_project_statuses_for_project: %s\n" % e)

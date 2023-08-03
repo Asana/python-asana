@@ -34,8 +34,8 @@ workspace_gid = '12345' # str | Globally unique identifier for the workspace or 
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Add a user to a workspace or organization
-    api_response = api_instance.add_user_for_workspace(body, workspace_gid, opt_fields=opt_fields)
+  # Add a user to a workspace or organization
+  api_response = api_instance.add_user_for_workspace(body, workspace_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspacesApi->add_user_for_workspace: %s\n" % e)
@@ -87,8 +87,8 @@ workspace_gid = '12345' # str | Globally unique identifier for the workspace or 
 opt_fields = ["email_domains","is_organization","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a workspace
-    api_response = api_instance.get_workspace(workspace_gid, opt_fields=opt_fields)
+  # Get a workspace
+  api_response = api_instance.get_workspace(workspace_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspacesApi->get_workspace: %s\n" % e)
@@ -140,8 +140,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["email_domains","is_organization","name","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple workspaces
-    api_response = api_instance.get_workspaces(limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get multiple workspaces
+  api_response = api_instance.get_workspaces(limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspacesApi->get_workspaces: %s\n" % e)
@@ -193,8 +193,8 @@ body = asana.WorkspaceGidRemoveUserBody({"param1": "value1", "param2": "value2",
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 
 try:
-    # Remove a user from a workspace or organization
-    api_response = api_instance.remove_user_for_workspace(body, workspace_gid)
+  # Remove a user from a workspace or organization
+  api_response = api_instance.remove_user_for_workspace(body, workspace_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspacesApi->remove_user_for_workspace: %s\n" % e)
@@ -246,8 +246,8 @@ workspace_gid = '12345' # str | Globally unique identifier for the workspace or 
 opt_fields = ["email_domains","is_organization","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a workspace
-    api_response = api_instance.update_workspace(body, workspace_gid, opt_fields=opt_fields)
+  # Update a workspace
+  api_response = api_instance.update_workspace(body, workspace_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling WorkspacesApi->update_workspace: %s\n" % e)

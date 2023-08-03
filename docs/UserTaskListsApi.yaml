@@ -14,8 +14,8 @@ UserTaskListsApi:
     opt_fields = ["name","owner","workspace"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get a user task list
-        api_response = api_instance.get_user_task_list(user_task_list_gid, opt_fields=opt_fields)
+      # Get a user task list
+      api_response = api_instance.get_user_task_list(user_task_list_gid, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling UserTaskListsApi->get_user_task_list: %s\n" % e)
@@ -35,8 +35,8 @@ UserTaskListsApi:
     opt_fields = ["name","owner","workspace"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get a user's task list
-        api_response = api_instance.get_user_task_list_for_user(user_gid, workspace, opt_fields=opt_fields)
+      # Get a user's task list
+      api_response = api_instance.get_user_task_list_for_user(user_gid, workspace, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling UserTaskListsApi->get_user_task_list_for_user: %s\n" % e)

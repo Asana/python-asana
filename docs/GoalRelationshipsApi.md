@@ -34,8 +34,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["contribution_weight","resource_subtype","supported_goal","supported_goal.name","supported_goal.owner","supported_goal.owner.name","supporting_resource","supporting_resource.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Add a supporting goal relationship
-    api_response = api_instance.add_supporting_relationship(body, goal_gid, opt_fields=opt_fields)
+  # Add a supporting goal relationship
+  api_response = api_instance.add_supporting_relationship(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalRelationshipsApi->add_supporting_relationship: %s\n" % e)
@@ -87,8 +87,8 @@ goal_relationship_gid = '12345' # str | Globally unique identifier for the goal 
 opt_fields = ["contribution_weight","resource_subtype","supported_goal","supported_goal.name","supported_goal.owner","supported_goal.owner.name","supporting_resource","supporting_resource.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a goal relationship
-    api_response = api_instance.get_goal_relationship(goal_relationship_gid, opt_fields=opt_fields)
+  # Get a goal relationship
+  api_response = api_instance.get_goal_relationship(goal_relationship_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalRelationshipsApi->get_goal_relationship: %s\n" % e)
@@ -142,8 +142,8 @@ resource_subtype = 'subgoal' # str | If provided, filter to goal relationships w
 opt_fields = ["contribution_weight","offset","path","resource_subtype","supported_goal","supported_goal.name","supported_goal.owner","supported_goal.owner.name","supporting_resource","supporting_resource.name","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get goal relationships
-    api_response = api_instance.get_goal_relationships(supported_goal, limit=limit, offset=offset, resource_subtype=resource_subtype, opt_fields=opt_fields)
+  # Get goal relationships
+  api_response = api_instance.get_goal_relationships(supported_goal, limit=limit, offset=offset, resource_subtype=resource_subtype, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalRelationshipsApi->get_goal_relationships: %s\n" % e)
@@ -197,8 +197,8 @@ body = asana.GoalGidRemoveSupportingRelationshipBody({"param1": "value1", "param
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 
 try:
-    # Removes a supporting goal relationship
-    api_response = api_instance.remove_supporting_relationship(body, goal_gid)
+  # Removes a supporting goal relationship
+  api_response = api_instance.remove_supporting_relationship(body, goal_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalRelationshipsApi->remove_supporting_relationship: %s\n" % e)
@@ -250,8 +250,8 @@ goal_relationship_gid = '12345' # str | Globally unique identifier for the goal 
 opt_fields = ["contribution_weight","resource_subtype","supported_goal","supported_goal.name","supported_goal.owner","supported_goal.owner.name","supporting_resource","supporting_resource.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a goal relationship
-    api_response = api_instance.update_goal_relationship(body, goal_relationship_gid, opt_fields=opt_fields)
+  # Update a goal relationship
+  api_response = api_instance.update_goal_relationship(body, goal_relationship_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalRelationshipsApi->update_goal_relationship: %s\n" % e)

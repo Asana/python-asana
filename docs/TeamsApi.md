@@ -36,8 +36,8 @@ team_gid = '159874' # str | Globally unique identifier for the team.
 opt_fields = ["is_admin","is_guest","is_limited_access","team","team.name","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Add a user to a team
-    api_response = api_instance.add_user_for_team(body, team_gid, opt_fields=opt_fields)
+  # Add a user to a team
+  api_response = api_instance.add_user_for_team(body, team_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->add_user_for_team: %s\n" % e)
@@ -89,8 +89,8 @@ body = asana.TeamsBody({"param1": "value1", "param2": "value2",}) # TeamsBody | 
 opt_fields = ["description","edit_team_name_or_description_access_level","edit_team_visibility_or_trash_team_access_level","guest_invite_management_access_level","html_description","join_request_management_access_level","member_invite_management_access_level","name","organization","organization.name","permalink_url","team_member_removal_access_level","visibility"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a team
-    api_response = api_instance.create_team(body, opt_fields=opt_fields)
+  # Create a team
+  api_response = api_instance.create_team(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->create_team: %s\n" % e)
@@ -141,8 +141,8 @@ team_gid = '159874' # str | Globally unique identifier for the team.
 opt_fields = ["description","edit_team_name_or_description_access_level","edit_team_visibility_or_trash_team_access_level","guest_invite_management_access_level","html_description","join_request_management_access_level","member_invite_management_access_level","name","organization","organization.name","permalink_url","team_member_removal_access_level","visibility"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a team
-    api_response = api_instance.get_team(team_gid, opt_fields=opt_fields)
+  # Get a team
+  api_response = api_instance.get_team(team_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->get_team: %s\n" % e)
@@ -196,8 +196,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["description","edit_team_name_or_description_access_level","edit_team_visibility_or_trash_team_access_level","guest_invite_management_access_level","html_description","join_request_management_access_level","member_invite_management_access_level","name","offset","organization","organization.name","path","permalink_url","team_member_removal_access_level","uri","visibility"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get teams for a user
-    api_response = api_instance.get_teams_for_user(user_gid, organization, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get teams for a user
+  api_response = api_instance.get_teams_for_user(user_gid, organization, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->get_teams_for_user: %s\n" % e)
@@ -253,8 +253,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["description","edit_team_name_or_description_access_level","edit_team_visibility_or_trash_team_access_level","guest_invite_management_access_level","html_description","join_request_management_access_level","member_invite_management_access_level","name","offset","organization","organization.name","path","permalink_url","team_member_removal_access_level","uri","visibility"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get teams in a workspace
-    api_response = api_instance.get_teams_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get teams in a workspace
+  api_response = api_instance.get_teams_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->get_teams_for_workspace: %s\n" % e)
@@ -307,8 +307,8 @@ body = asana.TeamGidRemoveUserBody({"param1": "value1", "param2": "value2",}) # 
 team_gid = '159874' # str | Globally unique identifier for the team.
 
 try:
-    # Remove a user from a team
-    api_response = api_instance.remove_user_for_team(body, team_gid)
+  # Remove a user from a team
+  api_response = api_instance.remove_user_for_team(body, team_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->remove_user_for_team: %s\n" % e)
@@ -360,8 +360,8 @@ team_gid = '159874' # str | Globally unique identifier for the team.
 opt_fields = ["description","edit_team_name_or_description_access_level","edit_team_visibility_or_trash_team_access_level","guest_invite_management_access_level","html_description","join_request_management_access_level","member_invite_management_access_level","name","organization","organization.name","permalink_url","team_member_removal_access_level","visibility"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a team
-    api_response = api_instance.update_team(body, team_gid, opt_fields=opt_fields)
+  # Update a team
+  api_response = api_instance.update_team(body, team_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling TeamsApi->update_team: %s\n" % e)

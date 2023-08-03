@@ -14,8 +14,8 @@ CustomFieldsApi:
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Create a custom field
-        api_response = api_instance.create_custom_field(body, opt_fields=opt_fields)
+      # Create a custom field
+      api_response = api_instance.create_custom_field(body, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->create_custom_field: %s\n" % e)
@@ -35,8 +35,8 @@ CustomFieldsApi:
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Create an enum option
-        api_response = api_instance.create_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+      # Create an enum option
+      api_response = api_instance.create_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->create_enum_option_for_custom_field: %s\n" % e)
@@ -54,8 +54,8 @@ CustomFieldsApi:
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     
     try:
-        # Delete a custom field
-        api_response = api_instance.delete_custom_field(custom_field_gid)
+      # Delete a custom field
+      api_response = api_instance.delete_custom_field(custom_field_gid)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->delete_custom_field: %s\n" % e)
@@ -74,8 +74,8 @@ CustomFieldsApi:
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get a custom field
-        api_response = api_instance.get_custom_field(custom_field_gid, opt_fields=opt_fields)
+      # Get a custom field
+      api_response = api_instance.get_custom_field(custom_field_gid, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->get_custom_field: %s\n" % e)
@@ -96,8 +96,8 @@ CustomFieldsApi:
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","offset","path","people_value","people_value.name","precision","resource_subtype","text_value","type","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Get a workspace's custom fields
-        api_response = api_instance.get_custom_fields_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+      # Get a workspace's custom fields
+      api_response = api_instance.get_custom_fields_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->get_custom_fields_for_workspace: %s\n" % e)
@@ -117,8 +117,8 @@ CustomFieldsApi:
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Reorder a custom field's enum
-        api_response = api_instance.insert_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+      # Reorder a custom field's enum
+      api_response = api_instance.insert_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->insert_enum_option_for_custom_field: %s\n" % e)
@@ -138,8 +138,8 @@ CustomFieldsApi:
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Update a custom field
-        api_response = api_instance.update_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+      # Update a custom field
+      api_response = api_instance.update_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->update_custom_field: %s\n" % e)
@@ -159,8 +159,8 @@ CustomFieldsApi:
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-        # Update an enum option
-        api_response = api_instance.update_enum_option(enum_option_gid, body=body, opt_fields=opt_fields)
+      # Update an enum option
+      api_response = api_instance.update_enum_option(enum_option_gid, body=body, opt_fields=opt_fields)
       pprint(api_response)
     except ApiException as e:
       print("Exception when calling CustomFieldsApi->update_enum_option: %s\n" % e)

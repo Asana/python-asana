@@ -30,8 +30,8 @@ sync = 'de4774f6915eae04714ca93bb2f5ee81' # str | A sync token received from the
 opt_fields = ["action","change","change.action","change.added_value","change.field","change.new_value","change.removed_value","created_at","parent","parent.name","resource","resource.name","type","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get events on a resource
-    api_response = api_instance.get_events(resource, sync=sync, opt_fields=opt_fields)
+  # Get events on a resource
+  api_response = api_instance.get_events(resource, sync=sync, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling EventsApi->get_events: %s\n" % e)

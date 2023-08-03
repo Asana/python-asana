@@ -31,8 +31,8 @@ portfolio_membership_gid = '1331' # str |
 opt_fields = ["portfolio","portfolio.name","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a portfolio membership
-    api_response = api_instance.get_portfolio_membership(portfolio_membership_gid, opt_fields=opt_fields)
+  # Get a portfolio membership
+  api_response = api_instance.get_portfolio_membership(portfolio_membership_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling PortfolioMembershipsApi->get_portfolio_membership: %s\n" % e)
@@ -87,8 +87,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["offset","path","portfolio","portfolio.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple portfolio memberships
-    api_response = api_instance.get_portfolio_memberships(portfolio=portfolio, workspace=workspace, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get multiple portfolio memberships
+  api_response = api_instance.get_portfolio_memberships(portfolio=portfolio, workspace=workspace, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling PortfolioMembershipsApi->get_portfolio_memberships: %s\n" % e)
@@ -146,8 +146,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["offset","path","portfolio","portfolio.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get memberships from a portfolio
-    api_response = api_instance.get_portfolio_memberships_for_portfolio(portfolio_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get memberships from a portfolio
+  api_response = api_instance.get_portfolio_memberships_for_portfolio(portfolio_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling PortfolioMembershipsApi->get_portfolio_memberships_for_portfolio: %s\n" % e)

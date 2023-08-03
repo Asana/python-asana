@@ -30,8 +30,8 @@ api_instance = asana.MembershipsApi(asana.ApiClient(configuration))
 body = asana.MembershipsBody({"param1": "value1", "param2": "value2",}) # MembershipsBody | The updated fields for the membership. (optional)
 
 try:
-    # Create a membership
-    api_response = api_instance.create_membership(body=body)
+  # Create a membership
+  api_response = api_instance.create_membership(body=body)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling MembershipsApi->create_membership: %s\n" % e)
@@ -80,8 +80,8 @@ api_instance = asana.MembershipsApi(asana.ApiClient(configuration))
 membership_gid = '12345' # str | Globally unique identifier for the membership.
 
 try:
-    # Delete a membership
-    api_response = api_instance.delete_membership(membership_gid)
+  # Delete a membership
+  api_response = api_instance.delete_membership(membership_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling MembershipsApi->delete_membership: %s\n" % e)
@@ -134,8 +134,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get multiple memberships
-    api_response = api_instance.get_memberships(parent=parent, member=member, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get multiple memberships
+  api_response = api_instance.get_memberships(parent=parent, member=member, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling MembershipsApi->get_memberships: %s\n" % e)

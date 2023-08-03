@@ -30,8 +30,8 @@ body = asana.OrganizationExportsBody({"param1": "value1", "param2": "value2",}) 
 opt_fields = ["created_at","download_url","organization","organization.name","state"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create an organization export request
-    api_response = api_instance.create_organization_export(body, opt_fields=opt_fields)
+  # Create an organization export request
+  api_response = api_instance.create_organization_export(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling OrganizationExportsApi->create_organization_export: %s\n" % e)
@@ -82,8 +82,8 @@ organization_export_gid = '12345' # str | Globally unique identifier for the org
 opt_fields = ["created_at","download_url","organization","organization.name","state"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get details on an org export request
-    api_response = api_instance.get_organization_export(organization_export_gid, opt_fields=opt_fields)
+  # Get details on an org export request
+  api_response = api_instance.get_organization_export(organization_export_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling OrganizationExportsApi->get_organization_export: %s\n" % e)

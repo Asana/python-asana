@@ -39,8 +39,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Add a collaborator to a goal
-    api_response = api_instance.add_followers(body, goal_gid, opt_fields=opt_fields)
+  # Add a collaborator to a goal
+  api_response = api_instance.add_followers(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->add_followers: %s\n" % e)
@@ -92,8 +92,8 @@ body = asana.GoalsBody({"param1": "value1", "param2": "value2",}) # GoalsBody | 
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a goal
-    api_response = api_instance.create_goal(body, opt_fields=opt_fields)
+  # Create a goal
+  api_response = api_instance.create_goal(body, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->create_goal: %s\n" % e)
@@ -145,8 +145,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Create a goal metric
-    api_response = api_instance.create_goal_metric(body, goal_gid, opt_fields=opt_fields)
+  # Create a goal metric
+  api_response = api_instance.create_goal_metric(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->create_goal_metric: %s\n" % e)
@@ -197,8 +197,8 @@ api_instance = asana.GoalsApi(asana.ApiClient(configuration))
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 
 try:
-    # Delete a goal
-    api_response = api_instance.delete_goal(goal_gid)
+  # Delete a goal
+  api_response = api_instance.delete_goal(goal_gid)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->delete_goal: %s\n" % e)
@@ -248,8 +248,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get a goal
-    api_response = api_instance.get_goal(goal_gid, opt_fields=opt_fields)
+  # Get a goal
+  api_response = api_instance.get_goal(goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->get_goal: %s\n" % e)
@@ -307,8 +307,8 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","offset","owner","owner.name","path","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get goals
-    api_response = api_instance.get_goals(portfolio=portfolio, project=project, is_workspace_level=is_workspace_level, team=team, workspace=workspace, time_periods=time_periods, limit=limit, offset=offset, opt_fields=opt_fields)
+  # Get goals
+  api_response = api_instance.get_goals(portfolio=portfolio, project=project, is_workspace_level=is_workspace_level, team=team, workspace=workspace, time_periods=time_periods, limit=limit, offset=offset, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->get_goals: %s\n" % e)
@@ -366,8 +366,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Get parent goals from a goal
-    api_response = api_instance.get_parent_goals_for_goal(goal_gid, opt_fields=opt_fields)
+  # Get parent goals from a goal
+  api_response = api_instance.get_parent_goals_for_goal(goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->get_parent_goals_for_goal: %s\n" % e)
@@ -419,8 +419,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Remove a collaborator from a goal
-    api_response = api_instance.remove_followers(body, goal_gid, opt_fields=opt_fields)
+  # Remove a collaborator from a goal
+  api_response = api_instance.remove_followers(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->remove_followers: %s\n" % e)
@@ -473,8 +473,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a goal
-    api_response = api_instance.update_goal(body, goal_gid, opt_fields=opt_fields)
+  # Update a goal
+  api_response = api_instance.update_goal(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->update_goal: %s\n" % e)
@@ -527,8 +527,8 @@ goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-    # Update a goal metric
-    api_response = api_instance.update_goal_metric(body, goal_gid, opt_fields=opt_fields)
+  # Update a goal metric
+  api_response = api_instance.update_goal_metric(body, goal_gid, opt_fields=opt_fields)
   pprint(api_response)
 except ApiException as e:
   print("Exception when calling GoalsApi->update_goal_metric: %s\n" % e)
