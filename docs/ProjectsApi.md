@@ -415,7 +415,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
 project_gid = '1331' # str | Globally unique identifier for the project.
 body = asana.ProjectGidDuplicateBody({"param1": "value1", "param2": "value2",}) # ProjectGidDuplicateBody | Describes the duplicate's name and the elements that will be duplicated. (optional)
-opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.created_by","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
   # Duplicate a project
@@ -805,7 +805,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_instance = asana.ProjectsApi(asana.ApiClient(configuration))
 body = asana.ProjectGidSaveAsTemplateBody({"param1": "value1", "param2": "value2",}) # ProjectGidSaveAsTemplateBody | Describes the inputs used for creating a project template, such as the resulting project template's name, which team it should be created in.
 project_gid = '1331' # str | Globally unique identifier for the project.
-opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.created_by","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
   # Create a project template from a project

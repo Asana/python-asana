@@ -32,6 +32,7 @@ class TaskResponse(object):
         'resource_type': 'str',
         'name': 'str',
         'resource_subtype': 'str',
+        'created_by': 'AttachmentResponseParentCreatedBy',
         'approval_status': 'str',
         'assignee_status': 'str',
         'completed': 'bool',
@@ -74,6 +75,7 @@ class TaskResponse(object):
         'resource_type': 'resource_type',
         'name': 'name',
         'resource_subtype': 'resource_subtype',
+        'created_by': 'created_by',
         'approval_status': 'approval_status',
         'assignee_status': 'assignee_status',
         'completed': 'completed',
@@ -111,12 +113,13 @@ class TaskResponse(object):
         'permalink_url': 'permalink_url'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, resource_subtype=None, approval_status=None, assignee_status=None, completed=None, completed_at=None, completed_by=None, created_at=None, dependencies=None, dependents=None, due_at=None, due_on=None, external=None, html_notes=None, hearted=None, hearts=None, is_rendered_as_separator=None, liked=None, likes=None, memberships=None, modified_at=None, notes=None, num_hearts=None, num_likes=None, num_subtasks=None, start_at=None, start_on=None, actual_time_minutes=None, assignee=None, assignee_section=None, custom_fields=None, followers=None, parent=None, projects=None, tags=None, workspace=None, permalink_url=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, resource_subtype=None, created_by=None, approval_status=None, assignee_status=None, completed=None, completed_at=None, completed_by=None, created_at=None, dependencies=None, dependents=None, due_at=None, due_on=None, external=None, html_notes=None, hearted=None, hearts=None, is_rendered_as_separator=None, liked=None, likes=None, memberships=None, modified_at=None, notes=None, num_hearts=None, num_likes=None, num_subtasks=None, start_at=None, start_on=None, actual_time_minutes=None, assignee=None, assignee_section=None, custom_fields=None, followers=None, parent=None, projects=None, tags=None, workspace=None, permalink_url=None):  # noqa: E501
         """TaskResponse - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
         self._name = None
         self._resource_subtype = None
+        self._created_by = None
         self._approval_status = None
         self._assignee_status = None
         self._completed = None
@@ -161,6 +164,8 @@ class TaskResponse(object):
             self.name = name
         if resource_subtype is not None:
             self.resource_subtype = resource_subtype
+        if created_by is not None:
+            self.created_by = created_by
         if approval_status is not None:
             self.approval_status = approval_status
         if assignee_status is not None:
@@ -329,6 +334,27 @@ class TaskResponse(object):
             )
 
         self._resource_subtype = resource_subtype
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this TaskResponse.  # noqa: E501
+
+
+        :return: The created_by of this TaskResponse.  # noqa: E501
+        :rtype: AttachmentResponseParentCreatedBy
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this TaskResponse.
+
+
+        :param created_by: The created_by of this TaskResponse.  # noqa: E501
+        :type: AttachmentResponseParentCreatedBy
+        """
+
+        self._created_by = created_by
 
     @property
     def approval_status(self):

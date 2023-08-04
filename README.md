@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.3
+- Package version: 4.0.4
 
 ## Requirements.
 
@@ -417,6 +417,7 @@ Class | Method | HTTP request | Description
  - [AttachmentResponseArray](docs/AttachmentResponseArray.md)
  - [AttachmentResponseData](docs/AttachmentResponseData.md)
  - [AttachmentResponseParent](docs/AttachmentResponseParent.md)
+ - [AttachmentResponseParentCreatedBy](docs/AttachmentResponseParentCreatedBy.md)
  - [AuditLogEvent](docs/AuditLogEvent.md)
  - [AuditLogEventActor](docs/AuditLogEventActor.md)
  - [AuditLogEventArray](docs/AuditLogEventArray.md)

@@ -31,22 +31,25 @@ class StoryResponseTask(object):
         'gid': 'str',
         'resource_type': 'str',
         'name': 'str',
-        'resource_subtype': 'str'
+        'resource_subtype': 'str',
+        'created_by': 'AttachmentResponseParentCreatedBy'
     }
 
     attribute_map = {
         'gid': 'gid',
         'resource_type': 'resource_type',
         'name': 'name',
-        'resource_subtype': 'resource_subtype'
+        'resource_subtype': 'resource_subtype',
+        'created_by': 'created_by'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, resource_subtype=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, resource_subtype=None, created_by=None):  # noqa: E501
         """StoryResponseTask - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
         self._name = None
         self._resource_subtype = None
+        self._created_by = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
@@ -56,6 +59,8 @@ class StoryResponseTask(object):
             self.name = name
         if resource_subtype is not None:
             self.resource_subtype = resource_subtype
+        if created_by is not None:
+            self.created_by = created_by
 
     @property
     def gid(self):
@@ -154,6 +159,27 @@ class StoryResponseTask(object):
             )
 
         self._resource_subtype = resource_subtype
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this StoryResponseTask.  # noqa: E501
+
+
+        :return: The created_by of this StoryResponseTask.  # noqa: E501
+        :rtype: AttachmentResponseParentCreatedBy
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this StoryResponseTask.
+
+
+        :param created_by: The created_by of this StoryResponseTask.  # noqa: E501
+        :type: AttachmentResponseParentCreatedBy
+        """
+
+        self._created_by = created_by
 
     def to_dict(self):
         """Returns the model properties as a dict"""

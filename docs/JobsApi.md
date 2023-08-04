@@ -26,7 +26,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 # create an instance of the API class
 api_instance = asana.JobsApi(asana.ApiClient(configuration))
 job_gid = '12345' # str | Globally unique identifier for the job.
-opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.created_by","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
   # Get a job by id

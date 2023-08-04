@@ -12,7 +12,7 @@ TimeTrackingEntriesApi:
     api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
     body = asana.TaskGidTimeTrackingEntriesBody({"param1": "value1", "param2": "value2",}) # TaskGidTimeTrackingEntriesBody | Information about the time tracking entry.
     task_gid = '321654' # str | The task to operate on.
-    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.created_by","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
       # Create a time tracking entry
@@ -73,7 +73,7 @@ TimeTrackingEntriesApi:
     # create an instance of the API class
     api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
     time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
-    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.created_by","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
       # Get a time tracking entry
@@ -94,7 +94,7 @@ TimeTrackingEntriesApi:
     api_instance = asana.TimeTrackingEntriesApi(asana.ApiClient(configuration))
     body = asana.TimeTrackingEntriesTimeTrackingEntryGidBody({"param1": "value1", "param2": "value2",}) # TimeTrackingEntriesTimeTrackingEntryGidBody | The updated fields for the time tracking entry.
     time_tracking_entry_gid = '917392' # str | Globally unique identifier for the time tracking entry.
-    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    opt_fields = ["created_at","created_by","created_by.name","duration_minutes","entered_on","task","task.created_by","task.name","task.resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
       # Update a time tracking entry

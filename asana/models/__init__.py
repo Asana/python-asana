@@ -42,6 +42,7 @@ from asana.models.attachment_response import AttachmentResponse
 from asana.models.attachment_response_array import AttachmentResponseArray
 from asana.models.attachment_response_data import AttachmentResponseData
 from asana.models.attachment_response_parent import AttachmentResponseParent
+from asana.models.attachment_response_parent_created_by import AttachmentResponseParentCreatedBy
 from asana.models.audit_log_event import AuditLogEvent
 from asana.models.audit_log_event_actor import AuditLogEventActor
 from asana.models.audit_log_event_array import AuditLogEventArray
