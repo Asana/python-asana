@@ -31,8 +31,8 @@ api_instance = {{{packageName}}}.{{{classname}}}()
 {{/hasAuthMethods}}
 
 try:
-{{#summary}}  # {{{.}}}
-{{/summary}}  {{#returnType}}api_response = {{/returnType}}api_instance.{{{operationId}}}({{#parameters}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}}){{#returnType}}
-  pprint(api_response){{/returnType}}
+{{#summary}}    # {{{.}}}
+{{/summary}}    {{#returnType}}api_response = {{/returnType}}api_instance.{{{operationId}}}({{#parameters}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}}){{#returnType}}
+    pprint(api_response){{/returnType}}
 except ApiException as e:
-  print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
+    print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)

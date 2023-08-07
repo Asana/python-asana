@@ -242,9 +242,7 @@ Class | Method | HTTP request | Description
 
 {{/authMethods}}
 
-## Documentation for Using the `callApi` method
-
-Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+## Adding deprecation flag to your "asana-enable" header
 
 ```python
 import {{{packageName}}}
@@ -256,100 +254,204 @@ configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
-# GET - get a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "GET",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={"Accept": "application/json; charset=utf-8"},
-    body=None,
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+# Add asana-enable header for the client
+api_client.default_headers['asana-enable'] = 'string_ids'
+```
 
+## Documentation for Using the `callApi` method
+
+Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+
+### Example: GET, POST, PUT, DELETE on tasks
+
+#### GET - get a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+try:
+    # GET - get a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "GET",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### GET - get multiple tasks -> with opt_fields
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+try:
+    # GET - get multiple tasks
+    api_response = api_client.call_api(
+        "/tasks",
+        "GET",
+        path_params={},
+        query_params=[('opt_fields', 'name,notes,projects')],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### POST - create a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+try:
 # POST - create a task
-api_response = api_client.call_api(
-    "/tasks",
-    "POST",
-    path_params={},
-    query_params=[],
-    header_params={
-        "Accept": "application/json; charset=utf-8",
-        "Content-Type": "application/json; charset=utf-8",
-    },
-    body={
-        "data": {
-            "name": "New Task",
-            "projects": ["<YOUR_PROJECT_GID>"],
-        }
-    },
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+    api_response = api_client.call_api(
+        "/tasks",
+        "POST",
+        path_params={},
+        query_params=[],
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "New Task",
+                "projects": ["<YOUR_PROJECT_GID>"],
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
 
+#### PUT - update a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+try:
 # PUT - update a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "PUT",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={
-        "Accept": "application/json; charset=utf-8",
-        "Content-Type": "application/json; charset=utf-8",
-    },
-    body={
-        "data": {
-            "name": "Updated Task",
-        }
-    },
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "PUT",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "Updated Task",
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
 
+#### DELETE - delete a task
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+try:
 # DELETE - delete a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "DELETE",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={"Accept": "application/json; charset=utf-8"},
-    body=None,
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "EmptyResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "DELETE",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "EmptyResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
 ```
 
 ## Author
