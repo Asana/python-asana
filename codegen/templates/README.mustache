@@ -50,9 +50,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-users_api_instance = {{{packageName}}}.UsersApi({{{packageName}}}.ApiClient(configuration))
+users_api_instance = {{{packageName}}}.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | Properties to include in the response. Set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
@@ -75,9 +76,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
 limit = 50
 project = "<YOUR_PROJECT_GID>"
 opt_fields = [
@@ -139,9 +141,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
 body = {{{packageName}}}.TasksBody(
     {
         "name": "New Task",
@@ -166,9 +169,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
 task_gid = "<YOUR_TASK_GID>"
 body = {{{packageName}}}.TasksBody(
     {
@@ -193,9 +197,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = {{{packageName}}}.TasksApi({{{packageName}}}.ApiClient(configuration))
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
 task_gid = "<YOUR_TASK_GID>"
 
 try:
@@ -242,6 +247,51 @@ Class | Method | HTTP request | Description
 
 {{/authMethods}}
 
+## Pagination
+
+### Raw API
+
+You can also use the raw API to fetch one page at a time
+
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+# create an instance of the API class
+task_api_instance = {{{packageName}}}.TasksApi(api_client)
+limit = 10 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+project = '321654' # str | The project to filter tasks on. (optional)
+
+try:
+    # Get multiple tasks with next_page
+    offset = None
+    while True:
+        # If the "offset" is None make a request without providing the offset query parameter
+        # Asana throws an error if we make a request with a "offset" query param of None
+        if offset is None:
+            api_response = task_api_instance.get_tasks(limit=limit, project=project)
+        else:
+            api_response = task_api_instance.get_tasks(limit=limit, project=project, offset=offset)
+
+        # Do something
+        # EX: print response
+        pprint(api_response)
+
+        # Check to see if there is a next_page
+        if api_response.next_page:
+            offset = api_response.next_page.offset
+        else:
+            break
+except ApiException as e:
+  print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
 ## Return response with (`object`, `status`, `headers`)
 
 In the scenario you want to access the response headers or the status code along with the response data you can
@@ -258,7 +308,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = {{{packageName}}}.UsersApi(asana.ApiClient(configuration))
+api_instance = {{{packageName}}}.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 
 try:
@@ -300,7 +350,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = {{{packageName}}}.UsersApi(asana.ApiClient(configuration))
+api_instance = {{{packageName}}}.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 
 try:

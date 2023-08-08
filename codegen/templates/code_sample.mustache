@@ -14,9 +14,10 @@ configuration.api_key['{{{keyParamName}}}'] = 'YOUR_API_KEY'
 # Configure OAuth2 access token for authorization: {{{name}}}
 configuration = {{{packageName}}}.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'{{/isOAuth}}{{/authMethods}}
+api_client = {{{packageName}}}.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = {{{packageName}}}.{{{classname}}}({{{packageName}}}.ApiClient(configuration))
+api_instance = {{{packageName}}}.{{{classname}}}(api_client)
 {{#parameters}}
 {{paramName}} = {{{example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
 {{/parameters}}
