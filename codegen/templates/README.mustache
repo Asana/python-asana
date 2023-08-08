@@ -242,8 +242,36 @@ Class | Method | HTTP request | Description
 
 {{/authMethods}}
 
+## Return response with (`object`, `status`, `headers`)
+
+In the scenario you want to access the response headers or the status code along with the response data you can
+provide the `_return_http_data_only` parameter argument in the request method and set the value to `False`
+
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+# create an instance of the API class
+api_instance = {{{packageName}}}.UsersApi(asana.ApiClient(configuration))
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+
+try:
+    # Get a user - Add asana-enable in the request
+    api_response = api_instance.get_user(user_gid, _return_http_data_only=False) # returns a tuple: (object, status, headers)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
 ## Adding deprecation flag to your "asana-enable" header
 
+### On the client
 ```python
 import {{{packageName}}}
 from {{{packageName}}}.rest import ApiException
@@ -256,6 +284,31 @@ api_client = {{{packageName}}}.ApiClient(configuration)
 
 # Add asana-enable header for the client
 api_client.default_headers['asana-enable'] = 'string_ids'
+```
+
+OR
+
+### On the request
+```python
+import {{{packageName}}}
+from {{{packageName}}}.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = {{{packageName}}}.ApiClient(configuration)
+
+# create an instance of the API class
+api_instance = {{{packageName}}}.UsersApi(asana.ApiClient(configuration))
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+
+try:
+    # Get a user - Add asana-enable in the request
+    api_response = api_instance.get_user(user_gid, header_params={'asana-enable': 'string_ids'})
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
 ```
 
 ## Documentation for Using the `callApi` method
