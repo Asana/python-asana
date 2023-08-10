@@ -288,7 +288,46 @@ except ApiException as e:
   print("Exception when calling TasksApi->get_tasks: %s\n" % e)
 ```
 
-## Return response with (`object`, `status`, `headers`)
+## Accessing repsonse data
+
+By default, the client library returns a class object of the resource. You can use dot notation to access the response data.
+
+TIP: look at the "Return type" section of the documented endpoint to understand which properties are accessible. (EX: [get_task](docs/TasksApi.md#get_task))
+
+### Example: Accessing task data (dot notation)
+```python
+.
+.
+.
+try:
+    task = tasks_api_instance.get_task(task_gid).data
+    task_name = task.name
+    task_notes = task.notes
+except ApiException as e:
+    .
+    .
+    .
+```
+
+If you would like to convert the class object into a dictionary and access the data via bracket notation, you can use the `to_dict()` method.
+
+### Example: Accessing task data (bracket notation)
+```python
+.
+.
+.
+try:
+    task_dict = tasks_api_instance.get_task(task_gid).to_dict()
+    task_dict_data = task_dict['data']
+    task_name = task_dict_data['name']
+    task_notes = task_dict_data['notes']
+except ApiException as e:
+    .
+    .
+    .
+```
+
+## Accessing response status code and headers
 
 In the scenario you want to access the response headers or the status code along with the response data you can
 provide the `_return_http_data_only` parameter argument in the request method and set the value to `False`
