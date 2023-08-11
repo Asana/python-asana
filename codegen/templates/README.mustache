@@ -519,7 +519,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
 try:
-# POST - create a task
+    # POST - create a task
     api_response = api_client.call_api(
         "/tasks",
         "POST",
@@ -562,7 +562,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
 try:
-# PUT - update a task
+    # PUT - update a task
     api_response = api_client.call_api(
         "/tasks/{task_gid}",
         "PUT",
@@ -604,7 +604,7 @@ configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = {{{packageName}}}.ApiClient(configuration)
 
 try:
-# DELETE - delete a task
+    # DELETE - delete a task
     api_response = api_client.call_api(
         "/tasks/{task_gid}",
         "DELETE",
