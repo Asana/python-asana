@@ -45,7 +45,8 @@ class ProjectBase(object):
         'modified_at': 'datetime',
         'notes': 'str',
         'public': 'bool',
-        'start_on': 'date'
+        'start_on': 'date',
+        'default_access_level': 'str'
     }
 
     attribute_map = {
@@ -66,10 +67,11 @@ class ProjectBase(object):
         'modified_at': 'modified_at',
         'notes': 'notes',
         'public': 'public',
-        'start_on': 'start_on'
+        'start_on': 'start_on',
+        'default_access_level': 'default_access_level'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, default_access_level=None):  # noqa: E501
         """ProjectBase - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
@@ -89,6 +91,7 @@ class ProjectBase(object):
         self._notes = None
         self._public = None
         self._start_on = None
+        self._default_access_level = None
         self.discriminator = None
         if gid is not None:
             self.gid = gid
@@ -126,6 +129,8 @@ class ProjectBase(object):
             self.public = public
         if start_on is not None:
             self.start_on = start_on
+        if default_access_level is not None:
+            self.default_access_level = default_access_level
 
     @property
     def gid(self):
@@ -548,6 +553,35 @@ class ProjectBase(object):
         """
 
         self._start_on = start_on
+
+    @property
+    def default_access_level(self):
+        """Gets the default_access_level of this ProjectBase.  # noqa: E501
+
+        The default access for users or teams who join or are added as members to the project.  # noqa: E501
+
+        :return: The default_access_level of this ProjectBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_access_level
+
+    @default_access_level.setter
+    def default_access_level(self, default_access_level):
+        """Sets the default_access_level of this ProjectBase.
+
+        The default access for users or teams who join or are added as members to the project.  # noqa: E501
+
+        :param default_access_level: The default_access_level of this ProjectBase.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor", "commenter", "viewer"]  # noqa: E501
+        if default_access_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `default_access_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_access_level, allowed_values)
+            )
+
+        self._default_access_level = default_access_level
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -26,9 +26,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.UsersApi(asana.ApiClient(configuration))
+api_instance = asana.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 resource_type = 'project' # str | The resource type of favorites to be returned. (default to project)
 workspace = '1234' # str | The workspace in which to get favorites.
@@ -37,11 +38,11 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["name","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a user's favorites
-  api_response = api_instance.get_favorites_for_user(user_gid, resource_type, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a user's favorites
+    api_response = api_instance.get_favorites_for_user(user_gid, resource_type, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling UsersApi->get_favorites_for_user: %s\n" % e)
+    print("Exception when calling UsersApi->get_favorites_for_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -86,18 +87,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.UsersApi(asana.ApiClient(configuration))
+api_instance = asana.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a user
-  api_response = api_instance.get_user(user_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a user
+    api_response = api_instance.get_user(user_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling UsersApi->get_user: %s\n" % e)
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -138,9 +140,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.UsersApi(asana.ApiClient(configuration))
+api_instance = asana.UsersApi(api_client)
 workspace = '1331' # str | The workspace or organization ID to filter users on. (optional)
 team = '15627' # str | The team ID to filter users on. (optional)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
@@ -148,11 +151,11 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["email","name","offset","path","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","uri","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get multiple users
-  api_response = api_instance.get_users(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get multiple users
+    api_response = api_instance.get_users(workspace=workspace, team=team, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling UsersApi->get_users: %s\n" % e)
+    print("Exception when calling UsersApi->get_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -196,19 +199,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.UsersApi(asana.ApiClient(configuration))
+api_instance = asana.UsersApi(api_client)
 team_gid = '159874' # str | Globally unique identifier for the team.
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get users in a team
-  api_response = api_instance.get_users_for_team(team_gid, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get users in a team
+    api_response = api_instance.get_users_for_team(team_gid, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling UsersApi->get_users_for_team: %s\n" % e)
+    print("Exception when calling UsersApi->get_users_for_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -250,19 +254,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.UsersApi(asana.ApiClient(configuration))
+api_instance = asana.UsersApi(api_client)
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get users in a workspace or organization
-  api_response = api_instance.get_users_for_workspace(workspace_gid, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get users in a workspace or organization
+    api_response = api_instance.get_users_for_workspace(workspace_gid, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling UsersApi->get_users_for_workspace: %s\n" % e)
+    print("Exception when calling UsersApi->get_users_for_workspace: %s\n" % e)
 ```
 
 ### Parameters

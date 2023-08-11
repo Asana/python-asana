@@ -31,19 +31,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalGidAddFollowersBody({"param1": "value1", "param2": "value2",}) # GoalGidAddFollowersBody | The followers to be added as collaborators
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Add a collaborator to a goal
-  api_response = api_instance.add_followers(body, goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Add a collaborator to a goal
+    api_response = api_instance.add_followers(body, goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->add_followers: %s\n" % e)
+    print("Exception when calling GoalsApi->add_followers: %s\n" % e)
 ```
 
 ### Parameters
@@ -85,18 +86,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalsBody({"param1": "value1", "param2": "value2",}) # GoalsBody | The goal to create.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Create a goal
-  api_response = api_instance.create_goal(body, opt_fields=opt_fields)
-  pprint(api_response)
+    # Create a goal
+    api_response = api_instance.create_goal(body, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->create_goal: %s\n" % e)
+    print("Exception when calling GoalsApi->create_goal: %s\n" % e)
 ```
 
 ### Parameters
@@ -137,19 +139,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalGidSetMetricBody({"param1": "value1", "param2": "value2",}) # GoalGidSetMetricBody | The goal metric to create.
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Create a goal metric
-  api_response = api_instance.create_goal_metric(body, goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Create a goal metric
+    api_response = api_instance.create_goal_metric(body, goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->create_goal_metric: %s\n" % e)
+    print("Exception when calling GoalsApi->create_goal_metric: %s\n" % e)
 ```
 
 ### Parameters
@@ -191,17 +194,18 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 
 try:
-  # Delete a goal
-  api_response = api_instance.delete_goal(goal_gid)
-  pprint(api_response)
+    # Delete a goal
+    api_response = api_instance.delete_goal(goal_gid)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->delete_goal: %s\n" % e)
+    print("Exception when calling GoalsApi->delete_goal: %s\n" % e)
 ```
 
 ### Parameters
@@ -241,18 +245,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a goal
-  api_response = api_instance.get_goal(goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a goal
+    api_response = api_instance.get_goal(goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->get_goal: %s\n" % e)
+    print("Exception when calling GoalsApi->get_goal: %s\n" % e)
 ```
 
 ### Parameters
@@ -293,9 +298,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 portfolio = '159874' # str | Globally unique identifier for supporting portfolio. (optional)
 project = '512241' # str | Globally unique identifier for supporting project. (optional)
 is_workspace_level = false # bool | Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter. (optional)
@@ -307,11 +313,11 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","offset","owner","owner.name","path","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get goals
-  api_response = api_instance.get_goals(portfolio=portfolio, project=project, is_workspace_level=is_workspace_level, team=team, workspace=workspace, time_periods=time_periods, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get goals
+    api_response = api_instance.get_goals(portfolio=portfolio, project=project, is_workspace_level=is_workspace_level, team=team, workspace=workspace, time_periods=time_periods, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->get_goals: %s\n" % e)
+    print("Exception when calling GoalsApi->get_goals: %s\n" % e)
 ```
 
 ### Parameters
@@ -359,18 +365,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get parent goals from a goal
-  api_response = api_instance.get_parent_goals_for_goal(goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get parent goals from a goal
+    api_response = api_instance.get_parent_goals_for_goal(goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->get_parent_goals_for_goal: %s\n" % e)
+    print("Exception when calling GoalsApi->get_parent_goals_for_goal: %s\n" % e)
 ```
 
 ### Parameters
@@ -411,19 +418,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalGidRemoveFollowersBody({"param1": "value1", "param2": "value2",}) # GoalGidRemoveFollowersBody | The followers to be removed as collaborators
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Remove a collaborator from a goal
-  api_response = api_instance.remove_followers(body, goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Remove a collaborator from a goal
+    api_response = api_instance.remove_followers(body, goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->remove_followers: %s\n" % e)
+    print("Exception when calling GoalsApi->remove_followers: %s\n" % e)
 ```
 
 ### Parameters
@@ -465,19 +473,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalsGoalGidBody({"param1": "value1", "param2": "value2",}) # GoalsGoalGidBody | The updated fields for the goal.
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a goal
-  api_response = api_instance.update_goal(body, goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a goal
+    api_response = api_instance.update_goal(body, goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->update_goal: %s\n" % e)
+    print("Exception when calling GoalsApi->update_goal: %s\n" % e)
 ```
 
 ### Parameters
@@ -519,19 +528,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.GoalsApi(asana.ApiClient(configuration))
+api_instance = asana.GoalsApi(api_client)
 body = asana.GoalGidSetMetricCurrentValueBody({"param1": "value1", "param2": "value2",}) # GoalGidSetMetricCurrentValueBody | The updated fields for the goal metric.
 goal_gid = '12345' # str | Globally unique identifier for the goal.
 opt_fields = ["current_status_update","current_status_update.resource_subtype","current_status_update.title","due_on","followers","followers.name","html_notes","is_workspace_level","liked","likes","likes.user","likes.user.name","metric","metric.can_manage","metric.currency_code","metric.current_display_value","metric.current_number_value","metric.initial_number_value","metric.precision","metric.progress_source","metric.resource_subtype","metric.target_number_value","metric.unit","name","notes","num_likes","owner","owner.name","start_on","status","team","team.name","time_period","time_period.display_name","time_period.end_on","time_period.period","time_period.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a goal metric
-  api_response = api_instance.update_goal_metric(body, goal_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a goal metric
+    api_response = api_instance.update_goal_metric(body, goal_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling GoalsApi->update_goal_metric: %s\n" % e)
+    print("Exception when calling GoalsApi->update_goal_metric: %s\n" % e)
 ```
 
 ### Parameters

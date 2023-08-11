@@ -26,19 +26,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WorkspacesApi(asana.ApiClient(configuration))
+api_instance = asana.WorkspacesApi(api_client)
 body = asana.WorkspaceGidAddUserBody({"param1": "value1", "param2": "value2",}) # WorkspaceGidAddUserBody | The user to add to the workspace.
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Add a user to a workspace or organization
-  api_response = api_instance.add_user_for_workspace(body, workspace_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Add a user to a workspace or organization
+    api_response = api_instance.add_user_for_workspace(body, workspace_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WorkspacesApi->add_user_for_workspace: %s\n" % e)
+    print("Exception when calling WorkspacesApi->add_user_for_workspace: %s\n" % e)
 ```
 
 ### Parameters
@@ -80,18 +81,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WorkspacesApi(asana.ApiClient(configuration))
+api_instance = asana.WorkspacesApi(api_client)
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 opt_fields = ["email_domains","is_organization","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a workspace
-  api_response = api_instance.get_workspace(workspace_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a workspace
+    api_response = api_instance.get_workspace(workspace_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WorkspacesApi->get_workspace: %s\n" % e)
+    print("Exception when calling WorkspacesApi->get_workspace: %s\n" % e)
 ```
 
 ### Parameters
@@ -132,19 +134,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WorkspacesApi(asana.ApiClient(configuration))
+api_instance = asana.WorkspacesApi(api_client)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["email_domains","is_organization","name","offset","path","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get multiple workspaces
-  api_response = api_instance.get_workspaces(limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get multiple workspaces
+    api_response = api_instance.get_workspaces(limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WorkspacesApi->get_workspaces: %s\n" % e)
+    print("Exception when calling WorkspacesApi->get_workspaces: %s\n" % e)
 ```
 
 ### Parameters
@@ -186,18 +189,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WorkspacesApi(asana.ApiClient(configuration))
+api_instance = asana.WorkspacesApi(api_client)
 body = asana.WorkspaceGidRemoveUserBody({"param1": "value1", "param2": "value2",}) # WorkspaceGidRemoveUserBody | The user to remove from the workspace.
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 
 try:
-  # Remove a user from a workspace or organization
-  api_response = api_instance.remove_user_for_workspace(body, workspace_gid)
-  pprint(api_response)
+    # Remove a user from a workspace or organization
+    api_response = api_instance.remove_user_for_workspace(body, workspace_gid)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WorkspacesApi->remove_user_for_workspace: %s\n" % e)
+    print("Exception when calling WorkspacesApi->remove_user_for_workspace: %s\n" % e)
 ```
 
 ### Parameters
@@ -238,19 +242,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WorkspacesApi(asana.ApiClient(configuration))
+api_instance = asana.WorkspacesApi(api_client)
 body = asana.WorkspacesWorkspaceGidBody({"param1": "value1", "param2": "value2",}) # WorkspacesWorkspaceGidBody | The workspace object with all updated properties.
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 opt_fields = ["email_domains","is_organization","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a workspace
-  api_response = api_instance.update_workspace(body, workspace_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a workspace
+    api_response = api_instance.update_workspace(body, workspace_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WorkspacesApi->update_workspace: %s\n" % e)
+    print("Exception when calling WorkspacesApi->update_workspace: %s\n" % e)
 ```
 
 ### Parameters

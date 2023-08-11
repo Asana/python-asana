@@ -7,18 +7,19 @@ WorkspaceMembershipsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.WorkspaceMembershipsApi(asana.ApiClient(configuration))
+    api_instance = asana.WorkspaceMembershipsApi(api_client)
     workspace_membership_gid = '12345' # str | 
     opt_fields = ["created_at","is_active","is_admin","is_guest","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get a workspace membership
-      api_response = api_instance.get_workspace_membership(workspace_membership_gid, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get a workspace membership
+        api_response = api_instance.get_workspace_membership(workspace_membership_gid, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling WorkspaceMembershipsApi->get_workspace_membership: %s\n" % e)
+        print("Exception when calling WorkspaceMembershipsApi->get_workspace_membership: %s\n" % e)
   get_workspace_memberships_for_user: |-
     import asana
     from asana.rest import ApiException
@@ -27,20 +28,21 @@ WorkspaceMembershipsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.WorkspaceMembershipsApi(asana.ApiClient(configuration))
+    api_instance = asana.WorkspaceMembershipsApi(api_client)
     user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
     limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
     offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
     opt_fields = ["created_at","is_active","is_admin","is_guest","offset","path","uri","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get workspace memberships for a user
-      api_response = api_instance.get_workspace_memberships_for_user(user_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get workspace memberships for a user
+        api_response = api_instance.get_workspace_memberships_for_user(user_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_user: %s\n" % e)
+        print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_user: %s\n" % e)
   get_workspace_memberships_for_workspace: |-
     import asana
     from asana.rest import ApiException
@@ -49,9 +51,10 @@ WorkspaceMembershipsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.WorkspaceMembershipsApi(asana.ApiClient(configuration))
+    api_instance = asana.WorkspaceMembershipsApi(api_client)
     workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
     user = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (optional)
     limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
@@ -59,8 +62,8 @@ WorkspaceMembershipsApi:
     opt_fields = ["created_at","is_active","is_admin","is_guest","offset","path","uri","user","user.name","user_task_list","user_task_list.name","user_task_list.owner","user_task_list.workspace","vacation_dates","vacation_dates.end_on","vacation_dates.start_on","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get the workspace memberships for a workspace
-      api_response = api_instance.get_workspace_memberships_for_workspace(workspace_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get the workspace memberships for a workspace
+        api_response = api_instance.get_workspace_memberships_for_workspace(workspace_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_workspace: %s\n" % e)
+        print("Exception when calling WorkspaceMembershipsApi->get_workspace_memberships_for_workspace: %s\n" % e)

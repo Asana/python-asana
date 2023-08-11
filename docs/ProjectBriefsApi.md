@@ -25,19 +25,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectBriefsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectBriefsApi(api_client)
 body = asana.ProjectGidProjectBriefsBody({"param1": "value1", "param2": "value2",}) # ProjectGidProjectBriefsBody | The project brief to create.
 project_gid = '1331' # str | Globally unique identifier for the project.
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Create a project brief
-  api_response = api_instance.create_project_brief(body, project_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Create a project brief
+    api_response = api_instance.create_project_brief(body, project_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectBriefsApi->create_project_brief: %s\n" % e)
+    print("Exception when calling ProjectBriefsApi->create_project_brief: %s\n" % e)
 ```
 
 ### Parameters
@@ -79,17 +80,18 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectBriefsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectBriefsApi(api_client)
 project_brief_gid = '12345' # str | Globally unique identifier for the project brief.
 
 try:
-  # Delete a project brief
-  api_response = api_instance.delete_project_brief(project_brief_gid)
-  pprint(api_response)
+    # Delete a project brief
+    api_response = api_instance.delete_project_brief(project_brief_gid)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectBriefsApi->delete_project_brief: %s\n" % e)
+    print("Exception when calling ProjectBriefsApi->delete_project_brief: %s\n" % e)
 ```
 
 ### Parameters
@@ -129,18 +131,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectBriefsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectBriefsApi(api_client)
 project_brief_gid = '12345' # str | Globally unique identifier for the project brief.
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a project brief
-  api_response = api_instance.get_project_brief(project_brief_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a project brief
+    api_response = api_instance.get_project_brief(project_brief_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectBriefsApi->get_project_brief: %s\n" % e)
+    print("Exception when calling ProjectBriefsApi->get_project_brief: %s\n" % e)
 ```
 
 ### Parameters
@@ -181,19 +184,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectBriefsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectBriefsApi(api_client)
 body = asana.ProjectBriefsProjectBriefGidBody({"param1": "value1", "param2": "value2",}) # ProjectBriefsProjectBriefGidBody | The updated fields for the project brief.
 project_brief_gid = '12345' # str | Globally unique identifier for the project brief.
 opt_fields = ["html_text","permalink_url","project","project.name","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a project brief
-  api_response = api_instance.update_project_brief(body, project_brief_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a project brief
+    api_response = api_instance.update_project_brief(body, project_brief_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectBriefsApi->update_project_brief: %s\n" % e)
+    print("Exception when calling ProjectBriefsApi->update_project_brief: %s\n" % e)
 ```
 
 ### Parameters

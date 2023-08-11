@@ -22,9 +22,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.AuditLogAPIApi(asana.ApiClient(configuration))
+api_instance = asana.AuditLogAPIApi(api_client)
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 start_at = '2013-10-20T19:20:30+01:00' # datetime | Filter to events created after this time (inclusive). (optional)
 end_at = '2013-10-20T19:20:30+01:00' # datetime | Filter to events created before this time (exclusive). (optional)
@@ -36,11 +37,11 @@ limit = 50 # int | Results per page. The number of objects to return per page. T
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 
 try:
-  # Get audit log events
-  api_response = api_instance.get_audit_log_events(workspace_gid, start_at=start_at, end_at=end_at, event_type=event_type, actor_type=actor_type, actor_gid=actor_gid, resource_gid=resource_gid, limit=limit, offset=offset)
-  pprint(api_response)
+    # Get audit log events
+    api_response = api_instance.get_audit_log_events(workspace_gid, start_at=start_at, end_at=end_at, event_type=event_type, actor_type=actor_type, actor_gid=actor_gid, resource_gid=resource_gid, limit=limit, offset=offset)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling AuditLogAPIApi->get_audit_log_events: %s\n" % e)
+    print("Exception when calling AuditLogAPIApi->get_audit_log_events: %s\n" % e)
 ```
 
 ### Parameters

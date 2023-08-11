@@ -29,18 +29,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 body = asana.TagsBody({"param1": "value1", "param2": "value2",}) # TagsBody | The tag to create.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Create a tag
-  api_response = api_instance.create_tag(body, opt_fields=opt_fields)
-  pprint(api_response)
+    # Create a tag
+    api_response = api_instance.create_tag(body, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->create_tag: %s\n" % e)
+    print("Exception when calling TagsApi->create_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -81,19 +82,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 body = asana.WorkspaceGidTagsBody({"param1": "value1", "param2": "value2",}) # WorkspaceGidTagsBody | The tag to create.
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Create a tag in a workspace
-  api_response = api_instance.create_tag_for_workspace(body, workspace_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Create a tag in a workspace
+    api_response = api_instance.create_tag_for_workspace(body, workspace_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->create_tag_for_workspace: %s\n" % e)
+    print("Exception when calling TagsApi->create_tag_for_workspace: %s\n" % e)
 ```
 
 ### Parameters
@@ -135,17 +137,18 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 tag_gid = '11235' # str | Globally unique identifier for the tag.
 
 try:
-  # Delete a tag
-  api_response = api_instance.delete_tag(tag_gid)
-  pprint(api_response)
+    # Delete a tag
+    api_response = api_instance.delete_tag(tag_gid)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->delete_tag: %s\n" % e)
+    print("Exception when calling TagsApi->delete_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -185,18 +188,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 tag_gid = '11235' # str | Globally unique identifier for the tag.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a tag
-  api_response = api_instance.get_tag(tag_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a tag
+    api_response = api_instance.get_tag(tag_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->get_tag: %s\n" % e)
+    print("Exception when calling TagsApi->get_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -237,20 +241,21 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 workspace = '1331' # str | The workspace to filter tags on. (optional)
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get multiple tags
-  api_response = api_instance.get_tags(limit=limit, offset=offset, workspace=workspace, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get multiple tags
+    api_response = api_instance.get_tags(limit=limit, offset=offset, workspace=workspace, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->get_tags: %s\n" % e)
+    print("Exception when calling TagsApi->get_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -293,20 +298,21 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 task_gid = '321654' # str | The task to operate on.
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a task's tags
-  api_response = api_instance.get_tags_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a task's tags
+    api_response = api_instance.get_tags_for_task(task_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->get_tags_for_task: %s\n" % e)
+    print("Exception when calling TagsApi->get_tags_for_task: %s\n" % e)
 ```
 
 ### Parameters
@@ -349,20 +355,21 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["color","created_at","followers","followers.name","name","notes","offset","path","permalink_url","uri","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get tags in a workspace
-  api_response = api_instance.get_tags_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get tags in a workspace
+    api_response = api_instance.get_tags_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->get_tags_for_workspace: %s\n" % e)
+    print("Exception when calling TagsApi->get_tags_for_workspace: %s\n" % e)
 ```
 
 ### Parameters
@@ -405,18 +412,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TagsApi(asana.ApiClient(configuration))
+api_instance = asana.TagsApi(api_client)
 tag_gid = '11235' # str | Globally unique identifier for the tag.
 opt_fields = ["color","created_at","followers","followers.name","name","notes","permalink_url","workspace","workspace.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a tag
-  api_response = api_instance.update_tag(tag_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a tag
+    api_response = api_instance.update_tag(tag_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TagsApi->update_tag: %s\n" % e)
+    print("Exception when calling TagsApi->update_tag: %s\n" % e)
 ```
 
 ### Parameters

@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **notes** | **str** | Free-form textual information associated with the project (ie., its description). | [optional] 
 **public** | **bool** | True if the project is public to its team. | [optional] 
 **start_on** | **date** | The day on which work for this project begins, or null if the project has no start date. This takes a date with &#x60;YYYY-MM-DD&#x60; format. *Note: &#x60;due_on&#x60; or &#x60;due_at&#x60; must be present in the request when setting or unsetting the &#x60;start_on&#x60; parameter. Additionally, &#x60;start_on&#x60; and &#x60;due_on&#x60; cannot be the same date.* | [optional] 
+**default_access_level** | **str** | The default access for users or teams who join or are added as members to the project. | [optional] 
 **custom_fields** | **dict(str, str)** | An object where each key is a Custom Field GID and each value is an enum GID, string, number, or object. | [optional] 
 **followers** | **str** | *Create-only*. Comma separated string of users. Followers are a subset of members who have opted in to receive \&quot;tasks added\&quot; notifications for a project. | [optional] 
 **owner** | **str** | The current owner of the project, may be null. | [optional] 
 **team** | **str** | The team that this project is shared with. | [optional] 
-**default_access_level** | **str** | The default access users for users who join or are added as members to the project. | [optional] 
 **workspace** | **str** | The &#x60;gid&#x60; of a workspace. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

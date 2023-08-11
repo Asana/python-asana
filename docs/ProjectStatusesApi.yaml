@@ -7,19 +7,20 @@ ProjectStatusesApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.ProjectStatusesApi(asana.ApiClient(configuration))
+    api_instance = asana.ProjectStatusesApi(api_client)
     body = asana.ProjectGidProjectStatusesBody({"param1": "value1", "param2": "value2",}) # ProjectGidProjectStatusesBody | The project status to create.
     project_gid = '1331' # str | Globally unique identifier for the project.
     opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Create a project status
-      api_response = api_instance.create_project_status_for_project(body, project_gid, opt_fields=opt_fields)
-      pprint(api_response)
+        # Create a project status
+        api_response = api_instance.create_project_status_for_project(body, project_gid, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling ProjectStatusesApi->create_project_status_for_project: %s\n" % e)
+        print("Exception when calling ProjectStatusesApi->create_project_status_for_project: %s\n" % e)
   delete_project_status: |-
     import asana
     from asana.rest import ApiException
@@ -28,17 +29,18 @@ ProjectStatusesApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.ProjectStatusesApi(asana.ApiClient(configuration))
+    api_instance = asana.ProjectStatusesApi(api_client)
     project_status_gid = '321654' # str | The project status update to get.
     
     try:
-      # Delete a project status
-      api_response = api_instance.delete_project_status(project_status_gid)
-      pprint(api_response)
+        # Delete a project status
+        api_response = api_instance.delete_project_status(project_status_gid)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling ProjectStatusesApi->delete_project_status: %s\n" % e)
+        print("Exception when calling ProjectStatusesApi->delete_project_status: %s\n" % e)
   get_project_status: |-
     import asana
     from asana.rest import ApiException
@@ -47,18 +49,19 @@ ProjectStatusesApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.ProjectStatusesApi(asana.ApiClient(configuration))
+    api_instance = asana.ProjectStatusesApi(api_client)
     project_status_gid = '321654' # str | The project status update to get.
     opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","text","title"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get a project status
-      api_response = api_instance.get_project_status(project_status_gid, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get a project status
+        api_response = api_instance.get_project_status(project_status_gid, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling ProjectStatusesApi->get_project_status: %s\n" % e)
+        print("Exception when calling ProjectStatusesApi->get_project_status: %s\n" % e)
   get_project_statuses_for_project: |-
     import asana
     from asana.rest import ApiException
@@ -67,17 +70,18 @@ ProjectStatusesApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.ProjectStatusesApi(asana.ApiClient(configuration))
+    api_instance = asana.ProjectStatusesApi(api_client)
     project_gid = '1331' # str | Globally unique identifier for the project.
     limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
     offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
     opt_fields = ["author","author.name","color","created_at","created_by","created_by.name","html_text","modified_at","offset","path","text","title","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get statuses from a project
-      api_response = api_instance.get_project_statuses_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get statuses from a project
+        api_response = api_instance.get_project_statuses_for_project(project_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling ProjectStatusesApi->get_project_statuses_for_project: %s\n" % e)
+        print("Exception when calling ProjectStatusesApi->get_project_statuses_for_project: %s\n" % e)

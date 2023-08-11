@@ -26,18 +26,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
+api_instance = asana.WebhooksApi(api_client)
 body = asana.WebhooksBody({"param1": "value1", "param2": "value2",}) # WebhooksBody | The webhook workspace and target.
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Establish a webhook
-  api_response = api_instance.create_webhook(body, opt_fields=opt_fields)
-  pprint(api_response)
+    # Establish a webhook
+    api_response = api_instance.create_webhook(body, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WebhooksApi->create_webhook: %s\n" % e)
+    print("Exception when calling WebhooksApi->create_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -78,17 +79,18 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
+api_instance = asana.WebhooksApi(api_client)
 webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 
 try:
-  # Delete a webhook
-  api_response = api_instance.delete_webhook(webhook_gid)
-  pprint(api_response)
+    # Delete a webhook
+    api_response = api_instance.delete_webhook(webhook_gid)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WebhooksApi->delete_webhook: %s\n" % e)
+    print("Exception when calling WebhooksApi->delete_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -128,18 +130,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
+api_instance = asana.WebhooksApi(api_client)
 webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a webhook
-  api_response = api_instance.get_webhook(webhook_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a webhook
+    api_response = api_instance.get_webhook(webhook_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WebhooksApi->get_webhook: %s\n" % e)
+    print("Exception when calling WebhooksApi->get_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -180,9 +183,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
+api_instance = asana.WebhooksApi(api_client)
 workspace = '1331' # str | The workspace to query for webhooks in.
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
@@ -190,11 +194,11 @@ resource = '51648' # str | Only return webhooks for the given resource. (optiona
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","offset","path","resource","resource.name","target","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get multiple webhooks
-  api_response = api_instance.get_webhooks(workspace, limit=limit, offset=offset, resource=resource, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get multiple webhooks
+    api_response = api_instance.get_webhooks(workspace, limit=limit, offset=offset, resource=resource, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WebhooksApi->get_webhooks: %s\n" % e)
+    print("Exception when calling WebhooksApi->get_webhooks: %s\n" % e)
 ```
 
 ### Parameters
@@ -238,19 +242,20 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.WebhooksApi(asana.ApiClient(configuration))
+api_instance = asana.WebhooksApi(api_client)
 body = asana.WebhooksWebhookGidBody({"param1": "value1", "param2": "value2",}) # WebhooksWebhookGidBody | The updated filters for the webhook.
 webhook_gid = '12345' # str | Globally unique identifier for the webhook.
 opt_fields = ["active","created_at","filters","filters.action","filters.fields","filters.resource_subtype","last_failure_at","last_failure_content","last_success_at","resource","resource.name","target"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Update a webhook
-  api_response = api_instance.update_webhook(body, webhook_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Update a webhook
+    api_response = api_instance.update_webhook(body, webhook_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling WebhooksApi->update_webhook: %s\n" % e)
+    print("Exception when calling WebhooksApi->update_webhook: %s\n" % e)
 ```
 
 ### Parameters

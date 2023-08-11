@@ -7,18 +7,19 @@ TimePeriodsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.TimePeriodsApi(asana.ApiClient(configuration))
+    api_instance = asana.TimePeriodsApi(api_client)
     time_period_gid = '917392' # str | Globally unique identifier for the time period.
     opt_fields = ["display_name","end_on","parent","parent.display_name","parent.end_on","parent.period","parent.start_on","period","start_on"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get a time period
-      api_response = api_instance.get_time_period(time_period_gid, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get a time period
+        api_response = api_instance.get_time_period(time_period_gid, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling TimePeriodsApi->get_time_period: %s\n" % e)
+        print("Exception when calling TimePeriodsApi->get_time_period: %s\n" % e)
   get_time_periods: |-
     import asana
     from asana.rest import ApiException
@@ -27,9 +28,10 @@ TimePeriodsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.TimePeriodsApi(asana.ApiClient(configuration))
+    api_instance = asana.TimePeriodsApi(api_client)
     workspace = '31326' # str | Globally unique identifier for the workspace.
     limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
     offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
@@ -38,8 +40,8 @@ TimePeriodsApi:
     opt_fields = ["display_name","end_on","offset","parent","parent.display_name","parent.end_on","parent.period","parent.start_on","path","period","start_on","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get time periods
-      api_response = api_instance.get_time_periods(workspace, limit=limit, offset=offset, start_on=start_on, end_on=end_on, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get time periods
+        api_response = api_instance.get_time_periods(workspace, limit=limit, offset=offset, start_on=start_on, end_on=end_on, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling TimePeriodsApi->get_time_periods: %s\n" % e)
+        print("Exception when calling TimePeriodsApi->get_time_periods: %s\n" % e)

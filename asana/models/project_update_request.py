@@ -46,6 +46,7 @@ class ProjectUpdateRequest(object):
         'notes': 'str',
         'public': 'bool',
         'start_on': 'date',
+        'default_access_level': 'str',
         'custom_fields': 'dict(str, str)',
         'followers': 'str',
         'owner': 'str',
@@ -71,13 +72,14 @@ class ProjectUpdateRequest(object):
         'notes': 'notes',
         'public': 'public',
         'start_on': 'start_on',
+        'default_access_level': 'default_access_level',
         'custom_fields': 'custom_fields',
         'followers': 'followers',
         'owner': 'owner',
         'team': 'team'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, custom_fields=None, followers=None, owner=None, team=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, default_access_level=None, custom_fields=None, followers=None, owner=None, team=None):  # noqa: E501
         """ProjectUpdateRequest - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
@@ -97,6 +99,7 @@ class ProjectUpdateRequest(object):
         self._notes = None
         self._public = None
         self._start_on = None
+        self._default_access_level = None
         self._custom_fields = None
         self._followers = None
         self._owner = None
@@ -138,6 +141,8 @@ class ProjectUpdateRequest(object):
             self.public = public
         if start_on is not None:
             self.start_on = start_on
+        if default_access_level is not None:
+            self.default_access_level = default_access_level
         if custom_fields is not None:
             self.custom_fields = custom_fields
         if followers is not None:
@@ -568,6 +573,35 @@ class ProjectUpdateRequest(object):
         """
 
         self._start_on = start_on
+
+    @property
+    def default_access_level(self):
+        """Gets the default_access_level of this ProjectUpdateRequest.  # noqa: E501
+
+        The default access for users or teams who join or are added as members to the project.  # noqa: E501
+
+        :return: The default_access_level of this ProjectUpdateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_access_level
+
+    @default_access_level.setter
+    def default_access_level(self, default_access_level):
+        """Sets the default_access_level of this ProjectUpdateRequest.
+
+        The default access for users or teams who join or are added as members to the project.  # noqa: E501
+
+        :param default_access_level: The default_access_level of this ProjectUpdateRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor", "commenter", "viewer"]  # noqa: E501
+        if default_access_level not in allowed_values:
+            raise ValueError(
+                "Invalid value for `default_access_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_access_level, allowed_values)
+            )
+
+        self._default_access_level = default_access_level
 
     @property
     def custom_fields(self):

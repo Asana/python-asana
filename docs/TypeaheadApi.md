@@ -22,9 +22,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TypeaheadApi(asana.ApiClient(configuration))
+api_instance = asana.TypeaheadApi(api_client)
 workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
 resource_type = 'user' # str | The type of values the typeahead should return. You can choose from one of the following: `custom_field`, `project`, `project_template`, `portfolio`, `tag`, `task`, and `user`. Note that unlike in the names of endpoints, the types listed here are in singular form (e.g. `task`). Using multiple types is not yet supported. (default to user)
 type = 'user' # str | *Deprecated: new integrations should prefer the resource_type field.* (optional) (default to user)
@@ -33,11 +34,11 @@ count = 20 # int | The number of results to return. The default is 20 if this pa
 opt_fields = ["name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get objects via typeahead
-  api_response = api_instance.typeahead_for_workspace(workspace_gid, resource_type, type=type, query=query, count=count, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get objects via typeahead
+    api_response = api_instance.typeahead_for_workspace(workspace_gid, resource_type, type=type, query=query, count=count, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TypeaheadApi->typeahead_for_workspace: %s\n" % e)
+    print("Exception when calling TypeaheadApi->typeahead_for_workspace: %s\n" % e)
 ```
 
 ### Parameters

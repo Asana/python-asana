@@ -25,18 +25,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TeamMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.TeamMembershipsApi(api_client)
 team_membership_gid = '724362' # str | 
 opt_fields = ["is_admin","is_guest","is_limited_access","team","team.name","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a team membership
-  api_response = api_instance.get_team_membership(team_membership_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a team membership
+    api_response = api_instance.get_team_membership(team_membership_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TeamMembershipsApi->get_team_membership: %s\n" % e)
+    print("Exception when calling TeamMembershipsApi->get_team_membership: %s\n" % e)
 ```
 
 ### Parameters
@@ -77,9 +78,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TeamMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.TeamMembershipsApi(api_client)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 team = '159874' # str | Globally unique identifier for the team. (optional)
@@ -88,11 +90,11 @@ workspace = '31326' # str | Globally unique identifier for the workspace. This p
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get team memberships
-  api_response = api_instance.get_team_memberships(limit=limit, offset=offset, team=team, user=user, workspace=workspace, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get team memberships
+    api_response = api_instance.get_team_memberships(limit=limit, offset=offset, team=team, user=user, workspace=workspace, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TeamMembershipsApi->get_team_memberships: %s\n" % e)
+    print("Exception when calling TeamMembershipsApi->get_team_memberships: %s\n" % e)
 ```
 
 ### Parameters
@@ -137,20 +139,21 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TeamMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.TeamMembershipsApi(api_client)
 team_gid = '159874' # str | Globally unique identifier for the team.
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
 offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get memberships from a team
-  api_response = api_instance.get_team_memberships_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get memberships from a team
+    api_response = api_instance.get_team_memberships_for_team(team_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TeamMembershipsApi->get_team_memberships_for_team: %s\n" % e)
+    print("Exception when calling TeamMembershipsApi->get_team_memberships_for_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -193,9 +196,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.TeamMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.TeamMembershipsApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 workspace = '31326' # str | Globally unique identifier for the workspace.
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
@@ -203,11 +207,11 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["is_admin","is_guest","is_limited_access","offset","path","team","team.name","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get memberships from a user
-  api_response = api_instance.get_team_memberships_for_user(user_gid, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get memberships from a user
+    api_response = api_instance.get_team_memberships_for_user(user_gid, workspace, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling TeamMembershipsApi->get_team_memberships_for_user: %s\n" % e)
+    print("Exception when calling TeamMembershipsApi->get_team_memberships_for_user: %s\n" % e)
 ```
 
 ### Parameters

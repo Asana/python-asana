@@ -22,18 +22,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.JobsApi(asana.ApiClient(configuration))
+api_instance = asana.JobsApi(api_client)
 job_gid = '12345' # str | Globally unique identifier for the job.
 opt_fields = ["new_project","new_project.name","new_project_template","new_project_template.name","new_task","new_task.created_by","new_task.name","new_task.resource_subtype","resource_subtype","status"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a job by id
-  api_response = api_instance.get_job(job_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a job by id
+    api_response = api_instance.get_job(job_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling JobsApi->get_job: %s\n" % e)
+    print("Exception when calling JobsApi->get_job: %s\n" % e)
 ```
 
 ### Parameters

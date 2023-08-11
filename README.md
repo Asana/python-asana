@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.4
+- Package version: 4.0.5
 
 ## Requirements.
 
@@ -47,9 +47,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: 
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-users_api_instance = asana.UsersApi(asana.ApiClient(configuration))
+users_api_instance = asana.UsersApi(api_client)
 user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 opt_fields = ["email","name","photo","photo.image_1024x1024","photo.image_128x128","photo.image_21x21","photo.image_27x27","photo.image_36x36","photo.image_60x60","workspaces","workspaces.name"] # list[str] | Properties to include in the response. Set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
@@ -72,9 +73,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: 
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = asana.TasksApi(asana.ApiClient(configuration))
+tasks_api_instance = asana.TasksApi(api_client)
 limit = 50
 project = "<YOUR_PROJECT_GID>"
 opt_fields = [
@@ -136,9 +138,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: 
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = asana.TasksApi(asana.ApiClient(configuration))
+tasks_api_instance = asana.TasksApi(api_client)
 body = asana.TasksBody(
     {
         "name": "New Task",
@@ -163,9 +166,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: 
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = asana.TasksApi(asana.ApiClient(configuration))
+tasks_api_instance = asana.TasksApi(api_client)
 task_gid = "<YOUR_TASK_GID>"
 body = asana.TasksBody(
     {
@@ -190,9 +194,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: 
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-tasks_api_instance = asana.TasksApi(asana.ApiClient(configuration))
+tasks_api_instance = asana.TasksApi(api_client)
 task_gid = "<YOUR_TASK_GID>"
 
 try:
@@ -825,9 +830,10 @@ Class | Method | HTTP request | Description
  - **profile**: Provides access to the user’s name and profile photo through the OpenID Connect user info endpoint.
 
 
-## Documentation for Using the `callApi` method
+## Getting events
 
-Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+In order to get events you will need a sync token. This sync token can be acquired in the error message from the initial
+request to [get_events](docs/EventsApi.md#get_events).
 
 ```python
 import asana
@@ -839,100 +845,369 @@ configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
 api_client = asana.ApiClient(configuration)
 
-# GET - get a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "GET",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={"Accept": "application/json; charset=utf-8"},
-    body=None,
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+# create an instance of the API class
+events_api_instance = asana.EventsApi(api_client)
+resource = '12345' # str | A resource ID to subscribe to. The resource can be a task or project.
+sync = '' # str | A sync token received from the last request, or none on first sync. Events will be returned from the point in time that the sync token was generated. *Note: On your first request, omit the sync token. The response will be the same as for an expired sync token, and will include a new valid sync token.If the sync token is too old (which may happen from time to time) the API will return a `412 Precondition Failed` error, and include a fresh sync token in the response.* (optional)
 
-# POST - create a task
-api_response = api_client.call_api(
-    "/tasks",
-    "POST",
-    path_params={},
-    query_params=[],
-    header_params={
-        "Accept": "application/json; charset=utf-8",
-        "Content-Type": "application/json; charset=utf-8",
-    },
-    body={
-        "data": {
-            "name": "New Task",
-            "projects": ["<YOUR_PROJECT_GID>"],
-        }
-    },
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+try:
+    # Initial request to get the sync token
+    api_response = events_api_instance.get_events(resource, sync=sync)
+except ApiException as e:
+    # Set the sync token
+    sync = json.loads(e.body.decode('utf-8'))['sync']
 
-# PUT - update a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "PUT",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={
-        "Accept": "application/json; charset=utf-8",
-        "Content-Type": "application/json; charset=utf-8",
-    },
-    body={
-        "data": {
-            "name": "Updated Task",
-        }
-    },
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+try:
+    # Follow up request to get events
+    api_response = events_api_instance.get_events(resource, sync=sync)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EventsApi->get_events: %s\n" % e)
+```
 
-# DELETE - delete a task
-api_response = api_client.call_api(
-    "/tasks/{task_gid}",
-    "DELETE",
-    path_params={"task_gid": "<YOUR_TASK_GID>"},
-    query_params=[],
-    header_params={"Accept": "application/json; charset=utf-8"},
-    body=None,
-    post_params=[],
-    files={},
-    response_type=object, # If there is an existing response model for the resource you can use that EX: "EmptyResponseData" or you can specify one of the following types: float, bool, bytes, str, object
-    auth_settings=["oauth2"],
-    async_req=None,
-    _return_http_data_only=True,
-    _preload_content=True,
-    _request_timeout=None,
-    collection_formats={},
-)
-pprint(api_response)
+## Pagination
+
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+task_api_instance = asana.TasksApi(api_client)
+limit = 10 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
+project = '321654' # str | The project to filter tasks on. (optional)
+
+try:
+    # Get multiple tasks with next_page
+    offset = None
+    while True:
+        # If the "offset" is None make a request without providing the offset query parameter
+        # Asana throws an error if we make a request with a "offset" query param of None
+        if offset is None:
+            api_response = task_api_instance.get_tasks(limit=limit, project=project)
+        else:
+            api_response = task_api_instance.get_tasks(limit=limit, project=project, offset=offset)
+
+        # Do something
+        # EX: print response
+        pprint(api_response)
+
+        # Check to see if there is a next_page
+        if api_response.next_page:
+            offset = api_response.next_page.offset
+        else:
+            break
+except ApiException as e:
+  print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+## Accessing repsonse data
+
+By default, the client library returns a class object of the resource. You can use dot notation to access the response data.
+
+TIP: look at the "Return type" section of the documented endpoint to understand which properties are accessible. (EX: [get_task](docs/TasksApi.md#get_task))
+
+### Example: Accessing task data (dot notation)
+```python
+.
+.
+.
+try:
+    task = tasks_api_instance.get_task(task_gid).data
+    task_name = task.name
+    task_notes = task.notes
+except ApiException as e:
+    .
+    .
+    .
+```
+
+If you would like to convert the class object into a dictionary and access the data via bracket notation, you can use the `to_dict()` method.
+
+### Example: Accessing task data (bracket notation)
+```python
+.
+.
+.
+try:
+    task_dict = tasks_api_instance.get_task(task_gid).to_dict()
+    task_dict_data = task_dict['data']
+    task_name = task_dict_data['name']
+    task_notes = task_dict_data['notes']
+except ApiException as e:
+    .
+    .
+    .
+```
+
+## Accessing response status code and headers
+
+In the scenario you want to access the response headers or the status code along with the response data you can
+provide the `_return_http_data_only` parameter argument in the request method and set the value to `False`
+
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+api_instance = asana.UsersApi(api_client)
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+
+try:
+    # Get a user - Add asana-enable in the request
+    api_response = api_instance.get_user(user_gid, _return_http_data_only=False) # returns a tuple: (object, status, headers)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+## Adding deprecation flag to your "asana-enable" header
+
+### On the client
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# Add asana-enable header for the client
+api_client.default_headers['asana-enable'] = 'string_ids'
+```
+
+OR
+
+### On the request
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+api_instance = asana.UsersApi(api_client)
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+
+try:
+    # Get a user - Add asana-enable in the request
+    api_response = api_instance.get_user(user_gid, header_params={'asana-enable': 'string_ids'})
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+## Documentation for Using the `call_api` method
+
+Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+
+### Example: GET, POST, PUT, DELETE on tasks
+
+#### GET - get a task
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+try:
+    # GET - get a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "GET",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### GET - get multiple tasks -> with opt_fields
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+try:
+    # GET - get multiple tasks
+    api_response = api_client.call_api(
+        "/tasks",
+        "GET",
+        path_params={},
+        query_params=[('opt_fields', 'name,notes,projects')],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### POST - create a task
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+try:
+    # POST - create a task
+    api_response = api_client.call_api(
+        "/tasks",
+        "POST",
+        path_params={},
+        query_params=[],
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "New Task",
+                "projects": ["<YOUR_PROJECT_GID>"],
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### PUT - update a task
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+try:
+    # PUT - update a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "PUT",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "Updated Task",
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "TaskResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### DELETE - delete a task
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: 
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+try:
+    # DELETE - delete a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "DELETE",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params=[],
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # If there is an existing response model for the resource you can use that EX: "EmptyResponseData" or you can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["oauth2"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
 ```
 
 ## Author

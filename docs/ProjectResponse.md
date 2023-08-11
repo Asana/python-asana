@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **notes** | **str** | Free-form textual information associated with the project (ie., its description). | [optional] 
 **public** | **bool** | True if the project is public to its team. | [optional] 
 **start_on** | **date** | The day on which work for this project begins, or null if the project has no start date. This takes a date with &#x60;YYYY-MM-DD&#x60; format. *Note: &#x60;due_on&#x60; or &#x60;due_at&#x60; must be present in the request when setting or unsetting the &#x60;start_on&#x60; parameter. Additionally, &#x60;start_on&#x60; and &#x60;due_on&#x60; cannot be the same date.* | [optional] 
+**default_access_level** | **str** | The default access for users or teams who join or are added as members to the project. | [optional] 
 **custom_fields** | [**list[PortfolioResponseCustomFields]**](PortfolioResponseCustomFields.md) | Array of Custom Fields. | [optional] 
 **completed** | **bool** | True if the project is currently marked complete, false if not. | [optional] 
 **completed_at** | **datetime** | The time at which this project was completed, or null if the project is not completed. | [optional] 
@@ -32,7 +33,6 @@ Name | Type | Description | Notes
 **permalink_url** | **str** | A url that points directly to the object within Asana. | [optional] 
 **project_brief** | [**ProjectResponseProjectBrief**](ProjectResponseProjectBrief.md) |  | [optional] 
 **created_from_template** | [**ProjectResponseCreatedFromTemplate**](ProjectResponseCreatedFromTemplate.md) |  | [optional] 
-**default_access_level** | **str** | The default access users for users who join or are added as members to the project. | [optional] 
 **workspace** | [**ProjectResponseWorkspace**](ProjectResponseWorkspace.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

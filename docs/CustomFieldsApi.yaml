@@ -7,18 +7,19 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     body = asana.CustomFieldsBody({"param1": "value1", "param2": "value2",}) # CustomFieldsBody | The custom field object to create.
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Create a custom field
-      api_response = api_instance.create_custom_field(body, opt_fields=opt_fields)
-      pprint(api_response)
+        # Create a custom field
+        api_response = api_instance.create_custom_field(body, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->create_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->create_custom_field: %s\n" % e)
   create_enum_option_for_custom_field: |-
     import asana
     from asana.rest import ApiException
@@ -27,19 +28,20 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     body = asana.CustomFieldGidEnumOptionsBody({"param1": "value1", "param2": "value2",}) # CustomFieldGidEnumOptionsBody | The enum option object to create. (optional)
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Create an enum option
-      api_response = api_instance.create_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
-      pprint(api_response)
+        # Create an enum option
+        api_response = api_instance.create_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->create_enum_option_for_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->create_enum_option_for_custom_field: %s\n" % e)
   delete_custom_field: |-
     import asana
     from asana.rest import ApiException
@@ -48,17 +50,18 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     
     try:
-      # Delete a custom field
-      api_response = api_instance.delete_custom_field(custom_field_gid)
-      pprint(api_response)
+        # Delete a custom field
+        api_response = api_instance.delete_custom_field(custom_field_gid)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->delete_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->delete_custom_field: %s\n" % e)
   get_custom_field: |-
     import asana
     from asana.rest import ApiException
@@ -67,18 +70,19 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get a custom field
-      api_response = api_instance.get_custom_field(custom_field_gid, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get a custom field
+        api_response = api_instance.get_custom_field(custom_field_gid, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->get_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->get_custom_field: %s\n" % e)
   get_custom_fields_for_workspace: |-
     import asana
     from asana.rest import ApiException
@@ -87,20 +91,21 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     workspace_gid = '12345' # str | Globally unique identifier for the workspace or organization.
     limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
     offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.' (optional)
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","offset","path","people_value","people_value.name","precision","resource_subtype","text_value","type","uri"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Get a workspace's custom fields
-      api_response = api_instance.get_custom_fields_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
-      pprint(api_response)
+        # Get a workspace's custom fields
+        api_response = api_instance.get_custom_fields_for_workspace(workspace_gid, limit=limit, offset=offset, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->get_custom_fields_for_workspace: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->get_custom_fields_for_workspace: %s\n" % e)
   insert_enum_option_for_custom_field: |-
     import asana
     from asana.rest import ApiException
@@ -109,19 +114,20 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     body = asana.EnumOptionsInsertBody({"param1": "value1", "param2": "value2",}) # EnumOptionsInsertBody | The enum option object to create. (optional)
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Reorder a custom field's enum
-      api_response = api_instance.insert_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
-      pprint(api_response)
+        # Reorder a custom field's enum
+        api_response = api_instance.insert_enum_option_for_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->insert_enum_option_for_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->insert_enum_option_for_custom_field: %s\n" % e)
   update_custom_field: |-
     import asana
     from asana.rest import ApiException
@@ -130,19 +136,20 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     custom_field_gid = '12345' # str | Globally unique identifier for the custom field.
     body = asana.CustomFieldsCustomFieldGidBody({"param1": "value1", "param2": "value2",}) # CustomFieldsCustomFieldGidBody | The custom field object with all updated properties. (optional)
     opt_fields = ["asana_created_field","created_by","created_by.name","currency_code","custom_label","custom_label_position","date_value","date_value.date","date_value.date_time","description","display_value","enabled","enum_options","enum_options.color","enum_options.enabled","enum_options.name","enum_value","enum_value.color","enum_value.enabled","enum_value.name","format","has_notifications_enabled","is_formula_field","is_global_to_workspace","is_value_read_only","multi_enum_values","multi_enum_values.color","multi_enum_values.enabled","multi_enum_values.name","name","number_value","people_value","people_value.name","precision","resource_subtype","text_value","type"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Update a custom field
-      api_response = api_instance.update_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
-      pprint(api_response)
+        # Update a custom field
+        api_response = api_instance.update_custom_field(custom_field_gid, body=body, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->update_custom_field: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->update_custom_field: %s\n" % e)
   update_enum_option: |-
     import asana
     from asana.rest import ApiException
@@ -151,16 +158,17 @@ CustomFieldsApi:
     # Configure OAuth2 access token for authorization: oauth2
     configuration = asana.Configuration()
     configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
     
     # create an instance of the API class
-    api_instance = asana.CustomFieldsApi(asana.ApiClient(configuration))
+    api_instance = asana.CustomFieldsApi(api_client)
     enum_option_gid = '124578' # str | Globally unique identifier for the enum option.
     body = asana.EnumOptionsEnumOptionGidBody({"param1": "value1", "param2": "value2",}) # EnumOptionsEnumOptionGidBody | The enum option object to update (optional)
     opt_fields = ["color","enabled","name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
     
     try:
-      # Update an enum option
-      api_response = api_instance.update_enum_option(enum_option_gid, body=body, opt_fields=opt_fields)
-      pprint(api_response)
+        # Update an enum option
+        api_response = api_instance.update_enum_option(enum_option_gid, body=body, opt_fields=opt_fields)
+        pprint(api_response)
     except ApiException as e:
-      print("Exception when calling CustomFieldsApi->update_enum_option: %s\n" % e)
+        print("Exception when calling CustomFieldsApi->update_enum_option: %s\n" % e)

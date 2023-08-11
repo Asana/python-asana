@@ -23,18 +23,19 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectMembershipsApi(api_client)
 project_membership_gid = '1331' # str | 
 opt_fields = ["access_level","member","member.name","parent","parent.name","project","project.name","user","user.name","write_access"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get a project membership
-  api_response = api_instance.get_project_membership(project_membership_gid, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get a project membership
+    api_response = api_instance.get_project_membership(project_membership_gid, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectMembershipsApi->get_project_membership: %s\n" % e)
+    print("Exception when calling ProjectMembershipsApi->get_project_membership: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,9 +76,10 @@ from pprint import pprint
 # Configure OAuth2 access token for authorization: oauth2
 configuration = asana.Configuration()
 configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
-api_instance = asana.ProjectMembershipsApi(asana.ApiClient(configuration))
+api_instance = asana.ProjectMembershipsApi(api_client)
 project_gid = '1331' # str | Globally unique identifier for the project.
 user = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (optional)
 limit = 50 # int | Results per page. The number of objects to return per page. The value must be between 1 and 100. (optional)
@@ -85,11 +87,11 @@ offset = 'eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9' # str | Offset token. An offset 
 opt_fields = ["access_level","member","member.name","offset","parent","parent.name","path","uri","user","user.name"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
 
 try:
-  # Get memberships from a project
-  api_response = api_instance.get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
-  pprint(api_response)
+    # Get memberships from a project
+    api_response = api_instance.get_project_memberships_for_project(project_gid, user=user, limit=limit, offset=offset, opt_fields=opt_fields)
+    pprint(api_response)
 except ApiException as e:
-  print("Exception when calling ProjectMembershipsApi->get_project_memberships_for_project: %s\n" % e)
+    print("Exception when calling ProjectMembershipsApi->get_project_memberships_for_project: %s\n" % e)
 ```
 
 ### Parameters
