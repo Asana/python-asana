@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.5
+- Package version: 4.0.6
 
 ## Requirements.
 
@@ -249,6 +249,7 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**get_job**](docs/JobsApi.md#get_job) | **GET** /jobs/{job_gid} | Get a job by id
 *MembershipsApi* | [**create_membership**](docs/MembershipsApi.md#create_membership) | **POST** /memberships | Create a membership
 *MembershipsApi* | [**delete_membership**](docs/MembershipsApi.md#delete_membership) | **DELETE** /memberships/{membership_gid} | Delete a membership
+*MembershipsApi* | [**get_membership**](docs/MembershipsApi.md#get_membership) | **GET** /memberships/{membership_gid} | Get a membership
 *MembershipsApi* | [**get_memberships**](docs/MembershipsApi.md#get_memberships) | **GET** /memberships | Get multiple memberships
 *OrganizationExportsApi* | [**create_organization_export**](docs/OrganizationExportsApi.md#create_organization_export) | **POST** /organization_exports | Create an organization export request
 *OrganizationExportsApi* | [**get_organization_export**](docs/OrganizationExportsApi.md#get_organization_export) | **GET** /organization_exports/{organization_export_gid} | Get details on an org export request
@@ -608,6 +609,7 @@ Class | Method | HTTP request | Description
  - [ProjectMembershipCompact](docs/ProjectMembershipCompact.md)
  - [ProjectMembershipCompactArray](docs/ProjectMembershipCompactArray.md)
  - [ProjectMembershipCompactResponse](docs/ProjectMembershipCompactResponse.md)
+ - [ProjectMembershipCompactResponseData](docs/ProjectMembershipCompactResponseData.md)
  - [ProjectMembershipNormalResponse](docs/ProjectMembershipNormalResponse.md)
  - [ProjectMembershipNormalResponseData](docs/ProjectMembershipNormalResponseData.md)
  - [ProjectRequest](docs/ProjectRequest.md)

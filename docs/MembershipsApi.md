@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_membership**](MembershipsApi.md#create_membership) | **POST** /memberships | Create a membership
 [**delete_membership**](MembershipsApi.md#delete_membership) | **DELETE** /memberships/{membership_gid} | Delete a membership
+[**get_membership**](MembershipsApi.md#get_membership) | **GET** /memberships/{membership_gid} | Get a membership
 [**get_memberships**](MembershipsApi.md#get_memberships) | **GET** /memberships | Get multiple memberships
 
 # **create_membership**
@@ -98,6 +99,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyResponseData**](EmptyResponseData.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_membership**
+> ProjectMembershipCompactResponseData get_membership(membership_gid, opt_fields=opt_fields)
+
+Get a membership
+
+Returns compact `project_membership` record for a single membership. `GET` only supports project memberships currently
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+api_instance = asana.MembershipsApi(api_client)
+membership_gid = '12345' # str | Globally unique identifier for the membership.
+opt_fields = ["access_level","member","member.name","parent","parent.name","resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+
+try:
+    # Get a membership
+    api_response = api_instance.get_membership(membership_gid, opt_fields=opt_fields)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MembershipsApi->get_membership: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **membership_gid** | **str**| Globally unique identifier for the membership. | 
+ **opt_fields** | [**list[str]**](str.md)| This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+[**ProjectMembershipCompactResponseData**](ProjectMembershipCompactResponseData.md)
 
 ### Authorization
 

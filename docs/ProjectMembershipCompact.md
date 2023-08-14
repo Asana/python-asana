@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gid** | **str** | Globally unique identifier of the resource, as a string. | [optional] 
 **resource_type** | **str** | The base type of this resource. | [optional] 
-**user** | [**CustomFieldResponsePeopleValue**](CustomFieldResponsePeopleValue.md) |  | [optional] 
 **parent** | [**JobBaseNewProject**](JobBaseNewProject.md) |  | [optional] 
 **member** | [**MembershipCompactMember**](MembershipCompactMember.md) |  | [optional] 
 **access_level** | **str** | Whether the member has admin, editor, commenter, or viewer access to the project. | [optional] 

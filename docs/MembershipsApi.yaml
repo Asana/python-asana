@@ -39,6 +39,27 @@ MembershipsApi:
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MembershipsApi->delete_membership: %s\n" % e)
+  get_membership: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    # Configure OAuth2 access token for authorization: oauth2
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_PERSONAL_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    api_instance = asana.MembershipsApi(api_client)
+    membership_gid = '12345' # str | Globally unique identifier for the membership.
+    opt_fields = ["access_level","member","member.name","parent","parent.name","resource_subtype"] # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. (optional)
+    
+    try:
+        # Get a membership
+        api_response = api_instance.get_membership(membership_gid, opt_fields=opt_fields)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MembershipsApi->get_membership: %s\n" % e)
   get_memberships: |-
     import asana
     from asana.rest import ApiException

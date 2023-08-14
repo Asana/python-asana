@@ -30,10 +30,10 @@ class ProjectMembershipNormalResponse(object):
     swagger_types = {
         'gid': 'str',
         'resource_type': 'str',
-        'user': 'CustomFieldResponsePeopleValue',
         'parent': 'JobBaseNewProject',
         'member': 'MembershipCompactMember',
         'access_level': 'str',
+        'user': 'CustomFieldResponsePeopleValue',
         'project': 'JobBaseNewProject',
         'write_access': 'str'
     }
@@ -41,22 +41,22 @@ class ProjectMembershipNormalResponse(object):
     attribute_map = {
         'gid': 'gid',
         'resource_type': 'resource_type',
-        'user': 'user',
         'parent': 'parent',
         'member': 'member',
         'access_level': 'access_level',
+        'user': 'user',
         'project': 'project',
         'write_access': 'write_access'
     }
 
-    def __init__(self, gid=None, resource_type=None, user=None, parent=None, member=None, access_level=None, project=None, write_access=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, parent=None, member=None, access_level=None, user=None, project=None, write_access=None):  # noqa: E501
         """ProjectMembershipNormalResponse - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
-        self._user = None
         self._parent = None
         self._member = None
         self._access_level = None
+        self._user = None
         self._project = None
         self._write_access = None
         self.discriminator = None
@@ -64,14 +64,14 @@ class ProjectMembershipNormalResponse(object):
             self.gid = gid
         if resource_type is not None:
             self.resource_type = resource_type
-        if user is not None:
-            self.user = user
         if parent is not None:
             self.parent = parent
         if member is not None:
             self.member = member
         if access_level is not None:
             self.access_level = access_level
+        if user is not None:
+            self.user = user
         if project is not None:
             self.project = project
         if write_access is not None:
@@ -122,27 +122,6 @@ class ProjectMembershipNormalResponse(object):
         """
 
         self._resource_type = resource_type
-
-    @property
-    def user(self):
-        """Gets the user of this ProjectMembershipNormalResponse.  # noqa: E501
-
-
-        :return: The user of this ProjectMembershipNormalResponse.  # noqa: E501
-        :rtype: CustomFieldResponsePeopleValue
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """Sets the user of this ProjectMembershipNormalResponse.
-
-
-        :param user: The user of this ProjectMembershipNormalResponse.  # noqa: E501
-        :type: CustomFieldResponsePeopleValue
-        """
-
-        self._user = user
 
     @property
     def parent(self):
@@ -214,6 +193,27 @@ class ProjectMembershipNormalResponse(object):
             )
 
         self._access_level = access_level
+
+    @property
+    def user(self):
+        """Gets the user of this ProjectMembershipNormalResponse.  # noqa: E501
+
+
+        :return: The user of this ProjectMembershipNormalResponse.  # noqa: E501
+        :rtype: CustomFieldResponsePeopleValue
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this ProjectMembershipNormalResponse.
+
+
+        :param user: The user of this ProjectMembershipNormalResponse.  # noqa: E501
+        :type: CustomFieldResponsePeopleValue
+        """
+
+        self._user = user
 
     @property
     def project(self):

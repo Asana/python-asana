@@ -30,7 +30,6 @@ class ProjectMembershipCompact(object):
     swagger_types = {
         'gid': 'str',
         'resource_type': 'str',
-        'user': 'CustomFieldResponsePeopleValue',
         'parent': 'JobBaseNewProject',
         'member': 'MembershipCompactMember',
         'access_level': 'str'
@@ -39,17 +38,15 @@ class ProjectMembershipCompact(object):
     attribute_map = {
         'gid': 'gid',
         'resource_type': 'resource_type',
-        'user': 'user',
         'parent': 'parent',
         'member': 'member',
         'access_level': 'access_level'
     }
 
-    def __init__(self, gid=None, resource_type=None, user=None, parent=None, member=None, access_level=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, parent=None, member=None, access_level=None):  # noqa: E501
         """ProjectMembershipCompact - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
-        self._user = None
         self._parent = None
         self._member = None
         self._access_level = None
@@ -58,8 +55,6 @@ class ProjectMembershipCompact(object):
             self.gid = gid
         if resource_type is not None:
             self.resource_type = resource_type
-        if user is not None:
-            self.user = user
         if parent is not None:
             self.parent = parent
         if member is not None:
@@ -112,27 +107,6 @@ class ProjectMembershipCompact(object):
         """
 
         self._resource_type = resource_type
-
-    @property
-    def user(self):
-        """Gets the user of this ProjectMembershipCompact.  # noqa: E501
-
-
-        :return: The user of this ProjectMembershipCompact.  # noqa: E501
-        :rtype: CustomFieldResponsePeopleValue
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """Sets the user of this ProjectMembershipCompact.
-
-
-        :param user: The user of this ProjectMembershipCompact.  # noqa: E501
-        :type: CustomFieldResponsePeopleValue
-        """
-
-        self._user = user
 
     @property
     def parent(self):
