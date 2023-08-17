@@ -72,10 +72,12 @@ class ProjectStatusResponse(object):
             self.resource_type = resource_type
         if title is not None:
             self.title = title
-        self.text = text
+        if text is not None:
+            self.text = text
         if html_text is not None:
             self.html_text = html_text
-        self.color = color
+        if color is not None:
+            self.color = color
         if author is not None:
             self.author = author
         if created_at is not None:
@@ -174,8 +176,6 @@ class ProjectStatusResponse(object):
         :param text: The text of this ProjectStatusResponse.  # noqa: E501
         :type: str
         """
-        if text is None:
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
         self._text = text
 
@@ -222,8 +222,6 @@ class ProjectStatusResponse(object):
         :param color: The color of this ProjectStatusResponse.  # noqa: E501
         :type: str
         """
-        if color is None:
-            raise ValueError("Invalid value for `color`, must not be `None`")  # noqa: E501
         allowed_values = ["green", "yellow", "red", "blue"]  # noqa: E501
         if color not in allowed_values:
             raise ValueError(

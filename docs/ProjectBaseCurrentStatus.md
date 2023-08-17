@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **gid** | **str** | Globally unique identifier of the resource, as a string. | [optional] 
 **resource_type** | **str** | The base type of this resource. | [optional] 
 **title** | **str** | The title of the project status update. | [optional] 
-**text** | **str** | The text content of the status update. | 
+**text** | **str** | The text content of the status update. | [optional] 
 **html_text** | **str** | [Opt In](/docs/inputoutput-options). The text content of the status update with formatting as HTML. | [optional] 
-**color** | **str** | The color associated with the status update. | 
+**color** | **str** | The color associated with the status update. | [optional] 
 **author** | [**CustomFieldResponsePeopleValue**](CustomFieldResponsePeopleValue.md) |  | [optional] 
 **created_at** | **datetime** | The time at which this resource was created. | [optional] 
 **created_by** | [**CustomFieldResponsePeopleValue**](CustomFieldResponsePeopleValue.md) |  | [optional] 

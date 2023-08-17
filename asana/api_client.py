@@ -10,6 +10,7 @@
 """
 from __future__ import absolute_import
 
+import logging
 import datetime
 import json
 import mimetypes
@@ -68,19 +69,22 @@ class ApiClient(object):
             configuration = Configuration()
         self.configuration = configuration
 
-        self.pool = ThreadPool()
+        try:
+            self.pool = ThreadPool()
+        except OSError:
+            logging.warning('Looks like your system does not support ThreadPool but it will try without it if you do not use async requests')
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/4.0.6/python'
+        self.user_agent = 'Swagger-Codegen/4.0.7/python'
         # Add custom header
         self.default_headers['X-Asana-Client-Lib'] = urlencode(
             {
                 'language': 'Python',
-                'version': '4.0.6',
+                'version': '4.0.7',
                 'language_version': platform.python_version(),
                 'os': platform.system(),
                 'os_version': platform.release()
@@ -88,8 +92,9 @@ class ApiClient(object):
         )
 
     def __del__(self):
-        self.pool.close()
-        self.pool.join()
+        if hasattr(self, "pool"):
+            self.pool.close()
+            self.pool.join()
 
     @property
     def user_agent(self):
