@@ -1683,6 +1683,7 @@ class TasksApi(object):
         :param str section_gid: The globally unique identifier for the section. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
@@ -1708,13 +1709,14 @@ class TasksApi(object):
         :param str section_gid: The globally unique identifier for the section. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['section_gid', 'limit', 'offset', 'opt_fields']  # noqa: E501
+        all_params = ['section_gid', 'limit', 'offset', 'completed_since', 'opt_fields']  # noqa: E501
         all_params.append('async_req')
         all_params.append('header_params')
         all_params.append('_return_http_data_only')
@@ -1746,6 +1748,8 @@ class TasksApi(object):
             query_params.append(('limit', params['limit']))  # noqa: E501
         if 'offset' in params:
             query_params.append(('offset', params['offset']))  # noqa: E501
+        if 'completed_since' in params:
+            query_params.append(('completed_since', params['completed_since']))  # noqa: E501
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501

@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **public** | **bool** | True if the project is public to its team. | [optional] 
 **start_on** | **date** | The day on which work for this project begins, or null if the project has no start date. This takes a date with &#x60;YYYY-MM-DD&#x60; format. *Note: &#x60;due_on&#x60; or &#x60;due_at&#x60; must be present in the request when setting or unsetting the &#x60;start_on&#x60; parameter. Additionally, &#x60;start_on&#x60; and &#x60;due_on&#x60; cannot be the same date.* | [optional] 
 **default_access_level** | **str** | The default access for users or teams who join or are added as members to the project. | [optional] 
+**minimum_access_level_for_customization** | **str** | The minimum access level needed for project members to modify this project&#x27;s workflow and appearance. | [optional] 
+**minimum_access_level_for_sharing** | **str** | The minimum access level needed for project members to share the project and manage project memberships. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

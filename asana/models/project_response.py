@@ -47,6 +47,8 @@ class ProjectResponse(object):
         'public': 'bool',
         'start_on': 'date',
         'default_access_level': 'str',
+        'minimum_access_level_for_customization': 'str',
+        'minimum_access_level_for_sharing': 'str',
         'custom_fields': 'list[PortfolioResponseCustomFields]',
         'completed': 'bool',
         'completed_at': 'datetime',
@@ -81,6 +83,8 @@ class ProjectResponse(object):
         'public': 'public',
         'start_on': 'start_on',
         'default_access_level': 'default_access_level',
+        'minimum_access_level_for_customization': 'minimum_access_level_for_customization',
+        'minimum_access_level_for_sharing': 'minimum_access_level_for_sharing',
         'custom_fields': 'custom_fields',
         'completed': 'completed',
         'completed_at': 'completed_at',
@@ -95,7 +99,7 @@ class ProjectResponse(object):
         'workspace': 'workspace'
     }
 
-    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, default_access_level=None, custom_fields=None, completed=None, completed_at=None, completed_by=None, followers=None, owner=None, team=None, icon=None, permalink_url=None, project_brief=None, created_from_template=None, workspace=None):  # noqa: E501
+    def __init__(self, gid=None, resource_type=None, name=None, archived=None, color=None, created_at=None, current_status=None, current_status_update=None, custom_field_settings=None, default_view=None, due_date=None, due_on=None, html_notes=None, members=None, modified_at=None, notes=None, public=None, start_on=None, default_access_level=None, minimum_access_level_for_customization=None, minimum_access_level_for_sharing=None, custom_fields=None, completed=None, completed_at=None, completed_by=None, followers=None, owner=None, team=None, icon=None, permalink_url=None, project_brief=None, created_from_template=None, workspace=None):  # noqa: E501
         """ProjectResponse - a model defined in Swagger"""  # noqa: E501
         self._gid = None
         self._resource_type = None
@@ -116,6 +120,8 @@ class ProjectResponse(object):
         self._public = None
         self._start_on = None
         self._default_access_level = None
+        self._minimum_access_level_for_customization = None
+        self._minimum_access_level_for_sharing = None
         self._custom_fields = None
         self._completed = None
         self._completed_at = None
@@ -167,6 +173,10 @@ class ProjectResponse(object):
             self.start_on = start_on
         if default_access_level is not None:
             self.default_access_level = default_access_level
+        if minimum_access_level_for_customization is not None:
+            self.minimum_access_level_for_customization = minimum_access_level_for_customization
+        if minimum_access_level_for_sharing is not None:
+            self.minimum_access_level_for_sharing = minimum_access_level_for_sharing
         if custom_fields is not None:
             self.custom_fields = custom_fields
         if completed is not None:
@@ -642,6 +652,64 @@ class ProjectResponse(object):
             )
 
         self._default_access_level = default_access_level
+
+    @property
+    def minimum_access_level_for_customization(self):
+        """Gets the minimum_access_level_for_customization of this ProjectResponse.  # noqa: E501
+
+        The minimum access level needed for project members to modify this project's workflow and appearance.  # noqa: E501
+
+        :return: The minimum_access_level_for_customization of this ProjectResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._minimum_access_level_for_customization
+
+    @minimum_access_level_for_customization.setter
+    def minimum_access_level_for_customization(self, minimum_access_level_for_customization):
+        """Sets the minimum_access_level_for_customization of this ProjectResponse.
+
+        The minimum access level needed for project members to modify this project's workflow and appearance.  # noqa: E501
+
+        :param minimum_access_level_for_customization: The minimum_access_level_for_customization of this ProjectResponse.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor"]  # noqa: E501
+        if minimum_access_level_for_customization not in allowed_values:
+            raise ValueError(
+                "Invalid value for `minimum_access_level_for_customization` ({0}), must be one of {1}"  # noqa: E501
+                .format(minimum_access_level_for_customization, allowed_values)
+            )
+
+        self._minimum_access_level_for_customization = minimum_access_level_for_customization
+
+    @property
+    def minimum_access_level_for_sharing(self):
+        """Gets the minimum_access_level_for_sharing of this ProjectResponse.  # noqa: E501
+
+        The minimum access level needed for project members to share the project and manage project memberships.  # noqa: E501
+
+        :return: The minimum_access_level_for_sharing of this ProjectResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._minimum_access_level_for_sharing
+
+    @minimum_access_level_for_sharing.setter
+    def minimum_access_level_for_sharing(self, minimum_access_level_for_sharing):
+        """Sets the minimum_access_level_for_sharing of this ProjectResponse.
+
+        The minimum access level needed for project members to share the project and manage project memberships.  # noqa: E501
+
+        :param minimum_access_level_for_sharing: The minimum_access_level_for_sharing of this ProjectResponse.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin", "editor"]  # noqa: E501
+        if minimum_access_level_for_sharing not in allowed_values:
+            raise ValueError(
+                "Invalid value for `minimum_access_level_for_sharing` ({0}), must be one of {1}"  # noqa: E501
+                .format(minimum_access_level_for_sharing, allowed_values)
+            )
+
+        self._minimum_access_level_for_sharing = minimum_access_level_for_sharing
 
     @property
     def custom_fields(self):
