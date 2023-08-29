@@ -110,6 +110,7 @@ class GoalsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -214,6 +215,7 @@ class GoalsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -328,6 +330,7 @@ class GoalsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -430,6 +433,7 @@ class GoalsApi(object):
 
         query_params = []
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -530,6 +534,7 @@ class GoalsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -657,6 +662,7 @@ class GoalsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -757,6 +763,7 @@ class GoalsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -864,6 +871,7 @@ class GoalsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -978,6 +986,7 @@ class GoalsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -1090,6 +1099,7 @@ class GoalsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 

@@ -131,6 +131,7 @@ class AuditLogAPIApi(object):
         if 'offset' in params:
             query_params.append(('offset', params['offset']))  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []

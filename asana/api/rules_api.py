@@ -105,6 +105,7 @@ class RulesApi(object):
 
         query_params = []
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []

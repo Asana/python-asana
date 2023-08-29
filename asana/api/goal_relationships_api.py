@@ -110,6 +110,7 @@ class GoalRelationshipsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -216,6 +217,7 @@ class GoalRelationshipsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -330,6 +332,7 @@ class GoalRelationshipsApi(object):
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
 
+
         header_params = kwargs.get("header_params", {})
 
         form_params = []
@@ -431,6 +434,7 @@ class GoalRelationshipsApi(object):
             path_params['goal_gid'] = params['goal_gid']  # noqa: E501
 
         query_params = []
+
 
         header_params = kwargs.get("header_params", {})
 
@@ -544,6 +548,7 @@ class GoalRelationshipsApi(object):
         if 'opt_fields' in params:
             query_params.append(('opt_fields', params['opt_fields']))  # noqa: E501
             collection_formats['opt_fields'] = 'csv'  # noqa: E501
+
 
         header_params = kwargs.get("header_params", {})
 
