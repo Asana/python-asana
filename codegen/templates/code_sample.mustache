@@ -30,6 +30,9 @@ api_instance = {{{packageName}}}.{{{classname}}}()
 {{paramName}} = {{{example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
 {{/parameters}}
 {{/hasAuthMethods}}
+{{#vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
+custom_fields_123_value = '456' # The format of this query parameter should be custom_fields_<CUSTOM_FIELD_GID>_value. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+{{/vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
 
 try:
 {{#summary}}    # {{{.}}}

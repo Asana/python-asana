@@ -1,7 +1,12 @@
 package com.asana.codegen;
 
+import java.util.Map;
+
 import org.json.*;
 import io.swagger.codegen.v3.generators.python.*;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.codegen.v3.*;
 
 public class PythonClientCodegenGenerator extends PythonClientCodegen {
@@ -51,5 +56,14 @@ public class PythonClientCodegenGenerator extends PythonClientCodegen {
       String bodyData = "({\"param1\": \"value1\", \"param2\": \"value2\",})";
       p.example = this.packageName + "." + type + bodyData;
     }
+  }
+
+  @Override
+  public CodegenOperation fromOperation(String path, String httpMethod, Operation operation, Map<String, Schema> schemas, OpenAPI openAPI) {
+    CodegenOperation op = super.fromOperation(path, httpMethod, operation, schemas, openAPI);
+    if(op.operationId.equalsIgnoreCase("search_tasks_for_workspace")) {
+      op.vendorExtensions.put("x-codegen-isSearchTasksForWorkspace", true);
+    }
+    return op;
   }
 }
