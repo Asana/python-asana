@@ -31,12 +31,18 @@ api_instance = {{{packageName}}}.{{{classname}}}()
 {{/parameters}}
 {{/hasAuthMethods}}
 {{#vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
-custom_fields_123_value = '456' # The format of this query parameter should be custom_fields_<CUSTOM_FIELD_GID>_value. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_is_set = True # bool | Filiter to tasks with custom field set or unset. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_value = '456' # str or bool or Enum option ID | Filter to tasks with custom field that matches the provided value. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_starts_with = 'start' # string | Filter to tasks with custom field that starts with provided string. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_ends_with = 'end' # string | Filter to tasks with custom field that ends in provided string. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_contains = 'first' # string | Filter to tasks with custom field that contains the provided string. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_less_than = 10 # number | Filter to tasks with custom field with number value less than the provided number. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+custom_fields_123_greater_than = 100 # number | Filter to tasks with custom field with number value greater than the provided number. NOTE: searching for multiple exact matches of a custom field, searching for multi-enum custom field
 {{/vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
 
 try:
 {{#summary}}    # {{{.}}}
-{{/summary}}    {{#returnType}}api_response = {{/returnType}}api_instance.{{{operationId}}}({{#parameters}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}}){{#returnType}}
+{{/summary}}    {{#returnType}}api_response = {{/returnType}}api_instance.{{{operationId}}}({{#parameters}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}}{{#vendorExtensions.x-codegen-isSearchTasksForWorkspace}}, custom_fields_123_value=custom_fields_123_value, custom_fields_123_starts_with=custom_fields_123_starts_with, custom_fields_123_ends_with=custom_fields_123_ends_with, custom_fields_123_contains=custom_fields_123_contains, custom_fields_123_less_than=custom_fields_123_less_than, custom_fields_123_greater_than=custom_fields_123_greater_than{{/vendorExtensions.x-codegen-isSearchTasksForWorkspace}}){{#returnType}}
     pprint(api_response){{/returnType}}
 except ApiException as e:
     print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
