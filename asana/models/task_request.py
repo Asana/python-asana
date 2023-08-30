@@ -1007,7 +1007,7 @@ class TaskRequest(object):
     def custom_fields(self):
         """Gets the custom_fields of this TaskRequest.  # noqa: E501
 
-        An object where each key is a Custom Field GID and each value is an enum GID, string, number, object, or array.  # noqa: E501
+        An object where each key is the GID of a custom field and its corresponding value is either an enum GID, string, number, object, or array (depending on the custom field type). See the [custom fields guide](/docs/custom-fields-guide) for details on creating and updating custom field values.  # noqa: E501
 
         :return: The custom_fields of this TaskRequest.  # noqa: E501
         :rtype: dict(str, str)
@@ -1018,7 +1018,7 @@ class TaskRequest(object):
     def custom_fields(self, custom_fields):
         """Sets the custom_fields of this TaskRequest.
 
-        An object where each key is a Custom Field GID and each value is an enum GID, string, number, object, or array.  # noqa: E501
+        An object where each key is the GID of a custom field and its corresponding value is either an enum GID, string, number, object, or array (depending on the custom field type). See the [custom fields guide](/docs/custom-fields-guide) for details on creating and updating custom field values.  # noqa: E501
 
         :param custom_fields: The custom_fields of this TaskRequest.  # noqa: E501
         :type: dict(str, str)

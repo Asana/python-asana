@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **default_access_level** | **str** | The default access for users or teams who join or are added as members to the project. | [optional] 
 **minimum_access_level_for_customization** | **str** | The minimum access level needed for project members to modify this project&#x27;s workflow and appearance. | [optional] 
 **minimum_access_level_for_sharing** | **str** | The minimum access level needed for project members to share the project and manage project memberships. | [optional] 
-**custom_fields** | **dict(str, str)** | An object where each key is a Custom Field GID and each value is an enum GID, string, number, or object. | [optional] 
+**custom_fields** | **dict(str, str)** | An object where each key is the GID of a custom field and its corresponding value is either an enum GID, string, number, or object (depending on the custom field type). See the [custom fields guide](/docs/custom-fields-guide) for details on creating and updating custom field values. | [optional] 
 **followers** | **str** | *Create-only*. Comma separated string of users. Followers are a subset of members who have opted in to receive \&quot;tasks added\&quot; notifications for a project. | [optional] 
 **owner** | **str** | The current owner of the project, may be null. | [optional] 
 **team** | **str** | The team that this project is shared with. | [optional] 

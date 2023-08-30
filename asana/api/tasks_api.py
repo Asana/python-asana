@@ -2725,11 +2725,15 @@ class TasksApi(object):
         all_params.append('_request_timeout')
 
         params = locals()
+        matchSnakeCase = '^custom_fields_(.*?)_.*$'
         custom_fields_query_param_keys = []
         for key, val in six.iteritems(params['kwargs']):
             # Do not throw an error if the user provides custom field query parameters
-            if re.match('^custom_fields_(.*?)_value$', key) or re.match('^custom_fields.(.*?).value$', key):
-                params[key] = val
+            if (re.match(matchSnakeCase, key)):
+                custom_field_gid = re.search(matchSnakeCase, key).group(1)
+                custom_field_query_param_key = key.replace(f'custom_fields_{custom_field_gid}_', f'custom_fields.{custom_field_gid}.')
+                params[custom_field_query_param_key] = val
+                custom_fields_query_param_keys.append(custom_field_query_param_key)
                 continue
             if key not in all_params:
                 raise TypeError(
@@ -2860,15 +2864,7 @@ class TasksApi(object):
 
         # Checks if the user provided custom field query parameters and adds it to the request
         for key in custom_fields_query_param_keys:
-            # If user provided in format: custom_fields.<CUSTOM_FIELD_GID>.value
-            if re.match('^custom_fields.(.*?).value$', key):
-                query_params.append((key, params[key]))  # noqa: E501
-            # If user provided in format: custom_fields_<CUSTOM_FIELD_GID>_value
-            elif re.match('^custom_fields_(.*?)_value$', key):
-                removed_prefix = key.replace('custom_fields_', '')
-                custom_fields_gid = removed_prefix.replace('_value', '')
-                custom_fields_query_param_name = f'custom_fields.{custom_fields_gid}.value'
-                query_params.append((custom_fields_query_param_name, params[key]))  # noqa: E501
+            query_params.append((key, params[key]))  # noqa: E501
 
         header_params = kwargs.get("header_params", {})
 
