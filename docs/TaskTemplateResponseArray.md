@@ -1,9 +1,10 @@
-# WorkspaceGidTagsBody
+# TaskTemplateResponseArray
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**TagCreateTagForWorkspaceRequest**](TagCreateTagForWorkspaceRequest.md) |  | [optional] 
+**data** | [**list[TaskTemplateResponse]**](TaskTemplateResponse.md) |  | 
+**next_page** | [**NextPage**](NextPage.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

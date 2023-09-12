@@ -202,7 +202,7 @@ class ProjectStatusBase(object):
         :param color: The color of this ProjectStatusBase.  # noqa: E501
         :type: str
         """
-        allowed_values = ["green", "yellow", "red", "blue"]  # noqa: E501
+        allowed_values = ["green", "yellow", "red", "blue", "complete"]  # noqa: E501
         if color not in allowed_values:
             raise ValueError(
                 "Invalid value for `color` ({0}), must be one of {1}"  # noqa: E501
