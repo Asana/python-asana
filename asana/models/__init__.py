@@ -22,6 +22,9 @@ from asana.models.all_of_project_template_base_owner import AllOfProjectTemplate
 from asana.models.all_of_project_template_response_owner import AllOfProjectTemplateResponseOwner
 from asana.models.all_of_story_response_new_date_value import AllOfStoryResponseNewDateValue
 from asana.models.all_of_story_response_old_date_value import AllOfStoryResponseOldDateValue
+from asana.models.all_of_task_template_response_created_by import AllOfTaskTemplateResponseCreatedBy
+from asana.models.all_of_task_template_response_project import AllOfTaskTemplateResponseProject
+from asana.models.all_of_task_template_response_template import AllOfTaskTemplateResponseTemplate
 from asana.models.all_of_user_task_list_base_owner import AllOfUserTaskListBaseOwner
 from asana.models.all_of_user_task_list_base_workspace import AllOfUserTaskListBaseWorkspace
 from asana.models.all_of_user_task_list_compact_owner import AllOfUserTaskListCompactOwner
@@ -310,6 +313,7 @@ from asana.models.story_response_target import StoryResponseTarget
 from asana.models.story_response_task import StoryResponseTask
 from asana.models.tag_base import TagBase
 from asana.models.tag_compact import TagCompact
+from asana.models.tag_create_tag_for_workspace_request import TagCreateTagForWorkspaceRequest
 from asana.models.tag_request import TagRequest
 from asana.models.tag_response import TagResponse
 from asana.models.tag_response_array import TagResponseArray
@@ -356,6 +360,17 @@ from asana.models.task_response_parent import TaskResponseParent
 from asana.models.task_response_tags import TaskResponseTags
 from asana.models.task_response_workspace import TaskResponseWorkspace
 from asana.models.task_set_parent_request import TaskSetParentRequest
+from asana.models.task_template_base import TaskTemplateBase
+from asana.models.task_template_compact import TaskTemplateCompact
+from asana.models.task_template_gid_instantiate_task_body import TaskTemplateGidInstantiateTaskBody
+from asana.models.task_template_instantiate_task_request import TaskTemplateInstantiateTaskRequest
+from asana.models.task_template_recipe import TaskTemplateRecipe
+from asana.models.task_template_recipe_attachments import TaskTemplateRecipeAttachments
+from asana.models.task_template_recipe_compact import TaskTemplateRecipeCompact
+from asana.models.task_template_recipe_dependencies import TaskTemplateRecipeDependencies
+from asana.models.task_template_response import TaskTemplateResponse
+from asana.models.task_template_response_array import TaskTemplateResponseArray
+from asana.models.task_template_response_data import TaskTemplateResponseData
 from asana.models.tasks_body import TasksBody
 from asana.models.tasks_task_gid_body import TasksTaskGidBody
 from asana.models.team_add_user_request import TeamAddUserRequest

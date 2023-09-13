@@ -26,6 +26,7 @@ from asana.api.sections_api import SectionsApi
 from asana.api.status_updates_api import StatusUpdatesApi
 from asana.api.stories_api import StoriesApi
 from asana.api.tags_api import TagsApi
+from asana.api.task_templates_api import TaskTemplatesApi
 from asana.api.tasks_api import TasksApi
 from asana.api.team_memberships_api import TeamMembershipsApi
 from asana.api.teams_api import TeamsApi

@@ -3,7 +3,7 @@
 Python client library for Asana
 
 - API version: 1.0
-- Package version: 4.0.10
+- Package version: 4.0.11
 
 ## Requirements.
 
@@ -327,6 +327,9 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**get_tags_for_task**](docs/TagsApi.md#get_tags_for_task) | **GET** /tasks/{task_gid}/tags | Get a task&#x27;s tags
 *TagsApi* | [**get_tags_for_workspace**](docs/TagsApi.md#get_tags_for_workspace) | **GET** /workspaces/{workspace_gid}/tags | Get tags in a workspace
 *TagsApi* | [**update_tag**](docs/TagsApi.md#update_tag) | **PUT** /tags/{tag_gid} | Update a tag
+*TaskTemplatesApi* | [**get_task_template**](docs/TaskTemplatesApi.md#get_task_template) | **GET** /task_templates/{task_template_gid} | Get a task template
+*TaskTemplatesApi* | [**get_task_templates**](docs/TaskTemplatesApi.md#get_task_templates) | **GET** /task_templates | Get multiple task templates
+*TaskTemplatesApi* | [**instantiate_task**](docs/TaskTemplatesApi.md#instantiate_task) | **POST** /task_templates/{task_template_gid}/instantiateTask | Instantiate a task from a task template
 *TasksApi* | [**add_dependencies_for_task**](docs/TasksApi.md#add_dependencies_for_task) | **POST** /tasks/{task_gid}/addDependencies | Set dependencies for a task
 *TasksApi* | [**add_dependents_for_task**](docs/TasksApi.md#add_dependents_for_task) | **POST** /tasks/{task_gid}/addDependents | Set dependents for a task
 *TasksApi* | [**add_followers_for_task**](docs/TasksApi.md#add_followers_for_task) | **POST** /tasks/{task_gid}/addFollowers | Add followers to a task
@@ -403,6 +406,9 @@ Class | Method | HTTP request | Description
  - [AllOfProjectTemplateResponseOwner](docs/AllOfProjectTemplateResponseOwner.md)
  - [AllOfStoryResponseNewDateValue](docs/AllOfStoryResponseNewDateValue.md)
  - [AllOfStoryResponseOldDateValue](docs/AllOfStoryResponseOldDateValue.md)
+ - [AllOfTaskTemplateResponseCreatedBy](docs/AllOfTaskTemplateResponseCreatedBy.md)
+ - [AllOfTaskTemplateResponseProject](docs/AllOfTaskTemplateResponseProject.md)
+ - [AllOfTaskTemplateResponseTemplate](docs/AllOfTaskTemplateResponseTemplate.md)
  - [AllOfUserTaskListBaseOwner](docs/AllOfUserTaskListBaseOwner.md)
  - [AllOfUserTaskListBaseWorkspace](docs/AllOfUserTaskListBaseWorkspace.md)
  - [AllOfUserTaskListCompactOwner](docs/AllOfUserTaskListCompactOwner.md)
@@ -691,6 +697,7 @@ Class | Method | HTTP request | Description
  - [StoryResponseTask](docs/StoryResponseTask.md)
  - [TagBase](docs/TagBase.md)
  - [TagCompact](docs/TagCompact.md)
+ - [TagCreateTagForWorkspaceRequest](docs/TagCreateTagForWorkspaceRequest.md)
  - [TagRequest](docs/TagRequest.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagResponseArray](docs/TagResponseArray.md)
@@ -737,6 +744,17 @@ Class | Method | HTTP request | Description
  - [TaskResponseTags](docs/TaskResponseTags.md)
  - [TaskResponseWorkspace](docs/TaskResponseWorkspace.md)
  - [TaskSetParentRequest](docs/TaskSetParentRequest.md)
+ - [TaskTemplateBase](docs/TaskTemplateBase.md)
+ - [TaskTemplateCompact](docs/TaskTemplateCompact.md)
+ - [TaskTemplateGidInstantiateTaskBody](docs/TaskTemplateGidInstantiateTaskBody.md)
+ - [TaskTemplateInstantiateTaskRequest](docs/TaskTemplateInstantiateTaskRequest.md)
+ - [TaskTemplateRecipe](docs/TaskTemplateRecipe.md)
+ - [TaskTemplateRecipeAttachments](docs/TaskTemplateRecipeAttachments.md)
+ - [TaskTemplateRecipeCompact](docs/TaskTemplateRecipeCompact.md)
+ - [TaskTemplateRecipeDependencies](docs/TaskTemplateRecipeDependencies.md)
+ - [TaskTemplateResponse](docs/TaskTemplateResponse.md)
+ - [TaskTemplateResponseArray](docs/TaskTemplateResponseArray.md)
+ - [TaskTemplateResponseData](docs/TaskTemplateResponseData.md)
  - [TasksBody](docs/TasksBody.md)
  - [TasksTaskGidBody](docs/TasksTaskGidBody.md)
  - [TeamAddUserRequest](docs/TeamAddUserRequest.md)
