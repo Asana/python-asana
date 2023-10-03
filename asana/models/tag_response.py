@@ -171,7 +171,7 @@ class TagResponse(object):
         :param color: The color of this TagResponse.  # noqa: E501
         :type: str
         """
-        allowed_values = ["dark-pink", "dark-green", "dark-blue", "dark-red", "dark-teal", "dark-brown", "dark-orange", "dark-purple", "dark-warm-gray", "light-pink", "light-green", "light-blue", "light-red", "light-teal", "light-brown", "light-orange", "light-purple", "light-warm-gray", ""]  # noqa: E501
+        allowed_values = ["dark-pink", "dark-green", "dark-blue", "dark-red", "dark-teal", "dark-brown", "dark-orange", "dark-purple", "dark-warm-gray", "light-pink", "light-green", "light-blue", "light-red", "light-teal", "light-brown", "light-orange", "light-purple", "light-warm-gray", "none", ""]  # noqa: E501
         if color not in allowed_values:
             raise ValueError(
                 "Invalid value for `color` ({0}), must be one of {1}"  # noqa: E501
