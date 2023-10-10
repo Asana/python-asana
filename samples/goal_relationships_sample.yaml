@@ -1,0 +1,41 @@
+goalrelationships: 
+    add_supporting_relationship: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goal_relationships.add_supporting_relationship(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    get_goal_relationship: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goal_relationships.get_goal_relationship(goal_relationship_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_goal_relationships: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goal_relationships.get_goal_relationships({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    remove_supporting_relationship: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goal_relationships.remove_supporting_relationship(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_goal_relationship: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goal_relationships.update_goal_relationship(goal_relationship_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

@@ -1,0 +1,153 @@
+projects: 
+    add_custom_field_setting_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.add_custom_field_setting_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_followers_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.add_followers_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_members_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.add_members_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.create_project({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_project_for_team: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.create_project_for_team(team_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_project_for_workspace: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.create_project_for_workspace(workspace_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.delete_project(project_gid, opt_pretty=True)
+    duplicate_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.duplicate_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    get_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_projects: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_projects({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_projects_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_projects_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_projects_for_team: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_projects_for_team(team_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_projects_for_workspace: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_projects_for_workspace(workspace_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_task_counts_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.get_task_counts_for_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    project_save_as_template: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.project_save_as_template(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_custom_field_setting_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.remove_custom_field_setting_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_followers_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.remove_followers_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_members_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.remove_members_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.projects.update_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

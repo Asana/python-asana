@@ -1,0 +1,41 @@
+stories: 
+    create_story_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.stories.create_story_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_story: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.stories.delete_story(story_gid, opt_pretty=True)
+    get_stories_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.stories.get_stories_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_story: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.stories.get_story(story_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    update_story: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.stories.update_story(story_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

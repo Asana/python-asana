@@ -1,0 +1,97 @@
+portfolios: 
+    add_custom_field_setting_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.add_custom_field_setting_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_item_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.add_item_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_members_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.add_members_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.create_portfolio({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.delete_portfolio(portfolio_gid, opt_pretty=True)
+    get_items_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.get_items_for_portfolio(portfolio_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.get_portfolio(portfolio_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_portfolios: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.get_portfolios({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    remove_custom_field_setting_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.remove_custom_field_setting_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_item_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.remove_item_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_members_for_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.remove_members_for_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_portfolio: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.portfolios.update_portfolio(portfolio_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

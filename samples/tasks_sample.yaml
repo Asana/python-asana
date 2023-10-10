@@ -1,0 +1,209 @@
+tasks: 
+    add_dependencies_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.add_dependencies_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_dependents_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.add_dependents_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_followers_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.add_followers_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_project_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.add_project_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    add_tag_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.add_tag_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_subtask_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.create_subtask_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.create_task({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.delete_task(task_gid, opt_pretty=True)
+    duplicate_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.duplicate_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    get_dependencies_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_dependencies_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_dependents_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_dependents_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_subtasks_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_subtasks_for_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_tasks: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_tasks({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_tasks_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_tasks_for_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_tasks_for_section: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_tasks_for_section(section_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_tasks_for_tag: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_tasks_for_tag(tag_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_tasks_for_user_task_list: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_tasks_for_user_task_list(user_task_list_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    remove_dependencies_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.remove_dependencies_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_dependents_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.remove_dependents_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_follower_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.remove_follower_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_project_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.remove_project_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    remove_tag_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.remove_tag_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    search_tasks_for_workspace: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.search_tasks_for_workspace(workspace_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    set_parent_for_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.set_parent_for_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.update_task(task_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

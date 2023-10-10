@@ -1,0 +1,17 @@
+usertasklists: 
+    get_user_task_list: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.user_task_lists.get_user_task_list(user_task_list_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_user_task_list_for_user: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.user_task_lists.get_user_task_list_for_user(user_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)

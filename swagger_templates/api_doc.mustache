@@ -1,0 +1,10 @@
+{{#operations}}{{toLowerCase classname}}: {{#operation}}{{#contents}}
+    {{operationId}}: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.{{toLowerCase baseName}}.{{operationId}}({{#pathParams}}{{paramName}}, {{/pathParams}}{{#neq "GET" httpMethod}}{{#neq "DELETE" httpMethod}}{'field': 'value', 'field': 'value'}, {{/neq}}{{/neq}}{{#eq "GET" httpMethod}}{'param': 'value', 'param': 'value'}, {{/eq}}opt_pretty=True){{/contents}}{{/operation}}
+{{/operations}}

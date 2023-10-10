@@ -1,0 +1,9 @@
+events: 
+    get_events: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.events.get_events({'param': 'value', 'param': 'value'}, opt_pretty=True)

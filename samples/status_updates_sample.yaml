@@ -1,0 +1,33 @@
+statusupdates: 
+    create_status_for_object: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.status_updates.create_status_for_object({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_status: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.status_updates.delete_status(status_gid, opt_pretty=True)
+    get_status: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.status_updates.get_status(status_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_statuses_for_object: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.status_updates.get_statuses_for_object({'param': 'value', 'param': 'value'}, opt_pretty=True)

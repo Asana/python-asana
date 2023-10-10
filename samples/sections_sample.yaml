@@ -1,0 +1,57 @@
+sections: 
+    add_task_for_section: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.add_task_for_section(section_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_section_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.create_section_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_section: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.delete_section(section_gid, opt_pretty=True)
+    get_section: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.get_section(section_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_sections_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.get_sections_for_project(project_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    insert_section_for_project: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.insert_section_for_project(project_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_section: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.sections.update_section(section_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

@@ -1,0 +1,81 @@
+goals: 
+    add_followers: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.add_followers(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.create_goal({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    create_goal_metric: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.create_goal_metric(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.delete_goal(goal_gid, opt_pretty=True)
+    get_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.get_goal(goal_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_goals: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.get_goals({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_parent_goals_for_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.get_parent_goals_for_goal(goal_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    remove_followers: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.remove_followers(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_goal: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.update_goal(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
+    update_goal_metric: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.goals.update_goal_metric(goal_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
