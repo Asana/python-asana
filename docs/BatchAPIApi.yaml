@@ -11,7 +11,7 @@ BatchAPIApi:
     # create an instance of the API class
     batch_api_api_instance = asana.BatchAPIApi(api_client)
     body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The requests to batch together via the Batch API.
-    opts = { 
+    opts = {
         'opt_fields': "body,headers,status_code" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
     }
     

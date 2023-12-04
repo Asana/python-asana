@@ -31,7 +31,7 @@ api_client = asana.ApiClient(configuration)
 project_briefs_api_instance = asana.ProjectBriefsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The project brief to create.
 project_gid = "1331" # str | Globally unique identifier for the project.
-opts = { 
+opts = {
     'opt_fields': "html_text,permalink_url,project,project.name,text,title" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -131,7 +131,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 project_briefs_api_instance = asana.ProjectBriefsApi(api_client)
 project_brief_gid = "12345" # str | Globally unique identifier for the project brief.
-opts = { 
+opts = {
     'opt_fields': "html_text,permalink_url,project,project.name,text,title" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -183,7 +183,7 @@ api_client = asana.ApiClient(configuration)
 project_briefs_api_instance = asana.ProjectBriefsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the project brief.
 project_brief_gid = "12345" # str | Globally unique identifier for the project brief.
-opts = { 
+opts = {
     'opt_fields': "html_text,permalink_url,project,project.name,text,title" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 

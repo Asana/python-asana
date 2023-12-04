@@ -28,7 +28,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 user_task_lists_api_instance = asana.UserTaskListsApi(api_client)
 user_task_list_gid = "12345" # str | Globally unique identifier for the user task list.
-opts = { 
+opts = {
     'opt_fields': "name,owner,workspace" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -80,7 +80,7 @@ api_client = asana.ApiClient(configuration)
 user_task_lists_api_instance = asana.UserTaskListsApi(api_client)
 user_gid = "me" # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 workspace = "1234" # str | The workspace in which to get the user task list.
-opts = { 
+opts = {
     'opt_fields': "name,owner,workspace" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 

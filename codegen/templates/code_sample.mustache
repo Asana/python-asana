@@ -5,7 +5,8 @@
 {{#vendorExtensions.x-codegen-hasRequiredParams}}{{#parameters}}{{#required}}
 {{{paramName}}} = {{{example}}} # {{{dataType}}} | {{{description}}}
 {{/required}}{{/parameters}}{{/vendorExtensions.x-codegen-hasRequiredParams}}{{#hasOptionalParams}}
-opts = { {{#parameters}}{{^required}}
+opts = {
+{{#parameters}}{{^required}}
     '{{{paramName}}}': {{{example}}}{{#vendorExtensions.x-codegen-hasMoreOptional}},{{/vendorExtensions.x-codegen-hasMoreOptional}} # {{{dataType}}} | {{{description}}}{{/required}}{{/parameters}}
 }{{/hasOptionalParams}}{{/hasParams}}
 {{/hasAuthMethods}}

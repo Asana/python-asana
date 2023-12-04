@@ -29,7 +29,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 memberships_api_instance = asana.MembershipsApi(api_client)
-opts = { 
+opts = {
     'body': {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the membership.
 }
 
@@ -127,7 +127,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 memberships_api_instance = asana.MembershipsApi(api_client)
 membership_gid = "12345" # str | Globally unique identifier for the membership.
-opts = { 
+opts = {
     'opt_fields': "access_level,member,member.name,parent,parent.name,resource_subtype" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -177,12 +177,8 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 memberships_api_instance = asana.MembershipsApi(api_client)
-opts = { 
-    'parent': "159874", # str | Globally unique identifier for `goal` or `project`.
-    'member': "1061493", # str | Globally unique identifier for `team` or `user`.
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
-    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
-    'opt_fields': "offset,path,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+opts = {
+    'parent': "159874", # str | Globally unique identifier for `goal` or `project`.    'member': "1061493", # str | Globally unique identifier for `team` or `user`.    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'opt_fields': "offset,path,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

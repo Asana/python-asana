@@ -79,7 +79,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 project_templates_api_instance = asana.ProjectTemplatesApi(api_client)
 project_template_gid = "1331" # str | Globally unique identifier for the project template.
-opts = { 
+opts = {
     'opt_fields': "color,description,html_description,name,owner,public,requested_dates,requested_dates.description,requested_dates.name,requested_roles,requested_roles.name,team,team.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -129,12 +129,8 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 project_templates_api_instance = asana.ProjectTemplatesApi(api_client)
-opts = { 
-    'workspace': "12345", # str | The workspace to filter results on.
-    'team': "14916", # str | The team to filter projects on.
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
-    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
-    'opt_fields': "color,description,html_description,name,offset,owner,path,public,requested_dates,requested_dates.description,requested_dates.name,requested_roles,requested_roles.name,team,team.name,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+opts = {
+    'workspace': "12345", # str | The workspace to filter results on.    'team': "14916", # str | The team to filter projects on.    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'opt_fields': "color,description,html_description,name,offset,owner,path,public,requested_dates,requested_dates.description,requested_dates.name,requested_roles,requested_roles.name,team,team.name,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -188,10 +184,8 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 project_templates_api_instance = asana.ProjectTemplatesApi(api_client)
 team_gid = "159874" # str | Globally unique identifier for the team.
-opts = { 
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
-    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
-    'opt_fields': "color,description,html_description,name,offset,owner,path,public,requested_dates,requested_dates.description,requested_dates.name,requested_roles,requested_roles.name,team,team.name,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+opts = {
+    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'opt_fields': "color,description,html_description,name,offset,owner,path,public,requested_dates,requested_dates.description,requested_dates.name,requested_roles,requested_roles.name,team,team.name,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -244,9 +238,8 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 project_templates_api_instance = asana.ProjectTemplatesApi(api_client)
 project_template_gid = "1331" # str | Globally unique identifier for the project template.
-opts = { 
-    'body': {"data": {"param1": "value1", "param2": "value2",}} # dict | Describes the inputs used for instantiating a project, such as the resulting project's name, which team it should be created in, and values for date variables.
-    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+opts = {
+    'body': {"data": {"param1": "value1", "param2": "value2",}} # dict | Describes the inputs used for instantiating a project, such as the resulting project's name, which team it should be created in, and values for date variables.    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

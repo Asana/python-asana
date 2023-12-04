@@ -27,7 +27,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 jobs_api_instance = asana.JobsApi(api_client)
 job_gid = "12345" # str | Globally unique identifier for the job.
-opts = { 
+opts = {
     'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 

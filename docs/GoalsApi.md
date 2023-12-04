@@ -37,7 +37,7 @@ api_client = asana.ApiClient(configuration)
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The followers to be added as collaborators
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -89,7 +89,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The goal to create.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -141,7 +141,7 @@ api_client = asana.ApiClient(configuration)
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The goal metric to create.
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -241,7 +241,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 goals_api_instance = asana.GoalsApi(api_client)
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -291,17 +291,8 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 goals_api_instance = asana.GoalsApi(api_client)
-opts = { 
-    'portfolio': "159874", # str | Globally unique identifier for supporting portfolio.
-    'project': "512241", # str | Globally unique identifier for supporting project.
-    'task': "78424", # str | Globally unique identifier for supporting task.
-    'is_workspace_level': False, # bool | Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.
-    'team': "31326", # str | Globally unique identifier for the team.
-    'workspace': "31326", # str | Globally unique identifier for the workspace.
-    'time_periods': "221693,506165", # list[str] | Globally unique identifiers for the time periods.
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
-    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
-    'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,offset,owner,owner.name,path,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,uri,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+opts = {
+    'portfolio': "159874", # str | Globally unique identifier for supporting portfolio.    'project': "512241", # str | Globally unique identifier for supporting project.    'task': "78424", # str | Globally unique identifier for supporting task.    'is_workspace_level': False, # bool | Filter to goals with is_workspace_level set to query value. Must be used with the workspace parameter.    'team': "31326", # str | Globally unique identifier for the team.    'workspace': "31326", # str | Globally unique identifier for the workspace.    'time_periods': "221693,506165", # list[str] | Globally unique identifiers for the time periods.    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,offset,owner,owner.name,path,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,uri,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -360,7 +351,7 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 goals_api_instance = asana.GoalsApi(api_client)
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -413,7 +404,7 @@ api_client = asana.ApiClient(configuration)
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The followers to be removed as collaborators
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -466,7 +457,7 @@ api_client = asana.ApiClient(configuration)
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the goal.
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -519,7 +510,7 @@ api_client = asana.ApiClient(configuration)
 goals_api_instance = asana.GoalsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the goal metric.
 goal_gid = "12345" # str | Globally unique identifier for the goal.
-opts = { 
+opts = {
     'opt_fields': "current_status_update,current_status_update.resource_subtype,current_status_update.title,due_on,followers,followers.name,html_notes,is_workspace_level,liked,likes,likes.user,likes.user.name,metric,metric.can_manage,metric.currency_code,metric.current_display_value,metric.current_number_value,metric.initial_number_value,metric.precision,metric.progress_source,metric.resource_subtype,metric.target_number_value,metric.unit,name,notes,num_likes,owner,owner.name,start_on,status,team,team.name,time_period,time_period.display_name,time_period.end_on,time_period.period,time_period.start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
