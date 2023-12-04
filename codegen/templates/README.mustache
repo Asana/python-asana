@@ -1,0 +1,651 @@
+# {{{projectName}}} [![GitHub release][release-image]]() [![PyPi Version][pypi-image]][pypi-url]
+
+> **Warning**
+> Python client library version `>5.X.X` is currently in BETA and subject to change. Please use v3.2.X for stable / production environments `pip install asana==3.2.2`. If you have feedback on the new version, please your feedback [here](https://form.asana.com/?k=C4sELCq6hAUsoWEY0kJwAA&d=15793206719).
+
+> You can try out our new python beta by installing version [v{{packageVersion}}](https://github.com/Asana/python-asana/tree/v{{packageVersion}}) (`pip install asana=={{packageVersion}}`) 
+
+- API version: {{appVersion}}
+- Package version: {{packageVersion}}
+{{^hideGenerationTimestamp}}
+- Build date: {{generatedDate}}
+{{/hideGenerationTimestamp}}
+
+## Requirements.
+
+Python 3.4+
+
+## Installation & Usage
+### pip install from [PyPI](https://pypi.org/project/asana/)
+
+```sh
+pip install asana
+```
+
+Then import the package:
+```python
+import {{{packageName}}} 
+```
+
+### Setuptools
+
+Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
+
+```sh
+python setup.py install --user
+```
+(or `sudo python setup.py install` to install the package for all users)
+
+Then import the package:
+```python
+import {{{packageName}}}
+```
+
+## Getting Started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
+
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+users_api_instance = {{{packageName}}}.UsersApi(api_client)
+user_gid = "me"
+opts = {}
+
+try:
+    # Get a user
+    user = users_api_instance.get_user(user_gid, opts)
+    pprint(user)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+### Example: GET, POST, PUT, DELETE on tasks
+
+#### GET - get multiple tasks
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+opts = { 
+    'limit': 50,
+    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9",
+    'assignee': "14641",
+    'project': "321654",
+    'section': "321654",
+    'workspace': "321654",
+    'completed_since': '2012-02-22T02:06:58.158Z',
+    'modified_since': '2012-02-22T02:06:58.158Z',
+    'opt_fields': "actual_time_minutes,approval_status,assignee,assignee.name,assignee_section,assignee_section.name,assignee_status,completed,completed_at,completed_by,completed_by.name,created_at,created_by,custom_fields,custom_fields.asana_created_field,custom_fields.created_by,custom_fields.created_by.name,custom_fields.currency_code,custom_fields.custom_label,custom_fields.custom_label_position,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.description,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.format,custom_fields.has_notifications_enabled,custom_fields.is_formula_field,custom_fields.is_global_to_workspace,custom_fields.is_value_read_only,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.people_value,custom_fields.people_value.name,custom_fields.precision,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,dependencies,dependents,due_at,due_on,external,external.data,followers,followers.name,hearted,hearts,hearts.user,hearts.user.name,html_notes,is_rendered_as_separator,liked,likes,likes.user,likes.user.name,memberships,memberships.project,memberships.project.name,memberships.section,memberships.section.name,modified_at,name,notes,num_hearts,num_likes,num_subtasks,offset,parent,parent.created_by,parent.name,parent.resource_subtype,path,permalink_url,projects,projects.name,resource_subtype,start_at,start_on,tags,tags.name,uri,workspace,workspace.name"
+}
+
+try:
+    # Get multiple tasks
+    tasks = tasks_api_instance.get_tasks(opts)
+    for task in tasks:
+        pprint(task)
+except ApiException as e:
+    print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+#### POST - create a task
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+body = {
+    "data": {
+        "name": "New Task",
+        "projects": ["<YOUR_PROJECT_GID>"],
+    }
+}
+opts = {}
+
+try:
+    # Create a task
+    task = tasks_api_instance.create_task(body, opts)
+    pprint(task)
+except ApiException as e:
+    print("Exception when calling TasksApi->create_task: %s\n" % e)
+```
+
+#### PUT - update a task
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+body = {
+    "data": {
+        "name": "Updated Task",
+    }
+}
+task_gid = "<YOUR_TASK_GID>"
+opts = {}
+
+try:
+    # Update a task
+    task = tasks_api_instance.update_task(body, task_gid, opts)
+    pprint(task)
+except ApiException as e:
+    print("Exception when calling TasksApi->update_task: %s\n" % e)
+```
+
+#### DELETE - delete a task
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+task_gid = "<YOUR_TASK_GID>"
+
+try:
+    # Delete a task
+    task = tasks_api_instance.delete_task(task_gid)
+    pprint(task)
+except ApiException as e:
+    print("Exception when calling TasksApi->delete_task: %s\n" % e)
+```
+
+## Documentation for API Endpoints
+
+All URIs are relative to *{{basePath}}*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{apiDocPath}}{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+
+## Accessing repsonse data
+
+### Example: Accessing task data
+```python
+.
+.
+.
+try:
+    task = tasks_api_instance.get_task(task_gid, opts)
+    task_name = task['name']
+    task_notes = task['notes']
+except ApiException as e:
+    .
+    .
+    .
+```
+
+## Accessing response status code and headers
+
+In the scenario you want to access the response headers or the status code along with the response data you can
+provide the `_return_http_data_only` parameter argument in the request method and set the value to `False`
+
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+users_api_instance = {{{packageName}}}.UsersApi(api_client)
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opts = {}
+
+try:
+    # Get a user - Add asana-enable in the request
+    (api_response, status, headers) = users_api_instance.get_user(user_gid, opts, _return_http_data_only=False) # returns a tuple: (response, status, headers)
+    pprint(api_response)
+    pprint(status)
+    pprint(headers)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+## Adding deprecation flag: "asana-enable" or "asana-disable" header
+
+### On the client
+```python
+{{>code_sample_client}}
+
+# Add asana-enable header for the client
+api_client.default_headers['asana-enable'] = 'string_ids'
+```
+
+OR
+
+### On the request
+```python
+{{>code_sample_client}}
+
+# create an instance of the API class
+users_api_instance = {{{packageName}}}.UsersApi(api_client)
+user_gid = 'me' # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opts = {}
+
+try:
+    # Get a user - Add asana-enable in the request
+    api_response = users_api_instance.get_user(user_gid, opts, header_params={'asana-enable': 'string_ids'})
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
+```
+
+## Async requests with multithreading
+
+This client library uses multithreading to make async requests. To make async requests you can pass in `async_req=True` in the method call.
+
+NOTE:
+- This feature disables our auto-pagination feature
+- You will want to add logic to handle the Asana API rate limits
+
+The code belows is an example of how to make 15 async create task calls. It does not handle the Asana API rate limits.
+You will have to implement your own solution for API rate limits based on your tier.
+
+```python
+{{>code_sample_client}}
+
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+threads = []
+for i in range(1, 15+1):
+    body = {
+        "data": {
+            "name": f"Task: {i}",
+            "projects": ["<YOUR_PROJECT_GID>"]
+        }
+    }
+    opts = {}
+    threads.append(tasks_api_instance.create_task(body, opts, async_req=True))
+
+for thread in threads:
+    try:
+        pprint(thread.get())
+    except ApiException as e:
+        print("Exception when calling TasksApi->create_task: %s\n" % e)
+```
+
+## Pagination
+
+The pagination feature is enabled by default. This means two things:
+
+1: Endpoints that return a single response (EX: [get_task](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{apiDocPath}}TasksApi.md#get_task) ([Get a task](https://developers.asana.com/reference/gettask)), [get_project](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{apiDocPath}}TasksApi.md#get_project) ([Get a project](https://developers.asana.com/reference/getproject)), etc...)
+will return a response with the `"data"` key abstracted from the response.
+
+Instead of returning:
+```python
+{
+    "data": {
+        "gid": "123",
+        "actual_time_minutes": null,
+        "assignee": null,
+        ...
+        "workspace": {
+            "gid": "1234567",
+            "name": "user@example.com",
+            "resource_type": "workspace"
+        }
+    }
+}
+```
+
+It returns:
+```python
+{
+    "gid": "123",
+    "actual_time_minutes": null,
+    "assignee": null,
+    ...
+    "workspace": {
+        "gid": "1234567",
+        "name": "user@example.com",
+        "resource_type": "workspace"
+    }
+}
+```
+
+2: Endpoints that return an array of resources (EX: [get_tasks](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{apiDocPath}}TasksApi.md#get_tasks) ([Get multiple tasks](https://developers.asana.com/reference/gettasks)), [get_projects](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{apiDocPath}}ProjectsApi.md#get_projects) ([Get multiple projects](https://developers.asana.com/reference/getprojects)), etc...)
+will return a generator object ([PageIterator.items](https://github.com/Asana/python-asana/blob/v{{packageVersion}}/{{packageName}}/paget_iterator.py)) that you can use to iterate through each result.
+
+Example usage 1:
+```python
+{{>code_sample_client}}
+
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+opts = {"project": "<YOUR_PROJECT_GID>"}
+
+try:
+    tasks = tasks_api_instance.get_tasks(opts)
+    for task in tasks:
+        pprint(task)
+
+except Exception as e:
+    print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+Example response:
+```python
+{'gid': '123',
+ 'name': 'Task 1',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'},
+ .
+ .
+ .
+```
+
+Example usage 2:
+```python
+{{>code_sample_client}}
+
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+opts = {"project": "<YOUR_PROJECT_GID>"}
+
+try:
+    tasks = tasks_api_instance.get_tasks(opts)
+    pprint(list(tasks))
+
+except Exception as e:
+    print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+Example response:
+```python
+[{'gid': '123',
+ 'name': 'Task 1',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'},
+ .
+ .
+ .]
+```
+
+### Ending pagination early
+
+In the scenario where you want to end the pagination early, you can specify an `item_limit` in the method call. This will stop the iterator from going past that limit.
+
+**Example Scenario:** You have 1000 tasks in a project and are only interested in the first 2 tasks. Instead of letting the pagination code continue to run to get all those 1000 tasks you can specify that you only want the first X results with `item_limit`.
+
+**Without `item_limit` - The for loop will continue to run until it runs out of tasks:**
+
+```python
+    ...
+    tasks = tasks_api_instance.get_tasks(opts)
+    for task in tasks:
+        pprint(task)
+    ...
+```
+
+**Sample response:**
+
+```python
+{'gid': '123',
+ 'name': 'Task 1',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'},
+ .
+ .
+ .
+ <1000th_TASK>
+```
+
+**With `item_limit` - the for loop will stop at the `item_limit` you specified:**
+```python
+    ...
+    tasks = tasks_api_instance.get_tasks(opts, item_limit=2)
+    for task in tasks:
+        pprint(task)
+    ...
+```
+
+**Sample response:**
+
+```python
+{'gid': '123',
+ 'name': 'Task 1',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'},
+{'gid': '456',
+ 'name': 'Task 2',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'}
+```
+
+Alternatively, if you are iterating over the generator object in a for loop, you can also just break out of the loop.
+
+**EX:**
+```python
+...
+opts = {'project': "<YOUR_PROJECT_GID>"}
+
+try:
+    count = 0
+    tasks = tasks_api_instance.get_tasks(opts)
+    for task in tasks:
+        if count == 2:
+            break
+        pprint(task)
+        count += 1
+    ...
+```
+
+**Sample response:**
+
+```python
+{'gid': '123',
+ 'name': 'Task 1',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'},
+ {'gid': '456',
+ 'name': 'Task 2',
+ 'resource_subtype': 'default_task',
+ 'resource_type': 'task'}
+```
+
+### Disabling default pagination behaviour
+
+If you do not want to use the default pagination behaviour there are two ways to disbale it.
+
+1: Per request - Disable pagination behavior for a single request - pass in `full_payload=True` in the method request
+```python
+{{>code_sample_client}}
+
+tasks_api_instance = {{{packageName}}}.TasksApi(api_client)
+opts = {"project": "<YOUR_PROJECT>", "limit": 2}
+
+try:
+    tasks = tasks_api_instance.get_tasks(opts, full_payload=True)
+    pprint(tasks)
+except Exception as e:
+    print("Exception when calling TasksApi->get_tasks: %s\n" % e)
+```
+
+Sample response:
+```python
+{'data': [{'gid': '123',
+           'name': 'Task 1',
+           'resource_subtype': 'default_task',
+           'resource_type': 'task'},
+          {'gid': '456',
+           'name': 'Task 2',
+           'resource_subtype': 'default_task',
+           'resource_type': 'task'}],
+ 'next_page': {'offset': 'eyJ0...',
+               'path': '/tasks?project=789&limit=2&offset=eyJ0...',
+               'uri': 'https://app.asana.com/api/1.0/tasks?project=789&limit=2&offset=eyJ0...'}}
+```
+
+2: Globally - Disable pagination behavior for all requests - Set `return_page_iterator` to False
+```python
+...
+configuration = {{{packageName}}}.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+configuration.return_page_iterator = False
+api_client = {{{packageName}}}.ApiClient(configuration)
+...
+```
+
+## Documentation for Using the `call_api` method
+
+Use this to make HTTP calls when the endpoint does not exist in the current library version or has bugs
+
+### Example: GET, POST, PUT, DELETE on tasks
+
+#### GET - get a task
+```python
+{{>code_sample_client}}
+
+try:
+    # GET - get a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "GET",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params={},
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # You can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["token"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### GET - get multiple tasks -> with opt_fields
+```python
+{{>code_sample_client}}
+
+try:
+    # GET - get multiple tasks
+    api_response = api_client.call_api(
+        "/tasks",
+        "GET",
+        path_params={},
+        query_params={
+            "project": "<YOUR_PROJECT_GID>",
+            "opt_fields": "name,notes,projects",
+        },
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # You can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["token"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### POST - create a task
+```python
+{{>code_sample_client}}
+
+try:
+    # POST - create a task
+    api_response = api_client.call_api(
+        "/tasks",
+        "POST",
+        path_params={},
+        query_params={},
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "New Task",
+                "projects": ["<YOUR_PROJECT_GID>"],
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # You can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["token"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### PUT - update a task
+```python
+{{>code_sample_client}}
+
+try:
+    # PUT - update a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "PUT",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params={},
+        header_params={
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body={
+            "data": {
+                "name": "Updated Task",
+            }
+        },
+        post_params=[],
+        files={},
+        response_type=object, # You can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["token"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+#### DELETE - delete a task
+```python
+{{>code_sample_client}}
+
+try:
+    # DELETE - delete a task
+    api_response = api_client.call_api(
+        "/tasks/{task_gid}",
+        "DELETE",
+        path_params={"task_gid": "<YOUR_TASK_GID>"},
+        query_params={},
+        header_params={"Accept": "application/json; charset=utf-8"},
+        body=None,
+        post_params=[],
+        files={},
+        response_type=object, # You can specify one of the following types: float, bool, bytes, str, object
+        auth_settings=["token"],
+        async_req=None,
+        _return_http_data_only=True,
+        _preload_content=True,
+        _request_timeout=None,
+        collection_formats={},
+    )
+    pprint(api_response)
+except ApiException as e:
+    print("Exception: %s\n" % e)
+```
+
+[release-image]: https://img.shields.io/github/release/asana/python-asana.svg
+
+[pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
+[pypi-url]: https://pypi.python.org/pypi/asana/

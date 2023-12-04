@@ -1,0 +1,36 @@
+{{>code_sample_client}}{{#hasAuthMethods}}
+
+# create an instance of the API class
+{{{vendorExtensions.x-codegen-resourceInstanceName}}} = {{{packageName}}}.{{{classname}}}(api_client){{#hasParams}}
+{{#vendorExtensions.x-codegen-hasRequiredParams}}{{#parameters}}{{#required}}
+{{{paramName}}} = {{{example}}} # {{{dataType}}} | {{{description}}}
+{{/required}}{{/parameters}}{{/vendorExtensions.x-codegen-hasRequiredParams}}{{#hasOptionalParams}}
+opts = { {{#parameters}}{{^required}}
+    '{{{paramName}}}': {{{example}}}{{#vendorExtensions.x-codegen-hasMoreOptional}},{{/vendorExtensions.x-codegen-hasMoreOptional}} # {{{dataType}}} | {{{description}}}{{/required}}{{/parameters}}
+}{{/hasOptionalParams}}{{/hasParams}}
+{{/hasAuthMethods}}
+{{^hasAuthMethods}}
+
+# create an instance of the API class
+{{{vendorExtensions.x-codegen-resourceInstanceName}}} = {{{packageName}}}.{{{classname}}}()
+{{#parameters}}
+{{paramName}} = {{{example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+{{/parameters}}
+{{/hasAuthMethods}}
+{{#vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
+opts['custom_fields.123.is_set'] = True # bool | Filiter to tasks with custom field set or unset. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.value'] = '456' # str or bool or Enum option ID | Filter to tasks with custom field that matches the provided value. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.starts_with'] = 'start' # string | Filter to tasks with custom field that starts with provided string. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.ends_with'] = 'end' # string | Filter to tasks with custom field that ends in provided string. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.contains'] = 'first' # string | Filter to tasks with custom field that contains the provided string. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.less_than'] = 10 # number | Filter to tasks with custom field with number value less than the provided number. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+opts['custom_fields.123.greater_than'] = 100 # number | Filter to tasks with custom field with number value greater than the provided number. Note: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+{{/vendorExtensions.x-codegen-isSearchTasksForWorkspace}}
+
+try:
+{{#summary}}    # {{{.}}}
+{{/summary}}    {{#returnType}}api_response = {{/returnType}}{{{vendorExtensions.x-codegen-resourceInstanceName}}}.{{{operationId}}}({{#vendorExtensions.x-codegen-templateParams}}{{#required}}{{{paramName}}}{{#vendorExtensions.x-codegen-hasMoreRequired}}, {{/vendorExtensions.x-codegen-hasMoreRequired}}{{/required}}{{/vendorExtensions.x-codegen-templateParams}}{{#hasOptionalParams}}{{#vendorExtensions.x-codegen-hasRequiredParams}}, {{/vendorExtensions.x-codegen-hasRequiredParams}}opts{{/hasOptionalParams}}){{#returnType}}
+    {{#vendorExtensions.x-codegen-isArrayResponse}}for data in api_response:
+        pprint(data){{/vendorExtensions.x-codegen-isArrayResponse}}{{/returnType}}{{^vendorExtensions.x-codegen-isArrayResponse}}pprint(api_response){{/vendorExtensions.x-codegen-isArrayResponse}}
+except ApiException as e:
+    print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)

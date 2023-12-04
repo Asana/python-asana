@@ -1,57 +1,59 @@
-name: Bump Version and Publish
+name: Generate client library + Publish 📦 to PyPI + Publish to GitHub Releases
 
 on:
   workflow_dispatch:
     inputs:
-      bumpVersion:
-        description: Choose a version number to bump
+      version:
         required: true
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
 
 jobs:
-  bump-semantic-versioning:
-    name: Bump the semantic versioning for the package
+  generate-python-library:
+    name: Generate python client library
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v4
+      - uses: actions/setup-java@v3
         with:
-          python-version: 3.7
-      - name: Run deploy script
+          distribution: "temurin"
+          java-version: "17"
+      - name: Setup environment variables
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          python deploy.py ${{ inputs.bumpVersion }}
-  publish-to-github:
-    needs: bump-semantic-versioning
-    name: Publish to GitHub Releases
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+          echo "generator_version=3.0.46" >> "$GITHUB_ENV"
+          echo "generator_name=swagger-codegen-cli.jar" >> "$GITHUB_ENV"
+          echo "jar_asana=codegen/swagger/target/AsanaClientCodegen-swagger-codegen-1.0.0.jar" >> "$GITHUB_ENV"
+          echo "actual_lang=com.asana.codegen.PythonClientCodegenGenerator" >> "$GITHUB_ENV"
+          echo "name=asana" >> "$GITHUB_ENV"
+      - name: Download generator
+        run: |
+          wget -q -O $generator_name https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/${{ env.generator_version }}/swagger-codegen-cli-${{ env.generator_version }}.jar
+      - name: Build custom code
+        run: |
+          pushd codegen/swagger >/dev/null
+          mvn package
+          popd >/dev/null
+      - name: Generate library
+        run: >-
+          java -cp "${{ env.jar_asana }}:${{ env.generator_name }}"
+          io.swagger.codegen.v3.cli.SwaggerCodegen
+          generate
+          --input-spec https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_sdk_oas.yaml
+          --template-dir "codegen/templates"
+          --lang "${{ env.actual_lang }}"
+          -DpackageName=${{ env.name }}
+          --additional-properties "packageVersion=${{ inputs.version }},projectName=${{ env.name }},packageName=${{ env.name }}"
+      - name: Clean up generator
+        run: rm -rf codegen/swagger/target ${{ env.generator_name }} 
+      - name: Push changes to master branch
+        uses: EndBug/add-and-commit@v9
         with:
-          fetch-depth: 0
-          ref: master
-      - name: Get version tag
-        id: tag
-        run: echo "version=v$(cat VERSION)" >> $GITHUB_OUTPUT
-      - name: Print version tag
-        run: echo ${{ steps.tag.outputs.version }}
-      - name: Publish to GitHub Releases
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.tag.outputs.version }}
-          # Use the newest commit message as the release description
-          body: ${{ github.event.head_commit.message }}
+          message: 'Updated Python SDK: v${{ inputs.version }}'
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          tag: 'v${{ inputs.version }} --force'
+          tag_push: '--force'
   build-n-publish-to-pypi:
-    needs: [bump-semantic-versioning, publish-to-github]
-    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+    needs: generate-python-library
+    name: Build and publish Python 🐍 distributions 📦 to TestPyPI and PyPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -82,6 +84,21 @@ jobs:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
       - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
+  publish-to-github:
+    needs: build-n-publish-to-pypi
+    name: Publish to GitHub Releases
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ inputs.version }}
