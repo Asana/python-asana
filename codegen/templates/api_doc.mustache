@@ -1,0 +1,49 @@
+# {{packageName}}.{{classname}}{{#description}}
+{{description}}{{/description}}
+
+All URIs are relative to *{{basePath}}*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+{{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+{{/operation}}{{/operations}}
+
+{{#operations}}
+{{#operation}}
+{{#contents}}
+{{#@first}}
+# **{{{operationId}}}**
+
+{{summary}}{{#notes}}
+
+{{{notes}}}{{/notes}}
+
+([more information](https://developers.asana.com/reference/{{{vendorExtensions.x-codegen-operationIdLowerCase}}}))
+
+### Example
+```python
+{{>code_sample}}
+```
+
+### Parameters
+{{^parameters}}This endpoint does not need any parameter.{{/parameters}}{{#parameters}}{{#@last}}
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------{{/@last}}{{/parameters}}
+{{#parameters}} **{{paramName}}** | {{#isBinary}}**{{dataType}}**{{/isBinary}}{{^isBinary}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**Dict**{{/isPrimitiveType}}{{/isBinary}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
+{{/parameters}}
+
+### Return type
+
+{{#vendorExtensions.x-codegen-isArrayResponse}}generator{{/vendorExtensions.x-codegen-isArrayResponse}}{{^vendorExtensions.x-codegen-isArrayResponse}}dict{{/vendorExtensions.x-codegen-isArrayResponse}}
+
+### HTTP request headers
+
+ - **Content-Type**: {{#consumes}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/consumes}}{{^consumes}}Not defined{{/consumes}}
+ - **Accept**: {{#produces}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/produces}}{{^produces}}Not defined{{/produces}}
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+{{/@first}}
+{{/contents}}
+{{/operation}}
+{{/operations}}

@@ -1,0 +1,45 @@
+OrganizationExportsApi:
+  create_organization_export: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    organization_exports_api_instance = asana.OrganizationExportsApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The organization to export.
+    opts = { 
+        'opt_fields': "created_at,download_url,organization,organization.name,state" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Create an organization export request
+        api_response = organization_exports_api_instance.create_organization_export(body, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationExportsApi->create_organization_export: %s\n" % e)
+  get_organization_export: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    organization_exports_api_instance = asana.OrganizationExportsApi(api_client)
+    organization_export_gid = "12345" # str | Globally unique identifier for the organization export.
+    opts = { 
+        'opt_fields': "created_at,download_url,organization,organization.name,state" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get details on an org export request
+        api_response = organization_exports_api_instance.get_organization_export(organization_export_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationExportsApi->get_organization_export: %s\n" % e)

@@ -1,0 +1,14 @@
+# coding: utf-8
+
+# flake8: noqa
+
+{{>partial_header}}
+
+from __future__ import absolute_import
+
+# import apis into sdk package
+{{#apiInfo}}{{#apis}}from {{importPath}} import {{classname}}
+{{/apis}}{{/apiInfo}}
+# import ApiClient
+from {{packageName}}.api_client import ApiClient
+from {{packageName}}.configuration import Configuration
