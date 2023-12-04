@@ -1,0 +1,116 @@
+GoalRelationshipsApi:
+  add_supporting_relationship: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The supporting resource to be added to the goal
+    goal_gid = "12345" # str | Globally unique identifier for the goal.
+    opts = { 
+        'opt_fields': "contribution_weight,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Add a supporting goal relationship
+        api_response = goal_relationships_api_instance.add_supporting_relationship(body, goal_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GoalRelationshipsApi->add_supporting_relationship: %s\n" % e)
+  get_goal_relationship: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
+    goal_relationship_gid = "12345" # str | Globally unique identifier for the goal relationship.
+    opts = { 
+        'opt_fields': "contribution_weight,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get a goal relationship
+        api_response = goal_relationships_api_instance.get_goal_relationship(goal_relationship_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GoalRelationshipsApi->get_goal_relationship: %s\n" % e)
+  get_goal_relationships: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
+    supported_goal = "12345" # str | Globally unique identifier for the supported goal in the goal relationship.
+    opts = { 
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        'resource_subtype': "subgoal", # str | If provided, filter to goal relationships with a given resource_subtype.
+        'opt_fields': "contribution_weight,offset,path,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get goal relationships
+        api_response = goal_relationships_api_instance.get_goal_relationships(supported_goal, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling GoalRelationshipsApi->get_goal_relationships: %s\n" % e)
+  remove_supporting_relationship: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The supporting resource to be removed from the goal
+    goal_gid = "12345" # str | Globally unique identifier for the goal.
+
+    
+    try:
+        # Removes a supporting goal relationship
+        api_response = goal_relationships_api_instance.remove_supporting_relationship(body, goal_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GoalRelationshipsApi->remove_supporting_relationship: %s\n" % e)
+  update_goal_relationship: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the goal relationship.
+    goal_relationship_gid = "12345" # str | Globally unique identifier for the goal relationship.
+    opts = { 
+        'opt_fields': "contribution_weight,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Update a goal relationship
+        api_response = goal_relationships_api_instance.update_goal_relationship(body, goal_relationship_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GoalRelationshipsApi->update_goal_relationship: %s\n" % e)

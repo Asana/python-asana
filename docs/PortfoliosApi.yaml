@@ -1,0 +1,269 @@
+PortfoliosApi:
+  add_custom_field_setting_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the custom field setting.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+
+    
+    try:
+        # Add a custom field to a portfolio
+        api_response = portfolios_api_instance.add_custom_field_setting_for_portfolio(body, portfolio_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->add_custom_field_setting_for_portfolio: %s\n" % e)
+  add_item_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the item being inserted.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+
+    
+    try:
+        # Add a portfolio item
+        api_response = portfolios_api_instance.add_item_for_portfolio(body, portfolio_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->add_item_for_portfolio: %s\n" % e)
+  add_members_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the members being added.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = { 
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,owner,owner.name,permalink_url,project_templates,project_templates.name,public,start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Add users to a portfolio
+        api_response = portfolios_api_instance.add_members_for_portfolio(body, portfolio_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->add_members_for_portfolio: %s\n" % e)
+  create_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The portfolio to create.
+    opts = { 
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,owner,owner.name,permalink_url,project_templates,project_templates.name,public,start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Create a portfolio
+        api_response = portfolios_api_instance.create_portfolio(body, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->create_portfolio: %s\n" % e)
+  delete_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+
+    
+    try:
+        # Delete a portfolio
+        api_response = portfolios_api_instance.delete_portfolio(portfolio_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->delete_portfolio: %s\n" % e)
+  get_items_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = { 
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        'opt_fields': "archived,color,completed,completed_at,completed_by,completed_by.name,created_at,created_from_template,created_from_template.name,current_status,current_status.author,current_status.author.name,current_status.color,current_status.created_at,current_status.created_by,current_status.created_by.name,current_status.html_text,current_status.modified_at,current_status.text,current_status.title,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,default_access_level,default_view,due_date,due_on,followers,followers.name,html_notes,icon,members,members.name,minimum_access_level_for_customization,minimum_access_level_for_sharing,modified_at,name,notes,offset,owner,path,permalink_url,project_brief,public,start_on,team,team.name,uri,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get portfolio items
+        api_response = portfolios_api_instance.get_items_for_portfolio(portfolio_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->get_items_for_portfolio: %s\n" % e)
+  get_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = { 
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,owner,owner.name,permalink_url,project_templates,project_templates.name,public,start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get a portfolio
+        api_response = portfolios_api_instance.get_portfolio(portfolio_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->get_portfolio: %s\n" % e)
+  get_portfolios: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    workspace = "1331" # str | The workspace or organization to filter portfolios on.
+    opts = { 
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        'owner': "14916", # str | The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own, unless the request is made from a Service Account. In the case of a Service Account, if this parameter is specified, then all portfolios owned by this parameter are returned. Otherwise, all portfolios across the workspace are returned.
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,offset,owner,owner.name,path,permalink_url,project_templates,project_templates.name,public,start_on,uri,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get multiple portfolios
+        api_response = portfolios_api_instance.get_portfolios(workspace, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->get_portfolios: %s\n" % e)
+  remove_custom_field_setting_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the custom field setting being removed.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+
+    
+    try:
+        # Remove a custom field from a portfolio
+        api_response = portfolios_api_instance.remove_custom_field_setting_for_portfolio(body, portfolio_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->remove_custom_field_setting_for_portfolio: %s\n" % e)
+  remove_item_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the item being removed.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+
+    
+    try:
+        # Remove a portfolio item
+        api_response = portfolios_api_instance.remove_item_for_portfolio(body, portfolio_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->remove_item_for_portfolio: %s\n" % e)
+  remove_members_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the members being removed.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = { 
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,owner,owner.name,permalink_url,project_templates,project_templates.name,public,start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Remove users from a portfolio
+        api_response = portfolios_api_instance.remove_members_for_portfolio(body, portfolio_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->remove_members_for_portfolio: %s\n" % e)
+  update_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the portfolio.
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = { 
+        'opt_fields': "color,created_at,created_by,created_by.name,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.resource_subtype,custom_fields.text_value,custom_fields.type,due_on,members,members.name,name,owner,owner.name,permalink_url,project_templates,project_templates.name,public,start_on,workspace,workspace.name" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Update a portfolio
+        api_response = portfolios_api_instance.update_portfolio(body, portfolio_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->update_portfolio: %s\n" % e)
