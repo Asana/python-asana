@@ -32,7 +32,7 @@ project_statuses_api_instance = asana.ProjectStatusesApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The project status to create.
 project_gid = "1331" # str | Globally unique identifier for the project.
 opts = {
-    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,text,title" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,text,title", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -132,7 +132,7 @@ api_client = asana.ApiClient(configuration)
 project_statuses_api_instance = asana.ProjectStatusesApi(api_client)
 project_status_gid = "321654" # str | The project status update to get.
 opts = {
-    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,text,title" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,text,title", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -183,7 +183,9 @@ api_client = asana.ApiClient(configuration)
 project_statuses_api_instance = asana.ProjectStatusesApi(api_client)
 project_gid = "1331" # str | Globally unique identifier for the project.
 opts = {
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,offset,path,text,title,uri" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+    'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,offset,path,text,title,uri", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

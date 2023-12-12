@@ -29,7 +29,7 @@ api_client = asana.ApiClient(configuration)
 organization_exports_api_instance = asana.OrganizationExportsApi(api_client)
 body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The organization to export.
 opts = {
-    'opt_fields': "created_at,download_url,organization,organization.name,state" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_at,download_url,organization,organization.name,state", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -80,7 +80,7 @@ api_client = asana.ApiClient(configuration)
 organization_exports_api_instance = asana.OrganizationExportsApi(api_client)
 organization_export_gid = "12345" # str | Globally unique identifier for the organization export.
 opts = {
-    'opt_fields': "created_at,download_url,organization,organization.name,state" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_at,download_url,organization,organization.name,state", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

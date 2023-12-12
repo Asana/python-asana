@@ -30,7 +30,7 @@ api_client = asana.ApiClient(configuration)
 task_templates_api_instance = asana.TaskTemplatesApi(api_client)
 task_template_gid = "1331" # str | Globally unique identifier for the task template.
 opts = {
-    'opt_fields': "created_at,created_by,name,project,template" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_at,created_by,name,project,template", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -80,7 +80,10 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 task_templates_api_instance = asana.TaskTemplatesApi(api_client)
 opts = {
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'    'project': "321654", # str | The project to filter task templates on.    'opt_fields': "created_at,created_by,name,project,template" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+    'project': "321654", # str | The project to filter task templates on.
+    'opt_fields': "created_at,created_by,name,project,template", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -134,7 +137,8 @@ api_client = asana.ApiClient(configuration)
 task_templates_api_instance = asana.TaskTemplatesApi(api_client)
 task_template_gid = "1331" # str | Globally unique identifier for the task template.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}} # dict | Describes the inputs used for instantiating a task - the task's name.    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status" # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | Describes the inputs used for instantiating a task - the task's name.
+    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
