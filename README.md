@@ -530,8 +530,8 @@ It returns:
 }
 ```
 
-2: Endpoints that return an array of resources (EX: [get_tasks](https://github.com/Asana/python-asana/blob/v5.0.1/docs/TasksApi.md#get_tasks) ([Get multiple tasks](https://developers.asana.com/reference/gettasks)), [get_projects](https://github.com/Asana/python-asana/blob/v5.0.1/docs/ProjectsApi.md#get_projects) ([Get multiple projects](https://developers.asana.com/reference/getprojects)), etc...)
-will return a generator object ([PageIterator.items](https://github.com/Asana/python-asana/blob/v5.0.1/asana/pagination/paget_iterator.py)) that you can use to iterate through each result.
+2: Endpoints that return an array of resources (EX: [get_tasks](https://github.com/Asana/python-asana/blob/v5.0.0/docs/TasksApi.md#get_tasks) ([Get multiple tasks](https://developers.asana.com/reference/gettasks)), [get_projects](https://github.com/Asana/python-asana/blob/v5.0.0/docs/ProjectsApi.md#get_projects) ([Get multiple projects](https://developers.asana.com/reference/getprojects)), etc...)
+will return a generator object ([PageIterator.items](https://github.com/Asana/python-asana/blob/v5.0.0/asana/pagination/page_iterator.py)) that you can use to iterate through each result.
 
 Example usage 1:
 ```python
