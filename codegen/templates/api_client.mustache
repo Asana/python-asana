@@ -340,7 +340,8 @@ class ApiClient(object):
         # Convert query params dict into a list of query param tuples.
         # This step was previous implemented in the api.mustache but we needed
         # to modify the query params dict for pagination so we move this conversion step here
-        query_params = [(k, v) for k, v in query_params.items()]
+        if query_params:
+            query_params = [(k, v) for k, v in query_params.items()]
 
         if not async_req:
             return self.__call_api(resource_path, method,
