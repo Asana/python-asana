@@ -167,7 +167,7 @@ class {{classname}}(object):
         collection_formats['{{baseName}}'] = '{{collectionFormat}}'{{/isListContainer}}  # noqa: E501
 {{/pathParams}}
 
-        query_params = []
+        query_params = {}
         {{#hasOptionalParams}}
         query_params = opts
         {{/hasOptionalParams}}
