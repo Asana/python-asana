@@ -101,7 +101,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -246,7 +246,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -393,7 +393,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -539,7 +539,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -684,7 +684,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -831,7 +831,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -973,7 +973,7 @@ class TasksApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1114,7 +1114,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -1257,7 +1257,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1404,7 +1404,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1550,7 +1550,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1696,7 +1696,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1838,7 +1838,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1987,7 +1987,7 @@ class TasksApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2135,7 +2135,7 @@ class TasksApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2283,7 +2283,7 @@ class TasksApi(object):
         path_params = {}
         path_params['section_gid'] = section_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2429,7 +2429,7 @@ class TasksApi(object):
         path_params = {}
         path_params['tag_gid'] = tag_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2577,7 +2577,7 @@ class TasksApi(object):
         path_params = {}
         path_params['user_task_list_gid'] = user_task_list_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2722,7 +2722,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -2867,7 +2867,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -3014,7 +3014,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -3160,7 +3160,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -3305,7 +3305,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -3560,7 +3560,7 @@ class TasksApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
         # Checks if the user provided custom field query parameters and adds it to the request
@@ -3710,7 +3710,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -3858,7 +3858,7 @@ class TasksApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

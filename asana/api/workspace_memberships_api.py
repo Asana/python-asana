@@ -98,7 +98,7 @@ class WorkspaceMembershipsApi(object):
         path_params = {}
         path_params['workspace_membership_gid'] = workspace_membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -241,7 +241,7 @@ class WorkspaceMembershipsApi(object):
         path_params = {}
         path_params['user_gid'] = user_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -389,7 +389,7 @@ class WorkspaceMembershipsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

@@ -97,7 +97,7 @@ class CustomFieldsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -242,7 +242,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['custom_field_gid'] = custom_field_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -383,7 +383,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['custom_field_gid'] = custom_field_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -521,7 +521,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['custom_field_gid'] = custom_field_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -664,7 +664,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -808,7 +808,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['custom_field_gid'] = custom_field_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -953,7 +953,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['custom_field_gid'] = custom_field_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1098,7 +1098,7 @@ class CustomFieldsApi(object):
         path_params = {}
         path_params['enum_option_gid'] = enum_option_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

@@ -97,7 +97,7 @@ class OrganizationExportsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -240,7 +240,7 @@ class OrganizationExportsApi(object):
         path_params = {}
         path_params['organization_export_gid'] = organization_export_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

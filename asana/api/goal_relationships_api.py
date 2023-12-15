@@ -103,7 +103,7 @@ class GoalRelationshipsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -246,7 +246,7 @@ class GoalRelationshipsApi(object):
         path_params = {}
         path_params['goal_relationship_gid'] = goal_relationship_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -390,7 +390,7 @@ class GoalRelationshipsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['supported_goal'] = supported_goal
 
@@ -536,7 +536,7 @@ class GoalRelationshipsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -683,7 +683,7 @@ class GoalRelationshipsApi(object):
         path_params = {}
         path_params['goal_relationship_gid'] = goal_relationship_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

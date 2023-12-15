@@ -103,7 +103,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -245,7 +245,7 @@ class GoalsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -393,7 +393,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -534,7 +534,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -672,7 +672,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -823,7 +823,7 @@ class GoalsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -965,7 +965,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1112,7 +1112,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1260,7 +1260,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1408,7 +1408,7 @@ class GoalsApi(object):
         path_params = {}
         path_params['goal_gid'] = goal_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

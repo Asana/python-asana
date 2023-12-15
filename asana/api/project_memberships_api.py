@@ -98,7 +98,7 @@ class ProjectMembershipsApi(object):
         path_params = {}
         path_params['project_membership_gid'] = project_membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -243,7 +243,7 @@ class ProjectMembershipsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

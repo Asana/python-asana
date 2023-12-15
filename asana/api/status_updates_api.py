@@ -101,7 +101,7 @@ class StatusUpdatesApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -242,7 +242,7 @@ class StatusUpdatesApi(object):
         path_params = {}
         path_params['status_update_gid'] = status_update_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -380,7 +380,7 @@ class StatusUpdatesApi(object):
         path_params = {}
         path_params['status_update_gid'] = status_update_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -524,7 +524,7 @@ class StatusUpdatesApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['parent'] = parent
 

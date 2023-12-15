@@ -97,7 +97,7 @@ class WebhooksApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -238,7 +238,7 @@ class WebhooksApi(object):
         path_params = {}
         path_params['webhook_gid'] = webhook_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -376,7 +376,7 @@ class WebhooksApi(object):
         path_params = {}
         path_params['webhook_gid'] = webhook_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -520,7 +520,7 @@ class WebhooksApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['workspace'] = workspace
 
@@ -668,7 +668,7 @@ class WebhooksApi(object):
         path_params = {}
         path_params['webhook_gid'] = webhook_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

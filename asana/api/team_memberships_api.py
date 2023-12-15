@@ -98,7 +98,7 @@ class TeamMembershipsApi(object):
         path_params = {}
         path_params['team_membership_gid'] = team_membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -241,7 +241,7 @@ class TeamMembershipsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -387,7 +387,7 @@ class TeamMembershipsApi(object):
         path_params = {}
         path_params['team_gid'] = team_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -538,7 +538,7 @@ class TeamMembershipsApi(object):
         path_params = {}
         path_params['user_gid'] = user_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['workspace'] = workspace
 

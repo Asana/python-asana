@@ -98,7 +98,7 @@ class TimePeriodsApi(object):
         path_params = {}
         path_params['time_period_gid'] = time_period_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -244,7 +244,7 @@ class TimePeriodsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['workspace'] = workspace
 

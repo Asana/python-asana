@@ -104,7 +104,7 @@ class AttachmentsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -275,7 +275,7 @@ class AttachmentsApi(object):
         path_params = {}
         path_params['attachment_gid'] = attachment_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -413,7 +413,7 @@ class AttachmentsApi(object):
         path_params = {}
         path_params['attachment_gid'] = attachment_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -555,7 +555,7 @@ class AttachmentsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['parent'] = parent
 

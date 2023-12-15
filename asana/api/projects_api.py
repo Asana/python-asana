@@ -101,7 +101,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -248,7 +248,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -396,7 +396,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -538,7 +538,7 @@ class ProjectsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -686,7 +686,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['team_gid'] = team_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -834,7 +834,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -975,7 +975,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -1115,7 +1115,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1258,7 +1258,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1401,7 +1401,7 @@ class ProjectsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1547,7 +1547,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1695,7 +1695,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['team_gid'] = team_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1843,7 +1843,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1985,7 +1985,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2129,7 +2129,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2275,7 +2275,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -2422,7 +2422,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2570,7 +2570,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -2718,7 +2718,7 @@ class ProjectsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

@@ -99,7 +99,7 @@ class EventsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['resource'] = resource
 

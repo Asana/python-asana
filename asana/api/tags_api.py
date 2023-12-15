@@ -97,7 +97,7 @@ class TagsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -245,7 +245,7 @@ class TagsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -386,7 +386,7 @@ class TagsApi(object):
         path_params = {}
         path_params['tag_gid'] = tag_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -524,7 +524,7 @@ class TagsApi(object):
         path_params = {}
         path_params['tag_gid'] = tag_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -663,7 +663,7 @@ class TagsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -809,7 +809,7 @@ class TagsApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -955,7 +955,7 @@ class TagsApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1097,7 +1097,7 @@ class TagsApi(object):
         path_params = {}
         path_params['tag_gid'] = tag_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

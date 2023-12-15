@@ -98,7 +98,7 @@ class JobsApi(object):
         path_params = {}
         path_params['job_gid'] = job_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

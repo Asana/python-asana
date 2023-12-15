@@ -103,7 +103,7 @@ class TimeTrackingEntriesApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -244,7 +244,7 @@ class TimeTrackingEntriesApi(object):
         path_params = {}
         path_params['time_tracking_entry_gid'] = time_tracking_entry_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -386,7 +386,7 @@ class TimeTrackingEntriesApi(object):
         path_params = {}
         path_params['task_gid'] = task_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -528,7 +528,7 @@ class TimeTrackingEntriesApi(object):
         path_params = {}
         path_params['time_tracking_entry_gid'] = time_tracking_entry_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -672,7 +672,7 @@ class TimeTrackingEntriesApi(object):
         path_params = {}
         path_params['time_tracking_entry_gid'] = time_tracking_entry_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

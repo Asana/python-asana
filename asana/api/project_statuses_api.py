@@ -103,7 +103,7 @@ class ProjectStatusesApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -244,7 +244,7 @@ class ProjectStatusesApi(object):
         path_params = {}
         path_params['project_status_gid'] = project_status_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -382,7 +382,7 @@ class ProjectStatusesApi(object):
         path_params = {}
         path_params['project_status_gid'] = project_status_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -525,7 +525,7 @@ class ProjectStatusesApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

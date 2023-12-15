@@ -98,7 +98,7 @@ class TaskTemplatesApi(object):
         path_params = {}
         path_params['task_template_gid'] = task_template_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -237,7 +237,7 @@ class TaskTemplatesApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -381,7 +381,7 @@ class TaskTemplatesApi(object):
         path_params = {}
         path_params['task_template_gid'] = task_template_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

@@ -101,7 +101,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -246,7 +246,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -393,7 +393,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -535,7 +535,7 @@ class PortfoliosApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -676,7 +676,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -818,7 +818,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -960,7 +960,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1104,7 +1104,7 @@ class PortfoliosApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['workspace'] = workspace
 
@@ -1250,7 +1250,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -1395,7 +1395,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -1542,7 +1542,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -1690,7 +1690,7 @@ class PortfoliosApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

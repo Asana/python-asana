@@ -98,7 +98,7 @@ class PortfolioMembershipsApi(object):
         path_params = {}
         path_params['portfolio_membership_gid'] = portfolio_membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -241,7 +241,7 @@ class PortfolioMembershipsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -389,7 +389,7 @@ class PortfolioMembershipsApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

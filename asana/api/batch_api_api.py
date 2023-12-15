@@ -97,7 +97,7 @@ class BatchAPIApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

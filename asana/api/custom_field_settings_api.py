@@ -102,7 +102,7 @@ class CustomFieldSettingsApi(object):
         path_params = {}
         path_params['portfolio_gid'] = portfolio_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -248,7 +248,7 @@ class CustomFieldSettingsApi(object):
         path_params = {}
         path_params['project_gid'] = project_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

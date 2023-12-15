@@ -101,7 +101,7 @@ class RulesApi(object):
         path_params = {}
         path_params['rule_trigger_gid'] = rule_trigger_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})

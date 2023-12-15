@@ -96,7 +96,7 @@ class ProjectTemplatesApi(object):
         path_params = {}
         path_params['project_template_gid'] = project_template_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -234,7 +234,7 @@ class ProjectTemplatesApi(object):
         path_params = {}
         path_params['project_template_gid'] = project_template_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -375,7 +375,7 @@ class ProjectTemplatesApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -521,7 +521,7 @@ class ProjectTemplatesApi(object):
         path_params = {}
         path_params['team_gid'] = team_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -665,7 +665,7 @@ class ProjectTemplatesApi(object):
         path_params = {}
         path_params['project_template_gid'] = project_template_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

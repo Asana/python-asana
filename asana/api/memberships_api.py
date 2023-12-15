@@ -92,7 +92,7 @@ class MembershipsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -233,7 +233,7 @@ class MembershipsApi(object):
         path_params = {}
         path_params['membership_gid'] = membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
 
 
         header_params = kwargs.get("header_params", {})
@@ -371,7 +371,7 @@ class MembershipsApi(object):
         path_params = {}
         path_params['membership_gid'] = membership_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -512,7 +512,7 @@ class MembershipsApi(object):
 
         path_params = {}
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 

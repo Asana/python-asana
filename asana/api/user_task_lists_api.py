@@ -98,7 +98,7 @@ class UserTaskListsApi(object):
         path_params = {}
         path_params['user_task_list_gid'] = user_task_list_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
 
 
@@ -242,7 +242,7 @@ class UserTaskListsApi(object):
         path_params = {}
         path_params['user_gid'] = user_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['workspace'] = workspace
 

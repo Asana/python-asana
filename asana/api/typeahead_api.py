@@ -109,7 +109,7 @@ class TypeaheadApi(object):
         path_params = {}
         path_params['workspace_gid'] = workspace_gid  # noqa: E501
 
-        query_params = []
+        query_params = {}
         query_params = opts
         query_params['resource_type'] = resource_type
 
