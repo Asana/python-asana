@@ -123,7 +123,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/addCustomFieldSetting', 'POST',
                 path_params,
@@ -271,7 +271,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/addFollowers', 'POST',
                 path_params,
@@ -419,7 +419,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/addMembers', 'POST',
                 path_params,
@@ -561,7 +561,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects', 'POST',
                 path_params,
@@ -709,7 +709,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/teams/{team_gid}/projects', 'POST',
                 path_params,
@@ -857,7 +857,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}/projects', 'POST',
                 path_params,
@@ -993,7 +993,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}', 'DELETE',
                 path_params,
@@ -1138,7 +1138,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/duplicate', 'POST',
                 path_params,
@@ -1277,7 +1277,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}', 'GET',
                 path_params,
@@ -1420,7 +1420,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects', 'GET',
                 path_params,
@@ -1566,7 +1566,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/projects', 'GET',
                 path_params,
@@ -1714,7 +1714,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/teams/{team_gid}/projects', 'GET',
                 path_params,
@@ -1862,7 +1862,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}/projects', 'GET',
                 path_params,
@@ -2004,7 +2004,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/task_counts', 'GET',
                 path_params,
@@ -2152,7 +2152,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/saveAsTemplate', 'POST',
                 path_params,
@@ -2297,7 +2297,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/removeCustomFieldSetting', 'POST',
                 path_params,
@@ -2445,7 +2445,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/removeFollowers', 'POST',
                 path_params,
@@ -2593,7 +2593,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/removeMembers', 'POST',
                 path_params,
@@ -2741,7 +2741,7 @@ class ProjectsApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}', 'PUT',
                 path_params,

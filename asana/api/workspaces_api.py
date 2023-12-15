@@ -126,7 +126,7 @@ class WorkspacesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}/addUser', 'POST',
                 path_params,
@@ -265,7 +265,7 @@ class WorkspacesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}', 'GET',
                 path_params,
@@ -402,7 +402,7 @@ class WorkspacesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces', 'GET',
                 path_params,
@@ -550,7 +550,7 @@ class WorkspacesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}/removeUser', 'POST',
                 path_params,
@@ -698,7 +698,7 @@ class WorkspacesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}', 'PUT',
                 path_params,

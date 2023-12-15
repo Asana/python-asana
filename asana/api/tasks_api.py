@@ -123,7 +123,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/addDependencies', 'POST',
                 path_params,
@@ -268,7 +268,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/addDependents', 'POST',
                 path_params,
@@ -416,7 +416,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/addFollowers', 'POST',
                 path_params,
@@ -561,7 +561,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/addProject', 'POST',
                 path_params,
@@ -706,7 +706,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/addTag', 'POST',
                 path_params,
@@ -854,7 +854,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/subtasks', 'POST',
                 path_params,
@@ -996,7 +996,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks', 'POST',
                 path_params,
@@ -1132,7 +1132,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}', 'DELETE',
                 path_params,
@@ -1280,7 +1280,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/duplicate', 'POST',
                 path_params,
@@ -1423,7 +1423,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/dependencies', 'GET',
                 path_params,
@@ -1569,7 +1569,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/dependents', 'GET',
                 path_params,
@@ -1715,7 +1715,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/subtasks', 'GET',
                 path_params,
@@ -1857,7 +1857,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}', 'GET',
                 path_params,
@@ -2006,7 +2006,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks', 'GET',
                 path_params,
@@ -2154,7 +2154,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/projects/{project_gid}/tasks', 'GET',
                 path_params,
@@ -2302,7 +2302,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/sections/{section_gid}/tasks', 'GET',
                 path_params,
@@ -2448,7 +2448,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tags/{tag_gid}/tasks', 'GET',
                 path_params,
@@ -2596,7 +2596,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/user_task_lists/{user_task_list_gid}/tasks', 'GET',
                 path_params,
@@ -2744,7 +2744,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/removeDependencies', 'POST',
                 path_params,
@@ -2889,7 +2889,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/removeDependents', 'POST',
                 path_params,
@@ -3037,7 +3037,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/removeFollowers', 'POST',
                 path_params,
@@ -3182,7 +3182,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/removeProject', 'POST',
                 path_params,
@@ -3327,7 +3327,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/removeTag', 'POST',
                 path_params,
@@ -3582,7 +3582,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/workspaces/{workspace_gid}/tasks/search', 'GET',
                 path_params,
@@ -3733,7 +3733,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}/setParent', 'POST',
                 path_params,
@@ -3881,7 +3881,7 @@ class TasksApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/tasks/{task_gid}', 'PUT',
                 path_params,

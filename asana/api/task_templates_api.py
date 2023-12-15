@@ -117,7 +117,7 @@ class TaskTemplatesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/task_templates/{task_template_gid}', 'GET',
                 path_params,
@@ -256,7 +256,7 @@ class TaskTemplatesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/task_templates', 'GET',
                 path_params,
@@ -404,7 +404,7 @@ class TaskTemplatesApi(object):
         auth_settings = ['personalAccessToken']  # noqa: E501
 
         # hard checking for True boolean value because user can provide full_payload or async_req with any data type
-        if kwargs.get("full_payload", False) == True or kwargs.get('async_req', False) == True:
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
             return self.api_client.call_api(
                 '/task_templates/{task_template_gid}/instantiateTask', 'POST',
                 path_params,
