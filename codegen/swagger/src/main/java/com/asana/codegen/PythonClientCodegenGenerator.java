@@ -92,7 +92,7 @@ public class PythonClientCodegenGenerator extends PythonClientCodegen {
         // Update example value for requests that require a request body
         if (!languageSpecificPrimitives.contains(type)) {
             // Type is a model class, e.g. User
-            p.example = "{\"data\": {\"param1\": \"value1\", \"param2\": \"value2\",}}";
+            p.example = "{\"data\": {\"<PARAM_1>\": \"<VALUE_1>\", \"<PARAM_2>\": \"<VALUE_2>\",}}";
             p.dataType = "dict";
             return;
         }
