@@ -32,7 +32,7 @@ class ProjectsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_custom_field_setting_for_project(self, body, project_gid, **kwargs):  # noqa: E501
+    def add_custom_field_setting_for_project(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Add a custom field to a project  # noqa: E501
 
         Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
@@ -44,18 +44,19 @@ class ProjectsApi(object):
         :param async_req bool
         :param dict body: Information about the custom field setting. (required)
         :param str project_gid: Globally unique identifier for the project. (required)
+        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: CustomFieldSettingResponseData
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
         if kwargs.get('async_req'):
-            return self.add_custom_field_setting_for_project_with_http_info(body, project_gid, **kwargs)  # noqa: E501
+            return self.add_custom_field_setting_for_project_with_http_info(body, project_gid, opts, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_custom_field_setting_for_project_with_http_info(body, project_gid, **kwargs)  # noqa: E501
+            (data) = self.add_custom_field_setting_for_project_with_http_info(body, project_gid, opts, **kwargs)  # noqa: E501
             return data
 
-    def add_custom_field_setting_for_project_with_http_info(self, body, project_gid, **kwargs):  # noqa: E501
+    def add_custom_field_setting_for_project_with_http_info(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Add a custom field to a project  # noqa: E501
 
         Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
@@ -67,6 +68,7 @@ class ProjectsApi(object):
         :param async_req bool
         :param dict body: Information about the custom field setting. (required)
         :param str project_gid: Globally unique identifier for the project. (required)
+        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: CustomFieldSettingResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -102,6 +104,7 @@ class ProjectsApi(object):
         path_params['project_gid'] = project_gid  # noqa: E501
 
         query_params = {}
+        query_params = opts
 
 
         header_params = kwargs.get("header_params", {})
