@@ -1,6 +1,5 @@
 # Test Build
 
-
 This directory contains tests that are meant to be ran locally
 
 1. Install install dependencies `pip install -r requirements.txt`
@@ -12,4 +11,4 @@ TEXT_CUSTOM_FIELD_GID=<YOUR_TEXT_CUSTOM_FIELD_GID> -> NOTE: make sure that there
 USER_GID=<YOUR_USER_GID>
 WORKSPACE_GID=<YOUR_WORKSPACE_GID>
 ```
-3. Run tests `python -m unittest discover ./build_tests`
+3. Run tests: `python -m unittest discover ./build_tests`
