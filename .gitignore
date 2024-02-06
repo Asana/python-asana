@@ -65,3 +65,6 @@ target/
 
 .travis.yml
 git_push.sh
+
+# dot-env
+.env
