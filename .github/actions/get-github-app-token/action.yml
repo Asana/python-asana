@@ -1,0 +1,52 @@
+name: Get Github App Token
+description: Retrieve a Github app installation access token from the github_app_token lambda by invoking its lambda function URL. This composite action assumes that a previous job step has already set up the necessary AWS credentials in the environment using the aws-actions/configure-aws-credentials action.
+inputs:
+  github-app-name:
+    description: The name of the Github app that you'd like to retrieve a token for
+    required: true
+outputs:
+  app-token:
+    description: The app installation access token, which you can use to authenticate your requests to Github
+    value: ${{ steps.get_token.outputs.app_token }}
+  expires-at:
+    description: Token expiration date/time, in UTC ISO format
+    value: ${{ steps.get_token.outputs.expires_at }}
+  permissions:
+    description: map specifying the permissions of the token - this will be the same as what you requested for your GitHub app
+    value: ${{ steps.get_token.outputs.permissions }}
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Retrieve the app token from the github_app token lambda using the function URL
+      shell: bash
+      id: get_token
+      env:
+        TEMP_DIR: ${{ runner.temp }}
+        LAMBDA_FUNCTION_URL: "https://jv2fqfrofl7veyzrfiizx4i7hq0joruw.lambda-url.us-east-1.on.aws/"
+      run: |
+        TOKEN_FILE="$TEMP_DIR/token.json"
+        DATA='{"github_app_name":"${{ inputs.github-app-name }}"}'
+        echo "DATA: $DATA"
+        exit_code="$(curl \
+          -v -o "$TOKEN_FILE" \
+          -w "%{http_code}" \
+          --aws-sigv4 aws:amz:us-east-1:lambda \
+          -u "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
+          -H "x-amz-security-token: $AWS_SESSION_TOKEN" \
+          -H "content-type: application/json" \
+          -d "$DATA" \
+          $LAMBDA_FUNCTION_URL)"
+        if [[ "$exit_code" -ge 400 ]]; then
+          echo "HTTP $exit_code"
+          cat "$TOKEN_FILE"
+          exit 1
+        fi
+        jq -r '"token expires at \(.expires_at)"' "$TOKEN_FILE"
+        # Mask the token value so it doesn't leak.
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log
+        jq -r '"::add-mask::\(.token)"' "$TOKEN_FILE"
+        jq -r '"app_token=\(.token)"' "$TOKEN_FILE" >> "$GITHUB_OUTPUT"
+        jq -r '"expires_at=\(.expires_at)"' "$TOKEN_FILE" >> "$GITHUB_OUTPUT"
+        jq -r '"permissions=\(.permissions)"' "$TOKEN_FILE" >> "$GITHUB_OUTPUT"
