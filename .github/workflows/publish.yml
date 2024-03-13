@@ -31,15 +31,8 @@ jobs:
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::403483446840:role/autogen_role_beta_github_actions_release_asana_client_libraries
-      - name: Checkout composite action responsible for generating GitHub app token
-        uses: actions/checkout@v4
-        with:
-          path: composite_action
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            .github/actions/get-github-app-token/action.yml
       - name: Get GitHub app token
-        uses: ./composite_action/.github/actions/get-github-app-token
+        uses: asana/get-github-app-token@v1
         id: get-token
         with:
           github-app-name: asana-publish-client-libraries
@@ -69,8 +62,8 @@ jobs:
           --lang "${{ env.ACTUAL_LANG }}"
           -DpackageName=${{ env.NAME }}
           --additional-properties "packageVersion=${{ inputs.version }},projectName=${{ env.NAME }},packageName=${{ env.NAME }}"
-      - name: Clean up generator + composite action
-        run: rm -rf codegen/swagger/target composite_action ${{ env.GENERATOR_NAME }}
+      - name: Clean up generator
+        run: rm -rf codegen/swagger/target ${{ env.GENERATOR_NAME }}
       - name: Push changes to master branch
         run: |
           git config user.name asana-publish-client-libraries[bot]
@@ -143,15 +136,15 @@ jobs:
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::403483446840:role/autogen_role_beta_github_actions_release_asana_client_libraries
+      - name: Get GitHub app token
+        uses: asana/get-github-app-token@v1
+        id: get-token
+        with:
+          github-app-name: asana-publish-client-libraries
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: master
-      - name: Get GitHub app token
-        uses: ./.github/actions/get-github-app-token
-        id: get-token
-        with:
-          github-app-name: asana-publish-client-libraries
       - name: Publish to GitHub Releases
         run: gh release create v${{ inputs.version }}
         env:
