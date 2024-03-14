@@ -10,7 +10,7 @@ TimeTrackingEntriesApi:
     
     # create an instance of the API class
     time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
-    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | Information about the time tracking entry.
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the time tracking entry.
     task_gid = "321654" # str | The task to operate on.
     opts = {
         'opt_fields': "created_at,created_by,created_by.name,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -100,7 +100,7 @@ TimeTrackingEntriesApi:
     
     # create an instance of the API class
     time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
-    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the time tracking entry.
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the time tracking entry.
     time_tracking_entry_gid = "917392" # str | Globally unique identifier for the time tracking entry.
     opts = {
         'opt_fields': "created_at,created_by,created_by.name,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

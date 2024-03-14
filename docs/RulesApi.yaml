@@ -10,7 +10,7 @@ RulesApi:
     
     # create an instance of the API class
     rules_api_instance = asana.RulesApi(api_client)
-    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | A dictionary of variables accessible from within the rule.
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | A dictionary of variables accessible from within the rule.
     rule_trigger_gid = "12345" # str | The ID of the incoming web request trigger. This value is a path parameter that is automatically generated for the API endpoint.
 
     

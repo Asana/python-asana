@@ -10,7 +10,7 @@ TagsApi:
     
     # create an instance of the API class
     tags_api_instance = asana.TagsApi(api_client)
-    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The tag to create.
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The tag to create.
     opts = {
         'opt_fields': "color,created_at,followers,followers.name,name,notes,permalink_url,workspace,workspace.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
     }
@@ -32,7 +32,7 @@ TagsApi:
     
     # create an instance of the API class
     tags_api_instance = asana.TagsApi(api_client)
-    body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The tag to create.
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The tag to create.
     workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
     opts = {
         'opt_fields': "color,created_at,followers,followers.name,name,notes,permalink_url,workspace,workspace.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

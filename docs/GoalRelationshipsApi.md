@@ -30,7 +30,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The supporting resource to be added to the goal
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The supporting resource to be added to the goal
 goal_gid = "12345" # str | Globally unique identifier for the goal.
 opts = {
     'opt_fields': "contribution_weight,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -192,7 +192,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The supporting resource to be removed from the goal
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The supporting resource to be removed from the goal
 goal_gid = "12345" # str | Globally unique identifier for the goal.
 
 
@@ -242,7 +242,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 goal_relationships_api_instance = asana.GoalRelationshipsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated fields for the goal relationship.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the goal relationship.
 goal_relationship_gid = "12345" # str | Globally unique identifier for the goal relationship.
 opts = {
     'opt_fields': "contribution_weight,resource_subtype,supported_goal,supported_goal.name,supported_goal.owner,supported_goal.owner.name,supporting_resource,supporting_resource.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

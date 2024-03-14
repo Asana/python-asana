@@ -4,9 +4,58 @@ All URIs are relative to *https://app.asana.com/api/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_task_template**](TaskTemplatesApi.md#delete_task_template) | **DELETE** /task_templates/{task_template_gid} | Delete a task template
 [**get_task_template**](TaskTemplatesApi.md#get_task_template) | **GET** /task_templates/{task_template_gid} | Get a task template
 [**get_task_templates**](TaskTemplatesApi.md#get_task_templates) | **GET** /task_templates | Get multiple task templates
 [**instantiate_task**](TaskTemplatesApi.md#instantiate_task) | **POST** /task_templates/{task_template_gid}/instantiateTask | Instantiate a task from a task template
+
+# **delete_task_template**
+
+Delete a task template
+
+A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.
+
+([more information](https://developers.asana.com/reference/deletetasktemplate))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+task_templates_api_instance = asana.TaskTemplatesApi(api_client)
+task_template_gid = "1331" # str | Globally unique identifier for the task template.
+
+
+try:
+    # Delete a task template
+    api_response = task_templates_api_instance.delete_task_template(task_template_gid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaskTemplatesApi->delete_task_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **task_template_gid** | **str**| Globally unique identifier for the task template. | 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 # **get_task_template**
 
@@ -137,7 +186,7 @@ api_client = asana.ApiClient(configuration)
 task_templates_api_instance = asana.TaskTemplatesApi(api_client)
 task_template_gid = "1331" # str | Globally unique identifier for the task template.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | Describes the inputs used for instantiating a task - the task's name.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | Describes the inputs used for instantiating a task - the task's name.
     'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 

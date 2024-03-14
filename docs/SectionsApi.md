@@ -34,7 +34,7 @@ api_client = asana.ApiClient(configuration)
 sections_api_instance = asana.SectionsApi(api_client)
 section_gid = "321654" # str | The globally unique identifier for the section.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The task and optionally the insert location.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The task and optionally the insert location.
 }
 
 try:
@@ -85,7 +85,7 @@ api_client = asana.ApiClient(configuration)
 sections_api_instance = asana.SectionsApi(api_client)
 project_gid = "1331" # str | Globally unique identifier for the project.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The section to create.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The section to create.
     'opt_fields': "created_at,name,project,project.name,projects,projects.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -293,7 +293,7 @@ api_client = asana.ApiClient(configuration)
 sections_api_instance = asana.SectionsApi(api_client)
 project_gid = "1331" # str | Globally unique identifier for the project.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The section's move action.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The section's move action.
 }
 
 try:
@@ -344,7 +344,7 @@ api_client = asana.ApiClient(configuration)
 sections_api_instance = asana.SectionsApi(api_client)
 section_gid = "321654" # str | The globally unique identifier for the section.
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The section to create.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The section to create.
     'opt_fields': "created_at,name,project,project.name,projects,projects.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 

@@ -29,7 +29,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 project_statuses_api_instance = asana.ProjectStatusesApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The project status to create.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The project status to create.
 project_gid = "1331" # str | Globally unique identifier for the project.
 opts = {
     'opt_fields': "author,author.name,color,created_at,created_by,created_by.name,html_text,modified_at,text,title", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

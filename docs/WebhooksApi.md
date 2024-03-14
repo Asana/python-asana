@@ -30,7 +30,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 webhooks_api_instance = asana.WebhooksApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The webhook workspace and target.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The webhook workspace and target.
 opts = {
     'opt_fields': "active,created_at,filters,filters.action,filters.fields,filters.resource_subtype,last_failure_at,last_failure_content,last_success_at,resource,resource.name,target", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
@@ -238,7 +238,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 webhooks_api_instance = asana.WebhooksApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The updated filters for the webhook.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated filters for the webhook.
 webhook_gid = "12345" # str | Globally unique identifier for the webhook.
 opts = {
     'opt_fields': "active,created_at,filters,filters.action,filters.fields,filters.resource_subtype,last_failure_at,last_failure_content,last_success_at,resource,resource.name,target", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

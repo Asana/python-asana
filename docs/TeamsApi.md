@@ -32,7 +32,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 teams_api_instance = asana.TeamsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The user to add to the team.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The user to add to the team.
 team_gid = "159874" # str | Globally unique identifier for the team.
 opts = {
     'opt_fields': "is_admin,is_guest,is_limited_access,team,team.name,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -85,7 +85,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 teams_api_instance = asana.TeamsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The team to create.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The team to create.
 opts = {
     'opt_fields': "description,edit_team_name_or_description_access_level,edit_team_visibility_or_trash_team_access_level,guest_invite_management_access_level,html_description,join_request_management_access_level,member_invite_management_access_level,name,organization,organization.name,permalink_url,team_member_removal_access_level,visibility", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
@@ -301,7 +301,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 teams_api_instance = asana.TeamsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The user to remove from the team.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The user to remove from the team.
 team_gid = "159874" # str | Globally unique identifier for the team.
 
 
@@ -351,7 +351,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 teams_api_instance = asana.TeamsApi(api_client)
-body = {"data": {"param1": "value1", "param2": "value2",}} # dict | The team to update.
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The team to update.
 team_gid = "159874" # str | Globally unique identifier for the team.
 opts = {
     'opt_fields': "description,edit_team_name_or_description_access_level,edit_team_visibility_or_trash_team_access_level,guest_invite_management_access_level,html_description,join_request_management_access_level,member_invite_management_access_level,name,organization,organization.name,permalink_url,team_member_removal_access_level,visibility", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.

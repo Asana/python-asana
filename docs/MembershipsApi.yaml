@@ -11,13 +11,14 @@ MembershipsApi:
     # create an instance of the API class
     memberships_api_instance = asana.MembershipsApi(api_client)
     opts = {
-        'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The updated fields for the membership.
+        'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The updated fields for the membership.
     }
     
     try:
         # Create a membership
         api_response = memberships_api_instance.create_membership(opts)
-        pprint(api_response)
+        for data in api_response:
+            pprint(data)
     except ApiException as e:
         print("Exception when calling MembershipsApi->create_membership: %s\n" % e)
   delete_membership: |-

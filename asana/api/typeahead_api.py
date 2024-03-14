@@ -43,7 +43,7 @@ class TypeaheadApi(object):
 
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        :param str resource_type: The type of values the typeahead should return. You can choose from one of the following: `custom_field`, `project`, `project_template`, `portfolio`, `tag`, `task`, and `user`. Note that unlike in the names of endpoints, the types listed here are in singular form (e.g. `task`). Using multiple types is not yet supported. (required)
+        :param str resource_type: The type of values the typeahead should return. You can choose from one of the following: `custom_field`, `goal`, `project`, `project_template`, `portfolio`, `tag`, `task`, `team`, and `user`. Note that unlike in the names of endpoints, the types listed here are in singular form (e.g. `task`). Using multiple types is not yet supported. (required)
         :param str type: *Deprecated: new integrations should prefer the resource_type field.*
         :param str query: The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
         :param int count: The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
@@ -70,7 +70,7 @@ class TypeaheadApi(object):
 
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        :param str resource_type: The type of values the typeahead should return. You can choose from one of the following: `custom_field`, `project`, `project_template`, `portfolio`, `tag`, `task`, and `user`. Note that unlike in the names of endpoints, the types listed here are in singular form (e.g. `task`). Using multiple types is not yet supported. (required)
+        :param str resource_type: The type of values the typeahead should return. You can choose from one of the following: `custom_field`, `goal`, `project`, `project_template`, `portfolio`, `tag`, `task`, `team`, and `user`. Note that unlike in the names of endpoints, the types listed here are in singular form (e.g. `task`). Using multiple types is not yet supported. (required)
         :param str type: *Deprecated: new integrations should prefer the resource_type field.*
         :param str query: The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
         :param int count: The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.

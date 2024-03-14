@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Create a membership
 
-Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.
+Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
 
 ([more information](https://developers.asana.com/reference/createmembership))
 
@@ -30,13 +30,14 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 memberships_api_instance = asana.MembershipsApi(api_client)
 opts = {
-    'body': {"data": {"param1": "value1", "param2": "value2",}}, # dict | The updated fields for the membership.
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | The updated fields for the membership.
 }
 
 try:
     # Create a membership
     api_response = memberships_api_instance.create_membership(opts)
-    pprint(api_response)
+    for data in api_response:
+        pprint(data)
 except ApiException as e:
     print("Exception when calling MembershipsApi->create_membership: %s\n" % e)
 ```
@@ -49,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-dict
+generator
 
 ### HTTP request headers
 
@@ -62,7 +63,7 @@ dict
 
 Delete a membership
 
-A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
 
 ([more information](https://developers.asana.com/reference/deletemembership))
 

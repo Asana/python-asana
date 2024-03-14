@@ -32,6 +32,142 @@ class TaskTemplatesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def delete_task_template(self, task_template_gid, **kwargs):  # noqa: E501
+        """Delete a task template  # noqa: E501
+
+        A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_task_template(task_template_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str task_template_gid: Globally unique identifier for the task template. (required)
+        :return: EmptyResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
+        if kwargs.get('async_req'):
+            return self.delete_task_template_with_http_info(task_template_gid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_task_template_with_http_info(task_template_gid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_task_template_with_http_info(self, task_template_gid, **kwargs):  # noqa: E501
+        """Delete a task template  # noqa: E501
+
+        A specific, existing task template can be deleted by making a DELETE request on the URL for that task template. Returns an empty data record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_task_template_with_http_info(task_template_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str task_template_gid: Globally unique identifier for the task template. (required)
+        :return: EmptyResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        all_params = []
+        all_params.append('async_req')
+        all_params.append('header_params')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+        all_params.append('full_payload')
+        all_params.append('item_limit')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_task_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'task_template_gid' is set
+        if (task_template_gid is None):
+            raise ValueError("Missing the required parameter `task_template_gid` when calling `delete_task_template`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['task_template_gid'] = task_template_gid  # noqa: E501
+
+        query_params = {}
+
+
+        header_params = kwargs.get("header_params", {})
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['personalAccessToken']  # noqa: E501
+
+        # hard checking for True boolean value because user can provide full_payload or async_req with any data type
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
+            return self.api_client.call_api(
+                '/task_templates/{task_template_gid}', 'DELETE',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+        elif self.api_client.configuration.return_page_iterator:
+            (data) = self.api_client.call_api(
+                '/task_templates/{task_template_gid}', 'DELETE',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+            if params.get('_return_http_data_only') == False:
+                return data
+            return data["data"] if data else data
+        else:
+            return self.api_client.call_api(
+            '/task_templates/{task_template_gid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=object,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_task_template(self, task_template_gid, opts, **kwargs):  # noqa: E501
         """Get a task template  # noqa: E501
 

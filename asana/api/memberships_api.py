@@ -35,7 +35,7 @@ class MembershipsApi(object):
     def create_membership(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership(async_req=True)
@@ -43,7 +43,7 @@ class MembershipsApi(object):
 
         :param async_req bool
         :param dict body: The updated fields for the membership.
-        :return: MembershipResponseData
+        :return: MembershipResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -57,7 +57,7 @@ class MembershipsApi(object):
     def create_membership_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`. `Teams` or `users` can be a member of `goals`.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership_with_http_info(async_req=True)
@@ -65,7 +65,7 @@ class MembershipsApi(object):
 
         :param async_req bool
         :param dict body: The updated fields for the membership.
-        :return: MembershipResponseData
+        :return: MembershipResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -133,25 +133,28 @@ class MembershipsApi(object):
                 collection_formats=collection_formats
             )
         elif self.api_client.configuration.return_page_iterator:
-            (data) = self.api_client.call_api(
-                '/memberships', 'POST',
-                path_params,
-                query_params,
-                header_params,
-                body=body_params,
-                post_params=form_params,
-                files=local_var_files,
-                response_type=object,  # noqa: E501
-                auth_settings=auth_settings,
-                async_req=params.get('async_req'),
-                _return_http_data_only=params.get('_return_http_data_only'),
-                _preload_content=params.get('_preload_content', True),
-                _request_timeout=params.get('_request_timeout'),
-                collection_formats=collection_formats
-            )
-            if params.get('_return_http_data_only') == False:
-                return data
-            return data["data"] if data else data
+            query_params["limit"] = query_params.get("limit", self.api_client.configuration.page_limit)
+            return PageIterator(
+                self.api_client,
+                {
+                    "resource_path": '/memberships',
+                    "method": 'POST',
+                    "path_params": path_params,
+                    "query_params": query_params,
+                    "header_params": header_params,
+                    "body": body_params,
+                    "post_params": form_params,
+                    "files": local_var_files,
+                    "response_type": object,
+                    "auth_settings": auth_settings,
+                    "async_req": params.get('async_req'),
+                    "_return_http_data_only": params.get('_return_http_data_only'),
+                    "_preload_content": params.get('_preload_content', True),
+                    "_request_timeout": params.get('_request_timeout'),
+                    "collection_formats": collection_formats
+                },
+                **kwargs
+            ).items()
         else:
             return self.api_client.call_api(
             '/memberships', 'POST',
@@ -172,7 +175,7 @@ class MembershipsApi(object):
     def delete_membership(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership(membership_gid, async_req=True)
@@ -194,7 +197,7 @@ class MembershipsApi(object):
     def delete_membership_with_http_info(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership_with_http_info(membership_gid, async_req=True)
