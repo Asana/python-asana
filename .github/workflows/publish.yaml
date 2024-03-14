@@ -79,22 +79,6 @@ jobs:
     name: Build and publish Python 🐍 distributions 📦 to TestPyPI and PyPI
     runs-on: ubuntu-latest
     steps:
-      - name: Authenticate to AWS
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: us-east-1
-          role-to-assume: arn:aws:iam::403483446840:role/autogen_role_beta_github_actions_release_asana_client_libraries
-      - name: Load secrets
-        uses: aws-actions/aws-secretsmanager-get-secrets@v1
-        with:
-          secret-ids: |
-            PYPI_API,prod/github_actions_release_asana_client_libraries/pypi_api_token
-            TEST_PYPI_API,prod/github_actions_release_asana_client_libraries/test_pypi_api_token
-          # pypi_api_token secret is stored as {token:"***..."}.
-          # GitHub Actions environment variable name is PYPI_API so to access "token" from the json we can use PYPI_API_TOKEN
-          # test_pypi_api_token secret is stored as {token:"***..."}.
-          # GitHub Actions environment variable name is TEST_PYPI_API so to access "token" from the json we can use TEST_PYPI_API_TOKEN
-          parse-json-secrets: true
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -120,12 +104,9 @@ jobs:
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          password: ${{ env.TEST_PYPI_API_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ env.PYPI_API_TOKEN }}
   publish-to-github-releases:
     needs: publish-to-pypi
     name: Publish to GitHub Releases
