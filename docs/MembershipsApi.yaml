@@ -17,8 +17,7 @@ MembershipsApi:
     try:
         # Create a membership
         api_response = memberships_api_instance.create_membership(opts)
-        for data in api_response:
-            pprint(data)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling MembershipsApi->create_membership: %s\n" % e)
   delete_membership: |-
@@ -89,3 +88,24 @@ MembershipsApi:
             pprint(data)
     except ApiException as e:
         print("Exception when calling MembershipsApi->get_memberships: %s\n" % e)
+  update_membership: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    memberships_api_instance = asana.MembershipsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The membership to update.
+    membership_gid = "12345" # str | Globally unique identifier for the membership.
+
+    
+    try:
+        # Update a membership
+        api_response = memberships_api_instance.update_membership(body, membership_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MembershipsApi->update_membership: %s\n" % e)

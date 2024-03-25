@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from asana.api.allocations_api import AllocationsApi
 from asana.api.attachments_api import AttachmentsApi
 from asana.api.audit_log_api_api import AuditLogAPIApi
 from asana.api.batch_api_api import BatchAPIApi

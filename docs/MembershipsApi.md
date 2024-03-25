@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_membership**](MembershipsApi.md#delete_membership) | **DELETE** /memberships/{membership_gid} | Delete a membership
 [**get_membership**](MembershipsApi.md#get_membership) | **GET** /memberships/{membership_gid} | Get a membership
 [**get_memberships**](MembershipsApi.md#get_memberships) | **GET** /memberships | Get multiple memberships
+[**update_membership**](MembershipsApi.md#update_membership) | **PUT** /memberships/{membership_gid} | Update a membership
 
 # **create_membership**
 
@@ -36,8 +37,7 @@ opts = {
 try:
     # Create a membership
     api_response = memberships_api_instance.create_membership(opts)
-    for data in api_response:
-        pprint(data)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling MembershipsApi->create_membership: %s\n" % e)
 ```
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-generator
+dict
 
 ### HTTP request headers
 
@@ -212,6 +212,56 @@ generator
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **update_membership**
+
+Update a membership
+
+An existing membership can be updated by making a `PUT` request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals` and `projects` can be updated.  Returns the full record of the updated membership.
+
+([more information](https://developers.asana.com/reference/updatemembership))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+memberships_api_instance = asana.MembershipsApi(api_client)
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The membership to update.
+membership_gid = "12345" # str | Globally unique identifier for the membership.
+
+
+try:
+    # Update a membership
+    api_response = memberships_api_instance.update_membership(body, membership_gid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MembershipsApi->update_membership: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Dict**| The membership to update. | 
+ **membership_gid** | **str**| Globally unique identifier for the membership. | 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json; charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

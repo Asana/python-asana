@@ -1,0 +1,115 @@
+AllocationsApi:
+  create_allocation: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    allocations_api_instance = asana.AllocationsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The allocation to create.
+    opts = {
+        'opt_fields': "assignee,assignee.name,created_by,created_by.name,effort,effort.type,effort.value,end_date,parent,parent.name,resource_subtype,start_date", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Create an allocation
+        api_response = allocations_api_instance.create_allocation(body, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->create_allocation: %s\n" % e)
+  delete_allocation: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    allocations_api_instance = asana.AllocationsApi(api_client)
+    allocation_gid = "77688" # str | Globally unique identifier for the allocation.
+
+    
+    try:
+        # Delete an allocation
+        api_response = allocations_api_instance.delete_allocation(allocation_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->delete_allocation: %s\n" % e)
+  get_allocation: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    allocations_api_instance = asana.AllocationsApi(api_client)
+    allocation_gid = "77688" # str | Globally unique identifier for the allocation.
+    opts = {
+        'opt_fields': "assignee,assignee.name,created_by,created_by.name,effort,effort.type,effort.value,end_date,parent,parent.name,resource_subtype,start_date", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get an allocation
+        api_response = allocations_api_instance.get_allocation(allocation_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->get_allocation: %s\n" % e)
+  get_allocations: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    allocations_api_instance = asana.AllocationsApi(api_client)
+    opts = {
+        'parent': "77688", # str | Globally unique identifier for the project to filter allocations by.
+        'assignee': "12345", # str | Globally unique identifier for the user the allocation is assigned to.
+        'workspace': "98765", # str | Globally unique identifier for the workspace.
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. 'Note: You can only pass in an offset that was returned to you via a previously paginated request.'
+        'opt_fields': "assignee,assignee.name,created_by,created_by.name,effort,effort.type,effort.value,end_date,offset,parent,parent.name,path,resource_subtype,start_date,uri", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get multiple allocations
+        api_response = allocations_api_instance.get_allocations(opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->get_allocations: %s\n" % e)
+  update_allocation: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    allocations_api_instance = asana.AllocationsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the allocation.
+    allocation_gid = "77688" # str | Globally unique identifier for the allocation.
+    opts = {
+        'opt_fields': "assignee,assignee.name,created_by,created_by.name,effort,effort.type,effort.value,end_date,parent,parent.name,resource_subtype,start_date", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Update an allocation
+        api_response = allocations_api_instance.update_allocation(body, allocation_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AllocationsApi->update_allocation: %s\n" % e)
