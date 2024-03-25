@@ -362,7 +362,7 @@ Class | Method | HTTP request | Description
 *WorkspacesApi* | [**remove_user_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.5/docs/WorkspacesApi.md#remove_user_for_workspace) | **POST** /workspaces/{workspace_gid}/removeUser | Remove a user from a workspace or organization
 *WorkspacesApi* | [**update_workspace**](https://github.com/Asana/python-asana/blob/v5.0.5/docs/WorkspacesApi.md#update_workspace) | **PUT** /workspaces/{workspace_gid} | Update a workspace
 
-## Accessing repsonse data
+## Accessing response data
 
 ### Example: Accessing task data
 ```python
