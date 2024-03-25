@@ -61,6 +61,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.username = ""
         # Password for HTTP basic authentication
         self.password = ""
+        # access token for OAuth
+        self.access_token = ""
         # Logging Settings
         self.logger = {}
         self.logger["package_logger"] = logging.getLogger("asana")
