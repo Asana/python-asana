@@ -103,6 +103,14 @@ tasks:
 
 
         result = client.tasks.get_task(task_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_task_for_custom_id: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.tasks.get_task_for_custom_id(workspace_gid, custom_id, {'param': 'value', 'param': 'value'}, opt_pretty=True)
     get_tasks: >-
         import asana
 

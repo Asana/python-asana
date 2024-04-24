@@ -1,0 +1,9 @@
+rules: 
+    trigger_rule: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.rules.trigger_rule(rule_trigger_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

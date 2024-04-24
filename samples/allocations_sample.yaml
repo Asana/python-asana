@@ -1,0 +1,41 @@
+allocations: 
+    create_allocation: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.allocations.create_allocation({'field': 'value', 'field': 'value'}, opt_pretty=True)
+    delete_allocation: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.allocations.delete_allocation(allocation_gid, opt_pretty=True)
+    get_allocation: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.allocations.get_allocation(allocation_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_allocations: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.allocations.get_allocations({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    update_allocation: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.allocations.update_allocation(allocation_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)

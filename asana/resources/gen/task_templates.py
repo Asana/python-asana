@@ -1,12 +1,25 @@
 # coding=utf-8
-class _PortfolioMemberships:
+class _TaskTemplates:
 
     def __init__(self, client=None):
         self.client = client
 
-    def get_portfolio_membership(self, portfolio_membership_gid, params=None, **options):
-        """Get a portfolio membership
-        :param str portfolio_membership_gid: (required)
+    def delete_task_template(self, task_template_gid, params=None, **options):
+        """Delete a task template
+        :param str task_template_gid: (required) Globally unique identifier for the task template.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/task_templates/{task_template_gid}".replace("{task_template_gid}", task_template_gid)
+        return self.client.delete(path, params, **options)
+
+    def get_task_template(self, task_template_gid, params=None, **options):
+        """Get a task template
+        :param str task_template_gid: (required) Globally unique identifier for the task template.
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -15,15 +28,13 @@ class _PortfolioMemberships:
         """
         if params is None:
             params = {}
-        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("{portfolio_membership_gid}", portfolio_membership_gid)
+        path = "/task_templates/{task_template_gid}".replace("{task_template_gid}", task_template_gid)
         return self.client.get(path, params, **options)
 
-    def get_portfolio_memberships(self, params=None, **options):
-        """Get multiple portfolio memberships
+    def get_task_templates(self, params=None, **options):
+        """Get multiple task templates
         :param Object params: Parameters for the request
-            - portfolio {str}:  The portfolio to filter results on.
-            - workspace {str}:  The workspace to filter results on.
-            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+            - project {str}:  The project to filter task templates on.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
             - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -33,22 +44,19 @@ class _PortfolioMemberships:
         """
         if params is None:
             params = {}
-        path = "/portfolio_memberships"
+        path = "/task_templates"
         return self.client.get_collection(path, params, **options)
 
-    def get_portfolio_memberships_for_portfolio(self, portfolio_gid, params=None, **options):
-        """Get memberships from a portfolio
-        :param str portfolio_gid: (required) Globally unique identifier for the portfolio.
+    def instantiate_task(self, task_template_gid, params=None, **options):
+        """Instantiate a task from a task template
+        :param str task_template_gid: (required) Globally unique identifier for the task template.
         :param Object params: Parameters for the request
-            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param **options
-            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
             - opt_fields {list[str]}:  This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
             - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
         :return: Object
         """
         if params is None:
             params = {}
-        path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get_collection(path, params, **options)
+        path = "/task_templates/{task_template_gid}/instantiateTask".replace("{task_template_gid}", task_template_gid)
+        return self.client.post(path, params, **options)

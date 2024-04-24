@@ -15,6 +15,14 @@ memberships:
 
 
         result = client.memberships.delete_membership(membership_gid, opt_pretty=True)
+    get_membership: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.memberships.get_membership(membership_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
     get_memberships: >-
         import asana
 

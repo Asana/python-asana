@@ -1,9 +1,9 @@
-# asana [![Build][github-actions-image]][github-actions-url] [![PyPi Version][pypi-image]][pypi-url]
+# asana
 
-> **Warning**
-> Python client library version `>4.X.X` is currently in BETA and subject to change. Please use v3.2.X for stable / production environments `pip install asana` or `pip install asana==3.2.2`. If you have feedback on the new version, please your feedback [here](https://form.asana.com/?k=C4sELCq6hAUsoWEY0kJwAA&d=15793206719).
-
-> You can try out our new python beta by installing version [v4.0.11](https://github.com/Asana/python-asana/tree/v4.0.11) (`pip install asana==4.0.11`) 
+> **Important:**
+> Versions 3.X.X and earlier of this package are no longer supported. For new features and support, please upgrade to [the latest version](https://pypi.org/project/asana/).
+>
+>To view sample code for version 3, select the `python-sdk-v3` tab on a specific endpoint's page in the [Asana API reference](https://developers.asana.com/reference/rest-api-reference), or check the [v3 samples](https://github.com/Asana/python-asana/tree/v3.2.3/samples) directory on GitHub.
 
 Python client library for Asana.
 
@@ -173,11 +173,5 @@ Run `deploy.py [major|minor|patch]`. See `deploy.py -h` for additional info.
      `git push origin master --tags`
 
 GitHub Actions will automatically build and deploy the tagged release to [PyPI](https://pypi.org/).
-
-[github-actions-url]: https://github.com/Asana/python-asana/actions
-[github-actions-image]: https://github.com/Asana/python-asana/workflows/Build/badge.svg
-
-[pypi-url]: https://pypi.python.org/pypi/asana/
-[pypi-image]: https://img.shields.io/pypi/v/asana.svg?style=flat-square
 
 [asana-docs]: https://developers.asana.com/docs

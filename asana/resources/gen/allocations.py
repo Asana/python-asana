@@ -1,12 +1,11 @@
 # coding=utf-8
-class _PortfolioMemberships:
+class _Allocations:
 
     def __init__(self, client=None):
         self.client = client
 
-    def get_portfolio_membership(self, portfolio_membership_gid, params=None, **options):
-        """Get a portfolio membership
-        :param str portfolio_membership_gid: (required)
+    def create_allocation(self, params=None, **options):
+        """Create an allocation
         :param Object params: Parameters for the request
         :param **options
             - opt_fields {list[str]}:  This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -15,15 +14,42 @@ class _PortfolioMemberships:
         """
         if params is None:
             params = {}
-        path = "/portfolio_memberships/{portfolio_membership_gid}".replace("{portfolio_membership_gid}", portfolio_membership_gid)
+        path = "/allocations"
+        return self.client.post(path, params, **options)
+
+    def delete_allocation(self, allocation_gid, params=None, **options):
+        """Delete an allocation
+        :param str allocation_gid: (required) Globally unique identifier for the allocation.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/allocations/{allocation_gid}".replace("{allocation_gid}", allocation_gid)
+        return self.client.delete(path, params, **options)
+
+    def get_allocation(self, allocation_gid, params=None, **options):
+        """Get an allocation
+        :param str allocation_gid: (required) Globally unique identifier for the allocation.
+        :param Object params: Parameters for the request
+        :param **options
+            - opt_fields {list[str]}:  This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+            - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
+        :return: Object
+        """
+        if params is None:
+            params = {}
+        path = "/allocations/{allocation_gid}".replace("{allocation_gid}", allocation_gid)
         return self.client.get(path, params, **options)
 
-    def get_portfolio_memberships(self, params=None, **options):
-        """Get multiple portfolio memberships
+    def get_allocations(self, params=None, **options):
+        """Get multiple allocations
         :param Object params: Parameters for the request
-            - portfolio {str}:  The portfolio to filter results on.
-            - workspace {str}:  The workspace to filter results on.
-            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+            - parent {str}:  Globally unique identifier for the project to filter allocations by.
+            - assignee {str}:  Globally unique identifier for the user the allocation is assigned to.
+            - workspace {str}:  Globally unique identifier for the workspace.
         :param **options
             - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
             - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -33,22 +59,19 @@ class _PortfolioMemberships:
         """
         if params is None:
             params = {}
-        path = "/portfolio_memberships"
+        path = "/allocations"
         return self.client.get_collection(path, params, **options)
 
-    def get_portfolio_memberships_for_portfolio(self, portfolio_gid, params=None, **options):
-        """Get memberships from a portfolio
-        :param str portfolio_gid: (required) Globally unique identifier for the portfolio.
+    def update_allocation(self, allocation_gid, params=None, **options):
+        """Update an allocation
+        :param str allocation_gid: (required) Globally unique identifier for the allocation.
         :param Object params: Parameters for the request
-            - user {str}:  A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
         :param **options
-            - offset {str}:  Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-            - limit {int}:  Results per page. The number of objects to return per page. The value must be between 1 and 100.
             - opt_fields {list[str]}:  This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
             - opt_pretty {bool}:  Provides “pretty” output. Provides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.
         :return: Object
         """
         if params is None:
             params = {}
-        path = "/portfolios/{portfolio_gid}/portfolio_memberships".replace("{portfolio_gid}", portfolio_gid)
-        return self.client.get_collection(path, params, **options)
+        path = "/allocations/{allocation_gid}".replace("{allocation_gid}", allocation_gid)
+        return self.client.put(path, params, **options)

@@ -1,4 +1,12 @@
 projecttemplates: 
+    delete_project_template: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.project_templates.delete_project_template(project_template_gid, opt_pretty=True)
     get_project_template: >-
         import asana
 

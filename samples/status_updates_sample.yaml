@@ -14,7 +14,7 @@ statusupdates:
         client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
 
 
-        result = client.status_updates.delete_status(status_gid, opt_pretty=True)
+        result = client.status_updates.delete_status(status_update_gid, opt_pretty=True)
     get_status: >-
         import asana
 
@@ -22,7 +22,7 @@ statusupdates:
         client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
 
 
-        result = client.status_updates.get_status(status_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+        result = client.status_updates.get_status(status_update_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
     get_statuses_for_object: >-
         import asana
 

@@ -1,0 +1,33 @@
+tasktemplates: 
+    delete_task_template: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.task_templates.delete_task_template(task_template_gid, opt_pretty=True)
+    get_task_template: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.task_templates.get_task_template(task_template_gid, {'param': 'value', 'param': 'value'}, opt_pretty=True)
+    get_task_templates: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.task_templates.get_task_templates({'param': 'value', 'param': 'value'}, opt_pretty=True)
+    instantiate_task: >-
+        import asana
+
+
+        client = asana.Client.access_token('PERSONAL_ACCESS_TOKEN')
+
+
+        result = client.task_templates.instantiate_task(task_template_gid, {'field': 'value', 'field': 'value'}, opt_pretty=True)
