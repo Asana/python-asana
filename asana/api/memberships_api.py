@@ -447,14 +447,14 @@ class MembershipsApi(object):
     def get_memberships(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, or `portfolio_membership` records. The possible types for `parent` in this request are `goal`, `project`, or `portfolio`. An additional member (user GID or team GID) can be passed in to filter to a specific membership. Teams are not supported for portfolios yet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str parent: Globally unique identifier for `goal` or `project`.
+        :param str parent: Globally unique identifier for `goal`, `project`, or `portfolio`.
         :param str member: Globally unique identifier for `team` or `user`.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
@@ -473,14 +473,14 @@ class MembershipsApi(object):
     def get_memberships_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership` or `project_membership` records. The possible types for `parent` in this request are `goal` or `project`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, or `portfolio_membership` records. The possible types for `parent` in this request are `goal`, `project`, or `portfolio`. An additional member (user GID or team GID) can be passed in to filter to a specific membership. Teams are not supported for portfolios yet.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str parent: Globally unique identifier for `goal` or `project`.
+        :param str parent: Globally unique identifier for `goal`, `project`, or `portfolio`.
         :param str member: Globally unique identifier for `team` or `user`.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*

@@ -30,7 +30,7 @@ api_client = asana.ApiClient(configuration)
 portfolio_memberships_api_instance = asana.PortfolioMembershipsApi(api_client)
 portfolio_membership_gid = "1331" # str | 
 opts = {
-    'opt_fields': "portfolio,portfolio.name,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "access_level,portfolio,portfolio.name,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -85,7 +85,7 @@ opts = {
     'user': "me", # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "offset,path,portfolio,portfolio.name,uri,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "access_level,offset,path,portfolio,portfolio.name,uri,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -144,7 +144,7 @@ opts = {
     'user': "me", # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "offset,path,portfolio,portfolio.name,uri,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "access_level,offset,path,portfolio,portfolio.name,uri,user,user.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
