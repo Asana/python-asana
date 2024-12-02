@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Create a membership
 
-Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.
+Creates a new membership in a `goal`, `project`, or `portfolio`. Teams or users can be members of `goals` or `projects`. Portfolios only support `users` as members.  Returns the full record of the newly created membership.
 
 ([more information](https://developers.asana.com/reference/createmembership))
 
@@ -63,7 +63,7 @@ dict
 
 Delete a membership
 
-A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
+A specific, existing membership for a `goal`, `project` and `portfolio` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.
 
 ([more information](https://developers.asana.com/reference/deletemembership))
 
@@ -220,7 +220,7 @@ generator
 
 Update a membership
 
-An existing membership can be updated by making a `PUT` request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals` and `projects` can be updated.  Returns the full record of the updated membership.
+An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects` and `portfolios` can be updated.  Returns the full record of the updated membership.
 
 ([more information](https://developers.asana.com/reference/updatemembership))
 

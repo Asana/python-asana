@@ -779,7 +779,7 @@ dict
 
 Create a project template from a project
 
-Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won't be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).
+Creates and returns a job that will asynchronously handle the project template creation.
 
 ([more information](https://developers.asana.com/reference/projectsaveastemplate))
 

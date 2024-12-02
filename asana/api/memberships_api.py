@@ -35,7 +35,7 @@ class MembershipsApi(object):
     def create_membership(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, or `portfolio`. Teams or users can be members of `goals` or `projects`. Portfolios only support `users` as members.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership(async_req=True)
@@ -57,7 +57,7 @@ class MembershipsApi(object):
     def create_membership_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal` or `project`. `Teams` or `users` can be a member of `goals` or `projects`.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, or `portfolio`. Teams or users can be members of `goals` or `projects`. Portfolios only support `users` as members.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership_with_http_info(async_req=True)
@@ -172,7 +172,7 @@ class MembershipsApi(object):
     def delete_membership(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal`, `project` and `portfolio` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership(membership_gid, async_req=True)
@@ -194,7 +194,7 @@ class MembershipsApi(object):
     def delete_membership_with_http_info(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership for a `goal` or `project` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal`, `project` and `portfolio` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership_with_http_info(membership_gid, async_req=True)
@@ -591,7 +591,7 @@ class MembershipsApi(object):
     def update_membership(self, body, membership_gid, **kwargs):  # noqa: E501
         """Update a membership  # noqa: E501
 
-        An existing membership can be updated by making a `PUT` request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals` and `projects` can be updated.  Returns the full record of the updated membership.  # noqa: E501
+        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects` and `portfolios` can be updated.  Returns the full record of the updated membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_membership(body, membership_gid, async_req=True)
@@ -614,7 +614,7 @@ class MembershipsApi(object):
     def update_membership_with_http_info(self, body, membership_gid, **kwargs):  # noqa: E501
         """Update a membership  # noqa: E501
 
-        An existing membership can be updated by making a `PUT` request on the URL for that goal. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals` and `projects` can be updated.  Returns the full record of the updated membership.  # noqa: E501
+        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects` and `portfolios` can be updated.  Returns the full record of the updated membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_membership_with_http_info(body, membership_gid, async_req=True)

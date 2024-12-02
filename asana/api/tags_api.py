@@ -1031,16 +1031,17 @@ class TagsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_tag(self, tag_gid, opts, **kwargs):  # noqa: E501
+    def update_tag(self, body, tag_gid, opts, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
         Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_tag(tag_gid, async_req=True)
+        >>> thread = api.update_tag(body, tag_gid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param dict body: The tag to update. (required)
         :param str tag_gid: Globally unique identifier for the tag. (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
@@ -1049,21 +1050,22 @@ class TagsApi(object):
         """
         kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
         if kwargs.get('async_req'):
-            return self.update_tag_with_http_info(tag_gid, opts, **kwargs)  # noqa: E501
+            return self.update_tag_with_http_info(body, tag_gid, opts, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_tag_with_http_info(tag_gid, opts, **kwargs)  # noqa: E501
+            (data) = self.update_tag_with_http_info(body, tag_gid, opts, **kwargs)  # noqa: E501
             return data
 
-    def update_tag_with_http_info(self, tag_gid, opts, **kwargs):  # noqa: E501
+    def update_tag_with_http_info(self, body, tag_gid, opts, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
         Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_tag_with_http_info(tag_gid, async_req=True)
+        >>> thread = api.update_tag_with_http_info(body, tag_gid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param dict body: The tag to update. (required)
         :param str tag_gid: Globally unique identifier for the tag. (required)
         :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
@@ -1088,6 +1090,9 @@ class TagsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if (body is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_tag`")  # noqa: E501
         # verify the required parameter 'tag_gid' is set
         if (tag_gid is None):
             raise ValueError("Missing the required parameter `tag_gid` when calling `update_tag`")  # noqa: E501
@@ -1106,10 +1111,14 @@ class TagsApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
+        body_params = body
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json; charset=UTF-8'])  # noqa: E501
 
         # Authentication setting

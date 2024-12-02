@@ -2064,7 +2064,7 @@ class ProjectsApi(object):
     def project_save_as_template(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Create a project template from a project  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won't be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).  # noqa: E501
+        Creates and returns a job that will asynchronously handle the project template creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.project_save_as_template(body, project_gid, async_req=True)
@@ -2088,7 +2088,7 @@ class ProjectsApi(object):
     def project_save_as_template_with_http_info(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Create a project template from a project  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the project template creation. Note that while the resulting project template can be accessed with the API, it won't be visible in the Asana UI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).  # noqa: E501
+        Creates and returns a job that will asynchronously handle the project template creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.project_save_as_template_with_http_info(body, project_gid, async_req=True)

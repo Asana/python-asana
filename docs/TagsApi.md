@@ -404,6 +404,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 tags_api_instance = asana.TagsApi(api_client)
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The tag to update.
 tag_gid = "11235" # str | Globally unique identifier for the tag.
 opts = {
     'opt_fields': "color,created_at,followers,followers.name,name,notes,permalink_url,workspace,workspace.name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -411,7 +412,7 @@ opts = {
 
 try:
     # Update a tag
-    api_response = tags_api_instance.update_tag(tag_gid, opts)
+    api_response = tags_api_instance.update_tag(body, tag_gid, opts)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagsApi->update_tag: %s\n" % e)
@@ -421,6 +422,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | **Dict**| The tag to update. | 
  **tag_gid** | **str**| Globally unique identifier for the tag. | 
  **opt_fields** | **Dict**| This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
 
@@ -430,7 +432,7 @@ dict
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json; charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
