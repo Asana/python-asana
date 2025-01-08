@@ -30,7 +30,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::403483446840:role/autogen_role_beta_github_actions_release_asana_client_libraries
+          role-to-assume: arn:aws:iam::403483446840:role/autogen_github_actions_beta_release_asana_node_client_library
       - name: Get GitHub app token
         uses: asana/get-github-app-token@v1
         id: get-token
@@ -116,7 +116,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::403483446840:role/autogen_role_beta_github_actions_release_asana_client_libraries
+          role-to-assume: arn:aws:iam::403483446840:role/autogen_github_actions_beta_release_asana_node_client_library
       - name: Get GitHub app token
         uses: asana/get-github-app-token@v1
         id: get-token
