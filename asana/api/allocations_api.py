@@ -452,7 +452,7 @@ class AllocationsApi(object):
     def get_allocations(self, opts, **kwargs):  # noqa: E501
         """Get multiple allocations  # noqa: E501
 
-        Returns a list of allocations filtered to a specific project or user.  # noqa: E501
+        Returns a list of allocations filtered to a specific project, user or placeholder.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_allocations(async_req=True)
@@ -460,7 +460,7 @@ class AllocationsApi(object):
 
         :param async_req bool
         :param str parent: Globally unique identifier for the project to filter allocations by.
-        :param str assignee: Globally unique identifier for the user the allocation is assigned to.
+        :param str assignee: Globally unique identifier for the user or placeholder the allocation is assigned to.
         :param str workspace: Globally unique identifier for the workspace.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
@@ -479,7 +479,7 @@ class AllocationsApi(object):
     def get_allocations_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple allocations  # noqa: E501
 
-        Returns a list of allocations filtered to a specific project or user.  # noqa: E501
+        Returns a list of allocations filtered to a specific project, user or placeholder.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_allocations_with_http_info(async_req=True)
@@ -487,7 +487,7 @@ class AllocationsApi(object):
 
         :param async_req bool
         :param str parent: Globally unique identifier for the project to filter allocations by.
-        :param str assignee: Globally unique identifier for the user the allocation is assigned to.
+        :param str assignee: Globally unique identifier for the user or placeholder the allocation is assigned to.
         :param str workspace: Globally unique identifier for the workspace.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*

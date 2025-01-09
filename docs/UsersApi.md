@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get a user&#x27;s favorites
 
-Returns all of a user's favorites in the given workspace, of the given type. Results are given in order (The same order as Asana's sidebar).
+Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
 
 ([more information](https://developers.asana.com/reference/getfavoritesforuser))
 

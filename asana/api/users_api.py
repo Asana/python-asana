@@ -35,7 +35,7 @@ class UsersApi(object):
     def get_favorites_for_user(self, user_gid, resource_type, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's favorites  # noqa: E501
 
-        Returns all of a user's favorites in the given workspace, of the given type. Results are given in order (The same order as Asana's sidebar).  # noqa: E501
+        Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_favorites_for_user(user_gid, resource_type, workspace, async_req=True)
@@ -62,7 +62,7 @@ class UsersApi(object):
     def get_favorites_for_user_with_http_info(self, user_gid, resource_type, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's favorites  # noqa: E501
 
-        Returns all of a user's favorites in the given workspace, of the given type. Results are given in order (The same order as Asana's sidebar).  # noqa: E501
+        Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_favorites_for_user_with_http_info(user_gid, resource_type, workspace, async_req=True)

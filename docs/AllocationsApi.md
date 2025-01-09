@@ -164,7 +164,7 @@ dict
 
 Get multiple allocations
 
-Returns a list of allocations filtered to a specific project or user.
+Returns a list of allocations filtered to a specific project, user or placeholder.
 
 ([more information](https://developers.asana.com/reference/getallocations))
 
@@ -182,7 +182,7 @@ api_client = asana.ApiClient(configuration)
 allocations_api_instance = asana.AllocationsApi(api_client)
 opts = {
     'parent': "77688", # str | Globally unique identifier for the project to filter allocations by.
-    'assignee': "12345", # str | Globally unique identifier for the user the allocation is assigned to.
+    'assignee': "12345", # str | Globally unique identifier for the user or placeholder the allocation is assigned to.
     'workspace': "98765", # str | Globally unique identifier for the workspace.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
@@ -203,7 +203,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parent** | **str**| Globally unique identifier for the project to filter allocations by. | [optional] 
- **assignee** | **str**| Globally unique identifier for the user the allocation is assigned to. | [optional] 
+ **assignee** | **str**| Globally unique identifier for the user or placeholder the allocation is assigned to. | [optional] 
  **workspace** | **str**| Globally unique identifier for the workspace. | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 

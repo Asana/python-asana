@@ -14,7 +14,7 @@ import os
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "asana"
-VERSION = "3.0.12"
+VERSION = "5.0.11"
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     LONG_DESCRIPTION = readme.read()
 # To install the library, run the following
