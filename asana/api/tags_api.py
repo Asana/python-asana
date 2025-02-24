@@ -43,7 +43,7 @@ class TagsApi(object):
 
         :param async_req bool
         :param dict body: The tag to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class TagsApi(object):
 
         :param async_req bool
         :param dict body: The tag to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -186,7 +186,7 @@ class TagsApi(object):
         :param async_req bool
         :param dict body: The tag to create. (required)
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -210,7 +210,7 @@ class TagsApi(object):
         :param async_req bool
         :param dict body: The tag to create. (required)
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -469,7 +469,7 @@ class TagsApi(object):
 
         :param async_req bool
         :param str tag_gid: Globally unique identifier for the tag. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -492,7 +492,7 @@ class TagsApi(object):
 
         :param async_req bool
         :param str tag_gid: Globally unique identifier for the tag. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -610,7 +610,7 @@ class TagsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str workspace: The workspace to filter tags on.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -635,7 +635,7 @@ class TagsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str workspace: The workspace to filter tags on.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -752,7 +752,7 @@ class TagsApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -777,7 +777,7 @@ class TagsApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -898,7 +898,7 @@ class TagsApi(object):
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -923,7 +923,7 @@ class TagsApi(object):
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1043,7 +1043,7 @@ class TagsApi(object):
         :param async_req bool
         :param dict body: The tag to update. (required)
         :param str tag_gid: Globally unique identifier for the tag. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1067,7 +1067,7 @@ class TagsApi(object):
         :param async_req bool
         :param dict body: The tag to update. (required)
         :param str tag_gid: Globally unique identifier for the tag. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TagResponseData
                  If the method is called asynchronously,
                  returns the request thread.

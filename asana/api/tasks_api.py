@@ -334,7 +334,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The followers to add to the task. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -358,7 +358,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The followers to add to the task. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -772,7 +772,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The new subtask to create. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -796,7 +796,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The new subtask to create. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -919,7 +919,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param dict body: The task to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -942,7 +942,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param dict body: The task to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1198,7 +1198,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: Describes the duplicate's name and the fields that will be duplicated. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1222,7 +1222,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: Describes the duplicate's name and the fields that will be duplicated. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1347,7 +1347,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1372,7 +1372,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1493,7 +1493,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1518,7 +1518,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1639,7 +1639,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1664,7 +1664,7 @@ class TasksApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1783,7 +1783,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1806,7 +1806,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2071,7 +2071,7 @@ class TasksApi(object):
         :param str workspace: The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
         :param datetime completed_since: Only return tasks that are either incomplete or that have been completed since this time.
         :param datetime modified_since: Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2101,7 +2101,7 @@ class TasksApi(object):
         :param str workspace: The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
         :param datetime completed_since: Only return tasks that are either incomplete or that have been completed since this time.
         :param datetime modified_since: Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2219,7 +2219,7 @@ class TasksApi(object):
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2245,7 +2245,7 @@ class TasksApi(object):
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2367,7 +2367,7 @@ class TasksApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2393,7 +2393,7 @@ class TasksApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2514,7 +2514,7 @@ class TasksApi(object):
         :param str tag_gid: Globally unique identifier for the tag. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2539,7 +2539,7 @@ class TasksApi(object):
         :param str tag_gid: Globally unique identifier for the tag. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2661,7 +2661,7 @@ class TasksApi(object):
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2687,7 +2687,7 @@ class TasksApi(object):
         :param str completed_since: Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword *now*. 
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3097,7 +3097,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The followers to remove from the task. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3121,7 +3121,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The followers to remove from the task. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3549,6 +3549,7 @@ class TasksApi(object):
         :param str tags.not: Comma-separated list of tag IDs
         :param str tags.all: Comma-separated list of tag IDs
         :param str teams.any: Comma-separated list of team IDs
+        :param str followers.any: Comma-separated list of user identifiers
         :param str followers.not: Comma-separated list of user identifiers
         :param str created_by.any: Comma-separated list of user identifiers
         :param str created_by.not: Comma-separated list of user identifiers
@@ -3586,7 +3587,7 @@ class TasksApi(object):
         :param bool is_subtask: Filter to subtasks
         :param str sort_by: One of `due_date`, `created_at`, `completed_at`, `likes`, or `modified_at`, defaults to `modified_at`
         :param bool sort_ascending: Default `false`
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3624,6 +3625,7 @@ class TasksApi(object):
         :param str tags.not: Comma-separated list of tag IDs
         :param str tags.all: Comma-separated list of tag IDs
         :param str teams.any: Comma-separated list of team IDs
+        :param str followers.any: Comma-separated list of user identifiers
         :param str followers.not: Comma-separated list of user identifiers
         :param str created_by.any: Comma-separated list of user identifiers
         :param str created_by.not: Comma-separated list of user identifiers
@@ -3661,7 +3663,7 @@ class TasksApi(object):
         :param bool is_subtask: Filter to subtasks
         :param str sort_by: One of `due_date`, `created_at`, `completed_at`, `likes`, or `modified_at`, defaults to `modified_at`
         :param bool sort_ascending: Default `false`
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3793,7 +3795,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The new parent of the subtask. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3817,7 +3819,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The new parent of the subtask. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3941,7 +3943,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The task to update. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3965,7 +3967,7 @@ class TasksApi(object):
         :param async_req bool
         :param dict body: The task to update. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseData
                  If the method is called asynchronously,
                  returns the request thread.

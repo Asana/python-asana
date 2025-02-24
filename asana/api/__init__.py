@@ -9,6 +9,7 @@ from asana.api.audit_log_api_api import AuditLogAPIApi
 from asana.api.batch_api_api import BatchAPIApi
 from asana.api.custom_field_settings_api import CustomFieldSettingsApi
 from asana.api.custom_fields_api import CustomFieldsApi
+from asana.api.custom_types_api import CustomTypesApi
 from asana.api.events_api import EventsApi
 from asana.api.goal_relationships_api import GoalRelationshipsApi
 from asana.api.goals_api import GoalsApi

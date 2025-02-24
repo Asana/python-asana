@@ -43,7 +43,7 @@ class BatchAPIApi(object):
 
         :param async_req bool
         :param dict body: The requests to batch together via the Batch API. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: BatchResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class BatchAPIApi(object):
 
         :param async_req bool
         :param dict body: The requests to batch together via the Batch API. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: BatchResponseArray
                  If the method is called asynchronously,
                  returns the request thread.

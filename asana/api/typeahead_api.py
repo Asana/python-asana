@@ -47,7 +47,7 @@ class TypeaheadApi(object):
         :param str type: *Deprecated: new integrations should prefer the resource_type field.*
         :param str query: The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
         :param int count: The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: AsanaNamedResourceArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -74,7 +74,7 @@ class TypeaheadApi(object):
         :param str type: *Deprecated: new integrations should prefer the resource_type field.*
         :param str query: The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
         :param int count: The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: AsanaNamedResourceArray
                  If the method is called asynchronously,
                  returns the request thread.

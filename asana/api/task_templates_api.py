@@ -179,7 +179,7 @@ class TaskTemplatesApi(object):
 
         :param async_req bool
         :param str task_template_gid: Globally unique identifier for the task template. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskTemplateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -202,7 +202,7 @@ class TaskTemplatesApi(object):
 
         :param async_req bool
         :param str task_template_gid: Globally unique identifier for the task template. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskTemplateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -320,7 +320,7 @@ class TaskTemplatesApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str project: The project to filter task templates on.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskTemplateResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -345,7 +345,7 @@ class TaskTemplatesApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str project: The project to filter task templates on.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskTemplateResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -461,7 +461,7 @@ class TaskTemplatesApi(object):
         :param async_req bool
         :param str task_template_gid: Globally unique identifier for the task template. (required)
         :param dict body: Describes the inputs used for instantiating a task - the task's name.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -485,7 +485,7 @@ class TaskTemplatesApi(object):
         :param async_req bool
         :param str task_template_gid: Globally unique identifier for the task template. (required)
         :param dict body: Describes the inputs used for instantiating a task - the task's name.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.

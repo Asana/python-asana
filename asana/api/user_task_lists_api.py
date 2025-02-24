@@ -43,7 +43,7 @@ class UserTaskListsApi(object):
 
         :param async_req bool
         :param str user_task_list_gid: Globally unique identifier for the user task list. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: UserTaskListResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class UserTaskListsApi(object):
 
         :param async_req bool
         :param str user_task_list_gid: Globally unique identifier for the user task list. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: UserTaskListResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -183,7 +183,7 @@ class UserTaskListsApi(object):
         :param async_req bool
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace in which to get the user task list. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: UserTaskListResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -207,7 +207,7 @@ class UserTaskListsApi(object):
         :param async_req bool
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace in which to get the user task list. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: UserTaskListResponseData
                  If the method is called asynchronously,
                  returns the request thread.

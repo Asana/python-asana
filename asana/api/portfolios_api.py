@@ -334,7 +334,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: Information about the members being added. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -358,7 +358,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: Information about the members being added. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -481,7 +481,7 @@ class PortfoliosApi(object):
 
         :param async_req bool
         :param dict body: The portfolio to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -504,7 +504,7 @@ class PortfoliosApi(object):
 
         :param async_req bool
         :param dict body: The portfolio to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -761,7 +761,7 @@ class PortfoliosApi(object):
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -786,7 +786,7 @@ class PortfoliosApi(object):
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -905,7 +905,7 @@ class PortfoliosApi(object):
 
         :param async_req bool
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -928,7 +928,7 @@ class PortfoliosApi(object):
 
         :param async_req bool
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1047,7 +1047,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str owner: The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own, unless the request is made from a Service Account. In the case of a Service Account, if this parameter is specified, then all portfolios owned by this parameter are returned. Otherwise, all portfolios across the workspace are returned.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1073,7 +1073,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str owner: The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own, unless the request is made from a Service Account. In the case of a Service Account, if this parameter is specified, then all portfolios owned by this parameter are returned. Otherwise, all portfolios across the workspace are returned.
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1483,7 +1483,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: Information about the members being removed. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1507,7 +1507,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: Information about the members being removed. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1631,7 +1631,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: The updated fields for the portfolio. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1655,7 +1655,7 @@ class PortfoliosApi(object):
         :param async_req bool
         :param dict body: The updated fields for the portfolio. (required)
         :param str portfolio_gid: Globally unique identifier for the portfolio. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseData
                  If the method is called asynchronously,
                  returns the request thread.

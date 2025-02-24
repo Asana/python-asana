@@ -32,7 +32,7 @@ opts = {
     'type': "user", # str | *Deprecated: new integrations should prefer the resource_type field.*
     'query': "Greg", # str | The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results.
     'count': 20, # int | The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned.
-    'opt_fields': "name", # list[str] | This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
  **type** | **str**| *Deprecated: new integrations should prefer the resource_type field.* | [optional] [default to user]
  **query** | **str**| The string that will be used to search for relevant objects. If an empty string is passed in, the API will return results. | [optional] 
  **count** | **int**| The number of results to return. The default is 20 if this parameter is omitted, with a minimum of 1 and a maximum of 100. If there are fewer results found than requested, all will be returned. | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
 
 ### Return type
 

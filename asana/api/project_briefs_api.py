@@ -44,7 +44,7 @@ class ProjectBriefsApi(object):
         :param async_req bool
         :param dict body: The project brief to create. (required)
         :param str project_gid: Globally unique identifier for the project. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,7 +68,7 @@ class ProjectBriefsApi(object):
         :param async_req bool
         :param dict body: The project brief to create. (required)
         :param str project_gid: Globally unique identifier for the project. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -327,7 +327,7 @@ class ProjectBriefsApi(object):
 
         :param async_req bool
         :param str project_brief_gid: Globally unique identifier for the project brief. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -350,7 +350,7 @@ class ProjectBriefsApi(object):
 
         :param async_req bool
         :param str project_brief_gid: Globally unique identifier for the project brief. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -467,7 +467,7 @@ class ProjectBriefsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the project brief. (required)
         :param str project_brief_gid: Globally unique identifier for the project brief. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -491,7 +491,7 @@ class ProjectBriefsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the project brief. (required)
         :param str project_brief_gid: Globally unique identifier for the project brief. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectBriefResponseData
                  If the method is called asynchronously,
                  returns the request thread.

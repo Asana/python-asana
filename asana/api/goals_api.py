@@ -44,7 +44,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The followers to be added as collaborators (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,7 +68,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The followers to be added as collaborators (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -191,7 +191,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param dict body: The goal to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -214,7 +214,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param dict body: The goal to create. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -334,7 +334,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The goal metric to create. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -358,7 +358,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The goal metric to create. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -617,7 +617,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -640,7 +640,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -764,7 +764,7 @@ class GoalsApi(object):
         :param list[str] time_periods: Globally unique identifiers for the time periods.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -795,7 +795,7 @@ class GoalsApi(object):
         :param list[str] time_periods: Globally unique identifiers for the time periods.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -910,7 +910,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -933,7 +933,7 @@ class GoalsApi(object):
 
         :param async_req bool
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1053,7 +1053,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The followers to be removed as collaborators (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1077,7 +1077,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The followers to be removed as collaborators (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1201,7 +1201,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the goal. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1225,7 +1225,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the goal. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1349,7 +1349,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the goal metric. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1373,7 +1373,7 @@ class GoalsApi(object):
         :param async_req bool
         :param dict body: The updated fields for the goal metric. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a compact resource, which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: GoalResponseData
                  If the method is called asynchronously,
                  returns the request thread.
