@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 env:
-  GENERATOR_VERSION: 3.0.54
+  GENERATOR_VERSION: 3.0.67
   GENERATOR_NAME: swagger-codegen-cli.jar
   JAR_ASANA: codegen/swagger/target/AsanaClientCodegen-swagger-codegen-1.0.0.jar
   ACTUAL_LANG: com.asana.codegen.PythonClientCodegenGenerator
