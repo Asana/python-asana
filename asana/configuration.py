@@ -17,6 +17,7 @@ import logging
 import multiprocessing
 import sys
 import urllib3
+from urllib3.util.retry import Retry
 
 import six
 from six.moves import http_client as httplib
@@ -110,6 +111,13 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # The default limit query parameter value for api endpoints that return multiple resources
         self.page_limit = 100
+
+        # Retry Settings
+        self.retry_strategy = Retry(
+            total=5, # Number of retries
+            backoff_factor=2, # Exponential backoff factor (1s, 2s, 4s, etc.)
+            status_forcelist=[429, 500, 502, 503, 504], # Retry only on these status codes
+        )
 
     @property
     def logger_file(self):
@@ -258,5 +266,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0\n"\
-               "SDK Package Version: 5.0.16".\
+               "SDK Package Version: 5.1.0".\
                format(env=sys.platform, pyversion=sys.version)

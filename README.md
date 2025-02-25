@@ -1,7 +1,7 @@
 # asana [![GitHub release][release-image]]() [![PyPi Version][pypi-image]][pypi-url]
 
 - API version: 1.0
-- Package version: 5.0.16
+- Package version: 5.1.0
 
 ## Requirements.
 
@@ -178,197 +178,197 @@ All URIs are relative to *https://app.asana.com/api/1.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AllocationsApi* | [**create_allocation**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AllocationsApi.md#create_allocation) | **POST** /allocations | Create an allocation
-*AllocationsApi* | [**delete_allocation**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AllocationsApi.md#delete_allocation) | **DELETE** /allocations/{allocation_gid} | Delete an allocation
-*AllocationsApi* | [**get_allocation**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AllocationsApi.md#get_allocation) | **GET** /allocations/{allocation_gid} | Get an allocation
-*AllocationsApi* | [**get_allocations**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AllocationsApi.md#get_allocations) | **GET** /allocations | Get multiple allocations
-*AllocationsApi* | [**update_allocation**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AllocationsApi.md#update_allocation) | **PUT** /allocations/{allocation_gid} | Update an allocation
-*AttachmentsApi* | [**create_attachment_for_object**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AttachmentsApi.md#create_attachment_for_object) | **POST** /attachments | Upload an attachment
-*AttachmentsApi* | [**delete_attachment**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AttachmentsApi.md#delete_attachment) | **DELETE** /attachments/{attachment_gid} | Delete an attachment
-*AttachmentsApi* | [**get_attachment**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AttachmentsApi.md#get_attachment) | **GET** /attachments/{attachment_gid} | Get an attachment
-*AttachmentsApi* | [**get_attachments_for_object**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AttachmentsApi.md#get_attachments_for_object) | **GET** /attachments | Get attachments from an object
-*AuditLogAPIApi* | [**get_audit_log_events**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/AuditLogAPIApi.md#get_audit_log_events) | **GET** /workspaces/{workspace_gid}/audit_log_events | Get audit log events
-*BatchAPIApi* | [**create_batch_request**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/BatchAPIApi.md#create_batch_request) | **POST** /batch | Submit parallel requests
-*CustomFieldSettingsApi* | [**get_custom_field_settings_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldSettingsApi.md#get_custom_field_settings_for_portfolio) | **GET** /portfolios/{portfolio_gid}/custom_field_settings | Get a portfolio&#x27;s custom fields
-*CustomFieldSettingsApi* | [**get_custom_field_settings_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldSettingsApi.md#get_custom_field_settings_for_project) | **GET** /projects/{project_gid}/custom_field_settings | Get a project&#x27;s custom fields
-*CustomFieldsApi* | [**create_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#create_custom_field) | **POST** /custom_fields | Create a custom field
-*CustomFieldsApi* | [**create_enum_option_for_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#create_enum_option_for_custom_field) | **POST** /custom_fields/{custom_field_gid}/enum_options | Create an enum option
-*CustomFieldsApi* | [**delete_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#delete_custom_field) | **DELETE** /custom_fields/{custom_field_gid} | Delete a custom field
-*CustomFieldsApi* | [**get_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#get_custom_field) | **GET** /custom_fields/{custom_field_gid} | Get a custom field
-*CustomFieldsApi* | [**get_custom_fields_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#get_custom_fields_for_workspace) | **GET** /workspaces/{workspace_gid}/custom_fields | Get a workspace&#x27;s custom fields
-*CustomFieldsApi* | [**insert_enum_option_for_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#insert_enum_option_for_custom_field) | **POST** /custom_fields/{custom_field_gid}/enum_options/insert | Reorder a custom field&#x27;s enum
-*CustomFieldsApi* | [**update_custom_field**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#update_custom_field) | **PUT** /custom_fields/{custom_field_gid} | Update a custom field
-*CustomFieldsApi* | [**update_enum_option**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomFieldsApi.md#update_enum_option) | **PUT** /enum_options/{enum_option_gid} | Update an enum option
-*CustomTypesApi* | [**get_custom_types**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/CustomTypesApi.md#get_custom_types) | **GET** /custom_types | Get all custom types associated with an object
-*EventsApi* | [**get_events**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/EventsApi.md#get_events) | **GET** /events | Get events on a resource
-*GoalRelationshipsApi* | [**add_supporting_relationship**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalRelationshipsApi.md#add_supporting_relationship) | **POST** /goals/{goal_gid}/addSupportingRelationship | Add a supporting goal relationship
-*GoalRelationshipsApi* | [**get_goal_relationship**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalRelationshipsApi.md#get_goal_relationship) | **GET** /goal_relationships/{goal_relationship_gid} | Get a goal relationship
-*GoalRelationshipsApi* | [**get_goal_relationships**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalRelationshipsApi.md#get_goal_relationships) | **GET** /goal_relationships | Get goal relationships
-*GoalRelationshipsApi* | [**remove_supporting_relationship**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalRelationshipsApi.md#remove_supporting_relationship) | **POST** /goals/{goal_gid}/removeSupportingRelationship | Removes a supporting goal relationship
-*GoalRelationshipsApi* | [**update_goal_relationship**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalRelationshipsApi.md#update_goal_relationship) | **PUT** /goal_relationships/{goal_relationship_gid} | Update a goal relationship
-*GoalsApi* | [**add_followers**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#add_followers) | **POST** /goals/{goal_gid}/addFollowers | Add a collaborator to a goal
-*GoalsApi* | [**create_goal**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#create_goal) | **POST** /goals | Create a goal
-*GoalsApi* | [**create_goal_metric**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#create_goal_metric) | **POST** /goals/{goal_gid}/setMetric | Create a goal metric
-*GoalsApi* | [**delete_goal**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#delete_goal) | **DELETE** /goals/{goal_gid} | Delete a goal
-*GoalsApi* | [**get_goal**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#get_goal) | **GET** /goals/{goal_gid} | Get a goal
-*GoalsApi* | [**get_goals**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#get_goals) | **GET** /goals | Get goals
-*GoalsApi* | [**get_parent_goals_for_goal**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#get_parent_goals_for_goal) | **GET** /goals/{goal_gid}/parentGoals | Get parent goals from a goal
-*GoalsApi* | [**remove_followers**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#remove_followers) | **POST** /goals/{goal_gid}/removeFollowers | Remove a collaborator from a goal
-*GoalsApi* | [**update_goal**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#update_goal) | **PUT** /goals/{goal_gid} | Update a goal
-*GoalsApi* | [**update_goal_metric**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/GoalsApi.md#update_goal_metric) | **POST** /goals/{goal_gid}/setMetricCurrentValue | Update a goal metric
-*JobsApi* | [**get_job**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/JobsApi.md#get_job) | **GET** /jobs/{job_gid} | Get a job by id
-*MembershipsApi* | [**create_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/MembershipsApi.md#create_membership) | **POST** /memberships | Create a membership
-*MembershipsApi* | [**delete_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/MembershipsApi.md#delete_membership) | **DELETE** /memberships/{membership_gid} | Delete a membership
-*MembershipsApi* | [**get_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/MembershipsApi.md#get_membership) | **GET** /memberships/{membership_gid} | Get a membership
-*MembershipsApi* | [**get_memberships**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/MembershipsApi.md#get_memberships) | **GET** /memberships | Get multiple memberships
-*MembershipsApi* | [**update_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/MembershipsApi.md#update_membership) | **PUT** /memberships/{membership_gid} | Update a membership
-*OrganizationExportsApi* | [**create_organization_export**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/OrganizationExportsApi.md#create_organization_export) | **POST** /organization_exports | Create an organization export request
-*OrganizationExportsApi* | [**get_organization_export**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/OrganizationExportsApi.md#get_organization_export) | **GET** /organization_exports/{organization_export_gid} | Get details on an org export request
-*PortfolioMembershipsApi* | [**get_portfolio_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfolioMembershipsApi.md#get_portfolio_membership) | **GET** /portfolio_memberships/{portfolio_membership_gid} | Get a portfolio membership
-*PortfolioMembershipsApi* | [**get_portfolio_memberships**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfolioMembershipsApi.md#get_portfolio_memberships) | **GET** /portfolio_memberships | Get multiple portfolio memberships
-*PortfolioMembershipsApi* | [**get_portfolio_memberships_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfolioMembershipsApi.md#get_portfolio_memberships_for_portfolio) | **GET** /portfolios/{portfolio_gid}/portfolio_memberships | Get memberships from a portfolio
-*PortfoliosApi* | [**add_custom_field_setting_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#add_custom_field_setting_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addCustomFieldSetting | Add a custom field to a portfolio
-*PortfoliosApi* | [**add_item_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#add_item_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addItem | Add a portfolio item
-*PortfoliosApi* | [**add_members_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#add_members_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addMembers | Add users to a portfolio
-*PortfoliosApi* | [**create_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#create_portfolio) | **POST** /portfolios | Create a portfolio
-*PortfoliosApi* | [**delete_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#delete_portfolio) | **DELETE** /portfolios/{portfolio_gid} | Delete a portfolio
-*PortfoliosApi* | [**get_items_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#get_items_for_portfolio) | **GET** /portfolios/{portfolio_gid}/items | Get portfolio items
-*PortfoliosApi* | [**get_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#get_portfolio) | **GET** /portfolios/{portfolio_gid} | Get a portfolio
-*PortfoliosApi* | [**get_portfolios**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#get_portfolios) | **GET** /portfolios | Get multiple portfolios
-*PortfoliosApi* | [**remove_custom_field_setting_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#remove_custom_field_setting_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeCustomFieldSetting | Remove a custom field from a portfolio
-*PortfoliosApi* | [**remove_item_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#remove_item_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeItem | Remove a portfolio item
-*PortfoliosApi* | [**remove_members_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#remove_members_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeMembers | Remove users from a portfolio
-*PortfoliosApi* | [**update_portfolio**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/PortfoliosApi.md#update_portfolio) | **PUT** /portfolios/{portfolio_gid} | Update a portfolio
-*ProjectBriefsApi* | [**create_project_brief**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectBriefsApi.md#create_project_brief) | **POST** /projects/{project_gid}/project_briefs | Create a project brief
-*ProjectBriefsApi* | [**delete_project_brief**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectBriefsApi.md#delete_project_brief) | **DELETE** /project_briefs/{project_brief_gid} | Delete a project brief
-*ProjectBriefsApi* | [**get_project_brief**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectBriefsApi.md#get_project_brief) | **GET** /project_briefs/{project_brief_gid} | Get a project brief
-*ProjectBriefsApi* | [**update_project_brief**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectBriefsApi.md#update_project_brief) | **PUT** /project_briefs/{project_brief_gid} | Update a project brief
-*ProjectMembershipsApi* | [**get_project_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectMembershipsApi.md#get_project_membership) | **GET** /project_memberships/{project_membership_gid} | Get a project membership
-*ProjectMembershipsApi* | [**get_project_memberships_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectMembershipsApi.md#get_project_memberships_for_project) | **GET** /projects/{project_gid}/project_memberships | Get memberships from a project
-*ProjectStatusesApi* | [**create_project_status_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectStatusesApi.md#create_project_status_for_project) | **POST** /projects/{project_gid}/project_statuses | Create a project status
-*ProjectStatusesApi* | [**delete_project_status**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectStatusesApi.md#delete_project_status) | **DELETE** /project_statuses/{project_status_gid} | Delete a project status
-*ProjectStatusesApi* | [**get_project_status**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectStatusesApi.md#get_project_status) | **GET** /project_statuses/{project_status_gid} | Get a project status
-*ProjectStatusesApi* | [**get_project_statuses_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectStatusesApi.md#get_project_statuses_for_project) | **GET** /projects/{project_gid}/project_statuses | Get statuses from a project
-*ProjectTemplatesApi* | [**delete_project_template**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectTemplatesApi.md#delete_project_template) | **DELETE** /project_templates/{project_template_gid} | Delete a project template
-*ProjectTemplatesApi* | [**get_project_template**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectTemplatesApi.md#get_project_template) | **GET** /project_templates/{project_template_gid} | Get a project template
-*ProjectTemplatesApi* | [**get_project_templates**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectTemplatesApi.md#get_project_templates) | **GET** /project_templates | Get multiple project templates
-*ProjectTemplatesApi* | [**get_project_templates_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectTemplatesApi.md#get_project_templates_for_team) | **GET** /teams/{team_gid}/project_templates | Get a team&#x27;s project templates
-*ProjectTemplatesApi* | [**instantiate_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectTemplatesApi.md#instantiate_project) | **POST** /project_templates/{project_template_gid}/instantiateProject | Instantiate a project from a project template
-*ProjectsApi* | [**add_custom_field_setting_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#add_custom_field_setting_for_project) | **POST** /projects/{project_gid}/addCustomFieldSetting | Add a custom field to a project
-*ProjectsApi* | [**add_followers_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#add_followers_for_project) | **POST** /projects/{project_gid}/addFollowers | Add followers to a project
-*ProjectsApi* | [**add_members_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#add_members_for_project) | **POST** /projects/{project_gid}/addMembers | Add users to a project
-*ProjectsApi* | [**create_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#create_project) | **POST** /projects | Create a project
-*ProjectsApi* | [**create_project_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#create_project_for_team) | **POST** /teams/{team_gid}/projects | Create a project in a team
-*ProjectsApi* | [**create_project_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#create_project_for_workspace) | **POST** /workspaces/{workspace_gid}/projects | Create a project in a workspace
-*ProjectsApi* | [**delete_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#delete_project) | **DELETE** /projects/{project_gid} | Delete a project
-*ProjectsApi* | [**duplicate_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#duplicate_project) | **POST** /projects/{project_gid}/duplicate | Duplicate a project
-*ProjectsApi* | [**get_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_project) | **GET** /projects/{project_gid} | Get a project
-*ProjectsApi* | [**get_projects**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_projects) | **GET** /projects | Get multiple projects
-*ProjectsApi* | [**get_projects_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_projects_for_task) | **GET** /tasks/{task_gid}/projects | Get projects a task is in
-*ProjectsApi* | [**get_projects_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_projects_for_team) | **GET** /teams/{team_gid}/projects | Get a team&#x27;s projects
-*ProjectsApi* | [**get_projects_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_projects_for_workspace) | **GET** /workspaces/{workspace_gid}/projects | Get all projects in a workspace
-*ProjectsApi* | [**get_task_counts_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_task_counts_for_project) | **GET** /projects/{project_gid}/task_counts | Get task count of a project
-*ProjectsApi* | [**project_save_as_template**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#project_save_as_template) | **POST** /projects/{project_gid}/saveAsTemplate | Create a project template from a project
-*ProjectsApi* | [**remove_custom_field_setting_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#remove_custom_field_setting_for_project) | **POST** /projects/{project_gid}/removeCustomFieldSetting | Remove a custom field from a project
-*ProjectsApi* | [**remove_followers_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#remove_followers_for_project) | **POST** /projects/{project_gid}/removeFollowers | Remove followers from a project
-*ProjectsApi* | [**remove_members_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#remove_members_for_project) | **POST** /projects/{project_gid}/removeMembers | Remove users from a project
-*ProjectsApi* | [**update_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#update_project) | **PUT** /projects/{project_gid} | Update a project
-*RulesApi* | [**trigger_rule**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/RulesApi.md#trigger_rule) | **POST** /rule_triggers/{rule_trigger_gid}/run | Trigger a rule
-*SectionsApi* | [**add_task_for_section**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#add_task_for_section) | **POST** /sections/{section_gid}/addTask | Add task to section
-*SectionsApi* | [**create_section_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#create_section_for_project) | **POST** /projects/{project_gid}/sections | Create a section in a project
-*SectionsApi* | [**delete_section**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#delete_section) | **DELETE** /sections/{section_gid} | Delete a section
-*SectionsApi* | [**get_section**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#get_section) | **GET** /sections/{section_gid} | Get a section
-*SectionsApi* | [**get_sections_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#get_sections_for_project) | **GET** /projects/{project_gid}/sections | Get sections in a project
-*SectionsApi* | [**insert_section_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#insert_section_for_project) | **POST** /projects/{project_gid}/sections/insert | Move or Insert sections
-*SectionsApi* | [**update_section**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/SectionsApi.md#update_section) | **PUT** /sections/{section_gid} | Update a section
-*StatusUpdatesApi* | [**create_status_for_object**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StatusUpdatesApi.md#create_status_for_object) | **POST** /status_updates | Create a status update
-*StatusUpdatesApi* | [**delete_status**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StatusUpdatesApi.md#delete_status) | **DELETE** /status_updates/{status_update_gid} | Delete a status update
-*StatusUpdatesApi* | [**get_status**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StatusUpdatesApi.md#get_status) | **GET** /status_updates/{status_update_gid} | Get a status update
-*StatusUpdatesApi* | [**get_statuses_for_object**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StatusUpdatesApi.md#get_statuses_for_object) | **GET** /status_updates | Get status updates from an object
-*StoriesApi* | [**create_story_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StoriesApi.md#create_story_for_task) | **POST** /tasks/{task_gid}/stories | Create a story on a task
-*StoriesApi* | [**delete_story**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StoriesApi.md#delete_story) | **DELETE** /stories/{story_gid} | Delete a story
-*StoriesApi* | [**get_stories_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StoriesApi.md#get_stories_for_task) | **GET** /tasks/{task_gid}/stories | Get stories from a task
-*StoriesApi* | [**get_story**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StoriesApi.md#get_story) | **GET** /stories/{story_gid} | Get a story
-*StoriesApi* | [**update_story**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/StoriesApi.md#update_story) | **PUT** /stories/{story_gid} | Update a story
-*TagsApi* | [**create_tag**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#create_tag) | **POST** /tags | Create a tag
-*TagsApi* | [**create_tag_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#create_tag_for_workspace) | **POST** /workspaces/{workspace_gid}/tags | Create a tag in a workspace
-*TagsApi* | [**delete_tag**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#delete_tag) | **DELETE** /tags/{tag_gid} | Delete a tag
-*TagsApi* | [**get_tag**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#get_tag) | **GET** /tags/{tag_gid} | Get a tag
-*TagsApi* | [**get_tags**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#get_tags) | **GET** /tags | Get multiple tags
-*TagsApi* | [**get_tags_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#get_tags_for_task) | **GET** /tasks/{task_gid}/tags | Get a task&#x27;s tags
-*TagsApi* | [**get_tags_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#get_tags_for_workspace) | **GET** /workspaces/{workspace_gid}/tags | Get tags in a workspace
-*TagsApi* | [**update_tag**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TagsApi.md#update_tag) | **PUT** /tags/{tag_gid} | Update a tag
-*TaskTemplatesApi* | [**delete_task_template**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TaskTemplatesApi.md#delete_task_template) | **DELETE** /task_templates/{task_template_gid} | Delete a task template
-*TaskTemplatesApi* | [**get_task_template**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TaskTemplatesApi.md#get_task_template) | **GET** /task_templates/{task_template_gid} | Get a task template
-*TaskTemplatesApi* | [**get_task_templates**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TaskTemplatesApi.md#get_task_templates) | **GET** /task_templates | Get multiple task templates
-*TaskTemplatesApi* | [**instantiate_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TaskTemplatesApi.md#instantiate_task) | **POST** /task_templates/{task_template_gid}/instantiateTask | Instantiate a task from a task template
-*TasksApi* | [**add_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#add_dependencies_for_task) | **POST** /tasks/{task_gid}/addDependencies | Set dependencies for a task
-*TasksApi* | [**add_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#add_dependents_for_task) | **POST** /tasks/{task_gid}/addDependents | Set dependents for a task
-*TasksApi* | [**add_followers_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#add_followers_for_task) | **POST** /tasks/{task_gid}/addFollowers | Add followers to a task
-*TasksApi* | [**add_project_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#add_project_for_task) | **POST** /tasks/{task_gid}/addProject | Add a project to a task
-*TasksApi* | [**add_tag_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#add_tag_for_task) | **POST** /tasks/{task_gid}/addTag | Add a tag to a task
-*TasksApi* | [**create_subtask_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#create_subtask_for_task) | **POST** /tasks/{task_gid}/subtasks | Create a subtask
-*TasksApi* | [**create_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#create_task) | **POST** /tasks | Create a task
-*TasksApi* | [**delete_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#delete_task) | **DELETE** /tasks/{task_gid} | Delete a task
-*TasksApi* | [**duplicate_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#duplicate_task) | **POST** /tasks/{task_gid}/duplicate | Duplicate a task
-*TasksApi* | [**get_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_dependencies_for_task) | **GET** /tasks/{task_gid}/dependencies | Get dependencies from a task
-*TasksApi* | [**get_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_dependents_for_task) | **GET** /tasks/{task_gid}/dependents | Get dependents from a task
-*TasksApi* | [**get_subtasks_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_subtasks_for_task) | **GET** /tasks/{task_gid}/subtasks | Get subtasks from a task
-*TasksApi* | [**get_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_task) | **GET** /tasks/{task_gid} | Get a task
-*TasksApi* | [**get_task_for_custom_id**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_task_for_custom_id) | **GET** /workspaces/{workspace_gid}/tasks/custom_id/{custom_id} | Get a task for a given custom ID
-*TasksApi* | [**get_tasks**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks) | **GET** /tasks | Get multiple tasks
-*TasksApi* | [**get_tasks_for_project**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks_for_project) | **GET** /projects/{project_gid}/tasks | Get tasks from a project
-*TasksApi* | [**get_tasks_for_section**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks_for_section) | **GET** /sections/{section_gid}/tasks | Get tasks from a section
-*TasksApi* | [**get_tasks_for_tag**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks_for_tag) | **GET** /tags/{tag_gid}/tasks | Get tasks from a tag
-*TasksApi* | [**get_tasks_for_user_task_list**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks_for_user_task_list) | **GET** /user_task_lists/{user_task_list_gid}/tasks | Get tasks from a user task list
-*TasksApi* | [**remove_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#remove_dependencies_for_task) | **POST** /tasks/{task_gid}/removeDependencies | Unlink dependencies from a task
-*TasksApi* | [**remove_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#remove_dependents_for_task) | **POST** /tasks/{task_gid}/removeDependents | Unlink dependents from a task
-*TasksApi* | [**remove_follower_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#remove_follower_for_task) | **POST** /tasks/{task_gid}/removeFollowers | Remove followers from a task
-*TasksApi* | [**remove_project_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#remove_project_for_task) | **POST** /tasks/{task_gid}/removeProject | Remove a project from a task
-*TasksApi* | [**remove_tag_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#remove_tag_for_task) | **POST** /tasks/{task_gid}/removeTag | Remove a tag from a task
-*TasksApi* | [**search_tasks_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#search_tasks_for_workspace) | **GET** /workspaces/{workspace_gid}/tasks/search | Search tasks in a workspace
-*TasksApi* | [**set_parent_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#set_parent_for_task) | **POST** /tasks/{task_gid}/setParent | Set the parent of a task
-*TasksApi* | [**update_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#update_task) | **PUT** /tasks/{task_gid} | Update a task
-*TeamMembershipsApi* | [**get_team_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamMembershipsApi.md#get_team_membership) | **GET** /team_memberships/{team_membership_gid} | Get a team membership
-*TeamMembershipsApi* | [**get_team_memberships**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamMembershipsApi.md#get_team_memberships) | **GET** /team_memberships | Get team memberships
-*TeamMembershipsApi* | [**get_team_memberships_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamMembershipsApi.md#get_team_memberships_for_team) | **GET** /teams/{team_gid}/team_memberships | Get memberships from a team
-*TeamMembershipsApi* | [**get_team_memberships_for_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamMembershipsApi.md#get_team_memberships_for_user) | **GET** /users/{user_gid}/team_memberships | Get memberships from a user
-*TeamsApi* | [**add_user_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#add_user_for_team) | **POST** /teams/{team_gid}/addUser | Add a user to a team
-*TeamsApi* | [**create_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#create_team) | **POST** /teams | Create a team
-*TeamsApi* | [**get_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#get_team) | **GET** /teams/{team_gid} | Get a team
-*TeamsApi* | [**get_teams_for_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#get_teams_for_user) | **GET** /users/{user_gid}/teams | Get teams for a user
-*TeamsApi* | [**get_teams_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#get_teams_for_workspace) | **GET** /workspaces/{workspace_gid}/teams | Get teams in a workspace
-*TeamsApi* | [**remove_user_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#remove_user_for_team) | **POST** /teams/{team_gid}/removeUser | Remove a user from a team
-*TeamsApi* | [**update_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TeamsApi.md#update_team) | **PUT** /teams/{team_gid} | Update a team
-*TimePeriodsApi* | [**get_time_period**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimePeriodsApi.md#get_time_period) | **GET** /time_periods/{time_period_gid} | Get a time period
-*TimePeriodsApi* | [**get_time_periods**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimePeriodsApi.md#get_time_periods) | **GET** /time_periods | Get time periods
-*TimeTrackingEntriesApi* | [**create_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimeTrackingEntriesApi.md#create_time_tracking_entry) | **POST** /tasks/{task_gid}/time_tracking_entries | Create a time tracking entry
-*TimeTrackingEntriesApi* | [**delete_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimeTrackingEntriesApi.md#delete_time_tracking_entry) | **DELETE** /time_tracking_entries/{time_tracking_entry_gid} | Delete a time tracking entry
-*TimeTrackingEntriesApi* | [**get_time_tracking_entries_for_task**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimeTrackingEntriesApi.md#get_time_tracking_entries_for_task) | **GET** /tasks/{task_gid}/time_tracking_entries | Get time tracking entries for a task
-*TimeTrackingEntriesApi* | [**get_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimeTrackingEntriesApi.md#get_time_tracking_entry) | **GET** /time_tracking_entries/{time_tracking_entry_gid} | Get a time tracking entry
-*TimeTrackingEntriesApi* | [**update_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TimeTrackingEntriesApi.md#update_time_tracking_entry) | **PUT** /time_tracking_entries/{time_tracking_entry_gid} | Update a time tracking entry
-*TypeaheadApi* | [**typeahead_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TypeaheadApi.md#typeahead_for_workspace) | **GET** /workspaces/{workspace_gid}/typeahead | Get objects via typeahead
-*UserTaskListsApi* | [**get_user_task_list**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UserTaskListsApi.md#get_user_task_list) | **GET** /user_task_lists/{user_task_list_gid} | Get a user task list
-*UserTaskListsApi* | [**get_user_task_list_for_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UserTaskListsApi.md#get_user_task_list_for_user) | **GET** /users/{user_gid}/user_task_list | Get a user&#x27;s task list
-*UsersApi* | [**get_favorites_for_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UsersApi.md#get_favorites_for_user) | **GET** /users/{user_gid}/favorites | Get a user&#x27;s favorites
-*UsersApi* | [**get_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UsersApi.md#get_user) | **GET** /users/{user_gid} | Get a user
-*UsersApi* | [**get_users**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UsersApi.md#get_users) | **GET** /users | Get multiple users
-*UsersApi* | [**get_users_for_team**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UsersApi.md#get_users_for_team) | **GET** /teams/{team_gid}/users | Get users in a team
-*UsersApi* | [**get_users_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/UsersApi.md#get_users_for_workspace) | **GET** /workspaces/{workspace_gid}/users | Get users in a workspace or organization
-*WebhooksApi* | [**create_webhook**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WebhooksApi.md#create_webhook) | **POST** /webhooks | Establish a webhook
-*WebhooksApi* | [**delete_webhook**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WebhooksApi.md#delete_webhook) | **DELETE** /webhooks/{webhook_gid} | Delete a webhook
-*WebhooksApi* | [**get_webhook**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WebhooksApi.md#get_webhook) | **GET** /webhooks/{webhook_gid} | Get a webhook
-*WebhooksApi* | [**get_webhooks**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WebhooksApi.md#get_webhooks) | **GET** /webhooks | Get multiple webhooks
-*WebhooksApi* | [**update_webhook**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WebhooksApi.md#update_webhook) | **PUT** /webhooks/{webhook_gid} | Update a webhook
-*WorkspaceMembershipsApi* | [**get_workspace_membership**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspaceMembershipsApi.md#get_workspace_membership) | **GET** /workspace_memberships/{workspace_membership_gid} | Get a workspace membership
-*WorkspaceMembershipsApi* | [**get_workspace_memberships_for_user**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspaceMembershipsApi.md#get_workspace_memberships_for_user) | **GET** /users/{user_gid}/workspace_memberships | Get workspace memberships for a user
-*WorkspaceMembershipsApi* | [**get_workspace_memberships_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspaceMembershipsApi.md#get_workspace_memberships_for_workspace) | **GET** /workspaces/{workspace_gid}/workspace_memberships | Get the workspace memberships for a workspace
-*WorkspacesApi* | [**add_user_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#add_user_for_workspace) | **POST** /workspaces/{workspace_gid}/addUser | Add a user to a workspace or organization
-*WorkspacesApi* | [**get_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspace_gid} | Get a workspace
-*WorkspacesApi* | [**get_workspace_events**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#get_workspace_events) | **GET** /workspaces/{workspace_gid}/events | Get workspace events
-*WorkspacesApi* | [**get_workspaces**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#get_workspaces) | **GET** /workspaces | Get multiple workspaces
-*WorkspacesApi* | [**remove_user_for_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#remove_user_for_workspace) | **POST** /workspaces/{workspace_gid}/removeUser | Remove a user from a workspace or organization
-*WorkspacesApi* | [**update_workspace**](https://github.com/Asana/python-asana/blob/v5.0.16/docs/WorkspacesApi.md#update_workspace) | **PUT** /workspaces/{workspace_gid} | Update a workspace
+*AllocationsApi* | [**create_allocation**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AllocationsApi.md#create_allocation) | **POST** /allocations | Create an allocation
+*AllocationsApi* | [**delete_allocation**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AllocationsApi.md#delete_allocation) | **DELETE** /allocations/{allocation_gid} | Delete an allocation
+*AllocationsApi* | [**get_allocation**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AllocationsApi.md#get_allocation) | **GET** /allocations/{allocation_gid} | Get an allocation
+*AllocationsApi* | [**get_allocations**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AllocationsApi.md#get_allocations) | **GET** /allocations | Get multiple allocations
+*AllocationsApi* | [**update_allocation**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AllocationsApi.md#update_allocation) | **PUT** /allocations/{allocation_gid} | Update an allocation
+*AttachmentsApi* | [**create_attachment_for_object**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AttachmentsApi.md#create_attachment_for_object) | **POST** /attachments | Upload an attachment
+*AttachmentsApi* | [**delete_attachment**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AttachmentsApi.md#delete_attachment) | **DELETE** /attachments/{attachment_gid} | Delete an attachment
+*AttachmentsApi* | [**get_attachment**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AttachmentsApi.md#get_attachment) | **GET** /attachments/{attachment_gid} | Get an attachment
+*AttachmentsApi* | [**get_attachments_for_object**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AttachmentsApi.md#get_attachments_for_object) | **GET** /attachments | Get attachments from an object
+*AuditLogAPIApi* | [**get_audit_log_events**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/AuditLogAPIApi.md#get_audit_log_events) | **GET** /workspaces/{workspace_gid}/audit_log_events | Get audit log events
+*BatchAPIApi* | [**create_batch_request**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/BatchAPIApi.md#create_batch_request) | **POST** /batch | Submit parallel requests
+*CustomFieldSettingsApi* | [**get_custom_field_settings_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldSettingsApi.md#get_custom_field_settings_for_portfolio) | **GET** /portfolios/{portfolio_gid}/custom_field_settings | Get a portfolio&#x27;s custom fields
+*CustomFieldSettingsApi* | [**get_custom_field_settings_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldSettingsApi.md#get_custom_field_settings_for_project) | **GET** /projects/{project_gid}/custom_field_settings | Get a project&#x27;s custom fields
+*CustomFieldsApi* | [**create_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#create_custom_field) | **POST** /custom_fields | Create a custom field
+*CustomFieldsApi* | [**create_enum_option_for_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#create_enum_option_for_custom_field) | **POST** /custom_fields/{custom_field_gid}/enum_options | Create an enum option
+*CustomFieldsApi* | [**delete_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#delete_custom_field) | **DELETE** /custom_fields/{custom_field_gid} | Delete a custom field
+*CustomFieldsApi* | [**get_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#get_custom_field) | **GET** /custom_fields/{custom_field_gid} | Get a custom field
+*CustomFieldsApi* | [**get_custom_fields_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#get_custom_fields_for_workspace) | **GET** /workspaces/{workspace_gid}/custom_fields | Get a workspace&#x27;s custom fields
+*CustomFieldsApi* | [**insert_enum_option_for_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#insert_enum_option_for_custom_field) | **POST** /custom_fields/{custom_field_gid}/enum_options/insert | Reorder a custom field&#x27;s enum
+*CustomFieldsApi* | [**update_custom_field**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#update_custom_field) | **PUT** /custom_fields/{custom_field_gid} | Update a custom field
+*CustomFieldsApi* | [**update_enum_option**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomFieldsApi.md#update_enum_option) | **PUT** /enum_options/{enum_option_gid} | Update an enum option
+*CustomTypesApi* | [**get_custom_types**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/CustomTypesApi.md#get_custom_types) | **GET** /custom_types | Get all custom types associated with an object
+*EventsApi* | [**get_events**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/EventsApi.md#get_events) | **GET** /events | Get events on a resource
+*GoalRelationshipsApi* | [**add_supporting_relationship**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalRelationshipsApi.md#add_supporting_relationship) | **POST** /goals/{goal_gid}/addSupportingRelationship | Add a supporting goal relationship
+*GoalRelationshipsApi* | [**get_goal_relationship**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalRelationshipsApi.md#get_goal_relationship) | **GET** /goal_relationships/{goal_relationship_gid} | Get a goal relationship
+*GoalRelationshipsApi* | [**get_goal_relationships**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalRelationshipsApi.md#get_goal_relationships) | **GET** /goal_relationships | Get goal relationships
+*GoalRelationshipsApi* | [**remove_supporting_relationship**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalRelationshipsApi.md#remove_supporting_relationship) | **POST** /goals/{goal_gid}/removeSupportingRelationship | Removes a supporting goal relationship
+*GoalRelationshipsApi* | [**update_goal_relationship**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalRelationshipsApi.md#update_goal_relationship) | **PUT** /goal_relationships/{goal_relationship_gid} | Update a goal relationship
+*GoalsApi* | [**add_followers**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#add_followers) | **POST** /goals/{goal_gid}/addFollowers | Add a collaborator to a goal
+*GoalsApi* | [**create_goal**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#create_goal) | **POST** /goals | Create a goal
+*GoalsApi* | [**create_goal_metric**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#create_goal_metric) | **POST** /goals/{goal_gid}/setMetric | Create a goal metric
+*GoalsApi* | [**delete_goal**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#delete_goal) | **DELETE** /goals/{goal_gid} | Delete a goal
+*GoalsApi* | [**get_goal**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#get_goal) | **GET** /goals/{goal_gid} | Get a goal
+*GoalsApi* | [**get_goals**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#get_goals) | **GET** /goals | Get goals
+*GoalsApi* | [**get_parent_goals_for_goal**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#get_parent_goals_for_goal) | **GET** /goals/{goal_gid}/parentGoals | Get parent goals from a goal
+*GoalsApi* | [**remove_followers**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#remove_followers) | **POST** /goals/{goal_gid}/removeFollowers | Remove a collaborator from a goal
+*GoalsApi* | [**update_goal**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#update_goal) | **PUT** /goals/{goal_gid} | Update a goal
+*GoalsApi* | [**update_goal_metric**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/GoalsApi.md#update_goal_metric) | **POST** /goals/{goal_gid}/setMetricCurrentValue | Update a goal metric
+*JobsApi* | [**get_job**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/JobsApi.md#get_job) | **GET** /jobs/{job_gid} | Get a job by id
+*MembershipsApi* | [**create_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/MembershipsApi.md#create_membership) | **POST** /memberships | Create a membership
+*MembershipsApi* | [**delete_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/MembershipsApi.md#delete_membership) | **DELETE** /memberships/{membership_gid} | Delete a membership
+*MembershipsApi* | [**get_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/MembershipsApi.md#get_membership) | **GET** /memberships/{membership_gid} | Get a membership
+*MembershipsApi* | [**get_memberships**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/MembershipsApi.md#get_memberships) | **GET** /memberships | Get multiple memberships
+*MembershipsApi* | [**update_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/MembershipsApi.md#update_membership) | **PUT** /memberships/{membership_gid} | Update a membership
+*OrganizationExportsApi* | [**create_organization_export**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/OrganizationExportsApi.md#create_organization_export) | **POST** /organization_exports | Create an organization export request
+*OrganizationExportsApi* | [**get_organization_export**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/OrganizationExportsApi.md#get_organization_export) | **GET** /organization_exports/{organization_export_gid} | Get details on an org export request
+*PortfolioMembershipsApi* | [**get_portfolio_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfolioMembershipsApi.md#get_portfolio_membership) | **GET** /portfolio_memberships/{portfolio_membership_gid} | Get a portfolio membership
+*PortfolioMembershipsApi* | [**get_portfolio_memberships**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfolioMembershipsApi.md#get_portfolio_memberships) | **GET** /portfolio_memberships | Get multiple portfolio memberships
+*PortfolioMembershipsApi* | [**get_portfolio_memberships_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfolioMembershipsApi.md#get_portfolio_memberships_for_portfolio) | **GET** /portfolios/{portfolio_gid}/portfolio_memberships | Get memberships from a portfolio
+*PortfoliosApi* | [**add_custom_field_setting_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#add_custom_field_setting_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addCustomFieldSetting | Add a custom field to a portfolio
+*PortfoliosApi* | [**add_item_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#add_item_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addItem | Add a portfolio item
+*PortfoliosApi* | [**add_members_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#add_members_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addMembers | Add users to a portfolio
+*PortfoliosApi* | [**create_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#create_portfolio) | **POST** /portfolios | Create a portfolio
+*PortfoliosApi* | [**delete_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#delete_portfolio) | **DELETE** /portfolios/{portfolio_gid} | Delete a portfolio
+*PortfoliosApi* | [**get_items_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#get_items_for_portfolio) | **GET** /portfolios/{portfolio_gid}/items | Get portfolio items
+*PortfoliosApi* | [**get_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#get_portfolio) | **GET** /portfolios/{portfolio_gid} | Get a portfolio
+*PortfoliosApi* | [**get_portfolios**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#get_portfolios) | **GET** /portfolios | Get multiple portfolios
+*PortfoliosApi* | [**remove_custom_field_setting_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#remove_custom_field_setting_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeCustomFieldSetting | Remove a custom field from a portfolio
+*PortfoliosApi* | [**remove_item_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#remove_item_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeItem | Remove a portfolio item
+*PortfoliosApi* | [**remove_members_for_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#remove_members_for_portfolio) | **POST** /portfolios/{portfolio_gid}/removeMembers | Remove users from a portfolio
+*PortfoliosApi* | [**update_portfolio**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/PortfoliosApi.md#update_portfolio) | **PUT** /portfolios/{portfolio_gid} | Update a portfolio
+*ProjectBriefsApi* | [**create_project_brief**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectBriefsApi.md#create_project_brief) | **POST** /projects/{project_gid}/project_briefs | Create a project brief
+*ProjectBriefsApi* | [**delete_project_brief**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectBriefsApi.md#delete_project_brief) | **DELETE** /project_briefs/{project_brief_gid} | Delete a project brief
+*ProjectBriefsApi* | [**get_project_brief**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectBriefsApi.md#get_project_brief) | **GET** /project_briefs/{project_brief_gid} | Get a project brief
+*ProjectBriefsApi* | [**update_project_brief**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectBriefsApi.md#update_project_brief) | **PUT** /project_briefs/{project_brief_gid} | Update a project brief
+*ProjectMembershipsApi* | [**get_project_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectMembershipsApi.md#get_project_membership) | **GET** /project_memberships/{project_membership_gid} | Get a project membership
+*ProjectMembershipsApi* | [**get_project_memberships_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectMembershipsApi.md#get_project_memberships_for_project) | **GET** /projects/{project_gid}/project_memberships | Get memberships from a project
+*ProjectStatusesApi* | [**create_project_status_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectStatusesApi.md#create_project_status_for_project) | **POST** /projects/{project_gid}/project_statuses | Create a project status
+*ProjectStatusesApi* | [**delete_project_status**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectStatusesApi.md#delete_project_status) | **DELETE** /project_statuses/{project_status_gid} | Delete a project status
+*ProjectStatusesApi* | [**get_project_status**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectStatusesApi.md#get_project_status) | **GET** /project_statuses/{project_status_gid} | Get a project status
+*ProjectStatusesApi* | [**get_project_statuses_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectStatusesApi.md#get_project_statuses_for_project) | **GET** /projects/{project_gid}/project_statuses | Get statuses from a project
+*ProjectTemplatesApi* | [**delete_project_template**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectTemplatesApi.md#delete_project_template) | **DELETE** /project_templates/{project_template_gid} | Delete a project template
+*ProjectTemplatesApi* | [**get_project_template**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectTemplatesApi.md#get_project_template) | **GET** /project_templates/{project_template_gid} | Get a project template
+*ProjectTemplatesApi* | [**get_project_templates**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectTemplatesApi.md#get_project_templates) | **GET** /project_templates | Get multiple project templates
+*ProjectTemplatesApi* | [**get_project_templates_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectTemplatesApi.md#get_project_templates_for_team) | **GET** /teams/{team_gid}/project_templates | Get a team&#x27;s project templates
+*ProjectTemplatesApi* | [**instantiate_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectTemplatesApi.md#instantiate_project) | **POST** /project_templates/{project_template_gid}/instantiateProject | Instantiate a project from a project template
+*ProjectsApi* | [**add_custom_field_setting_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#add_custom_field_setting_for_project) | **POST** /projects/{project_gid}/addCustomFieldSetting | Add a custom field to a project
+*ProjectsApi* | [**add_followers_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#add_followers_for_project) | **POST** /projects/{project_gid}/addFollowers | Add followers to a project
+*ProjectsApi* | [**add_members_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#add_members_for_project) | **POST** /projects/{project_gid}/addMembers | Add users to a project
+*ProjectsApi* | [**create_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#create_project) | **POST** /projects | Create a project
+*ProjectsApi* | [**create_project_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#create_project_for_team) | **POST** /teams/{team_gid}/projects | Create a project in a team
+*ProjectsApi* | [**create_project_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#create_project_for_workspace) | **POST** /workspaces/{workspace_gid}/projects | Create a project in a workspace
+*ProjectsApi* | [**delete_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#delete_project) | **DELETE** /projects/{project_gid} | Delete a project
+*ProjectsApi* | [**duplicate_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#duplicate_project) | **POST** /projects/{project_gid}/duplicate | Duplicate a project
+*ProjectsApi* | [**get_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_project) | **GET** /projects/{project_gid} | Get a project
+*ProjectsApi* | [**get_projects**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_projects) | **GET** /projects | Get multiple projects
+*ProjectsApi* | [**get_projects_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_projects_for_task) | **GET** /tasks/{task_gid}/projects | Get projects a task is in
+*ProjectsApi* | [**get_projects_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_projects_for_team) | **GET** /teams/{team_gid}/projects | Get a team&#x27;s projects
+*ProjectsApi* | [**get_projects_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_projects_for_workspace) | **GET** /workspaces/{workspace_gid}/projects | Get all projects in a workspace
+*ProjectsApi* | [**get_task_counts_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_task_counts_for_project) | **GET** /projects/{project_gid}/task_counts | Get task count of a project
+*ProjectsApi* | [**project_save_as_template**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#project_save_as_template) | **POST** /projects/{project_gid}/saveAsTemplate | Create a project template from a project
+*ProjectsApi* | [**remove_custom_field_setting_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#remove_custom_field_setting_for_project) | **POST** /projects/{project_gid}/removeCustomFieldSetting | Remove a custom field from a project
+*ProjectsApi* | [**remove_followers_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#remove_followers_for_project) | **POST** /projects/{project_gid}/removeFollowers | Remove followers from a project
+*ProjectsApi* | [**remove_members_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#remove_members_for_project) | **POST** /projects/{project_gid}/removeMembers | Remove users from a project
+*ProjectsApi* | [**update_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#update_project) | **PUT** /projects/{project_gid} | Update a project
+*RulesApi* | [**trigger_rule**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/RulesApi.md#trigger_rule) | **POST** /rule_triggers/{rule_trigger_gid}/run | Trigger a rule
+*SectionsApi* | [**add_task_for_section**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#add_task_for_section) | **POST** /sections/{section_gid}/addTask | Add task to section
+*SectionsApi* | [**create_section_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#create_section_for_project) | **POST** /projects/{project_gid}/sections | Create a section in a project
+*SectionsApi* | [**delete_section**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#delete_section) | **DELETE** /sections/{section_gid} | Delete a section
+*SectionsApi* | [**get_section**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#get_section) | **GET** /sections/{section_gid} | Get a section
+*SectionsApi* | [**get_sections_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#get_sections_for_project) | **GET** /projects/{project_gid}/sections | Get sections in a project
+*SectionsApi* | [**insert_section_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#insert_section_for_project) | **POST** /projects/{project_gid}/sections/insert | Move or Insert sections
+*SectionsApi* | [**update_section**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/SectionsApi.md#update_section) | **PUT** /sections/{section_gid} | Update a section
+*StatusUpdatesApi* | [**create_status_for_object**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StatusUpdatesApi.md#create_status_for_object) | **POST** /status_updates | Create a status update
+*StatusUpdatesApi* | [**delete_status**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StatusUpdatesApi.md#delete_status) | **DELETE** /status_updates/{status_update_gid} | Delete a status update
+*StatusUpdatesApi* | [**get_status**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StatusUpdatesApi.md#get_status) | **GET** /status_updates/{status_update_gid} | Get a status update
+*StatusUpdatesApi* | [**get_statuses_for_object**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StatusUpdatesApi.md#get_statuses_for_object) | **GET** /status_updates | Get status updates from an object
+*StoriesApi* | [**create_story_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StoriesApi.md#create_story_for_task) | **POST** /tasks/{task_gid}/stories | Create a story on a task
+*StoriesApi* | [**delete_story**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StoriesApi.md#delete_story) | **DELETE** /stories/{story_gid} | Delete a story
+*StoriesApi* | [**get_stories_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StoriesApi.md#get_stories_for_task) | **GET** /tasks/{task_gid}/stories | Get stories from a task
+*StoriesApi* | [**get_story**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StoriesApi.md#get_story) | **GET** /stories/{story_gid} | Get a story
+*StoriesApi* | [**update_story**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/StoriesApi.md#update_story) | **PUT** /stories/{story_gid} | Update a story
+*TagsApi* | [**create_tag**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#create_tag) | **POST** /tags | Create a tag
+*TagsApi* | [**create_tag_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#create_tag_for_workspace) | **POST** /workspaces/{workspace_gid}/tags | Create a tag in a workspace
+*TagsApi* | [**delete_tag**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#delete_tag) | **DELETE** /tags/{tag_gid} | Delete a tag
+*TagsApi* | [**get_tag**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#get_tag) | **GET** /tags/{tag_gid} | Get a tag
+*TagsApi* | [**get_tags**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#get_tags) | **GET** /tags | Get multiple tags
+*TagsApi* | [**get_tags_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#get_tags_for_task) | **GET** /tasks/{task_gid}/tags | Get a task&#x27;s tags
+*TagsApi* | [**get_tags_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#get_tags_for_workspace) | **GET** /workspaces/{workspace_gid}/tags | Get tags in a workspace
+*TagsApi* | [**update_tag**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TagsApi.md#update_tag) | **PUT** /tags/{tag_gid} | Update a tag
+*TaskTemplatesApi* | [**delete_task_template**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TaskTemplatesApi.md#delete_task_template) | **DELETE** /task_templates/{task_template_gid} | Delete a task template
+*TaskTemplatesApi* | [**get_task_template**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TaskTemplatesApi.md#get_task_template) | **GET** /task_templates/{task_template_gid} | Get a task template
+*TaskTemplatesApi* | [**get_task_templates**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TaskTemplatesApi.md#get_task_templates) | **GET** /task_templates | Get multiple task templates
+*TaskTemplatesApi* | [**instantiate_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TaskTemplatesApi.md#instantiate_task) | **POST** /task_templates/{task_template_gid}/instantiateTask | Instantiate a task from a task template
+*TasksApi* | [**add_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#add_dependencies_for_task) | **POST** /tasks/{task_gid}/addDependencies | Set dependencies for a task
+*TasksApi* | [**add_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#add_dependents_for_task) | **POST** /tasks/{task_gid}/addDependents | Set dependents for a task
+*TasksApi* | [**add_followers_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#add_followers_for_task) | **POST** /tasks/{task_gid}/addFollowers | Add followers to a task
+*TasksApi* | [**add_project_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#add_project_for_task) | **POST** /tasks/{task_gid}/addProject | Add a project to a task
+*TasksApi* | [**add_tag_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#add_tag_for_task) | **POST** /tasks/{task_gid}/addTag | Add a tag to a task
+*TasksApi* | [**create_subtask_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#create_subtask_for_task) | **POST** /tasks/{task_gid}/subtasks | Create a subtask
+*TasksApi* | [**create_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#create_task) | **POST** /tasks | Create a task
+*TasksApi* | [**delete_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#delete_task) | **DELETE** /tasks/{task_gid} | Delete a task
+*TasksApi* | [**duplicate_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#duplicate_task) | **POST** /tasks/{task_gid}/duplicate | Duplicate a task
+*TasksApi* | [**get_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_dependencies_for_task) | **GET** /tasks/{task_gid}/dependencies | Get dependencies from a task
+*TasksApi* | [**get_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_dependents_for_task) | **GET** /tasks/{task_gid}/dependents | Get dependents from a task
+*TasksApi* | [**get_subtasks_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_subtasks_for_task) | **GET** /tasks/{task_gid}/subtasks | Get subtasks from a task
+*TasksApi* | [**get_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_task) | **GET** /tasks/{task_gid} | Get a task
+*TasksApi* | [**get_task_for_custom_id**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_task_for_custom_id) | **GET** /workspaces/{workspace_gid}/tasks/custom_id/{custom_id} | Get a task for a given custom ID
+*TasksApi* | [**get_tasks**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks) | **GET** /tasks | Get multiple tasks
+*TasksApi* | [**get_tasks_for_project**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks_for_project) | **GET** /projects/{project_gid}/tasks | Get tasks from a project
+*TasksApi* | [**get_tasks_for_section**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks_for_section) | **GET** /sections/{section_gid}/tasks | Get tasks from a section
+*TasksApi* | [**get_tasks_for_tag**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks_for_tag) | **GET** /tags/{tag_gid}/tasks | Get tasks from a tag
+*TasksApi* | [**get_tasks_for_user_task_list**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks_for_user_task_list) | **GET** /user_task_lists/{user_task_list_gid}/tasks | Get tasks from a user task list
+*TasksApi* | [**remove_dependencies_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#remove_dependencies_for_task) | **POST** /tasks/{task_gid}/removeDependencies | Unlink dependencies from a task
+*TasksApi* | [**remove_dependents_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#remove_dependents_for_task) | **POST** /tasks/{task_gid}/removeDependents | Unlink dependents from a task
+*TasksApi* | [**remove_follower_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#remove_follower_for_task) | **POST** /tasks/{task_gid}/removeFollowers | Remove followers from a task
+*TasksApi* | [**remove_project_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#remove_project_for_task) | **POST** /tasks/{task_gid}/removeProject | Remove a project from a task
+*TasksApi* | [**remove_tag_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#remove_tag_for_task) | **POST** /tasks/{task_gid}/removeTag | Remove a tag from a task
+*TasksApi* | [**search_tasks_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#search_tasks_for_workspace) | **GET** /workspaces/{workspace_gid}/tasks/search | Search tasks in a workspace
+*TasksApi* | [**set_parent_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#set_parent_for_task) | **POST** /tasks/{task_gid}/setParent | Set the parent of a task
+*TasksApi* | [**update_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#update_task) | **PUT** /tasks/{task_gid} | Update a task
+*TeamMembershipsApi* | [**get_team_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamMembershipsApi.md#get_team_membership) | **GET** /team_memberships/{team_membership_gid} | Get a team membership
+*TeamMembershipsApi* | [**get_team_memberships**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamMembershipsApi.md#get_team_memberships) | **GET** /team_memberships | Get team memberships
+*TeamMembershipsApi* | [**get_team_memberships_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamMembershipsApi.md#get_team_memberships_for_team) | **GET** /teams/{team_gid}/team_memberships | Get memberships from a team
+*TeamMembershipsApi* | [**get_team_memberships_for_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamMembershipsApi.md#get_team_memberships_for_user) | **GET** /users/{user_gid}/team_memberships | Get memberships from a user
+*TeamsApi* | [**add_user_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#add_user_for_team) | **POST** /teams/{team_gid}/addUser | Add a user to a team
+*TeamsApi* | [**create_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#create_team) | **POST** /teams | Create a team
+*TeamsApi* | [**get_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#get_team) | **GET** /teams/{team_gid} | Get a team
+*TeamsApi* | [**get_teams_for_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#get_teams_for_user) | **GET** /users/{user_gid}/teams | Get teams for a user
+*TeamsApi* | [**get_teams_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#get_teams_for_workspace) | **GET** /workspaces/{workspace_gid}/teams | Get teams in a workspace
+*TeamsApi* | [**remove_user_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#remove_user_for_team) | **POST** /teams/{team_gid}/removeUser | Remove a user from a team
+*TeamsApi* | [**update_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TeamsApi.md#update_team) | **PUT** /teams/{team_gid} | Update a team
+*TimePeriodsApi* | [**get_time_period**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimePeriodsApi.md#get_time_period) | **GET** /time_periods/{time_period_gid} | Get a time period
+*TimePeriodsApi* | [**get_time_periods**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimePeriodsApi.md#get_time_periods) | **GET** /time_periods | Get time periods
+*TimeTrackingEntriesApi* | [**create_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimeTrackingEntriesApi.md#create_time_tracking_entry) | **POST** /tasks/{task_gid}/time_tracking_entries | Create a time tracking entry
+*TimeTrackingEntriesApi* | [**delete_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimeTrackingEntriesApi.md#delete_time_tracking_entry) | **DELETE** /time_tracking_entries/{time_tracking_entry_gid} | Delete a time tracking entry
+*TimeTrackingEntriesApi* | [**get_time_tracking_entries_for_task**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimeTrackingEntriesApi.md#get_time_tracking_entries_for_task) | **GET** /tasks/{task_gid}/time_tracking_entries | Get time tracking entries for a task
+*TimeTrackingEntriesApi* | [**get_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimeTrackingEntriesApi.md#get_time_tracking_entry) | **GET** /time_tracking_entries/{time_tracking_entry_gid} | Get a time tracking entry
+*TimeTrackingEntriesApi* | [**update_time_tracking_entry**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TimeTrackingEntriesApi.md#update_time_tracking_entry) | **PUT** /time_tracking_entries/{time_tracking_entry_gid} | Update a time tracking entry
+*TypeaheadApi* | [**typeahead_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TypeaheadApi.md#typeahead_for_workspace) | **GET** /workspaces/{workspace_gid}/typeahead | Get objects via typeahead
+*UserTaskListsApi* | [**get_user_task_list**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UserTaskListsApi.md#get_user_task_list) | **GET** /user_task_lists/{user_task_list_gid} | Get a user task list
+*UserTaskListsApi* | [**get_user_task_list_for_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UserTaskListsApi.md#get_user_task_list_for_user) | **GET** /users/{user_gid}/user_task_list | Get a user&#x27;s task list
+*UsersApi* | [**get_favorites_for_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UsersApi.md#get_favorites_for_user) | **GET** /users/{user_gid}/favorites | Get a user&#x27;s favorites
+*UsersApi* | [**get_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UsersApi.md#get_user) | **GET** /users/{user_gid} | Get a user
+*UsersApi* | [**get_users**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UsersApi.md#get_users) | **GET** /users | Get multiple users
+*UsersApi* | [**get_users_for_team**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UsersApi.md#get_users_for_team) | **GET** /teams/{team_gid}/users | Get users in a team
+*UsersApi* | [**get_users_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/UsersApi.md#get_users_for_workspace) | **GET** /workspaces/{workspace_gid}/users | Get users in a workspace or organization
+*WebhooksApi* | [**create_webhook**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WebhooksApi.md#create_webhook) | **POST** /webhooks | Establish a webhook
+*WebhooksApi* | [**delete_webhook**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WebhooksApi.md#delete_webhook) | **DELETE** /webhooks/{webhook_gid} | Delete a webhook
+*WebhooksApi* | [**get_webhook**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WebhooksApi.md#get_webhook) | **GET** /webhooks/{webhook_gid} | Get a webhook
+*WebhooksApi* | [**get_webhooks**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WebhooksApi.md#get_webhooks) | **GET** /webhooks | Get multiple webhooks
+*WebhooksApi* | [**update_webhook**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WebhooksApi.md#update_webhook) | **PUT** /webhooks/{webhook_gid} | Update a webhook
+*WorkspaceMembershipsApi* | [**get_workspace_membership**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspaceMembershipsApi.md#get_workspace_membership) | **GET** /workspace_memberships/{workspace_membership_gid} | Get a workspace membership
+*WorkspaceMembershipsApi* | [**get_workspace_memberships_for_user**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspaceMembershipsApi.md#get_workspace_memberships_for_user) | **GET** /users/{user_gid}/workspace_memberships | Get workspace memberships for a user
+*WorkspaceMembershipsApi* | [**get_workspace_memberships_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspaceMembershipsApi.md#get_workspace_memberships_for_workspace) | **GET** /workspaces/{workspace_gid}/workspace_memberships | Get the workspace memberships for a workspace
+*WorkspacesApi* | [**add_user_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#add_user_for_workspace) | **POST** /workspaces/{workspace_gid}/addUser | Add a user to a workspace or organization
+*WorkspacesApi* | [**get_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspace_gid} | Get a workspace
+*WorkspacesApi* | [**get_workspace_events**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#get_workspace_events) | **GET** /workspaces/{workspace_gid}/events | Get workspace events
+*WorkspacesApi* | [**get_workspaces**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#get_workspaces) | **GET** /workspaces | Get multiple workspaces
+*WorkspacesApi* | [**remove_user_for_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#remove_user_for_workspace) | **POST** /workspaces/{workspace_gid}/removeUser | Remove a user from a workspace or organization
+*WorkspacesApi* | [**update_workspace**](https://github.com/Asana/python-asana/blob/v5.1.0/docs/WorkspacesApi.md#update_workspace) | **PUT** /workspaces/{workspace_gid} | Update a workspace
 
 ## Accessing response data
 
@@ -500,7 +500,7 @@ for thread in threads:
 
 The pagination feature is enabled by default. This means two things:
 
-1: Endpoints that return a single response (EX: [get_task](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_task) ([Get a task](https://developers.asana.com/reference/gettask)), [get_project](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_project) ([Get a project](https://developers.asana.com/reference/getproject)), etc...)
+1: Endpoints that return a single response (EX: [get_task](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_task) ([Get a task](https://developers.asana.com/reference/gettask)), [get_project](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_project) ([Get a project](https://developers.asana.com/reference/getproject)), etc...)
 will return a response with the `"data"` key abstracted from the response.
 
 Instead of returning:
@@ -535,8 +535,8 @@ It returns:
 }
 ```
 
-2: Endpoints that return an array of resources (EX: [get_tasks](https://github.com/Asana/python-asana/blob/v5.0.16/docs/TasksApi.md#get_tasks) ([Get multiple tasks](https://developers.asana.com/reference/gettasks)), [get_projects](https://github.com/Asana/python-asana/blob/v5.0.16/docs/ProjectsApi.md#get_projects) ([Get multiple projects](https://developers.asana.com/reference/getprojects)), etc...)
-will return a generator object ([PageIterator.items](https://github.com/Asana/python-asana/blob/v5.0.16/asana/pagination/page_iterator.py)) that you can use to iterate through each result.
+2: Endpoints that return an array of resources (EX: [get_tasks](https://github.com/Asana/python-asana/blob/v5.1.0/docs/TasksApi.md#get_tasks) ([Get multiple tasks](https://developers.asana.com/reference/gettasks)), [get_projects](https://github.com/Asana/python-asana/blob/v5.1.0/docs/ProjectsApi.md#get_projects) ([Get multiple projects](https://developers.asana.com/reference/getprojects)), etc...)
+will return a generator object ([PageIterator.items](https://github.com/Asana/python-asana/blob/v5.1.0/asana/pagination/page_iterator.py)) that you can use to iterate through each result.
 
 Example usage 1:
 ```python
@@ -731,6 +731,45 @@ configuration = asana.Configuration()
 configuration.access_token = '<YOUR_ACCESS_TOKEN>'
 configuration.return_page_iterator = False
 api_client = asana.ApiClient(configuration)
+...
+```
+
+## Retries
+
+### Default configuration
+
+By default, we retry failed requests (i.e., requests that receive any of the following response statuses: `429`, `500`, `502`, `503`, or `504`)
+up to 5 times, using a backoff factor of 2, resulting in wait times of 1s, 2s, 4s, 8s, and 16s between attempts.
+For `429 (Too Many Requests)` responses, the `respect_retry_after_header` option is set to `True` by default
+(See [urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html)), ensuring that retries adhere to the `Retry-After` header
+from the [Asana API](https://developers.asana.com/docs/rate-limits).
+
+
+NOTE: the retry strategy applies to `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PUT`, `TRACE` requests (See `allowed_methods` in [urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html))
+
+```
+self.retry_strategy = Retry(
+    total=5, # Number of retries
+    backoff_factor=2, # Exponential backoff factor (1s, 2s, 4s, etc.)
+    status_forcelist=[429, 500, 502, 503, 504], # Retry only on these status codes
+)
+```
+
+### Customize retry configuration/strategy
+
+To customize your retry strategy, you can override the default `retry_strategy` in your configuration.
+For details on configurable options for Retry, refer to the documentation: [urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html).
+
+#### Example - override default `retry_strategy`
+```
+import asana
+from urllib3.util.retry import Retry
+
+configuration = asana.Configuration()
+configuration.retry_strategy = Retry(
+    total=10, # Maximum number of retries
+    backoff_factor=4, # Exponential backoff factor (1s, 2s, 4s, etc.)
+)
 ...
 ```
 
