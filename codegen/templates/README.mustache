@@ -509,7 +509,7 @@ from urllib3.util.retry import Retry
 
 configuration = asana.Configuration()
 configuration.retry_strategy = Retry(
-    total=10 # Maximum number of retries
+    total=10, # Maximum number of retries
     backoff_factor=4,  # Exponential backoff factor (1s, 2s, 4s, etc.)
 )
 ...
