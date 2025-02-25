@@ -106,9 +106,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Retry Settings
         self.retry_strategy = Retry(
-            total=5,  # Number of retries
-            backoff_factor=2,  # Exponential backoff factor (1s, 2s, 4s, etc.)
-            status_forcelist=[429, 500, 502, 503, 504],  # Retry only on these status codes
+            total=5, # Number of retries
+            backoff_factor=2, # Exponential backoff factor (1s, 2s, 4s, etc.)
+            status_forcelist=[429, 500, 502, 503, 504], # Retry only on these status codes
         )
 
     @property

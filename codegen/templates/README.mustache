@@ -491,9 +491,9 @@ NOTE: the retry strategy applies to `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PUT`, `
 
 ```
 self.retry_strategy = Retry(
-    total=5,  # Number of retries
-    backoff_factor=2,  # Exponential backoff factor (1s, 2s, 4s, etc.)
-    status_forcelist=[429, 500, 502, 503, 504],  # Retry only on these status codes
+    total=5, # Number of retries
+    backoff_factor=2, # Exponential backoff factor (1s, 2s, 4s, etc.)
+    status_forcelist=[429, 500, 502, 503, 504], # Retry only on these status codes
 )
 ```
 
@@ -510,7 +510,7 @@ from urllib3.util.retry import Retry
 configuration = asana.Configuration()
 configuration.retry_strategy = Retry(
     total=10, # Maximum number of retries
-    backoff_factor=4,  # Exponential backoff factor (1s, 2s, 4s, etc.)
+    backoff_factor=4, # Exponential backoff factor (1s, 2s, 4s, etc.)
 )
 ...
 ```
