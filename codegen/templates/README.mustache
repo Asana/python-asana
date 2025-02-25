@@ -484,7 +484,7 @@ By default, we retry failed requests (i.e., requests that receive any of the fol
 up to 5 times, using a backoff factor of 2, resulting in wait times of 1s, 2s, 4s, 8s, and 16s between attempts.
 For `429 (Too Many Requests)` responses, the `respect_retry_after_header` option is set to `True` by default
 (See [urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html)), ensuring that retries adhere to the `Retry-After` header
-fron the [Asana API](https://developers.asana.com/docs/rate-limits).
+from the [Asana API](https://developers.asana.com/docs/rate-limits).
 
 
 NOTE: the retry strategy applies to `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PUT`, `TRACE` requests (See `allowed_methods` in [urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html))
