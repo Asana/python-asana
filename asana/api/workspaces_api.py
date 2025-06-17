@@ -183,7 +183,7 @@ class WorkspacesApi(object):
     def get_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get a workspace  # noqa: E501
 
-        Returns the full workspace record for a single workspace.  # noqa: E501
+        <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace(workspace_gid, async_req=True)
@@ -206,7 +206,7 @@ class WorkspacesApi(object):
     def get_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get a workspace  # noqa: E501
 
-        Returns the full workspace record for a single workspace.  # noqa: E501
+        <b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace_with_http_info(workspace_gid, async_req=True)
@@ -464,7 +464,7 @@ class WorkspacesApi(object):
     def get_workspaces(self, opts, **kwargs):  # noqa: E501
         """Get multiple workspaces  # noqa: E501
 
-        Returns the compact records for all workspaces visible to the authorized user.  # noqa: E501
+        <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspaces(async_req=True)
@@ -488,7 +488,7 @@ class WorkspacesApi(object):
     def get_workspaces_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple workspaces  # noqa: E501
 
-        Returns the compact records for all workspaces visible to the authorized user.  # noqa: E501
+        <b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspaces_with_http_info(async_req=True)

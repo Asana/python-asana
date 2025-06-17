@@ -62,7 +62,7 @@ dict
 
 Get a project template
 
-Returns the complete project template record for a single project template.
+<b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.
 
 ([more information](https://developers.asana.com/reference/getprojecttemplate))
 
@@ -113,7 +113,7 @@ dict
 
 Get multiple project templates
 
-Returns the compact project template records for all project templates in the given team or workspace.
+<b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.
 
 ([more information](https://developers.asana.com/reference/getprojecttemplates))
 
@@ -171,7 +171,7 @@ generator
 
 Get a team&#x27;s project templates
 
-Returns the compact project template records for all project templates in the team.
+<b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.
 
 ([more information](https://developers.asana.com/reference/getprojecttemplatesforteam))
 
@@ -227,7 +227,7 @@ generator
 
 Instantiate a project from a project template
 
-Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
+<b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._
 
 ([more information](https://developers.asana.com/reference/instantiateproject))
 
@@ -246,7 +246,7 @@ project_templates_api_instance = asana.ProjectTemplatesApi(api_client)
 project_template_gid = "1331" # str | Globally unique identifier for the project template.
 opts = {
     'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | Describes the inputs used for instantiating a project, such as the resulting project's name, which team it should be created in, and values for date variables.
-    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "new_graph_export,new_graph_export.completed_at,new_graph_export.created_at,new_graph_export.download_url,new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

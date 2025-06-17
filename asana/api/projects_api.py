@@ -35,7 +35,7 @@ class ProjectsApi(object):
     def add_custom_field_setting_for_project(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Add a custom field to a project  # noqa: E501
 
-        Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_custom_field_setting_for_project(body, project_gid, async_req=True)
@@ -59,7 +59,7 @@ class ProjectsApi(object):
     def add_custom_field_setting_for_project_with_http_info(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Add a custom field to a project  # noqa: E501
 
-        Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_custom_field_setting_for_project_with_http_info(body, project_gid, async_req=True)
@@ -479,7 +479,7 @@ class ProjectsApi(object):
     def create_project(self, body, opts, **kwargs):  # noqa: E501
         """Create a project  # noqa: E501
 
-        Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project(body, async_req=True)
@@ -502,7 +502,7 @@ class ProjectsApi(object):
     def create_project_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a project  # noqa: E501
 
-        Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_with_http_info(body, async_req=True)
@@ -621,7 +621,7 @@ class ProjectsApi(object):
     def create_project_for_team(self, body, team_gid, opts, **kwargs):  # noqa: E501
         """Create a project in a team  # noqa: E501
 
-        Creates a project shared with the given team.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates a project shared with the given team.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_for_team(body, team_gid, async_req=True)
@@ -645,7 +645,7 @@ class ProjectsApi(object):
     def create_project_for_team_with_http_info(self, body, team_gid, opts, **kwargs):  # noqa: E501
         """Create a project in a team  # noqa: E501
 
-        Creates a project shared with the given team.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates a project shared with the given team.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_for_team_with_http_info(body, team_gid, async_req=True)
@@ -769,7 +769,7 @@ class ProjectsApi(object):
     def create_project_for_workspace(self, body, workspace_gid, opts, **kwargs):  # noqa: E501
         """Create a project in a workspace  # noqa: E501
 
-        Creates a project in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates a project in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_for_workspace(body, workspace_gid, async_req=True)
@@ -793,7 +793,7 @@ class ProjectsApi(object):
     def create_project_for_workspace_with_http_info(self, body, workspace_gid, opts, **kwargs):  # noqa: E501
         """Create a project in a workspace  # noqa: E501
 
-        Creates a project in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates a project in the workspace.  If the workspace for your project is an organization, you must also supply a team to share the project with.  Returns the full record of the newly created project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_for_workspace_with_http_info(body, workspace_gid, async_req=True)
@@ -917,7 +917,7 @@ class ProjectsApi(object):
     def delete_project(self, project_gid, **kwargs):  # noqa: E501
         """Delete a project  # noqa: E501
 
-        A specific, existing project can be deleted by making a DELETE request on the URL for that project.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>projects:delete</code>  A specific, existing project can be deleted by making a DELETE request on the URL for that project.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_project(project_gid, async_req=True)
@@ -939,7 +939,7 @@ class ProjectsApi(object):
     def delete_project_with_http_info(self, project_gid, **kwargs):  # noqa: E501
         """Delete a project  # noqa: E501
 
-        A specific, existing project can be deleted by making a DELETE request on the URL for that project.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>projects:delete</code>  A specific, existing project can be deleted by making a DELETE request on the URL for that project.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_project_with_http_info(project_gid, async_req=True)
@@ -1053,7 +1053,7 @@ class ProjectsApi(object):
     def duplicate_project(self, project_gid, opts, **kwargs):  # noqa: E501
         """Duplicate a project  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.duplicate_project(project_gid, async_req=True)
@@ -1077,7 +1077,7 @@ class ProjectsApi(object):
     def duplicate_project_with_http_info(self, project_gid, opts, **kwargs):  # noqa: E501
         """Duplicate a project  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.duplicate_project_with_http_info(project_gid, async_req=True)
@@ -1198,7 +1198,7 @@ class ProjectsApi(object):
     def get_project(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get a project  # noqa: E501
 
-        Returns the complete project record for a single project.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the complete project record for a single project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project(project_gid, async_req=True)
@@ -1221,7 +1221,7 @@ class ProjectsApi(object):
     def get_project_with_http_info(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get a project  # noqa: E501
 
-        Returns the complete project record for a single project.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the complete project record for a single project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_with_http_info(project_gid, async_req=True)
@@ -1337,7 +1337,7 @@ class ProjectsApi(object):
     def get_projects(self, opts, **kwargs):  # noqa: E501
         """Get multiple projects  # noqa: E501
 
-        Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects(async_req=True)
@@ -1364,7 +1364,7 @@ class ProjectsApi(object):
     def get_projects_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple projects  # noqa: E501
 
-        Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_with_http_info(async_req=True)
@@ -1483,7 +1483,7 @@ class ProjectsApi(object):
     def get_projects_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get projects a task is in  # noqa: E501
 
-        Returns a compact representation of all of the projects the task is in.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns a compact representation of all of the projects the task is in.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_task(task_gid, async_req=True)
@@ -1508,7 +1508,7 @@ class ProjectsApi(object):
     def get_projects_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get projects a task is in  # noqa: E501
 
-        Returns a compact representation of all of the projects the task is in.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns a compact representation of all of the projects the task is in.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_task_with_http_info(task_gid, async_req=True)
@@ -1629,7 +1629,7 @@ class ProjectsApi(object):
     def get_projects_for_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        Returns the compact project records for all projects in the team.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team(team_gid, async_req=True)
@@ -1655,7 +1655,7 @@ class ProjectsApi(object):
     def get_projects_for_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        Returns the compact project records for all projects in the team.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team_with_http_info(team_gid, async_req=True)
@@ -1777,7 +1777,7 @@ class ProjectsApi(object):
     def get_projects_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get all projects in a workspace  # noqa: E501
 
-        Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_workspace(workspace_gid, async_req=True)
@@ -1803,7 +1803,7 @@ class ProjectsApi(object):
     def get_projects_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get all projects in a workspace  # noqa: E501
 
-        Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_workspace_with_http_info(workspace_gid, async_req=True)
@@ -1925,7 +1925,7 @@ class ProjectsApi(object):
     def get_task_counts_for_project(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get task count of a project  # noqa: E501
 
-        Get an object that holds task count fields. **All fields are excluded by default**. You must [opt in](/docs/inputoutput-options) using `opt_fields` to get any information from this endpoint.  This endpoint has an additional [rate limit](/docs/rate-limits) and each field counts especially high against our [cost limits](/docs/rate-limits#cost-limits).  Milestones are just tasks, so they are included in the `num_tasks`, `num_incomplete_tasks`, and `num_completed_tasks` counts.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Get an object that holds task count fields. **All fields are excluded by default**. You must [opt in](/docs/inputoutput-options) using `opt_fields` to get any information from this endpoint.  This endpoint has an additional [rate limit](/docs/rate-limits) and each field counts especially high against our [cost limits](/docs/rate-limits#cost-limits).  Milestones are just tasks, so they are included in the `num_tasks`, `num_incomplete_tasks`, and `num_completed_tasks` counts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_counts_for_project(project_gid, async_req=True)
@@ -1948,7 +1948,7 @@ class ProjectsApi(object):
     def get_task_counts_for_project_with_http_info(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get task count of a project  # noqa: E501
 
-        Get an object that holds task count fields. **All fields are excluded by default**. You must [opt in](/docs/inputoutput-options) using `opt_fields` to get any information from this endpoint.  This endpoint has an additional [rate limit](/docs/rate-limits) and each field counts especially high against our [cost limits](/docs/rate-limits#cost-limits).  Milestones are just tasks, so they are included in the `num_tasks`, `num_incomplete_tasks`, and `num_completed_tasks` counts.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Get an object that holds task count fields. **All fields are excluded by default**. You must [opt in](/docs/inputoutput-options) using `opt_fields` to get any information from this endpoint.  This endpoint has an additional [rate limit](/docs/rate-limits) and each field counts especially high against our [cost limits](/docs/rate-limits#cost-limits).  Milestones are just tasks, so they are included in the `num_tasks`, `num_incomplete_tasks`, and `num_completed_tasks` counts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_counts_for_project_with_http_info(project_gid, async_req=True)
@@ -2212,7 +2212,7 @@ class ProjectsApi(object):
     def remove_custom_field_setting_for_project(self, body, project_gid, **kwargs):  # noqa: E501
         """Remove a custom field from a project  # noqa: E501
 
-        Removes a custom field setting from a project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Removes a custom field setting from a project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_custom_field_setting_for_project(body, project_gid, async_req=True)
@@ -2235,7 +2235,7 @@ class ProjectsApi(object):
     def remove_custom_field_setting_for_project_with_http_info(self, body, project_gid, **kwargs):  # noqa: E501
         """Remove a custom field from a project  # noqa: E501
 
-        Removes a custom field setting from a project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Removes a custom field setting from a project.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_custom_field_setting_for_project_with_http_info(body, project_gid, async_req=True)
@@ -2653,7 +2653,7 @@ class ProjectsApi(object):
     def update_project(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Update a project  # noqa: E501
 
-        A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_project(body, project_gid, async_req=True)
@@ -2677,7 +2677,7 @@ class ProjectsApi(object):
     def update_project_with_http_info(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Update a project  # noqa: E501
 
-        A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_project_with_http_info(body, project_gid, async_req=True)

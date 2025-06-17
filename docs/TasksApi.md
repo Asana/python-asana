@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 Set dependencies for a task
 
-Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
+<b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.
 
 ([more information](https://developers.asana.com/reference/adddependenciesfortask))
 
@@ -86,7 +86,7 @@ dict
 
 Set dependents for a task
 
-Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
+<b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.
 
 ([more information](https://developers.asana.com/reference/adddependentsfortask))
 
@@ -136,7 +136,7 @@ dict
 
 Add followers to a task
 
-Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
+<b>Required scope: </b><code>tasks:write</code>  Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.
 
 ([more information](https://developers.asana.com/reference/addfollowersfortask))
 
@@ -189,7 +189,7 @@ dict
 
 Add a project to a task
 
-Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.
+<b>Required scope: </b><code>tasks:write</code>  Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.
 
 ([more information](https://developers.asana.com/reference/addprojectfortask))
 
@@ -239,7 +239,7 @@ dict
 
 Add a tag to a task
 
-Adds a tag to a task. Returns an empty data block.
+<b>Required scope: </b><code>tasks:write</code>  Adds a tag to a task. Returns an empty data block.
 
 ([more information](https://developers.asana.com/reference/addtagfortask))
 
@@ -289,7 +289,7 @@ dict
 
 Create a subtask
 
-Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
+<b>Required scope: </b><code>tasks:write</code>  Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.
 
 ([more information](https://developers.asana.com/reference/createsubtaskfortask))
 
@@ -342,7 +342,7 @@ dict
 
 Create a task
 
-Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
+<b>Required scope: </b><code>tasks:write</code>  Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.
 
 ([more information](https://developers.asana.com/reference/createtask))
 
@@ -393,7 +393,7 @@ dict
 
 Delete a task
 
-A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.
+<b>Required scope: </b><code>tasks:delete</code>  A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.
 
 ([more information](https://developers.asana.com/reference/deletetask))
 
@@ -441,7 +441,7 @@ dict
 
 Duplicate a task
 
-Creates and returns a job that will asynchronously handle the duplication.
+<b>Required scope: </b><code>tasks:write</code>  Creates and returns a job that will asynchronously handle the duplication.
 
 ([more information](https://developers.asana.com/reference/duplicatetask))
 
@@ -460,7 +460,7 @@ tasks_api_instance = asana.TasksApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Describes the duplicate's name and the fields that will be duplicated.
 task_gid = "321654" # str | The task to operate on.
 opts = {
-    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "new_graph_export,new_graph_export.completed_at,new_graph_export.created_at,new_graph_export.download_url,new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -494,7 +494,7 @@ dict
 
 Get dependencies from a task
 
-Returns the compact representations of all of the dependencies of a task.
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependencies of a task.
 
 ([more information](https://developers.asana.com/reference/getdependenciesfortask))
 
@@ -550,7 +550,7 @@ generator
 
 Get dependents from a task
 
-Returns the compact representations of all of the dependents of a task.
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependents of a task.
 
 ([more information](https://developers.asana.com/reference/getdependentsfortask))
 
@@ -606,7 +606,7 @@ generator
 
 Get subtasks from a task
 
-Returns a compact representation of all of the subtasks of a task.
+<b>Required scope: </b><code>tasks:read</code>  Returns a compact representation of all of the subtasks of a task.
 
 ([more information](https://developers.asana.com/reference/getsubtasksfortask))
 
@@ -662,7 +662,7 @@ generator
 
 Get a task
 
-Returns the complete task record for a single task.
+<b>Required scope: </b><code>tasks:read</code>  Returns the complete task record for a single task.
 
 ([more information](https://developers.asana.com/reference/gettask))
 
@@ -713,7 +713,7 @@ dict
 
 Get a task for a given custom ID
 
-Returns a task given a custom ID shortcode.
+<b>Required scope: </b><code>tasks:read</code>  Returns a task given a custom ID shortcode.
 
 ([more information](https://developers.asana.com/reference/gettaskforcustomid))
 
@@ -763,7 +763,7 @@ dict
 
 Get multiple tasks
 
-Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).
 
 ([more information](https://developers.asana.com/reference/gettasks))
 
@@ -829,7 +829,7 @@ generator
 
 Get tasks from a project
 
-Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.
 
 ([more information](https://developers.asana.com/reference/gettasksforproject))
 
@@ -887,7 +887,7 @@ generator
 
 Get tasks from a section
 
-*Board view only*: Returns the compact section records for all tasks within the given section.
+<b>Required scope: </b><code>tasks:read</code>  *Board view only*: Returns the compact section records for all tasks within the given section.
 
 ([more information](https://developers.asana.com/reference/gettasksforsection))
 
@@ -945,7 +945,7 @@ generator
 
 Get tasks from a tag
 
-Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.
 
 ([more information](https://developers.asana.com/reference/gettasksfortag))
 
@@ -1001,7 +1001,7 @@ generator
 
 Get tasks from a user task list
 
-Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*
+<b>Required scope: </b><code>tasks:read</code>  Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*
 
 ([more information](https://developers.asana.com/reference/gettasksforusertasklist))
 
@@ -1059,7 +1059,7 @@ generator
 
 Unlink dependencies from a task
 
-Unlinks a set of dependencies from this task.
+<b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependencies from this task.
 
 ([more information](https://developers.asana.com/reference/removedependenciesfortask))
 
@@ -1109,7 +1109,7 @@ dict
 
 Unlink dependents from a task
 
-Unlinks a set of dependents from this task.
+<b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependents from this task.
 
 ([more information](https://developers.asana.com/reference/removedependentsfortask))
 
@@ -1159,7 +1159,7 @@ dict
 
 Remove followers from a task
 
-Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
+<b>Required scope: </b><code>tasks:write</code>  Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.
 
 ([more information](https://developers.asana.com/reference/removefollowerfortask))
 
@@ -1212,7 +1212,7 @@ dict
 
 Remove a project from a task
 
-Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
+<b>Required scope: </b><code>tasks:write</code>  Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.
 
 ([more information](https://developers.asana.com/reference/removeprojectfortask))
 
@@ -1262,7 +1262,7 @@ dict
 
 Remove a tag from a task
 
-Removes a tag from a task. Returns an empty data block.
+<b>Required scope: </b><code>tasks:write</code>  Removes a tag from a task. Returns an empty data block.
 
 ([more information](https://developers.asana.com/reference/removetagfortask))
 
@@ -1312,7 +1312,7 @@ dict
 
 Search tasks in a workspace
 
-To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*
+<b>Required scope: </b><code>tasks:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*
 
 ([more information](https://developers.asana.com/reference/searchtasksforworkspace))
 
@@ -1477,7 +1477,7 @@ generator
 
 Set the parent of a task
 
-parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
+<b>Required scope: </b><code>tasks:write</code>  parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.
 
 ([more information](https://developers.asana.com/reference/setparentfortask))
 
@@ -1530,7 +1530,7 @@ dict
 
 Update a task
 
-A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
+<b>Required scope: </b><code>tasks:write</code>  A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.
 
 ([more information](https://developers.asana.com/reference/updatetask))
 

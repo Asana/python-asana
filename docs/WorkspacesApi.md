@@ -68,7 +68,7 @@ dict
 
 Get a workspace
 
-Returns the full workspace record for a single workspace.
+<b>Required scope: </b><code>workspaces:read</code>  Returns the full workspace record for a single workspace.
 
 ([more information](https://developers.asana.com/reference/getworkspace))
 
@@ -171,7 +171,7 @@ generator
 
 Get multiple workspaces
 
-Returns the compact records for all workspaces visible to the authorized user.
+<b>Required scope: </b><code>workspaces:read</code>  Returns the compact records for all workspaces visible to the authorized user.
 
 ([more information](https://developers.asana.com/reference/getworkspaces))
 

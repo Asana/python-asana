@@ -171,7 +171,7 @@ class ProjectTemplatesApi(object):
     def get_project_template(self, project_template_gid, opts, **kwargs):  # noqa: E501
         """Get a project template  # noqa: E501
 
-        Returns the complete project template record for a single project template.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_template(project_template_gid, async_req=True)
@@ -194,7 +194,7 @@ class ProjectTemplatesApi(object):
     def get_project_template_with_http_info(self, project_template_gid, opts, **kwargs):  # noqa: E501
         """Get a project template  # noqa: E501
 
-        Returns the complete project template record for a single project template.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the complete project template record for a single project template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_template_with_http_info(project_template_gid, async_req=True)
@@ -310,7 +310,7 @@ class ProjectTemplatesApi(object):
     def get_project_templates(self, opts, **kwargs):  # noqa: E501
         """Get multiple project templates  # noqa: E501
 
-        Returns the compact project template records for all project templates in the given team or workspace.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_templates(async_req=True)
@@ -336,7 +336,7 @@ class ProjectTemplatesApi(object):
     def get_project_templates_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple project templates  # noqa: E501
 
-        Returns the compact project template records for all project templates in the given team or workspace.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the given team or workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_templates_with_http_info(async_req=True)
@@ -454,7 +454,7 @@ class ProjectTemplatesApi(object):
     def get_project_templates_for_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's project templates  # noqa: E501
 
-        Returns the compact project template records for all project templates in the team.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_templates_for_team(team_gid, async_req=True)
@@ -479,7 +479,7 @@ class ProjectTemplatesApi(object):
     def get_project_templates_for_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's project templates  # noqa: E501
 
-        Returns the compact project template records for all project templates in the team.  # noqa: E501
+        <b>Required scope: </b><code>project_templates:read</code>  Returns the compact project template records for all project templates in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_project_templates_for_team_with_http_info(team_gid, async_req=True)
@@ -600,7 +600,7 @@ class ProjectTemplatesApi(object):
     def instantiate_project(self, project_template_gid, opts, **kwargs):  # noqa: E501
         """Instantiate a project from a project template  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.instantiate_project(project_template_gid, async_req=True)
@@ -624,7 +624,7 @@ class ProjectTemplatesApi(object):
     def instantiate_project_with_http_info(self, project_template_gid, opts, **kwargs):  # noqa: E501
         """Instantiate a project from a project template  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Creates and returns a job that will asynchronously handle the project instantiation.  To form this request, it is recommended to first make a request to [get a project template](/reference/getprojecttemplate). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.  _Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/reference/workspaces) parameter._  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.instantiate_project_with_http_info(project_template_gid, async_req=True)

@@ -115,7 +115,7 @@ dict
 
 Get stories from a task
 
-Returns the compact records for all stories on the task.
+<b>Required scope: </b><code>stories:read</code>  Returns the compact records for all stories on the task.
 
 ([more information](https://developers.asana.com/reference/getstoriesfortask))
 
@@ -171,7 +171,7 @@ generator
 
 Get a story
 
-Returns the full record for a single story.
+<b>Required scope: </b><code>stories:read</code>  Returns the full record for a single story.
 
 ([more information](https://developers.asana.com/reference/getstory))
 

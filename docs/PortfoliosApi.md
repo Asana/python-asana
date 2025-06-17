@@ -273,7 +273,7 @@ dict
 
 Get portfolio items
 
-Get a list of the items in compact form in a portfolio.
+<b>Required scope: </b><code>portfolios:read</code>  Get a list of the items in compact form in a portfolio.
 
 ([more information](https://developers.asana.com/reference/getitemsforportfolio))
 
@@ -329,7 +329,7 @@ generator
 
 Get a portfolio
 
-Returns the complete portfolio record for a single portfolio.
+<b>Required scope: </b><code>portfolios:read</code>  Returns the complete portfolio record for a single portfolio.
 
 ([more information](https://developers.asana.com/reference/getportfolio))
 
@@ -380,7 +380,7 @@ dict
 
 Get multiple portfolios
 
-Returns a list of the portfolios in compact representation that are owned by the current API user.
+<b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation that are owned by the current API user.
 
 ([more information](https://developers.asana.com/reference/getportfolios))
 

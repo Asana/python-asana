@@ -35,7 +35,7 @@ class UsersApi(object):
     def get_favorites_for_user(self, user_gid, resource_type, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's favorites  # noqa: E501
 
-        Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_favorites_for_user(user_gid, resource_type, workspace, async_req=True)
@@ -62,7 +62,7 @@ class UsersApi(object):
     def get_favorites_for_user_with_http_info(self, user_gid, resource_type, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's favorites  # noqa: E501
 
-        Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_favorites_for_user_with_http_info(user_gid, resource_type, workspace, async_req=True)
@@ -193,7 +193,7 @@ class UsersApi(object):
     def get_user(self, user_gid, opts, **kwargs):  # noqa: E501
         """Get a user  # noqa: E501
 
-        Returns the full user record for the single user with the provided ID.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user(user_gid, async_req=True)
@@ -216,7 +216,7 @@ class UsersApi(object):
     def get_user_with_http_info(self, user_gid, opts, **kwargs):  # noqa: E501
         """Get a user  # noqa: E501
 
-        Returns the full user record for the single user with the provided ID.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_with_http_info(user_gid, async_req=True)
@@ -332,7 +332,7 @@ class UsersApi(object):
     def get_users(self, opts, **kwargs):  # noqa: E501
         """Get multiple users  # noqa: E501
 
-        Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users(async_req=True)
@@ -358,7 +358,7 @@ class UsersApi(object):
     def get_users_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple users  # noqa: E501
 
-        Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_with_http_info(async_req=True)
@@ -476,7 +476,7 @@ class UsersApi(object):
     def get_users_for_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get users in a team  # noqa: E501
 
-        Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_for_team(team_gid, async_req=True)
@@ -500,7 +500,7 @@ class UsersApi(object):
     def get_users_for_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get users in a team  # noqa: E501
 
-        Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_for_team_with_http_info(team_gid, async_req=True)
@@ -620,7 +620,7 @@ class UsersApi(object):
     def get_users_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get users in a workspace or organization  # noqa: E501
 
-        Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_for_workspace(workspace_gid, async_req=True)
@@ -644,7 +644,7 @@ class UsersApi(object):
     def get_users_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get users in a workspace or organization  # noqa: E501
 
-        Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
+        <b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_for_workspace_with_http_info(workspace_gid, async_req=True)

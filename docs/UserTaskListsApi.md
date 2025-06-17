@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 Get a user task list
 
-Returns the full record for a user task list.
+<b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.
 
 ([more information](https://developers.asana.com/reference/getusertasklist))
 
@@ -62,7 +62,7 @@ dict
 
 Get a user&#x27;s task list
 
-Returns the full record for a user's task list.
+<b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user's task list.
 
 ([more information](https://developers.asana.com/reference/getusertasklistforuser))
 

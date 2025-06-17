@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get a user&#x27;s favorites
 
-Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
+<b>Required scope: </b><code>users:read</code>  Returns all of a user's favorites within a specified workspace and of a given type. The results are ordered exactly as they appear in the user's Asana sidebar in the web application. Note that this endpoint currently only returns favorites for the current user (i.e., the user associated with the authentication token).
 
 ([more information](https://developers.asana.com/reference/getfavoritesforuser))
 
@@ -74,7 +74,7 @@ generator
 
 Get a user
 
-Returns the full user record for the single user with the provided ID.
+<b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID.
 
 ([more information](https://developers.asana.com/reference/getuser))
 
@@ -125,7 +125,7 @@ dict
 
 Get multiple users
 
-Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
+<b>Required scope: </b><code>users:read</code>  Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter. Results are sorted by user ID.
 
 ([more information](https://developers.asana.com/reference/getusers))
 
@@ -183,7 +183,7 @@ generator
 
 Get users in a team
 
-Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+<b>Required scope: </b><code>users:read</code>  Returns the compact records for all users that are members of the team. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
 
 ([more information](https://developers.asana.com/reference/getusersforteam))
 
@@ -237,7 +237,7 @@ generator
 
 Get users in a workspace or organization
 
-Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
+<b>Required scope: </b><code>users:read</code>  Returns the compact records for all users in the specified workspace or organization. Results are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.
 
 ([more information](https://developers.asana.com/reference/getusersforworkspace))
 

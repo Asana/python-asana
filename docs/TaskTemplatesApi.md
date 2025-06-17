@@ -61,7 +61,7 @@ dict
 
 Get a task template
 
-Returns the complete task template record for a single task template.
+<b>Required scope: </b><code>task_templates:read</code>  Returns the complete task template record for a single task template.
 
 ([more information](https://developers.asana.com/reference/gettasktemplate))
 
@@ -112,7 +112,7 @@ dict
 
 Get multiple task templates
 
-Returns the compact task template records for some filtered set of task templates. You must specify a `project`
+<b>Required scope: </b><code>task_templates:read</code>  Returns the compact task template records for some filtered set of task templates. You must specify a `project`
 
 ([more information](https://developers.asana.com/reference/gettasktemplates))
 
@@ -187,7 +187,7 @@ task_templates_api_instance = asana.TaskTemplatesApi(api_client)
 task_template_gid = "1331" # str | Globally unique identifier for the task template.
 opts = {
     'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | Describes the inputs used for instantiating a task - the task's name.
-    'opt_fields': "new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "new_graph_export,new_graph_export.completed_at,new_graph_export.created_at,new_graph_export.download_url,new_project,new_project.name,new_project_template,new_project_template.name,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

@@ -35,7 +35,7 @@ class SectionsApi(object):
     def add_task_for_section(self, section_gid, opts, **kwargs):  # noqa: E501
         """Add task to section  # noqa: E501
 
-        Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_task_for_section(section_gid, async_req=True)
@@ -58,7 +58,7 @@ class SectionsApi(object):
     def add_task_for_section_with_http_info(self, section_gid, opts, **kwargs):  # noqa: E501
         """Add task to section  # noqa: E501
 
-        Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Add a task to a specific, existing section. This will remove the task from other sections of the project.  The task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.  This does not work for separators (tasks with the resource_subtype of section).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_task_for_section_with_http_info(section_gid, async_req=True)

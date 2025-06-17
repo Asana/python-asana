@@ -171,7 +171,7 @@ class TaskTemplatesApi(object):
     def get_task_template(self, task_template_gid, opts, **kwargs):  # noqa: E501
         """Get a task template  # noqa: E501
 
-        Returns the complete task template record for a single task template.  # noqa: E501
+        <b>Required scope: </b><code>task_templates:read</code>  Returns the complete task template record for a single task template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_template(task_template_gid, async_req=True)
@@ -194,7 +194,7 @@ class TaskTemplatesApi(object):
     def get_task_template_with_http_info(self, task_template_gid, opts, **kwargs):  # noqa: E501
         """Get a task template  # noqa: E501
 
-        Returns the complete task template record for a single task template.  # noqa: E501
+        <b>Required scope: </b><code>task_templates:read</code>  Returns the complete task template record for a single task template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_template_with_http_info(task_template_gid, async_req=True)
@@ -310,7 +310,7 @@ class TaskTemplatesApi(object):
     def get_task_templates(self, opts, **kwargs):  # noqa: E501
         """Get multiple task templates  # noqa: E501
 
-        Returns the compact task template records for some filtered set of task templates. You must specify a `project`  # noqa: E501
+        <b>Required scope: </b><code>task_templates:read</code>  Returns the compact task template records for some filtered set of task templates. You must specify a `project`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_templates(async_req=True)
@@ -335,7 +335,7 @@ class TaskTemplatesApi(object):
     def get_task_templates_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple task templates  # noqa: E501
 
-        Returns the compact task template records for some filtered set of task templates. You must specify a `project`  # noqa: E501
+        <b>Required scope: </b><code>task_templates:read</code>  Returns the compact task template records for some filtered set of task templates. You must specify a `project`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_templates_with_http_info(async_req=True)

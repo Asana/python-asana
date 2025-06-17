@@ -35,7 +35,7 @@ class UserTaskListsApi(object):
     def get_user_task_list(self, user_task_list_gid, opts, **kwargs):  # noqa: E501
         """Get a user task list  # noqa: E501
 
-        Returns the full record for a user task list.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_task_list(user_task_list_gid, async_req=True)
@@ -58,7 +58,7 @@ class UserTaskListsApi(object):
     def get_user_task_list_with_http_info(self, user_task_list_gid, opts, **kwargs):  # noqa: E501
         """Get a user task list  # noqa: E501
 
-        Returns the full record for a user task list.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user task list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_task_list_with_http_info(user_task_list_gid, async_req=True)
@@ -174,7 +174,7 @@ class UserTaskListsApi(object):
     def get_user_task_list_for_user(self, user_gid, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's task list  # noqa: E501
 
-        Returns the full record for a user's task list.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user's task list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_task_list_for_user(user_gid, workspace, async_req=True)
@@ -198,7 +198,7 @@ class UserTaskListsApi(object):
     def get_user_task_list_for_user_with_http_info(self, user_gid, workspace, opts, **kwargs):  # noqa: E501
         """Get a user's task list  # noqa: E501
 
-        Returns the full record for a user's task list.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the full record for a user's task list.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_task_list_for_user_with_http_info(user_gid, workspace, async_req=True)

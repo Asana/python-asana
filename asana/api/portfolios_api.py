@@ -751,7 +751,7 @@ class PortfoliosApi(object):
     def get_items_for_portfolio(self, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Get portfolio items  # noqa: E501
 
-        Get a list of the items in compact form in a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Get a list of the items in compact form in a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_items_for_portfolio(portfolio_gid, async_req=True)
@@ -776,7 +776,7 @@ class PortfoliosApi(object):
     def get_items_for_portfolio_with_http_info(self, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Get portfolio items  # noqa: E501
 
-        Get a list of the items in compact form in a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Get a list of the items in compact form in a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_items_for_portfolio_with_http_info(portfolio_gid, async_req=True)
@@ -897,7 +897,7 @@ class PortfoliosApi(object):
     def get_portfolio(self, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Get a portfolio  # noqa: E501
 
-        Returns the complete portfolio record for a single portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns the complete portfolio record for a single portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolio(portfolio_gid, async_req=True)
@@ -920,7 +920,7 @@ class PortfoliosApi(object):
     def get_portfolio_with_http_info(self, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Get a portfolio  # noqa: E501
 
-        Returns the complete portfolio record for a single portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns the complete portfolio record for a single portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolio_with_http_info(portfolio_gid, async_req=True)
@@ -1036,7 +1036,7 @@ class PortfoliosApi(object):
     def get_portfolios(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple portfolios  # noqa: E501
 
-        Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolios(workspace, async_req=True)
@@ -1062,7 +1062,7 @@ class PortfoliosApi(object):
     def get_portfolios_with_http_info(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple portfolios  # noqa: E501
 
-        Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolios_with_http_info(workspace, async_req=True)

@@ -325,7 +325,7 @@ class TeamsApi(object):
     def get_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team  # noqa: E501
 
-        Returns the full record for a single team.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the full record for a single team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_team(team_gid, async_req=True)
@@ -348,7 +348,7 @@ class TeamsApi(object):
     def get_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team  # noqa: E501
 
-        Returns the full record for a single team.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the full record for a single team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_team_with_http_info(team_gid, async_req=True)
@@ -464,7 +464,7 @@ class TeamsApi(object):
     def get_teams_for_user(self, user_gid, organization, opts, **kwargs):  # noqa: E501
         """Get teams for a user  # noqa: E501
 
-        Returns the compact records for all teams to which the given user is assigned.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the compact records for all teams to which the given user is assigned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_teams_for_user(user_gid, organization, async_req=True)
@@ -490,7 +490,7 @@ class TeamsApi(object):
     def get_teams_for_user_with_http_info(self, user_gid, organization, opts, **kwargs):  # noqa: E501
         """Get teams for a user  # noqa: E501
 
-        Returns the compact records for all teams to which the given user is assigned.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the compact records for all teams to which the given user is assigned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_teams_for_user_with_http_info(user_gid, organization, async_req=True)
@@ -616,7 +616,7 @@ class TeamsApi(object):
     def get_teams_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get teams in a workspace  # noqa: E501
 
-        Returns the compact records for all teams in the workspace visible to the authorized user.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the compact records for all teams in the workspace visible to the authorized user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_teams_for_workspace(workspace_gid, async_req=True)
@@ -641,7 +641,7 @@ class TeamsApi(object):
     def get_teams_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get teams in a workspace  # noqa: E501
 
-        Returns the compact records for all teams in the workspace visible to the authorized user.  # noqa: E501
+        <b>Required scope: </b><code>teams:read</code>  Returns the compact records for all teams in the workspace visible to the authorized user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_teams_for_workspace_with_http_info(workspace_gid, async_req=True)

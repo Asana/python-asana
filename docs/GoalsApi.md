@@ -224,7 +224,7 @@ dict
 
 Get a goal
 
-Returns the complete goal record for a single goal.
+<b>Required scope: </b><code>goals:read</code>  Returns the complete goal record for a single goal.
 
 ([more information](https://developers.asana.com/reference/getgoal))
 
@@ -275,7 +275,7 @@ dict
 
 Get goals
 
-Returns compact goal records.
+<b>Required scope: </b><code>goals:read</code>  Returns compact goal records.
 
 ([more information](https://developers.asana.com/reference/getgoals))
 
@@ -343,7 +343,7 @@ generator
 
 Get parent goals from a goal
 
-Returns a compact representation of all of the parent goals of a goal.
+<b>Required scope: </b><code>goals:read</code>  Returns a compact representation of all of the parent goals of a goal.
 
 ([more information](https://developers.asana.com/reference/getparentgoalsforgoal))
 

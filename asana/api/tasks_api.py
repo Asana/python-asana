@@ -35,7 +35,7 @@ class TasksApi(object):
     def add_dependencies_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Set dependencies for a task  # noqa: E501
 
-        Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_dependencies_for_task(body, task_gid, async_req=True)
@@ -58,7 +58,7 @@ class TasksApi(object):
     def add_dependencies_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Set dependencies for a task  # noqa: E501
 
-        Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_dependencies_for_task_with_http_info(body, task_gid, async_req=True)
@@ -180,7 +180,7 @@ class TasksApi(object):
     def add_dependents_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Set dependents for a task  # noqa: E501
 
-        Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_dependents_for_task(body, task_gid, async_req=True)
@@ -203,7 +203,7 @@ class TasksApi(object):
     def add_dependents_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Set dependents for a task  # noqa: E501
 
-        Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_dependents_for_task_with_http_info(body, task_gid, async_req=True)
@@ -325,7 +325,7 @@ class TasksApi(object):
     def add_followers_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Add followers to a task  # noqa: E501
 
-        Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_followers_for_task(body, task_gid, async_req=True)
@@ -349,7 +349,7 @@ class TasksApi(object):
     def add_followers_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Add followers to a task  # noqa: E501
 
-        Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds followers to a task. Returns an empty data block. Each task can be associated with zero or more followers in the system. Requests to add/remove followers, if successful, will return the complete updated task record, described above.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_followers_for_task_with_http_info(body, task_gid, async_req=True)
@@ -473,7 +473,7 @@ class TasksApi(object):
     def add_project_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Add a project to a task  # noqa: E501
 
-        Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_project_for_task(body, task_gid, async_req=True)
@@ -496,7 +496,7 @@ class TasksApi(object):
     def add_project_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Add a project to a task  # noqa: E501
 
-        Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds the task to the specified project, in the optional location specified. If no location arguments are given, the task will be added to the end of the project.  `addProject` can also be used to reorder a task within a project or section that already contains it.  At most one of `insert_before`, `insert_after`, or `section` should be specified. Inserting into a section in an non-order-dependent way can be done by specifying section, otherwise, to insert within a section in a particular place, specify `insert_before` or `insert_after` and a task within the section to anchor the position of this task.  A task can have at most 20 projects multi-homed to it.  Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_project_for_task_with_http_info(body, task_gid, async_req=True)
@@ -618,7 +618,7 @@ class TasksApi(object):
     def add_tag_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Add a tag to a task  # noqa: E501
 
-        Adds a tag to a task. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds a tag to a task. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_tag_for_task(body, task_gid, async_req=True)
@@ -641,7 +641,7 @@ class TasksApi(object):
     def add_tag_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Add a tag to a task  # noqa: E501
 
-        Adds a tag to a task. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Adds a tag to a task. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_tag_for_task_with_http_info(body, task_gid, async_req=True)
@@ -763,7 +763,7 @@ class TasksApi(object):
     def create_subtask_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a subtask  # noqa: E501
 
-        Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subtask_for_task(body, task_gid, async_req=True)
@@ -787,7 +787,7 @@ class TasksApi(object):
     def create_subtask_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a subtask  # noqa: E501
 
-        Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subtask_for_task_with_http_info(body, task_gid, async_req=True)
@@ -911,7 +911,7 @@ class TasksApi(object):
     def create_task(self, body, opts, **kwargs):  # noqa: E501
         """Create a task  # noqa: E501
 
-        Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_task(body, async_req=True)
@@ -934,7 +934,7 @@ class TasksApi(object):
     def create_task_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a task  # noqa: E501
 
-        Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creating a new task is as easy as POSTing to the `/tasks` endpoint with a data block containing the fields you’d like to set on the task. Any unspecified fields will take on default values.  Every task is required to be created in a specific workspace, and this workspace cannot be changed once set. The workspace need not be set explicitly if you specify `projects` or a `parent` task instead.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_task_with_http_info(body, async_req=True)
@@ -1053,7 +1053,7 @@ class TasksApi(object):
     def delete_task(self, task_gid, **kwargs):  # noqa: E501
         """Delete a task  # noqa: E501
 
-        A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>tasks:delete</code>  A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_task(task_gid, async_req=True)
@@ -1075,7 +1075,7 @@ class TasksApi(object):
     def delete_task_with_http_info(self, task_gid, **kwargs):  # noqa: E501
         """Delete a task  # noqa: E501
 
-        A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>tasks:delete</code>  A specific, existing task can be deleted by making a DELETE request on the URL for that task. Deleted tasks go into the “trash” of the user making the delete request. Tasks can be recovered from the trash within a period of 30 days; afterward they are completely removed from the system.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_task_with_http_info(task_gid, async_req=True)
@@ -1189,7 +1189,7 @@ class TasksApi(object):
     def duplicate_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Duplicate a task  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.duplicate_task(body, task_gid, async_req=True)
@@ -1213,7 +1213,7 @@ class TasksApi(object):
     def duplicate_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Duplicate a task  # noqa: E501
 
-        Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Creates and returns a job that will asynchronously handle the duplication.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.duplicate_task_with_http_info(body, task_gid, async_req=True)
@@ -1337,7 +1337,7 @@ class TasksApi(object):
     def get_dependencies_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get dependencies from a task  # noqa: E501
 
-        Returns the compact representations of all of the dependencies of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependencies of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dependencies_for_task(task_gid, async_req=True)
@@ -1362,7 +1362,7 @@ class TasksApi(object):
     def get_dependencies_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get dependencies from a task  # noqa: E501
 
-        Returns the compact representations of all of the dependencies of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependencies of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dependencies_for_task_with_http_info(task_gid, async_req=True)
@@ -1483,7 +1483,7 @@ class TasksApi(object):
     def get_dependents_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get dependents from a task  # noqa: E501
 
-        Returns the compact representations of all of the dependents of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependents of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dependents_for_task(task_gid, async_req=True)
@@ -1508,7 +1508,7 @@ class TasksApi(object):
     def get_dependents_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get dependents from a task  # noqa: E501
 
-        Returns the compact representations of all of the dependents of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact representations of all of the dependents of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dependents_for_task_with_http_info(task_gid, async_req=True)
@@ -1629,7 +1629,7 @@ class TasksApi(object):
     def get_subtasks_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get subtasks from a task  # noqa: E501
 
-        Returns a compact representation of all of the subtasks of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns a compact representation of all of the subtasks of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subtasks_for_task(task_gid, async_req=True)
@@ -1654,7 +1654,7 @@ class TasksApi(object):
     def get_subtasks_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get subtasks from a task  # noqa: E501
 
-        Returns a compact representation of all of the subtasks of a task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns a compact representation of all of the subtasks of a task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subtasks_for_task_with_http_info(task_gid, async_req=True)
@@ -1775,7 +1775,7 @@ class TasksApi(object):
     def get_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get a task  # noqa: E501
 
-        Returns the complete task record for a single task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the complete task record for a single task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task(task_gid, async_req=True)
@@ -1798,7 +1798,7 @@ class TasksApi(object):
     def get_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get a task  # noqa: E501
 
-        Returns the complete task record for a single task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the complete task record for a single task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_with_http_info(task_gid, async_req=True)
@@ -1914,7 +1914,7 @@ class TasksApi(object):
     def get_task_for_custom_id(self, workspace_gid, custom_id, **kwargs):  # noqa: E501
         """Get a task for a given custom ID  # noqa: E501
 
-        Returns a task given a custom ID shortcode.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns a task given a custom ID shortcode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_for_custom_id(workspace_gid, custom_id, async_req=True)
@@ -1937,7 +1937,7 @@ class TasksApi(object):
     def get_task_for_custom_id_with_http_info(self, workspace_gid, custom_id, **kwargs):  # noqa: E501
         """Get a task for a given custom ID  # noqa: E501
 
-        Returns a task given a custom ID shortcode.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns a task given a custom ID shortcode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_for_custom_id_with_http_info(workspace_gid, custom_id, async_req=True)
@@ -2056,7 +2056,7 @@ class TasksApi(object):
     def get_tasks(self, opts, **kwargs):  # noqa: E501
         """Get multiple tasks  # noqa: E501
 
-        Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks(async_req=True)
@@ -2086,7 +2086,7 @@ class TasksApi(object):
     def get_tasks_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple tasks  # noqa: E501
 
-        Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.  For more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/reference/searchtasksforworkspace).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_with_http_info(async_req=True)
@@ -2208,7 +2208,7 @@ class TasksApi(object):
     def get_tasks_for_project(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a project  # noqa: E501
 
-        Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_project(project_gid, async_req=True)
@@ -2234,7 +2234,7 @@ class TasksApi(object):
     def get_tasks_for_project_with_http_info(self, project_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a project  # noqa: E501
 
-        Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_project_with_http_info(project_gid, async_req=True)
@@ -2356,7 +2356,7 @@ class TasksApi(object):
     def get_tasks_for_section(self, section_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a section  # noqa: E501
 
-        *Board view only*: Returns the compact section records for all tasks within the given section.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  *Board view only*: Returns the compact section records for all tasks within the given section.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_section(section_gid, async_req=True)
@@ -2382,7 +2382,7 @@ class TasksApi(object):
     def get_tasks_for_section_with_http_info(self, section_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a section  # noqa: E501
 
-        *Board view only*: Returns the compact section records for all tasks within the given section.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  *Board view only*: Returns the compact section records for all tasks within the given section.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_section_with_http_info(section_gid, async_req=True)
@@ -2504,7 +2504,7 @@ class TasksApi(object):
     def get_tasks_for_tag(self, tag_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a tag  # noqa: E501
 
-        Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_tag(tag_gid, async_req=True)
@@ -2529,7 +2529,7 @@ class TasksApi(object):
     def get_tasks_for_tag_with_http_info(self, tag_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a tag  # noqa: E501
 
-        Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_tag_with_http_info(tag_gid, async_req=True)
@@ -2650,7 +2650,7 @@ class TasksApi(object):
     def get_tasks_for_user_task_list(self, user_task_list_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a user task list  # noqa: E501
 
-        Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_user_task_list(user_task_list_gid, async_req=True)
@@ -2676,7 +2676,7 @@ class TasksApi(object):
     def get_tasks_for_user_task_list_with_http_info(self, user_task_list_gid, opts, **kwargs):  # noqa: E501
         """Get tasks from a user task list  # noqa: E501
 
-        Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  Returns the compact list of tasks in a user’s My Tasks list. *Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user’s private tasks will be filtered out if the API-authenticated user does not have access to them.* *Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for “My Tasks” in Asana.)*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_for_user_task_list_with_http_info(user_task_list_gid, async_req=True)
@@ -2798,7 +2798,7 @@ class TasksApi(object):
     def remove_dependencies_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Unlink dependencies from a task  # noqa: E501
 
-        Unlinks a set of dependencies from this task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependencies from this task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_dependencies_for_task(body, task_gid, async_req=True)
@@ -2821,7 +2821,7 @@ class TasksApi(object):
     def remove_dependencies_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Unlink dependencies from a task  # noqa: E501
 
-        Unlinks a set of dependencies from this task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependencies from this task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_dependencies_for_task_with_http_info(body, task_gid, async_req=True)
@@ -2943,7 +2943,7 @@ class TasksApi(object):
     def remove_dependents_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Unlink dependents from a task  # noqa: E501
 
-        Unlinks a set of dependents from this task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependents from this task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_dependents_for_task(body, task_gid, async_req=True)
@@ -2966,7 +2966,7 @@ class TasksApi(object):
     def remove_dependents_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Unlink dependents from a task  # noqa: E501
 
-        Unlinks a set of dependents from this task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Unlinks a set of dependents from this task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_dependents_for_task_with_http_info(body, task_gid, async_req=True)
@@ -3088,7 +3088,7 @@ class TasksApi(object):
     def remove_follower_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Remove followers from a task  # noqa: E501
 
-        Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_follower_for_task(body, task_gid, async_req=True)
@@ -3112,7 +3112,7 @@ class TasksApi(object):
     def remove_follower_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Remove followers from a task  # noqa: E501
 
-        Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_follower_for_task_with_http_info(body, task_gid, async_req=True)
@@ -3236,7 +3236,7 @@ class TasksApi(object):
     def remove_project_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Remove a project from a task  # noqa: E501
 
-        Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_project_for_task(body, task_gid, async_req=True)
@@ -3259,7 +3259,7 @@ class TasksApi(object):
     def remove_project_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Remove a project from a task  # noqa: E501
 
-        Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes the task from the specified project. The task will still exist in the system, but it will not be in the project anymore.  Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_project_for_task_with_http_info(body, task_gid, async_req=True)
@@ -3381,7 +3381,7 @@ class TasksApi(object):
     def remove_tag_for_task(self, body, task_gid, **kwargs):  # noqa: E501
         """Remove a tag from a task  # noqa: E501
 
-        Removes a tag from a task. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes a tag from a task. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_tag_for_task(body, task_gid, async_req=True)
@@ -3404,7 +3404,7 @@ class TasksApi(object):
     def remove_tag_for_task_with_http_info(self, body, task_gid, **kwargs):  # noqa: E501
         """Remove a tag from a task  # noqa: E501
 
-        Removes a tag from a task. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  Removes a tag from a task. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_tag_for_task_with_http_info(body, task_gid, async_req=True)
@@ -3526,7 +3526,7 @@ class TasksApi(object):
     def search_tasks_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Search tasks in a workspace  # noqa: E501
 
-        To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_tasks_for_workspace(workspace_gid, async_req=True)
@@ -3602,7 +3602,7 @@ class TasksApi(object):
     def search_tasks_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Search tasks in a workspace  # noqa: E501
 
-        To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*  # noqa: E501
+        <b>Required scope: </b><code>tasks:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  *Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_tasks_for_workspace_with_http_info(workspace_gid, async_req=True)
@@ -3786,7 +3786,7 @@ class TasksApi(object):
     def set_parent_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Set the parent of a task  # noqa: E501
 
-        parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_parent_for_task(body, task_gid, async_req=True)
@@ -3810,7 +3810,7 @@ class TasksApi(object):
     def set_parent_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Set the parent of a task  # noqa: E501
 
-        parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_parent_for_task_with_http_info(body, task_gid, async_req=True)
@@ -3934,7 +3934,7 @@ class TasksApi(object):
     def update_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Update a task  # noqa: E501
 
-        A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_task(body, task_gid, async_req=True)
@@ -3958,7 +3958,7 @@ class TasksApi(object):
     def update_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Update a task  # noqa: E501
 
-        A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.  # noqa: E501
+        <b>Required scope: </b><code>tasks:write</code>  A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated task record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_task_with_http_info(body, task_gid, async_req=True)

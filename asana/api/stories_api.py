@@ -319,7 +319,7 @@ class StoriesApi(object):
     def get_stories_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get stories from a task  # noqa: E501
 
-        Returns the compact records for all stories on the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:read</code>  Returns the compact records for all stories on the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_stories_for_task(task_gid, async_req=True)
@@ -344,7 +344,7 @@ class StoriesApi(object):
     def get_stories_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get stories from a task  # noqa: E501
 
-        Returns the compact records for all stories on the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:read</code>  Returns the compact records for all stories on the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_stories_for_task_with_http_info(task_gid, async_req=True)
@@ -465,7 +465,7 @@ class StoriesApi(object):
     def get_story(self, story_gid, opts, **kwargs):  # noqa: E501
         """Get a story  # noqa: E501
 
-        Returns the full record for a single story.  # noqa: E501
+        <b>Required scope: </b><code>stories:read</code>  Returns the full record for a single story.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_story(story_gid, async_req=True)
@@ -488,7 +488,7 @@ class StoriesApi(object):
     def get_story_with_http_info(self, story_gid, opts, **kwargs):  # noqa: E501
         """Get a story  # noqa: E501
 
-        Returns the full record for a single story.  # noqa: E501
+        <b>Required scope: </b><code>stories:read</code>  Returns the full record for a single story.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_story_with_http_info(story_gid, async_req=True)

@@ -609,7 +609,7 @@ class GoalsApi(object):
     def get_goal(self, goal_gid, opts, **kwargs):  # noqa: E501
         """Get a goal  # noqa: E501
 
-        Returns the complete goal record for a single goal.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns the complete goal record for a single goal.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_goal(goal_gid, async_req=True)
@@ -632,7 +632,7 @@ class GoalsApi(object):
     def get_goal_with_http_info(self, goal_gid, opts, **kwargs):  # noqa: E501
         """Get a goal  # noqa: E501
 
-        Returns the complete goal record for a single goal.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns the complete goal record for a single goal.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_goal_with_http_info(goal_gid, async_req=True)
@@ -748,7 +748,7 @@ class GoalsApi(object):
     def get_goals(self, opts, **kwargs):  # noqa: E501
         """Get goals  # noqa: E501
 
-        Returns compact goal records.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns compact goal records.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_goals(async_req=True)
@@ -779,7 +779,7 @@ class GoalsApi(object):
     def get_goals_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get goals  # noqa: E501
 
-        Returns compact goal records.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns compact goal records.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_goals_with_http_info(async_req=True)
@@ -902,7 +902,7 @@ class GoalsApi(object):
     def get_parent_goals_for_goal(self, goal_gid, opts, **kwargs):  # noqa: E501
         """Get parent goals from a goal  # noqa: E501
 
-        Returns a compact representation of all of the parent goals of a goal.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns a compact representation of all of the parent goals of a goal.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_parent_goals_for_goal(goal_gid, async_req=True)
@@ -925,7 +925,7 @@ class GoalsApi(object):
     def get_parent_goals_for_goal_with_http_info(self, goal_gid, opts, **kwargs):  # noqa: E501
         """Get parent goals from a goal  # noqa: E501
 
-        Returns a compact representation of all of the parent goals of a goal.  # noqa: E501
+        <b>Required scope: </b><code>goals:read</code>  Returns a compact representation of all of the parent goals of a goal.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_parent_goals_for_goal_with_http_info(goal_gid, async_req=True)
