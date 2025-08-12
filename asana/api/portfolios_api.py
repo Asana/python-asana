@@ -35,7 +35,7 @@ class PortfoliosApi(object):
     def add_custom_field_setting_for_portfolio(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Add a custom field to a portfolio  # noqa: E501
 
-        Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_custom_field_setting_for_portfolio(body, portfolio_gid, async_req=True)
@@ -58,7 +58,7 @@ class PortfoliosApi(object):
     def add_custom_field_setting_for_portfolio_with_http_info(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Add a custom field to a portfolio  # noqa: E501
 
-        Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_custom_field_setting_for_portfolio_with_http_info(body, portfolio_gid, async_req=True)
@@ -180,7 +180,7 @@ class PortfoliosApi(object):
     def add_item_for_portfolio(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Add a portfolio item  # noqa: E501
 
-        Add an item to a portfolio. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Add an item to a portfolio. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_item_for_portfolio(body, portfolio_gid, async_req=True)
@@ -203,7 +203,7 @@ class PortfoliosApi(object):
     def add_item_for_portfolio_with_http_info(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Add a portfolio item  # noqa: E501
 
-        Add an item to a portfolio. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Add an item to a portfolio. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_item_for_portfolio_with_http_info(body, portfolio_gid, async_req=True)
@@ -473,7 +473,7 @@ class PortfoliosApi(object):
     def create_portfolio(self, body, opts, **kwargs):  # noqa: E501
         """Create a portfolio  # noqa: E501
 
-        Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_portfolio(body, async_req=True)
@@ -496,7 +496,7 @@ class PortfoliosApi(object):
     def create_portfolio_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a portfolio  # noqa: E501
 
-        Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Creates a new portfolio in the given workspace with the supplied name.  Note that portfolios created in the Asana UI may have some state (like the “Priority” custom field) which is automatically added to the portfolio when it is created. Portfolios created via our API will *not* be created with the same initial state to allow integrations to create their own starting state on a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_portfolio_with_http_info(body, async_req=True)
@@ -1184,7 +1184,7 @@ class PortfoliosApi(object):
     def remove_custom_field_setting_for_portfolio(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Remove a custom field from a portfolio  # noqa: E501
 
-        Removes a custom field setting from a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Removes a custom field setting from a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_custom_field_setting_for_portfolio(body, portfolio_gid, async_req=True)
@@ -1207,7 +1207,7 @@ class PortfoliosApi(object):
     def remove_custom_field_setting_for_portfolio_with_http_info(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Remove a custom field from a portfolio  # noqa: E501
 
-        Removes a custom field setting from a portfolio.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Removes a custom field setting from a portfolio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_custom_field_setting_for_portfolio_with_http_info(body, portfolio_gid, async_req=True)
@@ -1329,7 +1329,7 @@ class PortfoliosApi(object):
     def remove_item_for_portfolio(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Remove a portfolio item  # noqa: E501
 
-        Remove an item from a portfolio. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Remove an item from a portfolio. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_item_for_portfolio(body, portfolio_gid, async_req=True)
@@ -1352,7 +1352,7 @@ class PortfoliosApi(object):
     def remove_item_for_portfolio_with_http_info(self, body, portfolio_gid, **kwargs):  # noqa: E501
         """Remove a portfolio item  # noqa: E501
 
-        Remove an item from a portfolio. Returns an empty data block.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  Remove an item from a portfolio. Returns an empty data block.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_item_for_portfolio_with_http_info(body, portfolio_gid, async_req=True)
@@ -1622,7 +1622,7 @@ class PortfoliosApi(object):
     def update_portfolio(self, body, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Update a portfolio  # noqa: E501
 
-        An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_portfolio(body, portfolio_gid, async_req=True)
@@ -1646,7 +1646,7 @@ class PortfoliosApi(object):
     def update_portfolio_with_http_info(self, body, portfolio_gid, opts, **kwargs):  # noqa: E501
         """Update a portfolio  # noqa: E501
 
-        An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:write</code>  An existing portfolio can be updated by making a PUT request on the URL for that portfolio. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated portfolio record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_portfolio_with_http_info(body, portfolio_gid, async_req=True)

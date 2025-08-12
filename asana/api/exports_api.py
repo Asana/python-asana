@@ -33,7 +33,7 @@ class ExportsApi(object):
         self.api_client = api_client
 
     def create_graph_export(self, body, **kwargs):  # noqa: E501
-        """Initiate graph export  # noqa: E501
+        """Initiate a graph export  # noqa: E501
 
         Initiates a graph export job for a given parent object (team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -55,7 +55,7 @@ class ExportsApi(object):
             return data
 
     def create_graph_export_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Initiate graph export  # noqa: E501
+        """Initiate a graph export  # noqa: E501
 
         Initiates a graph export job for a given parent object (team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -157,6 +157,145 @@ class ExportsApi(object):
         else:
             return self.api_client.call_api(
             '/exports/graph', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=object,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_resource_export(self, body, **kwargs):  # noqa: E501
+        """Initiate a resource export  # noqa: E501
+
+        Initiates a bulk export of resources for a workspace. The export will be processed asynchronously. Once the export has been requested, its progress can be monitored using the [jobs](/reference/getjob) endpoint.  ## Supported resource types This endpoint currently supports exporting tasks, teams and messages within a workspace. Resources can be requested to be part of the export by providing the `export_request_parameters` parameter. The following resource types are supported:  ### Tasks: Tasks are formatted for exports with some differences from their documented [schema](/reference/tasks):   - `attachments` are included by default and returns an array of associated attachments.   - Attachment objects do not include `download_url` or `view_url`. The `attachments` [endpoint](/reference/attachment) should be queried for up-to-date URLs.   - `stories` are included by default and returns an array of comments and other changes made to a task  ### Teams: Teams are formatted for exports with these differences from their documented [schema](/reference/teams):   - `members` are included by default and returns an array of Users that are members of the team   - Filtering is not supported for teams.  ### Messages: The returned schema encompasses both default messages and status updates and is similar to the status update schema. The available fields for messages are:   - `gid` - The globally unique identifier for the message.   - `resource_type` - The type of resource, which is always \"message\".   - `resource_subtype` - Optional. The subtype of the message, which can be \"default\" or \"status_update\".   - `status_type` - The type associated with the status update. This can be one of: “on_track”, “at_risk”, “off_track”, “on_hold”, “complete”, “achieved”, “partial”, “missed”, “dropped”   - `created_by` - The user who created the message.   - `created_at` - The time at which this resource was created and sent available to other users.   - `modified_at` - The time at which this resource was last modified.   - `title` - The title of the message.   - `text` - The text content of the message.   - `html_notes` - The text content of the message with formatting as HTML. Not included by default. Can be included by using “fields” in the initial request.   - `num_likes` - The number of users who have liked this message.   - `likes` - An array of users who have liked this message.   - `stories` - Optional. Array of stories applied to the message.   - `attachments` - Optional. Array of attachments added to the message.   - `followers` - Optional. Array of users currently following the message. Users that were sent the message are treated as followers.   - `parents` - Array of objects the message was sent to. Can be a Project, Portfolio, Team or Goal. Limited to a single object for status updates.   ## Export file The final export file will be in JSON Lines format and compressed in a gzip container.  Objects are formatted according to their corresponding API schema, or limited to the fields included in the `fields` parameter. Exports currently include undeleted objects.  An object in the export will be up to date anywhere between the exports `created_at` and `completed_at`. There is no guaranteed ordering of objects in the export.  Access to the export file expires 30 days after its completion.  ## Exporting specific fields By default, each object in an export includes a predefined set of fields based on its schema. If a more limited set of fields or fields not included by default are required, the Export API allows for specifying which fields to include in the requested export.  Fields can be specified using the `fields` parameter. The fields parameter conforms to the fields optional parameter available for all Asana endpoints which is documented [here](https://developers.asana.com/docs/inputoutput-options).  Utilizing the `fields` parameter is recommended if the full object is not required, especially when a large number of objects are being exported, to reduce the overall export time.  ## Filtering resources A disjunction of two or more filters can be achieved by providing multiple `export_request_parameters` for the same resource, each with different filters. However, this approach may result in duplicate resources being returned.  ## Rate Limits A workspace is currently limited to *one* in progress export request at a given time. The request will return with a 403 Forbidden status code if the limit is exceeded.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_resource_export(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict body: A JSON payload specifying the resources to export, including filters to apply and fields to be exported. (required)
+        :return: ResourceExportResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
+        if kwargs.get('async_req'):
+            return self.create_resource_export_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_resource_export_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_resource_export_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Initiate a resource export  # noqa: E501
+
+        Initiates a bulk export of resources for a workspace. The export will be processed asynchronously. Once the export has been requested, its progress can be monitored using the [jobs](/reference/getjob) endpoint.  ## Supported resource types This endpoint currently supports exporting tasks, teams and messages within a workspace. Resources can be requested to be part of the export by providing the `export_request_parameters` parameter. The following resource types are supported:  ### Tasks: Tasks are formatted for exports with some differences from their documented [schema](/reference/tasks):   - `attachments` are included by default and returns an array of associated attachments.   - Attachment objects do not include `download_url` or `view_url`. The `attachments` [endpoint](/reference/attachment) should be queried for up-to-date URLs.   - `stories` are included by default and returns an array of comments and other changes made to a task  ### Teams: Teams are formatted for exports with these differences from their documented [schema](/reference/teams):   - `members` are included by default and returns an array of Users that are members of the team   - Filtering is not supported for teams.  ### Messages: The returned schema encompasses both default messages and status updates and is similar to the status update schema. The available fields for messages are:   - `gid` - The globally unique identifier for the message.   - `resource_type` - The type of resource, which is always \"message\".   - `resource_subtype` - Optional. The subtype of the message, which can be \"default\" or \"status_update\".   - `status_type` - The type associated with the status update. This can be one of: “on_track”, “at_risk”, “off_track”, “on_hold”, “complete”, “achieved”, “partial”, “missed”, “dropped”   - `created_by` - The user who created the message.   - `created_at` - The time at which this resource was created and sent available to other users.   - `modified_at` - The time at which this resource was last modified.   - `title` - The title of the message.   - `text` - The text content of the message.   - `html_notes` - The text content of the message with formatting as HTML. Not included by default. Can be included by using “fields” in the initial request.   - `num_likes` - The number of users who have liked this message.   - `likes` - An array of users who have liked this message.   - `stories` - Optional. Array of stories applied to the message.   - `attachments` - Optional. Array of attachments added to the message.   - `followers` - Optional. Array of users currently following the message. Users that were sent the message are treated as followers.   - `parents` - Array of objects the message was sent to. Can be a Project, Portfolio, Team or Goal. Limited to a single object for status updates.   ## Export file The final export file will be in JSON Lines format and compressed in a gzip container.  Objects are formatted according to their corresponding API schema, or limited to the fields included in the `fields` parameter. Exports currently include undeleted objects.  An object in the export will be up to date anywhere between the exports `created_at` and `completed_at`. There is no guaranteed ordering of objects in the export.  Access to the export file expires 30 days after its completion.  ## Exporting specific fields By default, each object in an export includes a predefined set of fields based on its schema. If a more limited set of fields or fields not included by default are required, the Export API allows for specifying which fields to include in the requested export.  Fields can be specified using the `fields` parameter. The fields parameter conforms to the fields optional parameter available for all Asana endpoints which is documented [here](https://developers.asana.com/docs/inputoutput-options).  Utilizing the `fields` parameter is recommended if the full object is not required, especially when a large number of objects are being exported, to reduce the overall export time.  ## Filtering resources A disjunction of two or more filters can be achieved by providing multiple `export_request_parameters` for the same resource, each with different filters. However, this approach may result in duplicate resources being returned.  ## Rate Limits A workspace is currently limited to *one* in progress export request at a given time. The request will return with a 403 Forbidden status code if the limit is exceeded.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_resource_export_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict body: A JSON payload specifying the resources to export, including filters to apply and fields to be exported. (required)
+        :return: ResourceExportResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        all_params = []
+        all_params.append('async_req')
+        all_params.append('header_params')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+        all_params.append('full_payload')
+        all_params.append('item_limit')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_resource_export" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if (body is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_resource_export`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = {}
+
+
+        header_params = kwargs.get("header_params", {})
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = body
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['personalAccessToken']  # noqa: E501
+
+        # hard checking for True boolean value because user can provide full_payload or async_req with any data type
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
+            return self.api_client.call_api(
+                '/exports/resource', 'POST',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+        elif self.api_client.configuration.return_page_iterator:
+            (data) = self.api_client.call_api(
+                '/exports/resource', 'POST',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+            if params.get('_return_http_data_only') == False:
+                return data
+            return data["data"] if data else data
+        else:
+            return self.api_client.call_api(
+            '/exports/resource', 'POST',
             path_params,
             query_params,
             header_params,

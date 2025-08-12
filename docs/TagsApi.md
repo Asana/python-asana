@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a tag
 
-Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+<b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
 
 ([more information](https://developers.asana.com/reference/createtag))
 
@@ -68,7 +68,7 @@ dict
 
 Create a tag in a workspace
 
-Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
+<b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.
 
 ([more information](https://developers.asana.com/reference/createtagforworkspace))
 
@@ -169,7 +169,7 @@ dict
 
 Get a tag
 
-Returns the complete tag record for a single tag.
+<b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.
 
 ([more information](https://developers.asana.com/reference/gettag))
 
@@ -220,7 +220,7 @@ dict
 
 Get multiple tags
 
-Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+<b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
 
 ([more information](https://developers.asana.com/reference/gettags))
 
@@ -276,7 +276,7 @@ generator
 
 Get a task&#x27;s tags
 
-Get a compact representation of all of the tags the task has.
+<b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.
 
 ([more information](https://developers.asana.com/reference/gettagsfortask))
 
@@ -332,7 +332,7 @@ generator
 
 Get tags in a workspace
 
-Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
+<b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.
 
 ([more information](https://developers.asana.com/reference/gettagsforworkspace))
 
@@ -388,7 +388,7 @@ generator
 
 Update a tag
 
-Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
+<b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.
 
 ([more information](https://developers.asana.com/reference/updatetag))
 

@@ -35,7 +35,7 @@ class MembershipsApi(object):
     def create_membership(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`. Teams or Users can be members of `goals` or `projects`. Portfolios and custom fields only support `users` as members.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership(async_req=True)
@@ -57,7 +57,7 @@ class MembershipsApi(object):
     def create_membership_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`. Teams or Users can be members of `goals` or `projects`. Portfolios and custom fields only support `users` as members.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership_with_http_info(async_req=True)
@@ -444,7 +444,7 @@ class MembershipsApi(object):
     def get_memberships(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership. Team as members are not supported for portfolios or custom fields yet.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships(async_req=True)
@@ -470,7 +470,7 @@ class MembershipsApi(object):
     def get_memberships_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership. Team as members are not supported for portfolios or custom fields yet.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships_with_http_info(async_req=True)

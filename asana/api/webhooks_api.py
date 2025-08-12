@@ -35,7 +35,7 @@ class WebhooksApi(object):
     def create_webhook(self, body, opts, **kwargs):  # noqa: E501
         """Establish a webhook  # noqa: E501
 
-        Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will receive a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   },   \"X-Hook-Secret\": \"b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81\" } ```  # noqa: E501
+        <b>Required scope: </b><code>webhooks:write</code>  Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will receive a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   },   \"X-Hook-Secret\": \"b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81\" } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_webhook(body, async_req=True)
@@ -58,7 +58,7 @@ class WebhooksApi(object):
     def create_webhook_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Establish a webhook  # noqa: E501
 
-        Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will receive a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   },   \"X-Hook-Secret\": \"b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81\" } ```  # noqa: E501
+        <b>Required scope: </b><code>webhooks:write</code>  Establishing a webhook is a two-part process. First, a simple HTTP POST request initiates the creation similar to creating any other resource.  Next, in the middle of this request comes the confirmation handshake. When a webhook is created, we will send a test POST to the target with an `X-Hook-Secret` header. The target must respond with a `200 OK` or `204 No Content` and a matching `X-Hook-Secret` header to confirm that this webhook subscription is indeed expected. We strongly recommend storing this secret to be used to verify future webhook event signatures.  The POST request to create the webhook will then return with the status of the request. If you do not acknowledge the webhook’s confirmation handshake it will fail to setup, and you will receive an error in response to your attempt to create it. This means you need to be able to receive and complete the webhook *while* the POST request is in-flight (in other words, have a server that can handle requests asynchronously).  Invalid hostnames like localhost will receive a 403 Forbidden status code.  ``` # Request curl -H \"Authorization: Bearer <personal_access_token>\" \\ -X POST https://app.asana.com/api/1.0/webhooks \\ -d \"resource=8675309\" \\ -d \"target=https://example.com/receive-webhook/7654\" ```  ``` # Handshake sent to https://example.com/ POST /receive-webhook/7654 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Handshake response sent by example.com HTTP/1.1 200 X-Hook-Secret: b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81 ```  ``` # Response HTTP/1.1 201 {   \"data\": {     \"gid\": \"43214\",     \"resource\": {       \"gid\": \"8675309\",       \"name\": \"Bugs\"     },     \"target\": \"https://example.com/receive-webhook/7654\",     \"active\": false,     \"last_success_at\": null,     \"last_failure_at\": null,     \"last_failure_content\": null   },   \"X-Hook-Secret\": \"b537207f20cbfa02357cf448134da559e8bd39d61597dcd5631b8012eae53e81\" } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_webhook_with_http_info(body, async_req=True)
@@ -177,7 +177,7 @@ class WebhooksApi(object):
     def delete_webhook(self, webhook_gid, **kwargs):  # noqa: E501
         """Delete a webhook  # noqa: E501
 
-        This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:delete</code>  This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_webhook(webhook_gid, async_req=True)
@@ -199,7 +199,7 @@ class WebhooksApi(object):
     def delete_webhook_with_http_info(self, webhook_gid, **kwargs):  # noqa: E501
         """Delete a webhook  # noqa: E501
 
-        This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:delete</code>  This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_webhook_with_http_info(webhook_gid, async_req=True)
@@ -313,7 +313,7 @@ class WebhooksApi(object):
     def get_webhook(self, webhook_gid, opts, **kwargs):  # noqa: E501
         """Get a webhook  # noqa: E501
 
-        Returns the full record for the given webhook.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:read</code>  Returns the full record for the given webhook.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhook(webhook_gid, async_req=True)
@@ -336,7 +336,7 @@ class WebhooksApi(object):
     def get_webhook_with_http_info(self, webhook_gid, opts, **kwargs):  # noqa: E501
         """Get a webhook  # noqa: E501
 
-        Returns the full record for the given webhook.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:read</code>  Returns the full record for the given webhook.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhook_with_http_info(webhook_gid, async_req=True)
@@ -452,7 +452,7 @@ class WebhooksApi(object):
     def get_webhooks(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple webhooks  # noqa: E501
 
-        Get the compact representation of all webhooks your app has registered for the authenticated user in the given workspace.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:read</code>  Get the compact representation of all webhooks your app has registered for the authenticated user in the given workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhooks(workspace, async_req=True)
@@ -478,7 +478,7 @@ class WebhooksApi(object):
     def get_webhooks_with_http_info(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple webhooks  # noqa: E501
 
-        Get the compact representation of all webhooks your app has registered for the authenticated user in the given workspace.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:read</code>  Get the compact representation of all webhooks your app has registered for the authenticated user in the given workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhooks_with_http_info(workspace, async_req=True)
@@ -600,7 +600,7 @@ class WebhooksApi(object):
     def update_webhook(self, body, webhook_gid, opts, **kwargs):  # noqa: E501
         """Update a webhook  # noqa: E501
 
-        An existing webhook's filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook's previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:write</code>  An existing webhook's filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook's previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_webhook(body, webhook_gid, async_req=True)
@@ -624,7 +624,7 @@ class WebhooksApi(object):
     def update_webhook_with_http_info(self, body, webhook_gid, opts, **kwargs):  # noqa: E501
         """Update a webhook  # noqa: E501
 
-        An existing webhook's filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook's previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.  # noqa: E501
+        <b>Required scope: </b><code>webhooks:write</code>  An existing webhook's filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook's previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_webhook_with_http_info(body, webhook_gid, async_req=True)

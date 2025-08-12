@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Create a story on a task
 
-Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
+<b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.
 
 ([more information](https://developers.asana.com/reference/createstoryfortask))
 
@@ -222,7 +222,7 @@ dict
 
 Update a story
 
-Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
+<b>Required scope: </b><code>stories:write</code>  Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.
 
 ([more information](https://developers.asana.com/reference/updatestory))
 

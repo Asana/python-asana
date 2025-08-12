@@ -74,7 +74,7 @@ dict
 
 Delete an attachment
 
-Deletes a specific, existing attachment.  Returns an empty data record.
+<b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.
 
 ([more information](https://developers.asana.com/reference/deleteattachment))
 

@@ -35,7 +35,7 @@ class StoriesApi(object):
     def create_story_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a story on a task  # noqa: E501
 
-        Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_story_for_task(body, task_gid, async_req=True)
@@ -59,7 +59,7 @@ class StoriesApi(object):
     def create_story_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a story on a task  # noqa: E501
 
-        Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_story_for_task_with_http_info(body, task_gid, async_req=True)
@@ -604,7 +604,7 @@ class StoriesApi(object):
     def update_story(self, body, story_gid, opts, **kwargs):  # noqa: E501
         """Update a story  # noqa: E501
 
-        Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_story(body, story_gid, async_req=True)
@@ -628,7 +628,7 @@ class StoriesApi(object):
     def update_story_with_http_info(self, body, story_gid, opts, **kwargs):  # noqa: E501
         """Update a story  # noqa: E501
 
-        Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_story_with_http_info(body, story_gid, async_req=True)

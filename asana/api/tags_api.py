@@ -35,7 +35,7 @@ class TagsApi(object):
     def create_tag(self, body, opts, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
-        Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag(body, async_req=True)
@@ -58,7 +58,7 @@ class TagsApi(object):
     def create_tag_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
-        Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag_with_http_info(body, async_req=True)
@@ -177,7 +177,7 @@ class TagsApi(object):
     def create_tag_for_workspace(self, body, workspace_gid, opts, **kwargs):  # noqa: E501
         """Create a tag in a workspace  # noqa: E501
 
-        Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag_for_workspace(body, workspace_gid, async_req=True)
@@ -201,7 +201,7 @@ class TagsApi(object):
     def create_tag_for_workspace_with_http_info(self, body, workspace_gid, opts, **kwargs):  # noqa: E501
         """Create a tag in a workspace  # noqa: E501
 
-        Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Creates a new tag in a workspace or organization.  Every tag is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the workspace parameter regardless of whether or not it is an organization.  Returns the full record of the newly created tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag_for_workspace_with_http_info(body, workspace_gid, async_req=True)
@@ -461,7 +461,7 @@ class TagsApi(object):
     def get_tag(self, tag_gid, opts, **kwargs):  # noqa: E501
         """Get a tag  # noqa: E501
 
-        Returns the complete tag record for a single tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tag(tag_gid, async_req=True)
@@ -484,7 +484,7 @@ class TagsApi(object):
     def get_tag_with_http_info(self, tag_gid, opts, **kwargs):  # noqa: E501
         """Get a tag  # noqa: E501
 
-        Returns the complete tag record for a single tag.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the complete tag record for a single tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tag_with_http_info(tag_gid, async_req=True)
@@ -600,7 +600,7 @@ class TagsApi(object):
     def get_tags(self, opts, **kwargs):  # noqa: E501
         """Get multiple tags  # noqa: E501
 
-        Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags(async_req=True)
@@ -625,7 +625,7 @@ class TagsApi(object):
     def get_tags_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple tags  # noqa: E501
 
-        Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags_with_http_info(async_req=True)
@@ -742,7 +742,7 @@ class TagsApi(object):
     def get_tags_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get a task's tags  # noqa: E501
 
-        Get a compact representation of all of the tags the task has.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags_for_task(task_gid, async_req=True)
@@ -767,7 +767,7 @@ class TagsApi(object):
     def get_tags_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get a task's tags  # noqa: E501
 
-        Get a compact representation of all of the tags the task has.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Get a compact representation of all of the tags the task has.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags_for_task_with_http_info(task_gid, async_req=True)
@@ -888,7 +888,7 @@ class TagsApi(object):
     def get_tags_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get tags in a workspace  # noqa: E501
 
-        Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags_for_workspace(workspace_gid, async_req=True)
@@ -913,7 +913,7 @@ class TagsApi(object):
     def get_tags_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get tags in a workspace  # noqa: E501
 
-        Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
+        <b>Required scope: </b><code>tags:read</code>  Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tags_for_workspace_with_http_info(workspace_gid, async_req=True)
@@ -1034,7 +1034,7 @@ class TagsApi(object):
     def update_tag(self, body, tag_gid, opts, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_tag(body, tag_gid, async_req=True)
@@ -1058,7 +1058,7 @@ class TagsApi(object):
     def update_tag_with_http_info(self, body, tag_gid, opts, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
+        <b>Required scope: </b><code>tags:write</code>  Updates the properties of a tag. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the tag.  Returns the complete updated tag record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_tag_with_http_info(body, tag_gid, async_req=True)

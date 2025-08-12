@@ -14,8 +14,28 @@ ExportsApi:
 
     
     try:
-        # Initiate graph export
+        # Initiate a graph export
         api_response = exports_api_instance.create_graph_export(body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExportsApi->create_graph_export: %s\n" % e)
+  create_resource_export: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    exports_api_instance = asana.ExportsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | A JSON payload specifying the resources to export, including filters to apply and fields to be exported.
+
+    
+    try:
+        # Initiate a resource export
+        api_response = exports_api_instance.create_resource_export(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ExportsApi->create_resource_export: %s\n" % e)

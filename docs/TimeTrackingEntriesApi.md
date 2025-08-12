@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_time_tracking_entry**](TimeTrackingEntriesApi.md#create_time_tracking_entry) | **POST** /tasks/{task_gid}/time_tracking_entries | Create a time tracking entry
 [**delete_time_tracking_entry**](TimeTrackingEntriesApi.md#delete_time_tracking_entry) | **DELETE** /time_tracking_entries/{time_tracking_entry_gid} | Delete a time tracking entry
+[**get_time_tracking_entries**](TimeTrackingEntriesApi.md#get_time_tracking_entries) | **GET** /time_tracking_entries | Get multiple time tracking entries
 [**get_time_tracking_entries_for_task**](TimeTrackingEntriesApi.md#get_time_tracking_entries_for_task) | **GET** /tasks/{task_gid}/time_tracking_entries | Get time tracking entries for a task
 [**get_time_tracking_entry**](TimeTrackingEntriesApi.md#get_time_tracking_entry) | **GET** /time_tracking_entries/{time_tracking_entry_gid} | Get a time tracking entry
 [**update_time_tracking_entry**](TimeTrackingEntriesApi.md#update_time_tracking_entry) | **PUT** /time_tracking_entries/{time_tracking_entry_gid} | Update a time tracking entry
@@ -33,7 +34,7 @@ time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the time tracking entry.
 task_gid = "321654" # str | The task to operate on.
 opts = {
-    'opt_fields': "attributable_to,attributable_to.name,created_at,created_by,created_by.name,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,attributable_to,attributable_to.name,billable_status,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -103,6 +104,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 dict
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **get_time_tracking_entries**
+
+Get multiple time tracking entries
+
+Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.
+
+([more information](https://developers.asana.com/reference/gettimetrackingentries))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
+opts = {
+    'task': "12345", # str | Globally unique identifier for the task to filter time tracking entries by.
+    'attributable_to': "12345", # str | Globally unique identifier for the project the time tracking entries are attributed to.
+    'portfolio': "12345", # str | Globally unique identifier for the portfolio to filter time tracking entries by.
+    'user': "12345", # str | Globally unique identifier for the user to filter time tracking entries by.
+    'workspace': "98765", # str | Globally unique identifier for the workspace.
+    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+    'opt_fields': "attributable_to,attributable_to.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Get multiple time tracking entries
+    api_response = time_tracking_entries_api_instance.get_time_tracking_entries(opts)
+    for data in api_response:
+        pprint(data)
+except ApiException as e:
+    print("Exception when calling TimeTrackingEntriesApi->get_time_tracking_entries: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **task** | **str**| Globally unique identifier for the task to filter time tracking entries by. | [optional] 
+ **attributable_to** | **str**| Globally unique identifier for the project the time tracking entries are attributed to. | [optional] 
+ **portfolio** | **str**| Globally unique identifier for the portfolio to filter time tracking entries by. | [optional] 
+ **user** | **str**| Globally unique identifier for the user to filter time tracking entries by. | [optional] 
+ **workspace** | **str**| Globally unique identifier for the workspace. | [optional] 
+ **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
+ **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+generator
 
 ### HTTP request headers
 
@@ -189,7 +254,7 @@ api_client = asana.ApiClient(configuration)
 time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 time_tracking_entry_gid = "917392" # str | Globally unique identifier for the time tracking entry.
 opts = {
-    'opt_fields': "attributable_to,attributable_to.name,created_at,created_by,created_by.name,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,attributable_to,attributable_to.name,billable_status,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -241,7 +306,7 @@ time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the time tracking entry.
 time_tracking_entry_gid = "917392" # str | Globally unique identifier for the time tracking entry.
 opts = {
-    'opt_fields': "attributable_to,attributable_to.name,created_at,created_by,created_by.name,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,attributable_to,attributable_to.name,billable_status,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

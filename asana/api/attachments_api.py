@@ -214,7 +214,7 @@ class AttachmentsApi(object):
     def delete_attachment(self, attachment_gid, **kwargs):  # noqa: E501
         """Delete an attachment  # noqa: E501
 
-        Deletes a specific, existing attachment.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_attachment(attachment_gid, async_req=True)
@@ -236,7 +236,7 @@ class AttachmentsApi(object):
     def delete_attachment_with_http_info(self, attachment_gid, **kwargs):  # noqa: E501
         """Delete an attachment  # noqa: E501
 
-        Deletes a specific, existing attachment.  Returns an empty data record.  # noqa: E501
+        <b>Required scope: </b><code>attachments:delete</code>  Deletes a specific, existing attachment.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_attachment_with_http_info(attachment_gid, async_req=True)

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Create a membership
 
-Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`. Teams or Users can be members of `goals` or `projects`. Portfolios and custom fields only support `users` as members.  Returns the full record of the newly created membership.
+Creates a new membership in a `goal`, `project`, `portfolio`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.
 
 ([more information](https://developers.asana.com/reference/createmembership))
 
@@ -159,7 +159,7 @@ dict
 
 Get multiple memberships
 
-Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership. Team as members are not supported for portfolios or custom fields yet.
+Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.
 
 ([more information](https://developers.asana.com/reference/getmemberships))
 

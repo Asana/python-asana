@@ -35,7 +35,7 @@ class CustomFieldsApi(object):
     def create_custom_field(self, body, opts, **kwargs):  # noqa: E501
         """Create a custom field  # noqa: E501
 
-        Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_custom_field(body, async_req=True)
@@ -58,7 +58,7 @@ class CustomFieldsApi(object):
     def create_custom_field_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a custom field  # noqa: E501
 
-        Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Creates a new custom field in a workspace. Every custom field is required to be created in a specific workspace, and this workspace cannot be changed once set.  A custom field’s name must be unique within a workspace and not conflict with names of existing task properties such as `Due Date` or `Assignee`. A custom field’s type must be one of `text`, `enum`, `multi_enum`, `number`, `date`, or `people`.  Returns the full record of the newly created custom field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_custom_field_with_http_info(body, async_req=True)
@@ -177,7 +177,7 @@ class CustomFieldsApi(object):
     def create_enum_option_for_custom_field(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Create an enum option  # noqa: E501
 
-        Creates an enum option and adds it to this custom field’s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field’s list. Locked custom fields can only have enum options added by the user who locked the field. Returns the full record of the newly created enum option.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Creates an enum option and adds it to this custom field’s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field’s list. Locked custom fields can only have enum options added by the user who locked the field. Returns the full record of the newly created enum option.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_enum_option_for_custom_field(custom_field_gid, async_req=True)
@@ -201,7 +201,7 @@ class CustomFieldsApi(object):
     def create_enum_option_for_custom_field_with_http_info(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Create an enum option  # noqa: E501
 
-        Creates an enum option and adds it to this custom field’s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field’s list. Locked custom fields can only have enum options added by the user who locked the field. Returns the full record of the newly created enum option.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Creates an enum option and adds it to this custom field’s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field’s list. Locked custom fields can only have enum options added by the user who locked the field. Returns the full record of the newly created enum option.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_enum_option_for_custom_field_with_http_info(custom_field_gid, async_req=True)
@@ -458,7 +458,7 @@ class CustomFieldsApi(object):
     def get_custom_field(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Get a custom field  # noqa: E501
 
-        Get the complete definition of a custom field’s metadata.  Since custom fields can be defined for one of a number of types, and these types have different data and behaviors, there are fields that are relevant to a particular type. For instance, as noted above, enum_options is only relevant for the enum type and defines the set of choices that the enum could represent. The examples below show some of these type-specific custom field definitions.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:read</code>  Get the complete definition of a custom field’s metadata.  Since custom fields can be defined for one of a number of types, and these types have different data and behaviors, there are fields that are relevant to a particular type. For instance, as noted above, enum_options is only relevant for the enum type and defines the set of choices that the enum could represent. The examples below show some of these type-specific custom field definitions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_field(custom_field_gid, async_req=True)
@@ -481,7 +481,7 @@ class CustomFieldsApi(object):
     def get_custom_field_with_http_info(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Get a custom field  # noqa: E501
 
-        Get the complete definition of a custom field’s metadata.  Since custom fields can be defined for one of a number of types, and these types have different data and behaviors, there are fields that are relevant to a particular type. For instance, as noted above, enum_options is only relevant for the enum type and defines the set of choices that the enum could represent. The examples below show some of these type-specific custom field definitions.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:read</code>  Get the complete definition of a custom field’s metadata.  Since custom fields can be defined for one of a number of types, and these types have different data and behaviors, there are fields that are relevant to a particular type. For instance, as noted above, enum_options is only relevant for the enum type and defines the set of choices that the enum could represent. The examples below show some of these type-specific custom field definitions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_field_with_http_info(custom_field_gid, async_req=True)
@@ -597,7 +597,7 @@ class CustomFieldsApi(object):
     def get_custom_fields_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get a workspace's custom fields  # noqa: E501
 
-        Returns a list of the compact representation of all of the custom fields in a workspace.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:read</code>  Returns a list of the compact representation of all of the custom fields in a workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_fields_for_workspace(workspace_gid, async_req=True)
@@ -622,7 +622,7 @@ class CustomFieldsApi(object):
     def get_custom_fields_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get a workspace's custom fields  # noqa: E501
 
-        Returns a list of the compact representation of all of the custom fields in a workspace.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:read</code>  Returns a list of the compact representation of all of the custom fields in a workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_fields_for_workspace_with_http_info(workspace_gid, async_req=True)
@@ -743,7 +743,7 @@ class CustomFieldsApi(object):
     def insert_enum_option_for_custom_field(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Reorder a custom field's enum  # noqa: E501
 
-        Moves a particular enum option to be either before or after another specified enum option in the custom field. Locked custom fields can only be reordered by the user who locked the field.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Moves a particular enum option to be either before or after another specified enum option in the custom field. Locked custom fields can only be reordered by the user who locked the field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.insert_enum_option_for_custom_field(custom_field_gid, async_req=True)
@@ -767,7 +767,7 @@ class CustomFieldsApi(object):
     def insert_enum_option_for_custom_field_with_http_info(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Reorder a custom field's enum  # noqa: E501
 
-        Moves a particular enum option to be either before or after another specified enum option in the custom field. Locked custom fields can only be reordered by the user who locked the field.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Moves a particular enum option to be either before or after another specified enum option in the custom field. Locked custom fields can only be reordered by the user who locked the field.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.insert_enum_option_for_custom_field_with_http_info(custom_field_gid, async_req=True)
@@ -888,7 +888,7 @@ class CustomFieldsApi(object):
     def update_custom_field(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Update a custom field  # noqa: E501
 
-        A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field. A custom field’s `type` cannot be updated. An enum custom field’s `enum_options` cannot be updated with this endpoint. Instead see “Work With Enum Options” for information on how to update `enum_options`. Locked custom fields can only be updated by the user who locked the field. Returns the complete updated custom field record.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field. A custom field’s `type` cannot be updated. An enum custom field’s `enum_options` cannot be updated with this endpoint. Instead see “Work With Enum Options” for information on how to update `enum_options`. Locked custom fields can only be updated by the user who locked the field. Returns the complete updated custom field record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_custom_field(custom_field_gid, async_req=True)
@@ -912,7 +912,7 @@ class CustomFieldsApi(object):
     def update_custom_field_with_http_info(self, custom_field_gid, opts, **kwargs):  # noqa: E501
         """Update a custom field  # noqa: E501
 
-        A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field. A custom field’s `type` cannot be updated. An enum custom field’s `enum_options` cannot be updated with this endpoint. Instead see “Work With Enum Options” for information on how to update `enum_options`. Locked custom fields can only be updated by the user who locked the field. Returns the complete updated custom field record.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field. A custom field’s `type` cannot be updated. An enum custom field’s `enum_options` cannot be updated with this endpoint. Instead see “Work With Enum Options” for information on how to update `enum_options`. Locked custom fields can only be updated by the user who locked the field. Returns the complete updated custom field record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_custom_field_with_http_info(custom_field_gid, async_req=True)
@@ -1033,7 +1033,7 @@ class CustomFieldsApi(object):
     def update_enum_option(self, enum_option_gid, opts, **kwargs):  # noqa: E501
         """Update an enum option  # noqa: E501
 
-        Updates an existing enum option. Enum custom fields require at least one enabled enum option. Locked custom fields can only be updated by the user who locked the field. Returns the full record of the updated enum option.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Updates an existing enum option. Enum custom fields require at least one enabled enum option. Locked custom fields can only be updated by the user who locked the field. Returns the full record of the updated enum option.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_enum_option(enum_option_gid, async_req=True)
@@ -1057,7 +1057,7 @@ class CustomFieldsApi(object):
     def update_enum_option_with_http_info(self, enum_option_gid, opts, **kwargs):  # noqa: E501
         """Update an enum option  # noqa: E501
 
-        Updates an existing enum option. Enum custom fields require at least one enabled enum option. Locked custom fields can only be updated by the user who locked the field. Returns the full record of the updated enum option.  # noqa: E501
+        <b>Required scope: </b><code>custom_fields:write</code>  Updates an existing enum option. Enum custom fields require at least one enabled enum option. Locked custom fields can only be updated by the user who locked the field. Returns the full record of the updated enum option.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_enum_option_with_http_info(enum_option_gid, async_req=True)
