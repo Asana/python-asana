@@ -35,7 +35,7 @@ class ExportsApi(object):
     def create_graph_export(self, body, **kwargs):  # noqa: E501
         """Initiate a graph export  # noqa: E501
 
-        Initiates a graph export job for a given parent object (team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
+        Initiates a graph export job for a given parent object (goal, team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_graph_export(body, async_req=True)
@@ -57,7 +57,7 @@ class ExportsApi(object):
     def create_graph_export_with_http_info(self, body, **kwargs):  # noqa: E501
         """Initiate a graph export  # noqa: E501
 
-        Initiates a graph export job for a given parent object (team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
+        Initiates a graph export job for a given parent object (goal, team, portfolio, or project). The export will be processed asynchronously. Once initiated, use the [jobs](/reference/getjob) endpoint to monitor progress.  **Export Caching:** When exporting more than 1,000 tasks, the results are cached for 4 hours. Any new export requests made within this 4-hour window will return the same cached results rather than generating a fresh export.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_graph_export_with_http_info(body, async_req=True)

@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
+from asana.api.access_requests_api import AccessRequestsApi
 from asana.api.allocations_api import AllocationsApi
 from asana.api.attachments_api import AttachmentsApi
 from asana.api.audit_log_api_api import AuditLogAPIApi
@@ -36,6 +37,7 @@ from asana.api.project_memberships_api import ProjectMembershipsApi
 from asana.api.project_statuses_api import ProjectStatusesApi
 from asana.api.project_templates_api import ProjectTemplatesApi
 from asana.api.projects_api import ProjectsApi
+from asana.api.reactions_api import ReactionsApi
 from asana.api.rules_api import RulesApi
 from asana.api.sections_api import SectionsApi
 from asana.api.status_updates_api import StatusUpdatesApi

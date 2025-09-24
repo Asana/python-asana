@@ -1,0 +1,85 @@
+AccessRequestsApi:
+  approve_access_request: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    access_requests_api_instance = asana.AccessRequestsApi(api_client)
+    access_request_gid = "12345" # str | Globally unique identifier for the access request.
+
+    
+    try:
+        # Approve an access request
+        api_response = access_requests_api_instance.approve_access_request(access_request_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccessRequestsApi->approve_access_request: %s\n" % e)
+  create_access_request: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    access_requests_api_instance = asana.AccessRequestsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | 
+
+    
+    try:
+        # Create an access request
+        api_response = access_requests_api_instance.create_access_request(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccessRequestsApi->create_access_request: %s\n" % e)
+  get_access_requests: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    access_requests_api_instance = asana.AccessRequestsApi(api_client)
+    target = "1331" # str | Globally unique identifier for the target object.
+    opts = {
+        'user': "me", # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+        'opt_fields': "approval_status,message,requester,requester.name,target", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get access requests
+        api_response = access_requests_api_instance.get_access_requests(target, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling AccessRequestsApi->get_access_requests: %s\n" % e)
+  reject_access_request: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    access_requests_api_instance = asana.AccessRequestsApi(api_client)
+    access_request_gid = "12345" # str | Globally unique identifier for the access request.
+
+    
+    try:
+        # Reject an access request
+        api_response = access_requests_api_instance.reject_access_request(access_request_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccessRequestsApi->reject_access_request: %s\n" % e)
