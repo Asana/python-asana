@@ -116,7 +116,7 @@ dict
 
 Get multiple time tracking entries
 
-Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.
+<b>Required scope: </b><code>time_tracking_entries:read</code>  Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.
 
 ([more information](https://developers.asana.com/reference/gettimetrackingentries))
 
@@ -137,7 +137,10 @@ opts = {
     'attributable_to': "12345", # str | Globally unique identifier for the project the time tracking entries are attributed to.
     'portfolio': "12345", # str | Globally unique identifier for the portfolio to filter time tracking entries by.
     'user': "12345", # str | Globally unique identifier for the user to filter time tracking entries by.
-    'workspace': "98765", # str | Globally unique identifier for the workspace.
+    'workspace': "98765", # str | Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
+    'entered_on_start_date': '2025-01-01', # date | The start date for filtering time tracking entries by when they were entered.
+    'entered_on_end_date': '2025-12-31', # date | The end date for filtering time tracking entries by when they were entered.
+    'timesheet_approval_status': "12345", # str | Globally unique identifier for the timesheet approval status to filter time tracking entries by.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
     'opt_fields': "attributable_to,attributable_to.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -160,7 +163,10 @@ Name | Type | Description  | Notes
  **attributable_to** | **str**| Globally unique identifier for the project the time tracking entries are attributed to. | [optional] 
  **portfolio** | **str**| Globally unique identifier for the portfolio to filter time tracking entries by. | [optional] 
  **user** | **str**| Globally unique identifier for the user to filter time tracking entries by. | [optional] 
- **workspace** | **str**| Globally unique identifier for the workspace. | [optional] 
+ **workspace** | **str**| Globally unique identifier for the workspace. At least one of &#x60;entered_on_start_date&#x60; or &#x60;entered_on_end_date&#x60; must be provided when filtering by workspace. | [optional] 
+ **entered_on_start_date** | **date**| The start date for filtering time tracking entries by when they were entered. | [optional] 
+ **entered_on_end_date** | **date**| The end date for filtering time tracking entries by when they were entered. | [optional] 
+ **timesheet_approval_status** | **str**| Globally unique identifier for the timesheet approval status to filter time tracking entries by. | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
  **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
@@ -180,7 +186,7 @@ generator
 
 Get time tracking entries for a task
 
-Returns time tracking entries for a given task.
+<b>Required scope: </b><code>time_tracking_entries:read</code>  Returns time tracking entries for a given task.
 
 ([more information](https://developers.asana.com/reference/gettimetrackingentriesfortask))
 
@@ -236,7 +242,7 @@ generator
 
 Get a time tracking entry
 
-Returns the complete time tracking entry record for a single time tracking entry.
+<b>Required scope: </b><code>time_tracking_entries:read</code>  Returns the complete time tracking entry record for a single time tracking entry.
 
 ([more information](https://developers.asana.com/reference/gettimetrackingentry))
 

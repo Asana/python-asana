@@ -6,9 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_favorites_for_user**](UsersApi.md#get_favorites_for_user) | **GET** /users/{user_gid}/favorites | Get a user&#x27;s favorites
 [**get_user**](UsersApi.md#get_user) | **GET** /users/{user_gid} | Get a user
+[**get_user_for_workspace**](UsersApi.md#get_user_for_workspace) | **GET** /workspaces/{workspace_gid}/users/{user_gid} | Get a user in a workspace or organization
 [**get_users**](UsersApi.md#get_users) | **GET** /users | Get multiple users
 [**get_users_for_team**](UsersApi.md#get_users_for_team) | **GET** /teams/{team_gid}/users | Get users in a team
 [**get_users_for_workspace**](UsersApi.md#get_users_for_workspace) | **GET** /workspaces/{workspace_gid}/users | Get users in a workspace or organization
+[**update_user**](UsersApi.md#update_user) | **PUT** /users/{user_gid} | Update a user
+[**update_user_for_workspace**](UsersApi.md#update_user_for_workspace) | **PUT** /workspaces/{workspace_gid}/users/{user_gid} | Update a user in a workspace or organization
 
 # **get_favorites_for_user**
 
@@ -92,6 +95,7 @@ api_client = asana.ApiClient(configuration)
 users_api_instance = asana.UsersApi(api_client)
 user_gid = "me" # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
 opts = {
+    'workspace': "12345", # str | The workspace to filter results on.
     'opt_fields': "custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.id_prefix,custom_fields.input_restrictions,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.representation_type,custom_fields.text_value,custom_fields.type,email,name,photo,photo.image_1024x1024,photo.image_128x128,photo.image_21x21,photo.image_27x27,photo.image_36x36,photo.image_60x60,workspaces,workspaces.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
@@ -107,6 +111,60 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **user_gid** | **str**| A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | 
+ **workspace** | **str**| The workspace to filter results on. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **get_user_for_workspace**
+
+Get a user in a workspace or organization
+
+<b>Required scope: </b><code>users:read</code>  Returns the full user record for the single user with the provided ID in the specified workspace or organization.
+
+([more information](https://developers.asana.com/reference/getuserforworkspace))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+users_api_instance = asana.UsersApi(api_client)
+workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+user_gid = "me" # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opts = {
+    'opt_fields': "custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.id_prefix,custom_fields.input_restrictions,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.representation_type,custom_fields.text_value,custom_fields.type,email,name,photo,photo.image_1024x1024,photo.image_128x128,photo.image_21x21,photo.image_27x27,photo.image_36x36,photo.image_60x60,workspaces,workspaces.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Get a user in a workspace or organization
+    api_response = users_api_instance.get_user_for_workspace(workspace_gid, user_gid, opts)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_user_for_workspace: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_gid** | **str**| Globally unique identifier for the workspace or organization. | 
  **user_gid** | **str**| A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | 
  **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
 
@@ -283,6 +341,116 @@ generator
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **update_user**
+
+Update a user
+
+A specific, existing user can be updated by making a PUT request on the URL for that user. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  Returns the complete updated user record.
+
+([more information](https://developers.asana.com/reference/updateuser))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+users_api_instance = asana.UsersApi(api_client)
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The user to update.
+user_gid = "me" # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opts = {
+    'workspace': "12345", # str | The workspace to filter results on.
+    'opt_fields': "custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.id_prefix,custom_fields.input_restrictions,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.representation_type,custom_fields.text_value,custom_fields.type,email,name,photo,photo.image_1024x1024,photo.image_128x128,photo.image_21x21,photo.image_27x27,photo.image_36x36,photo.image_60x60,workspaces,workspaces.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Update a user
+    api_response = users_api_instance.update_user(body, user_gid, opts)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->update_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Dict**| The user to update. | 
+ **user_gid** | **str**| A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | 
+ **workspace** | **str**| The workspace to filter results on. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **update_user_for_workspace**
+
+Update a user in a workspace or organization
+
+An existing user can be updated by making a PUT request on the URL for that user in the specified workspace or organization. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.
+
+([more information](https://developers.asana.com/reference/updateuserforworkspace))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+users_api_instance = asana.UsersApi(api_client)
+body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The user to update.
+workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+user_gid = "me" # str | A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
+opts = {
+    'opt_fields': "custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.id_prefix,custom_fields.input_restrictions,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.representation_type,custom_fields.text_value,custom_fields.type,email,name,photo,photo.image_1024x1024,photo.image_128x128,photo.image_21x21,photo.image_27x27,photo.image_36x36,photo.image_60x60,workspaces,workspaces.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Update a user in a workspace or organization
+    api_response = users_api_instance.update_user_for_workspace(body, workspace_gid, user_gid, opts)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->update_user_for_workspace: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Dict**| The user to update. | 
+ **workspace_gid** | **str**| Globally unique identifier for the workspace or organization. | 
+ **user_gid** | **str**| A string identifying a user. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json; charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

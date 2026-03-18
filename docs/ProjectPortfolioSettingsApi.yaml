@@ -1,0 +1,96 @@
+ProjectPortfolioSettingsApi:
+  get_project_portfolio_setting: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    project_portfolio_settings_api_instance = asana.ProjectPortfolioSettingsApi(api_client)
+    project_portfolio_setting_gid = "1331" # str | Globally unique identifier for the project portfolio setting.
+    opts = {
+        'opt_fields': "created_at,is_access_control_inherited,portfolio,project", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get a project portfolio setting
+        api_response = project_portfolio_settings_api_instance.get_project_portfolio_setting(project_portfolio_setting_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectPortfolioSettingsApi->get_project_portfolio_setting: %s\n" % e)
+  get_project_portfolio_settings_for_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    project_portfolio_settings_api_instance = asana.ProjectPortfolioSettingsApi(api_client)
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = {
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        'opt_fields': "created_at,is_access_control_inherited,offset,path,portfolio,project,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get project portfolio settings for a portfolio
+        api_response = project_portfolio_settings_api_instance.get_project_portfolio_settings_for_portfolio(portfolio_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling ProjectPortfolioSettingsApi->get_project_portfolio_settings_for_portfolio: %s\n" % e)
+  get_project_portfolio_settings_for_project: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    project_portfolio_settings_api_instance = asana.ProjectPortfolioSettingsApi(api_client)
+    project_gid = "1331" # str | Globally unique identifier for the project.
+    opts = {
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        'opt_fields': "created_at,is_access_control_inherited,offset,path,portfolio,project,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Get project portfolio settings for a project
+        api_response = project_portfolio_settings_api_instance.get_project_portfolio_settings_for_project(project_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling ProjectPortfolioSettingsApi->get_project_portfolio_settings_for_project: %s\n" % e)
+  update_project_portfolio_setting: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    project_portfolio_settings_api_instance = asana.ProjectPortfolioSettingsApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the project portfolio setting.
+    project_portfolio_setting_gid = "1331" # str | Globally unique identifier for the project portfolio setting.
+    opts = {
+        'opt_fields': "created_at,is_access_control_inherited,portfolio,project", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Update a project portfolio setting
+        api_response = project_portfolio_settings_api_instance.update_project_portfolio_setting(body, project_portfolio_setting_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectPortfolioSettingsApi->update_project_portfolio_setting: %s\n" % e)

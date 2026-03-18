@@ -35,7 +35,7 @@ class JobsApi(object):
     def get_job(self, job_gid, opts, **kwargs):  # noqa: E501
         """Get a job by id  # noqa: E501
 
-        Returns the full record for a job.  # noqa: E501
+        <b>Required scope: </b><code>jobs:read</code>  Returns the full record for a job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_job(job_gid, async_req=True)
@@ -58,7 +58,7 @@ class JobsApi(object):
     def get_job_with_http_info(self, job_gid, opts, **kwargs):  # noqa: E501
         """Get a job by id  # noqa: E501
 
-        Returns the full record for a job.  # noqa: E501
+        <b>Required scope: </b><code>jobs:read</code>  Returns the full record for a job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_job_with_http_info(job_gid, async_req=True)

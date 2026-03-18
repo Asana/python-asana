@@ -8,6 +8,7 @@ from asana.api.allocations_api import AllocationsApi
 from asana.api.attachments_api import AttachmentsApi
 from asana.api.audit_log_api_api import AuditLogAPIApi
 from asana.api.batch_api_api import BatchAPIApi
+from asana.api.budgets_api import BudgetsApi
 from asana.api.custom_field_settings_api import CustomFieldSettingsApi
 from asana.api.custom_fields_api import CustomFieldsApi
 from asana.api.custom_types_api import CustomTypesApi
@@ -22,10 +23,13 @@ from asana.api.portfolio_memberships_api import PortfolioMembershipsApi
 from asana.api.portfolios_api import PortfoliosApi
 from asana.api.project_briefs_api import ProjectBriefsApi
 from asana.api.project_memberships_api import ProjectMembershipsApi
+from asana.api.project_portfolio_settings_api import ProjectPortfolioSettingsApi
 from asana.api.project_statuses_api import ProjectStatusesApi
 from asana.api.project_templates_api import ProjectTemplatesApi
 from asana.api.projects_api import ProjectsApi
+from asana.api.rates_api import RatesApi
 from asana.api.reactions_api import ReactionsApi
+from asana.api.roles_api import RolesApi
 from asana.api.rules_api import RulesApi
 from asana.api.sections_api import SectionsApi
 from asana.api.status_updates_api import StatusUpdatesApi

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**add_members_for_portfolio**](PortfoliosApi.md#add_members_for_portfolio) | **POST** /portfolios/{portfolio_gid}/addMembers | Add users to a portfolio
 [**create_portfolio**](PortfoliosApi.md#create_portfolio) | **POST** /portfolios | Create a portfolio
 [**delete_portfolio**](PortfoliosApi.md#delete_portfolio) | **DELETE** /portfolios/{portfolio_gid} | Delete a portfolio
+[**duplicate_portfolio**](PortfoliosApi.md#duplicate_portfolio) | **POST** /portfolios/{portfolio_gid}/duplicate | Duplicate a portfolio
 [**get_items_for_portfolio**](PortfoliosApi.md#get_items_for_portfolio) | **GET** /portfolios/{portfolio_gid}/items | Get portfolio items
 [**get_portfolio**](PortfoliosApi.md#get_portfolio) | **GET** /portfolios/{portfolio_gid} | Get a portfolio
 [**get_portfolios**](PortfoliosApi.md#get_portfolios) | **GET** /portfolios | Get multiple portfolios
@@ -265,6 +266,59 @@ dict
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **duplicate_portfolio**
+
+Duplicate a portfolio
+
+<b>Required scope: </b><code>portfolios:write</code>  Creates and returns a job that will asynchronously handle the duplication.
+
+([more information](https://developers.asana.com/reference/duplicateportfolio))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+portfolios_api_instance = asana.PortfoliosApi(api_client)
+portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+opts = {
+    'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | Describes the duplicate's name and the elements that will be duplicated.
+    'opt_fields': "new_graph_export,new_graph_export.completed_at,new_graph_export.created_at,new_graph_export.download_url,new_portfolio,new_portfolio.name,new_project,new_project.name,new_project_template,new_project_template.name,new_resource_export,new_resource_export.completed_at,new_resource_export.created_at,new_resource_export.download_url,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Duplicate a portfolio
+    api_response = portfolios_api_instance.duplicate_portfolio(portfolio_gid, opts)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PortfoliosApi->duplicate_portfolio: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolio_gid** | **str**| Globally unique identifier for the portfolio. | 
+ **body** | **Dict**| Describes the duplicate&#x27;s name and the elements that will be duplicated. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+dict
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json; charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

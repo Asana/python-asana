@@ -319,7 +319,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entries(self, opts, **kwargs):  # noqa: E501
         """Get multiple time tracking entries  # noqa: E501
 
-        Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entries(async_req=True)
@@ -330,7 +330,10 @@ class TimeTrackingEntriesApi(object):
         :param str attributable_to: Globally unique identifier for the project the time tracking entries are attributed to.
         :param str portfolio: Globally unique identifier for the portfolio to filter time tracking entries by.
         :param str user: Globally unique identifier for the user to filter time tracking entries by.
-        :param str workspace: Globally unique identifier for the workspace.
+        :param str workspace: Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
+        :param date entered_on_start_date: The start date for filtering time tracking entries by when they were entered.
+        :param date entered_on_end_date: The end date for filtering time tracking entries by when they were entered.
+        :param str timesheet_approval_status: Globally unique identifier for the timesheet approval status to filter time tracking entries by.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -348,7 +351,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entries_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple time tracking entries  # noqa: E501
 
-        Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns a list of time tracking entries filtered to a task, attributed project, portfolio or user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entries_with_http_info(async_req=True)
@@ -359,7 +362,10 @@ class TimeTrackingEntriesApi(object):
         :param str attributable_to: Globally unique identifier for the project the time tracking entries are attributed to.
         :param str portfolio: Globally unique identifier for the portfolio to filter time tracking entries by.
         :param str user: Globally unique identifier for the user to filter time tracking entries by.
-        :param str workspace: Globally unique identifier for the workspace.
+        :param str workspace: Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
+        :param date entered_on_start_date: The start date for filtering time tracking entries by when they were entered.
+        :param date entered_on_end_date: The end date for filtering time tracking entries by when they were entered.
+        :param str timesheet_approval_status: Globally unique identifier for the timesheet approval status to filter time tracking entries by.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -469,7 +475,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entries_for_task(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get time tracking entries for a task  # noqa: E501
 
-        Returns time tracking entries for a given task.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns time tracking entries for a given task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entries_for_task(task_gid, async_req=True)
@@ -494,7 +500,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entries_for_task_with_http_info(self, task_gid, opts, **kwargs):  # noqa: E501
         """Get time tracking entries for a task  # noqa: E501
 
-        Returns time tracking entries for a given task.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns time tracking entries for a given task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entries_for_task_with_http_info(task_gid, async_req=True)
@@ -615,7 +621,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entry(self, time_tracking_entry_gid, opts, **kwargs):  # noqa: E501
         """Get a time tracking entry  # noqa: E501
 
-        Returns the complete time tracking entry record for a single time tracking entry.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns the complete time tracking entry record for a single time tracking entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entry(time_tracking_entry_gid, async_req=True)
@@ -638,7 +644,7 @@ class TimeTrackingEntriesApi(object):
     def get_time_tracking_entry_with_http_info(self, time_tracking_entry_gid, opts, **kwargs):  # noqa: E501
         """Get a time tracking entry  # noqa: E501
 
-        Returns the complete time tracking entry record for a single time tracking entry.  # noqa: E501
+        <b>Required scope: </b><code>time_tracking_entries:read</code>  Returns the complete time tracking entry record for a single time tracking entry.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_time_tracking_entry_with_http_info(time_tracking_entry_gid, async_req=True)

@@ -106,6 +106,29 @@ PortfoliosApi:
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PortfoliosApi->delete_portfolio: %s\n" % e)
+  duplicate_portfolio: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    portfolios_api_instance = asana.PortfoliosApi(api_client)
+    portfolio_gid = "12345" # str | Globally unique identifier for the portfolio.
+    opts = {
+        'body': {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}}, # dict | Describes the duplicate's name and the elements that will be duplicated.
+        'opt_fields': "new_graph_export,new_graph_export.completed_at,new_graph_export.created_at,new_graph_export.download_url,new_portfolio,new_portfolio.name,new_project,new_project.name,new_project_template,new_project_template.name,new_resource_export,new_resource_export.completed_at,new_resource_export.created_at,new_resource_export.download_url,new_task,new_task.created_by,new_task.name,new_task.resource_subtype,resource_subtype,status", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    }
+    
+    try:
+        # Duplicate a portfolio
+        api_response = portfolios_api_instance.duplicate_portfolio(portfolio_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PortfoliosApi->duplicate_portfolio: %s\n" % e)
   get_items_for_portfolio: |-
     import asana
     from asana.rest import ApiException

@@ -479,7 +479,7 @@ class ProjectsApi(object):
     def create_project(self, body, opts, **kwargs):  # noqa: E501
         """Create a project  # noqa: E501
 
-        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  **Deprecation notice:** The `team` parameter and the `private_to_team` value for `privacy_setting` are deprecated. When either is included in the request, the `Asana-Change` response header will indicate an affected deprecation. Clients should switch to using `POST /memberships` with `{ parent: project, member: team }` to share a project with a team after creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project(body, async_req=True)
@@ -502,7 +502,7 @@ class ProjectsApi(object):
     def create_project_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a project  # noqa: E501
 
-        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  Create a new project in a workspace or team.  Every project is required to be created in a specific workspace or organization, and this cannot be changed once set. Note that you can use the `workspace` parameter regardless of whether or not it is an organization.  If the workspace for your project is an organization, you must also supply a `team` to share the project with.  Returns the full record of the newly created project.  **Deprecation notice:** The `team` parameter and the `private_to_team` value for `privacy_setting` are deprecated. When either is included in the request, the `Asana-Change` response header will indicate an affected deprecation. Clients should switch to using `POST /memberships` with `{ parent: project, member: team }` to share a project with a team after creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_project_with_http_info(body, async_req=True)
@@ -1337,7 +1337,7 @@ class ProjectsApi(object):
     def get_projects(self, opts, **kwargs):  # noqa: E501
         """Get multiple projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!* **The `team` filter is deprecated.** Please use `GET /memberships` with `{ member: team, resource_subtype: project_membership }` to find projects shared with a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects(async_req=True)
@@ -1347,7 +1347,7 @@ class ProjectsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str workspace: The workspace or organization to filter projects on.
-        :param str team: The team to filter projects on.
+        :param str team: **Deprecated.** The team to filter projects on. Please use `GET /memberships` with `{ member: team, resource_subtype: project_membership }` instead.
         :param bool archived: Only return projects whose `archived` field takes on the value of this parameter.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectResponseArray
@@ -1364,7 +1364,7 @@ class ProjectsApi(object):
     def get_projects_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned. *Note: This endpoint may timeout for large domains. Try filtering by team!* **The `team` filter is deprecated.** Please use `GET /memberships` with `{ member: team, resource_subtype: project_membership }` to find projects shared with a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_with_http_info(async_req=True)
@@ -1374,7 +1374,7 @@ class ProjectsApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str workspace: The workspace or organization to filter projects on.
-        :param str team: The team to filter projects on.
+        :param str team: **Deprecated.** The team to filter projects on. Please use `GET /memberships` with `{ member: team, resource_subtype: project_membership }` instead.
         :param bool archived: Only return projects whose `archived` field takes on the value of this parameter.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: ProjectResponseArray
@@ -1629,7 +1629,7 @@ class ProjectsApi(object):
     def get_projects_for_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team. *Deprecated: This endpoint is deprecated. Use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership` to fetch projects shared with a team.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team(team_gid, async_req=True)
@@ -1655,7 +1655,7 @@ class ProjectsApi(object):
     def get_projects_for_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team. *Deprecated: This endpoint is deprecated. Use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership` to fetch projects shared with a team.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team_with_http_info(team_gid, async_req=True)
@@ -1777,7 +1777,7 @@ class ProjectsApi(object):
     def get_projects_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get all projects in a workspace  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. To fetch projects shared with a specific team, use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership`.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_workspace(workspace_gid, async_req=True)
@@ -1803,7 +1803,7 @@ class ProjectsApi(object):
     def get_projects_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
         """Get all projects in a workspace  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the workspace. *Note: This endpoint may timeout for large domains. To fetch projects shared with a specific team, use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership`.*  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_workspace_with_http_info(workspace_gid, async_req=True)
@@ -2653,7 +2653,7 @@ class ProjectsApi(object):
     def update_project(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Update a project  # noqa: E501
 
-        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  **Deprecation notice:** Updating the `team` field is deprecated. When this field is included in the request, the `Asana-Change` response header will indicate an affected deprecation. Clients should switch to using `POST /memberships` with `{ parent: project, member: team }` to share a project with a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_project(body, project_gid, async_req=True)
@@ -2677,7 +2677,7 @@ class ProjectsApi(object):
     def update_project_with_http_info(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Update a project  # noqa: E501
 
-        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  # noqa: E501
+        <b>Required scope: </b><code>projects:write</code>  A specific, existing project can be updated by making a PUT request on the URL for that project. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated project record.  **Deprecation notice:** Updating the `team` field is deprecated. When this field is included in the request, the `Asana-Change` response header will indicate an affected deprecation. Clients should switch to using `POST /memberships` with `{ parent: project, member: team }` to share a project with a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_project_with_http_info(body, project_gid, async_req=True)
