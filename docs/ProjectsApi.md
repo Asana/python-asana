@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**remove_custom_field_setting_for_project**](ProjectsApi.md#remove_custom_field_setting_for_project) | **POST** /projects/{project_gid}/removeCustomFieldSetting | Remove a custom field from a project
 [**remove_followers_for_project**](ProjectsApi.md#remove_followers_for_project) | **POST** /projects/{project_gid}/removeFollowers | Remove followers from a project
 [**remove_members_for_project**](ProjectsApi.md#remove_members_for_project) | **POST** /projects/{project_gid}/removeMembers | Remove users from a project
+[**search_projects_for_workspace**](ProjectsApi.md#search_projects_for_workspace) | **GET** /workspaces/{workspace_gid}/projects/search | Search projects in a workspace
 [**update_project**](ProjectsApi.md#update_project) | **PUT** /projects/{project_gid} | Update a project
 
 # **add_custom_field_setting_for_project**
@@ -980,6 +981,112 @@ dict
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json; charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **search_projects_for_workspace**
+
+Search projects in a workspace
+
+<b>Required scope: </b><code>projects:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a project search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](/docs/pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a project that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. Because of this delay, the search endpoint is not suited for use cases that require immediate consistency after writes. If you need read-your-write behavior or strongly consistent results, we recommend using [Get multiple projects](/reference/getprojects) instead. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](/docs/rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, the query parameter to find projects where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field
+
+([more information](https://developers.asana.com/reference/searchprojectsforworkspace))
+
+### Example
+```python
+import asana
+from asana.rest import ApiException
+from pprint import pprint
+
+configuration = asana.Configuration()
+configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+api_client = asana.ApiClient(configuration)
+
+# create an instance of the API class
+projects_api_instance = asana.ProjectsApi(api_client)
+workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+opts = {
+    'text': "Bugs", # str | Performs full-text search on the project name.
+    'sort_by': "modified_at", # str | One of `due_date`, `created_at`, `completed_at`, or `modified_at`, defaults to `modified_at`.
+    'sort_ascending': False, # bool | Default `false`.
+    'completed': False, # bool | Filter on project completion status.
+    'teams.any': "12345,67890", # str | Comma-separated list of team IDs.
+    'owner.any': "12345,67890", # str | Comma-separated list of user identifiers to filter on as project owners. This can either be the string \"me\", an email, or the gid of a user.
+    'members.any': "12345,67890", # str | Comma-separated list of user identifiers to filter on as members. This can either be the string \"me\", an email, or the gid of a user.
+    'members.not': "12345,67890", # str | Comma-separated list of user identifiers to exclude as members. This can either be the string \"me\", an email, or the gid of a user.
+    'portfolios.any': "12345,67890", # str | Comma-separated list of portfolio IDs to filter on.
+    'completed_on': '2019-09-15', # date | ISO 8601 date string or `null`.
+    'completed_on.before': '2019-09-15', # date | ISO 8601 date string.
+    'completed_on.after': '2019-09-15', # date | ISO 8601 date string.
+    'completed_at.before': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'completed_at.after': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'created_on': '2019-09-15', # date | ISO 8601 date string or `null`.
+    'created_on.before': '2019-09-15', # date | ISO 8601 date string.
+    'created_on.after': '2019-09-15', # date | ISO 8601 date string.
+    'created_at.before': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'created_at.after': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'due_on': '2019-09-15', # date | ISO 8601 date string or `null`.
+    'due_on.before': '2019-09-15', # date | ISO 8601 date string.
+    'due_on.after': '2019-09-15', # date | ISO 8601 date string.
+    'due_at.before': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'due_at.after': '2019-04-15T01:01:46.055Z', # datetime | ISO 8601 datetime string.
+    'start_on': '2019-09-15', # date | ISO 8601 date string or `null`.
+    'start_on.before': '2019-09-15', # date | ISO 8601 date string.
+    'start_on.after': '2019-09-15', # date | ISO 8601 date string.
+    'opt_fields': "archived,color,completed,completed_at,completed_by,completed_by.name,created_at,created_from_template,created_from_template.name,current_status,current_status.author,current_status.author.name,current_status.color,current_status.created_at,current_status.created_by,current_status.created_by.name,current_status.html_text,current_status.modified_at,current_status.text,current_status.title,current_status_update,current_status_update.resource_subtype,current_status_update.title,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.asana_created_field,custom_field_settings.custom_field.created_by,custom_field_settings.custom_field.created_by.name,custom_field_settings.custom_field.currency_code,custom_field_settings.custom_field.custom_label,custom_field_settings.custom_field.custom_label_position,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.default_access_level,custom_field_settings.custom_field.description,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.format,custom_field_settings.custom_field.has_notifications_enabled,custom_field_settings.custom_field.id_prefix,custom_field_settings.custom_field.input_restrictions,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_global_to_workspace,custom_field_settings.custom_field.is_value_read_only,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.people_value,custom_field_settings.custom_field.people_value.name,custom_field_settings.custom_field.precision,custom_field_settings.custom_field.privacy_setting,custom_field_settings.custom_field.reference_value,custom_field_settings.custom_field.reference_value.name,custom_field_settings.custom_field.representation_type,custom_field_settings.custom_field.resource_subtype,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,custom_field_settings.parent,custom_field_settings.parent.name,custom_field_settings.project,custom_field_settings.project.name,custom_fields,custom_fields.date_value,custom_fields.date_value.date,custom_fields.date_value.date_time,custom_fields.display_value,custom_fields.enabled,custom_fields.enum_options,custom_fields.enum_options.color,custom_fields.enum_options.enabled,custom_fields.enum_options.name,custom_fields.enum_value,custom_fields.enum_value.color,custom_fields.enum_value.enabled,custom_fields.enum_value.name,custom_fields.id_prefix,custom_fields.input_restrictions,custom_fields.is_formula_field,custom_fields.multi_enum_values,custom_fields.multi_enum_values.color,custom_fields.multi_enum_values.enabled,custom_fields.multi_enum_values.name,custom_fields.name,custom_fields.number_value,custom_fields.representation_type,custom_fields.text_value,custom_fields.type,default_access_level,default_view,due_date,due_on,followers,followers.name,html_notes,icon,members,members.name,minimum_access_level_for_customization,minimum_access_level_for_sharing,modified_at,name,notes,owner,permalink_url,privacy_setting,project_brief,public,start_on,team,team.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+}
+
+try:
+    # Search projects in a workspace
+    api_response = projects_api_instance.search_projects_for_workspace(workspace_gid, opts)
+    for data in api_response:
+        pprint(data)
+except ApiException as e:
+    print("Exception when calling ProjectsApi->search_projects_for_workspace: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_gid** | **str**| Globally unique identifier for the workspace or organization. | 
+ **text** | **str**| Performs full-text search on the project name. | [optional] 
+ **sort_by** | **str**| One of &#x60;due_date&#x60;, &#x60;created_at&#x60;, &#x60;completed_at&#x60;, or &#x60;modified_at&#x60;, defaults to &#x60;modified_at&#x60;. | [optional] [default to modified_at]
+ **sort_ascending** | **bool**| Default &#x60;false&#x60;. | [optional] [default to false]
+ **completed** | **bool**| Filter on project completion status. | [optional] 
+ **teams.any** | **str**| Comma-separated list of team IDs. | [optional] 
+ **owner.any** | **str**| Comma-separated list of user identifiers to filter on as project owners. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | [optional] 
+ **members.any** | **str**| Comma-separated list of user identifiers to filter on as members. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | [optional] 
+ **members.not** | **str**| Comma-separated list of user identifiers to exclude as members. This can either be the string \&quot;me\&quot;, an email, or the gid of a user. | [optional] 
+ **portfolios.any** | **str**| Comma-separated list of portfolio IDs to filter on. | [optional] 
+ **completed_on** | **date**| ISO 8601 date string or &#x60;null&#x60;. | [optional] 
+ **completed_on.before** | **date**| ISO 8601 date string. | [optional] 
+ **completed_on.after** | **date**| ISO 8601 date string. | [optional] 
+ **completed_at.before** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **completed_at.after** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **created_on** | **date**| ISO 8601 date string or &#x60;null&#x60;. | [optional] 
+ **created_on.before** | **date**| ISO 8601 date string. | [optional] 
+ **created_on.after** | **date**| ISO 8601 date string. | [optional] 
+ **created_at.before** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **created_at.after** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **due_on** | **date**| ISO 8601 date string or &#x60;null&#x60;. | [optional] 
+ **due_on.before** | **date**| ISO 8601 date string. | [optional] 
+ **due_on.after** | **date**| ISO 8601 date string. | [optional] 
+ **due_at.before** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **due_at.after** | **datetime**| ISO 8601 datetime string. | [optional] 
+ **start_on** | **date**| ISO 8601 date string or &#x60;null&#x60;. | [optional] 
+ **start_on.before** | **date**| ISO 8601 date string. | [optional] 
+ **start_on.after** | **date**| ISO 8601 date string. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+
+### Return type
+
+generator
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json; charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

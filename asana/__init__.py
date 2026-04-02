@@ -52,7 +52,9 @@ from asana.api.tasks_api import TasksApi
 from asana.api.team_memberships_api import TeamMembershipsApi
 from asana.api.teams_api import TeamsApi
 from asana.api.time_periods_api import TimePeriodsApi
+from asana.api.time_tracking_categories_api import TimeTrackingCategoriesApi
 from asana.api.time_tracking_entries_api import TimeTrackingEntriesApi
+from asana.api.timesheet_approval_statuses_api import TimesheetApprovalStatusesApi
 from asana.api.typeahead_api import TypeaheadApi
 from asana.api.user_task_lists_api import UserTaskListsApi
 from asana.api.users_api import UsersApi

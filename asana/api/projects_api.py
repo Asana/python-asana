@@ -2650,6 +2650,202 @@ class ProjectsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search_projects_for_workspace(self, workspace_gid, opts, **kwargs):  # noqa: E501
+        """Search projects in a workspace  # noqa: E501
+
+        <b>Required scope: </b><code>projects:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a project search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](/docs/pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a project that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. Because of this delay, the search endpoint is not suited for use cases that require immediate consistency after writes. If you need read-your-write behavior or strongly consistent results, we recommend using [Get multiple projects](/reference/getprojects) instead. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](/docs/rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, the query parameter to find projects where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_projects_for_workspace(workspace_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        :param str text: Performs full-text search on the project name.
+        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, or `modified_at`, defaults to `modified_at`.
+        :param bool sort_ascending: Default `false`.
+        :param bool completed: Filter on project completion status.
+        :param str teams.any: Comma-separated list of team IDs.
+        :param str owner.any: Comma-separated list of user identifiers to filter on as project owners. This can either be the string \"me\", an email, or the gid of a user.
+        :param str members.any: Comma-separated list of user identifiers to filter on as members. This can either be the string \"me\", an email, or the gid of a user.
+        :param str members.not: Comma-separated list of user identifiers to exclude as members. This can either be the string \"me\", an email, or the gid of a user.
+        :param str portfolios.any: Comma-separated list of portfolio IDs to filter on.
+        :param date completed_on: ISO 8601 date string or `null`.
+        :param date completed_on.before: ISO 8601 date string.
+        :param date completed_on.after: ISO 8601 date string.
+        :param datetime completed_at.before: ISO 8601 datetime string.
+        :param datetime completed_at.after: ISO 8601 datetime string.
+        :param date created_on: ISO 8601 date string or `null`.
+        :param date created_on.before: ISO 8601 date string.
+        :param date created_on.after: ISO 8601 date string.
+        :param datetime created_at.before: ISO 8601 datetime string.
+        :param datetime created_at.after: ISO 8601 datetime string.
+        :param date due_on: ISO 8601 date string or `null`.
+        :param date due_on.before: ISO 8601 date string.
+        :param date due_on.after: ISO 8601 date string.
+        :param datetime due_at.before: ISO 8601 datetime string.
+        :param datetime due_at.after: ISO 8601 datetime string.
+        :param date start_on: ISO 8601 date string or `null`.
+        :param date start_on.before: ISO 8601 date string.
+        :param date start_on.after: ISO 8601 date string.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :return: ProjectResponseArray
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
+        if kwargs.get('async_req'):
+            return self.search_projects_for_workspace_with_http_info(workspace_gid, opts, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_projects_for_workspace_with_http_info(workspace_gid, opts, **kwargs)  # noqa: E501
+            return data
+
+    def search_projects_for_workspace_with_http_info(self, workspace_gid, opts, **kwargs):  # noqa: E501
+        """Search projects in a workspace  # noqa: E501
+
+        <b>Required scope: </b><code>projects:read</code>  To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a project search endpoint that allows you to build complex filters to find and retrieve the exact data you need. #### Premium access Like the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:  - The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace  Even if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error. #### Pagination Search results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](/docs/pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter. #### Eventual consistency Changes in Asana (regardless of whether they’re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a project that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product. Because of this delay, the search endpoint is not suited for use cases that require immediate consistency after writes. If you need read-your-write behavior or strongly consistent results, we recommend using [Get multiple projects](/reference/getprojects) instead. #### Rate limits You may receive a `429 Too Many Requests` response if you hit any of our [rate limits](/docs/rate-limits). #### Custom field parameters | Parameter name | Custom field type | Accepted type | |---|---|---| | custom_fields.{gid}.is_set | All | Boolean | | custom_fields.{gid}.value | Text | String | | custom_fields.{gid}.value | Number | Number | | custom_fields.{gid}.value | Enum | Enum option ID | | custom_fields.{gid}.starts_with | Text only | String | | custom_fields.{gid}.ends_with | Text only | String | | custom_fields.{gid}.contains | Text only | String | | custom_fields.{gid}.less_than | Number only | Number | | custom_fields.{gid}.greater_than | Number only | Number |   For example, if the gid of the custom field is 12345, the query parameter to find projects where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.  **Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_projects_for_workspace_with_http_info(workspace_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        :param str text: Performs full-text search on the project name.
+        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, or `modified_at`, defaults to `modified_at`.
+        :param bool sort_ascending: Default `false`.
+        :param bool completed: Filter on project completion status.
+        :param str teams.any: Comma-separated list of team IDs.
+        :param str owner.any: Comma-separated list of user identifiers to filter on as project owners. This can either be the string \"me\", an email, or the gid of a user.
+        :param str members.any: Comma-separated list of user identifiers to filter on as members. This can either be the string \"me\", an email, or the gid of a user.
+        :param str members.not: Comma-separated list of user identifiers to exclude as members. This can either be the string \"me\", an email, or the gid of a user.
+        :param str portfolios.any: Comma-separated list of portfolio IDs to filter on.
+        :param date completed_on: ISO 8601 date string or `null`.
+        :param date completed_on.before: ISO 8601 date string.
+        :param date completed_on.after: ISO 8601 date string.
+        :param datetime completed_at.before: ISO 8601 datetime string.
+        :param datetime completed_at.after: ISO 8601 datetime string.
+        :param date created_on: ISO 8601 date string or `null`.
+        :param date created_on.before: ISO 8601 date string.
+        :param date created_on.after: ISO 8601 date string.
+        :param datetime created_at.before: ISO 8601 datetime string.
+        :param datetime created_at.after: ISO 8601 datetime string.
+        :param date due_on: ISO 8601 date string or `null`.
+        :param date due_on.before: ISO 8601 date string.
+        :param date due_on.after: ISO 8601 date string.
+        :param datetime due_at.before: ISO 8601 datetime string.
+        :param datetime due_at.after: ISO 8601 datetime string.
+        :param date start_on: ISO 8601 date string or `null`.
+        :param date start_on.before: ISO 8601 date string.
+        :param date start_on.after: ISO 8601 date string.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :return: ProjectResponseArray
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        all_params = []
+        all_params.append('async_req')
+        all_params.append('header_params')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+        all_params.append('full_payload')
+        all_params.append('item_limit')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_projects_for_workspace" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'workspace_gid' is set
+        if (workspace_gid is None):
+            raise ValueError("Missing the required parameter `workspace_gid` when calling `search_projects_for_workspace`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['workspace_gid'] = workspace_gid  # noqa: E501
+
+        query_params = {}
+        query_params = opts
+
+
+        header_params = kwargs.get("header_params", {})
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['personalAccessToken']  # noqa: E501
+
+        # hard checking for True boolean value because user can provide full_payload or async_req with any data type
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
+            return self.api_client.call_api(
+                '/workspaces/{workspace_gid}/projects/search', 'GET',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+        elif self.api_client.configuration.return_page_iterator:
+            query_params["limit"] = query_params.get("limit", self.api_client.configuration.page_limit)
+            return PageIterator(
+                self.api_client,
+                {
+                    "resource_path": '/workspaces/{workspace_gid}/projects/search',
+                    "method": 'GET',
+                    "path_params": path_params,
+                    "query_params": query_params,
+                    "header_params": header_params,
+                    "body": body_params,
+                    "post_params": form_params,
+                    "files": local_var_files,
+                    "response_type": object,
+                    "auth_settings": auth_settings,
+                    "async_req": params.get('async_req'),
+                    "_return_http_data_only": params.get('_return_http_data_only'),
+                    "_preload_content": params.get('_preload_content', True),
+                    "_request_timeout": params.get('_request_timeout'),
+                    "collection_formats": collection_formats
+                },
+                **kwargs
+            ).items()
+        else:
+            return self.api_client.call_api(
+            '/workspaces/{workspace_gid}/projects/search', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=object,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_project(self, body, project_gid, opts, **kwargs):  # noqa: E501
         """Update a project  # noqa: E501
 

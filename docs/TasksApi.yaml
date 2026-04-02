@@ -567,8 +567,8 @@ TasksApi:
     opts = {
         'text': "Bug", # str | Performs full-text search on both task name and description
         'resource_subtype': "milestone", # str | Filters results by the task's resource_subtype
-        'assignee.any': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'assignee.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
+        'assignee.any': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'assignee.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         'portfolios.any': "12345,23456,34567", # str | Comma-separated list of portfolio IDs
         'projects.any': "12345,23456,34567", # str | Comma-separated list of project IDs
         'projects.not': "12345,23456,34567", # str | Comma-separated list of project IDs
@@ -580,14 +580,14 @@ TasksApi:
         'tags.not': "12345,23456,34567", # str | Comma-separated list of tag IDs
         'tags.all': "12345,23456,34567", # str | Comma-separated list of tag IDs
         'teams.any': "12345,23456,34567", # str | Comma-separated list of team IDs
-        'followers.any': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'followers.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'created_by.any': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'created_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'assigned_by.any': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'assigned_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'liked_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
-        'commented_on_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers
+        'followers.any': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'followers.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'created_by.any': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'created_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'assigned_by.any': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'assigned_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'liked_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
+        'commented_on_by.not': "12345,23456,34567", # str | Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         'due_on.before': '2019-09-15', # date | ISO 8601 date string
         'due_on.after': '2019-09-15', # date | ISO 8601 date string
         'due_on': '2019-09-15', # date | ISO 8601 date string or `null`
