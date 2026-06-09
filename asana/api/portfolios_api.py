@@ -1181,7 +1181,7 @@ class PortfoliosApi(object):
     def get_portfolios(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple portfolios  # noqa: E501
 
-        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation. The portfolios are filtered based on the following criteria: - If the request is made from a regular API user (PAT or OAuth), then only portfolios owned by the current API user are returned. - If the request is made from a Service Account without the `owner` parameter, then all portfolios across the workspace are returned. - If the request is made from a Service Account with the `owner` parameter, then only portfolios owned by the specified user are returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolios(workspace, async_req=True)
@@ -1207,7 +1207,7 @@ class PortfoliosApi(object):
     def get_portfolios_with_http_info(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple portfolios  # noqa: E501
 
-        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation that are owned by the current API user.  # noqa: E501
+        <b>Required scope: </b><code>portfolios:read</code>  Returns a list of the portfolios in compact representation. The portfolios are filtered based on the following criteria: - If the request is made from a regular API user (PAT or OAuth), then only portfolios owned by the current API user are returned. - If the request is made from a Service Account without the `owner` parameter, then all portfolios across the workspace are returned. - If the request is made from a Service Account with the `owner` parameter, then only portfolios owned by the specified user are returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_portfolios_with_http_info(workspace, async_req=True)

@@ -1629,7 +1629,7 @@ class ProjectsApi(object):
     def get_projects_for_team(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team. *Deprecated: This endpoint is deprecated. Use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership` to fetch projects shared with a team.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team(team_gid, async_req=True)
@@ -1655,7 +1655,7 @@ class ProjectsApi(object):
     def get_projects_for_team_with_http_info(self, team_gid, opts, **kwargs):  # noqa: E501
         """Get a team's projects  # noqa: E501
 
-        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team. *Deprecated: This endpoint is deprecated. Use `GET /memberships` with `member` set to the team GID and `resource_subtype` set to `project_membership` to fetch projects shared with a team.*  # noqa: E501
+        <b>Required scope: </b><code>projects:read</code>  Returns the compact project records for all projects in the team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_projects_for_team_with_http_info(team_gid, async_req=True)
@@ -2662,7 +2662,7 @@ class ProjectsApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str text: Performs full-text search on the project name.
-        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, or `modified_at`, defaults to `modified_at`.
+        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, `relevance`, or `modified_at`, defaults to `modified_at`.
         :param bool sort_ascending: Default `false`.
         :param bool completed: Filter on project completion status.
         :param str teams.any: Comma-separated list of team IDs.
@@ -2712,7 +2712,7 @@ class ProjectsApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str text: Performs full-text search on the project name.
-        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, or `modified_at`, defaults to `modified_at`.
+        :param str sort_by: One of `due_date`, `created_at`, `completed_at`, `relevance`, or `modified_at`, defaults to `modified_at`.
         :param bool sort_ascending: Default `false`.
         :param bool completed: Filter on project completion status.
         :param str teams.any: Comma-separated list of team IDs.

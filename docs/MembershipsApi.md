@@ -176,8 +176,8 @@ api_client = asana.ApiClient(configuration)
 # create an instance of the API class
 memberships_api_instance = asana.MembershipsApi(api_client)
 opts = {
-    'parent': "159874", # str | Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. This parameter is optional when `resource_subtype` is provided along with `member`.
-    'member': "1061493", # str | Globally unique identifier for `team` or `user`. When used with `resource_subtype` and without `parent`, returns all memberships of the specified subtype for this member.
+    'parent': "159874", # str | Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. This parameter is optional when `resource_subtype` is provided along with `member` of type `team`.
+    'member': "1061493", # str | Globally unique identifier for `team` or `user`. When used with `resource_subtype` and without `parent`, `member` must be of type `team`. For user-type memberships `parent` parameter is required to disambiguate the workspace from which memberships should be retrieved.
     'resource_subtype': "project_membership", # str | The type of membership to return. Required when `parent` is absent. Currently supported value is `project_membership` (when `member` is a team GID, returns all project memberships for that team).
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
@@ -197,8 +197,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent** | **str**| Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60;. | [optional] 
- **member** | **str**| Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, returns all memberships of the specified subtype for this member. | [optional] 
+ **parent** | **str**| Globally unique identifier for &#x60;goal&#x60;, &#x60;project&#x60;, &#x60;portfolio&#x60;, &#x60;custom_type&#x60;, or &#x60;custom_field&#x60;. This parameter is optional when &#x60;resource_subtype&#x60; is provided along with &#x60;member&#x60; of type &#x60;team&#x60;. | [optional] 
+ **member** | **str**| Globally unique identifier for &#x60;team&#x60; or &#x60;user&#x60;. When used with &#x60;resource_subtype&#x60; and without &#x60;parent&#x60;, &#x60;member&#x60; must be of type &#x60;team&#x60;. For user-type memberships &#x60;parent&#x60; parameter is required to disambiguate the workspace from which memberships should be retrieved. | [optional] 
  **resource_subtype** | **str**| The type of membership to return. Required when &#x60;parent&#x60; is absent. Currently supported value is &#x60;project_membership&#x60; (when &#x60;member&#x60; is a team GID, returns all project memberships for that team). | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 

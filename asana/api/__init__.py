@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from asana.api.access_requests_api import AccessRequestsApi
+from asana.api.agents_api import AgentsApi
 from asana.api.allocations_api import AllocationsApi
 from asana.api.attachments_api import AttachmentsApi
 from asana.api.audit_log_api_api import AuditLogAPIApi
@@ -18,6 +19,7 @@ from asana.api.goal_relationships_api import GoalRelationshipsApi
 from asana.api.goals_api import GoalsApi
 from asana.api.jobs_api import JobsApi
 from asana.api.memberships_api import MembershipsApi
+from asana.api.ooo_entries_api import OooEntriesApi
 from asana.api.organization_exports_api import OrganizationExportsApi
 from asana.api.portfolio_memberships_api import PortfolioMembershipsApi
 from asana.api.portfolios_api import PortfoliosApi
