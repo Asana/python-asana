@@ -32,7 +32,7 @@ api_client = asana.ApiClient(configuration)
 rates_api_instance = asana.RatesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The rate to create.
 opts = {
-    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,parent.resource_subtype,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -131,7 +131,7 @@ api_client = asana.ApiClient(configuration)
 rates_api_instance = asana.RatesApi(api_client)
 rate_gid = "12345" # str | Globally unique identifier for the rate.
 opts = {
-    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,parent.resource_subtype,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:
@@ -241,7 +241,7 @@ rates_api_instance = asana.RatesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the rate.
 rate_gid = "12345" # str | Globally unique identifier for the rate.
 opts = {
-    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "created_by,created_by.name,currency_code,parent,parent.name,parent.resource_subtype,rate,resource,resource.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
 }
 
 try:

@@ -35,7 +35,7 @@ class TimeTrackingEntriesApi(object):
     def create_time_tracking_entry(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a time tracking entry  # noqa: E501
 
-        Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.  # noqa: E501
+        Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.  #### Access requirements  Access to this endpoint has two levels:  - **Endpoint access** requires time tracking to be available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error for every request to this endpoint.  - **Field access** for some request fields requires the Timesheets and Budgets add-on. Fields with this requirement are noted in the request schema. Including one of these fields without the add-on returns a `402 Payment Required` error, even when the rest of the request is valid.  Because the field-level requirement is separate, the same endpoint may return `201` or `402` for the same domain depending on which fields are sent: a request that only uses fields available with endpoint access succeeds on any domain that meets the endpoint requirement, while a request that includes a field requiring the add-on also requires the add-on.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_time_tracking_entry(body, task_gid, async_req=True)
@@ -59,7 +59,7 @@ class TimeTrackingEntriesApi(object):
     def create_time_tracking_entry_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a time tracking entry  # noqa: E501
 
-        Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.  # noqa: E501
+        Creates a time tracking entry on a given task.  Returns the record of the newly created time tracking entry.  #### Access requirements  Access to this endpoint has two levels:  - **Endpoint access** requires time tracking to be available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error for every request to this endpoint.  - **Field access** for some request fields requires the Timesheets and Budgets add-on. Fields with this requirement are noted in the request schema. Including one of these fields without the add-on returns a `402 Payment Required` error, even when the rest of the request is valid.  Because the field-level requirement is separate, the same endpoint may return `201` or `402` for the same domain depending on which fields are sent: a request that only uses fields available with endpoint access succeeds on any domain that meets the endpoint requirement, while a request that includes a field requiring the add-on also requires the add-on.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_time_tracking_entry_with_http_info(body, task_gid, async_req=True)
@@ -183,7 +183,7 @@ class TimeTrackingEntriesApi(object):
     def delete_time_tracking_entry(self, time_tracking_entry_gid, **kwargs):  # noqa: E501
         """Delete a time tracking entry  # noqa: E501
 
-        A specific, existing time tracking entry can be deleted by making a `DELETE` request on the URL for that time tracking entry.  Returns an empty data record.  # noqa: E501
+        A specific, existing time tracking entry can be deleted by making a `DELETE` request on the URL for that time tracking entry.  Returns an empty data record.  #### Access requirements  This endpoint is available only when time tracking is available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_time_tracking_entry(time_tracking_entry_gid, async_req=True)
@@ -205,7 +205,7 @@ class TimeTrackingEntriesApi(object):
     def delete_time_tracking_entry_with_http_info(self, time_tracking_entry_gid, **kwargs):  # noqa: E501
         """Delete a time tracking entry  # noqa: E501
 
-        A specific, existing time tracking entry can be deleted by making a `DELETE` request on the URL for that time tracking entry.  Returns an empty data record.  # noqa: E501
+        A specific, existing time tracking entry can be deleted by making a `DELETE` request on the URL for that time tracking entry.  Returns an empty data record.  #### Access requirements  This endpoint is available only when time tracking is available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_time_tracking_entry_with_http_info(time_tracking_entry_gid, async_req=True)
@@ -760,7 +760,7 @@ class TimeTrackingEntriesApi(object):
     def update_time_tracking_entry(self, body, time_tracking_entry_gid, opts, **kwargs):  # noqa: E501
         """Update a time tracking entry  # noqa: E501
 
-        A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.  # noqa: E501
+        A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.  #### Access requirements  Access to this endpoint has two levels:  - **Endpoint access** requires time tracking to be available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error for every request to this endpoint.  - **Field access** for some request fields requires the Timesheets and Budgets add-on. Fields with this requirement are noted in the request schema. Including one of these fields without the add-on returns a `402 Payment Required` error, even when the rest of the request is valid.  Because the field-level requirement is separate, the same endpoint may return `200` or `402` for the same domain depending on which fields are sent: a request that only uses fields available with endpoint access succeeds on any domain that meets the endpoint requirement, while a request that includes a field requiring the add-on also requires the add-on.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_time_tracking_entry(body, time_tracking_entry_gid, async_req=True)
@@ -784,7 +784,7 @@ class TimeTrackingEntriesApi(object):
     def update_time_tracking_entry_with_http_info(self, body, time_tracking_entry_gid, opts, **kwargs):  # noqa: E501
         """Update a time tracking entry  # noqa: E501
 
-        A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.  # noqa: E501
+        A specific, existing time tracking entry can be updated by making a `PUT` request on the URL for that time tracking entry. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged.  When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.  Returns the complete updated time tracking entry record.  #### Access requirements  Access to this endpoint has two levels:  - **Endpoint access** requires time tracking to be available through the domain's plan or add-ons. A request from a domain without time tracking access returns a `402 Payment Required` error for every request to this endpoint.  - **Field access** for some request fields requires the Timesheets and Budgets add-on. Fields with this requirement are noted in the request schema. Including one of these fields without the add-on returns a `402 Payment Required` error, even when the rest of the request is valid.  Because the field-level requirement is separate, the same endpoint may return `200` or `402` for the same domain depending on which fields are sent: a request that only uses fields available with endpoint access succeeds on any domain that meets the endpoint requirement, while a request that includes a field requiring the add-on also requires the add-on.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_time_tracking_entry_with_http_info(body, time_tracking_entry_gid, async_req=True)

@@ -35,7 +35,7 @@ class TimesheetApprovalStatusesApi(object):
     def create_timesheet_approval_status(self, body, opts, **kwargs):  # noqa: E501
         """Create a timesheet approval status  # noqa: E501
 
-        <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.  # noqa: E501
+        <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_timesheet_approval_status(body, async_req=True)
@@ -58,7 +58,7 @@ class TimesheetApprovalStatusesApi(object):
     def create_timesheet_approval_status_with_http_info(self, body, opts, **kwargs):  # noqa: E501
         """Create a timesheet approval status  # noqa: E501
 
-        <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.  # noqa: E501
+        <b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_timesheet_approval_status_with_http_info(body, async_req=True)

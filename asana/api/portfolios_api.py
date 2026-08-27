@@ -907,7 +907,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectResponseArray
+        :return: PortfolioItemCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -932,7 +932,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
-        :return: ProjectResponseArray
+        :return: PortfolioItemCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1192,6 +1192,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str owner: The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own, unless the request is made from a Service Account. In the case of a Service Account, if this parameter is specified, then all portfolios owned by this parameter are returned. Otherwise, all portfolios across the workspace are returned.
+        :param str custom_type: Filter results by custom type. Provide a custom type GID to return only objects of that custom type (an unknown GID returns `400`). Provide an empty string to return only objects with no custom type assigned. If this parameter is omitted, results are not filtered by custom type.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseArray
                  If the method is called asynchronously,
@@ -1218,6 +1219,7 @@ class PortfoliosApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param str owner: The user who owns the portfolio. Currently, API users can only get a list of portfolios that they themselves own, unless the request is made from a Service Account. In the case of a Service Account, if this parameter is specified, then all portfolios owned by this parameter are returned. Otherwise, all portfolios across the workspace are returned.
+        :param str custom_type: Filter results by custom type. Provide a custom type GID to return only objects of that custom type (an unknown GID returns `400`). Provide an empty string to return only objects with no custom type assigned. If this parameter is omitted, results are not filtered by custom type.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: PortfolioResponseArray
                  If the method is called asynchronously,

@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
+from asana.api.ai_studio_usage_api_api import AIStudioUsageAPIApi
 from asana.api.access_requests_api import AccessRequestsApi
 from asana.api.agents_api import AgentsApi
 from asana.api.allocations_api import AllocationsApi

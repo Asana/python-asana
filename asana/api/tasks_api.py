@@ -2071,6 +2071,7 @@ class TasksApi(object):
         :param str workspace: The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
         :param datetime completed_since: Only return tasks that are either incomplete or that have been completed since this time.
         :param datetime modified_since: Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.*
+        :param str custom_type: Filter results by custom type. Provide a custom type GID to return only objects of that custom type (an unknown GID returns `400`). Provide an empty string to return only objects with no custom type assigned. If this parameter is omitted, results are not filtered by custom type.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
@@ -2101,6 +2102,7 @@ class TasksApi(object):
         :param str workspace: The workspace to filter tasks on. *Note: If you specify `workspace`, you must also specify the `assignee` to filter on.*
         :param datetime completed_since: Only return tasks that are either incomplete or that have been completed since this time.
         :param datetime modified_since: Only return tasks that have been modified since the given time.  *Note: A task is considered “modified” if any of its properties change, or associations between it and other objects are modified (e.g.  a task being added to a project). A task is not considered modified just because another object it is associated with (e.g. a subtask) is modified. Actions that count as modifying the task include assigning, renaming, completing, and adding stories.*
+        :param str custom_type: Filter results by custom type. Provide a custom type GID to return only objects of that custom type (an unknown GID returns `400`). Provide an empty string to return only objects with no custom type assigned. If this parameter is omitted, results are not filtered by custom type.
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
         :return: TaskResponseArray
                  If the method is called asynchronously,
@@ -3539,7 +3541,7 @@ class TasksApi(object):
         :param str assignee.any: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         :param str assignee.not: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         :param str portfolios.any: Comma-separated list of portfolio IDs
-        :param str projects.any: Comma-separated list of project IDs
+        :param str projects.any: Comma-separated list of project IDs. Returns tasks that are directly in these projects or inherit them from an ancestor task.
         :param str projects.not: Comma-separated list of project IDs
         :param str projects.all: Comma-separated list of project IDs
         :param str sections.any: Comma-separated list of section or column IDs
@@ -3615,7 +3617,7 @@ class TasksApi(object):
         :param str assignee.any: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         :param str assignee.not: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
         :param str portfolios.any: Comma-separated list of portfolio IDs
-        :param str projects.any: Comma-separated list of project IDs
+        :param str projects.any: Comma-separated list of project IDs. Returns tasks that are directly in these projects or inherit them from an ancestor task.
         :param str projects.not: Comma-separated list of project IDs
         :param str projects.all: Comma-separated list of project IDs
         :param str sections.any: Comma-separated list of section or column IDs

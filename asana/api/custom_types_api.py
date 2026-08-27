@@ -35,7 +35,7 @@ class CustomTypesApi(object):
     def get_custom_type(self, custom_type_gid, opts, **kwargs):  # noqa: E501
         """Get a custom type  # noqa: E501
 
-        Returns the complete custom type record for a single custom type.  # noqa: E501
+        <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_type(custom_type_gid, async_req=True)
@@ -58,7 +58,7 @@ class CustomTypesApi(object):
     def get_custom_type_with_http_info(self, custom_type_gid, opts, **kwargs):  # noqa: E501
         """Get a custom type  # noqa: E501
 
-        Returns the complete custom type record for a single custom type.  # noqa: E501
+        <b>Required scope: </b><code>custom_types:read</code>  Returns the complete custom type record for a single custom type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_custom_type_with_http_info(custom_type_gid, async_req=True)
@@ -171,17 +171,18 @@ class CustomTypesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_custom_types(self, project, opts, **kwargs):  # noqa: E501
+    def get_custom_types(self, opts, **kwargs):  # noqa: E501
         """Get all custom types associated with an object  # noqa: E501
 
-        Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.  # noqa: E501
+        <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_custom_types(project, async_req=True)
+        >>> thread = api.get_custom_types(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str project: Globally unique identifier for the project, which is used as a filter when retrieving all custom types. (required)
+        :param str project: Globally unique identifier for the project, used as a filter when retrieving custom types.
+        :param str workspace: The workspace to filter results on.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -191,22 +192,23 @@ class CustomTypesApi(object):
         """
         kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
         if kwargs.get('async_req'):
-            return self.get_custom_types_with_http_info(project, opts, **kwargs)  # noqa: E501
+            return self.get_custom_types_with_http_info(opts, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_custom_types_with_http_info(project, opts, **kwargs)  # noqa: E501
+            (data) = self.get_custom_types_with_http_info(opts, **kwargs)  # noqa: E501
             return data
 
-    def get_custom_types_with_http_info(self, project, opts, **kwargs):  # noqa: E501
+    def get_custom_types_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get all custom types associated with an object  # noqa: E501
 
-        Returns a list of all of the custom types associated with an object. Currently, only projects are supported. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.  # noqa: E501
+        <b>Required scope: </b><code>custom_types:read</code>  Returns a list of all of the custom types associated with an object. Exactly one of `project` or `workspace` must be provided as a query parameter. When `workspace` is provided, all custom types in the workspace are listed, including types created by Asana products. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [documentation for input/output options](https://developers.asana.com/docs/inputoutput-options) for more information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_custom_types_with_http_info(project, async_req=True)
+        >>> thread = api.get_custom_types_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str project: Globally unique identifier for the project, which is used as a filter when retrieving all custom types. (required)
+        :param str project: Globally unique identifier for the project, used as a filter when retrieving custom types.
+        :param str workspace: The workspace to filter results on.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
@@ -232,9 +234,6 @@ class CustomTypesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'project' is set
-        if (project is None):
-            raise ValueError("Missing the required parameter `project` when calling `get_custom_types`")  # noqa: E501
 
         collection_formats = {}
 
@@ -242,7 +241,6 @@ class CustomTypesApi(object):
 
         query_params = {}
         query_params = opts
-        query_params['project'] = project
 
 
         header_params = kwargs.get("header_params", {})

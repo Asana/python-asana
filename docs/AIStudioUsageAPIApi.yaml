@@ -1,0 +1,54 @@
+AIStudioUsageAPIApi:
+  get_ai_studio_runs: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    ai_studio_usage_api_api_instance = asana.AIStudioUsageAPIApi(api_client)
+    workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+    opts = {
+        'start_at': '2013-10-20T19:20:30+01:00', # datetime | Inclusive lower bound. Runs are ordered and filtered by when their usage was recorded (the monotonic timestamp used for incremental polling), not by `run_started_at`. Omitted ⇒ the 2025-01-08 floor — no credit data exists before then, and there is no limit on how far back you can query. A value earlier than 2025-01-08 is treated as 2025-01-08 (not rejected), matching the audit log.
+        'end_at': '2013-10-20T19:20:30+01:00', # datetime | Filter to runs whose usage was recorded before this time (exclusive) — by when the run's credit usage was recorded, not by `run_started_at`. Defaults to the time of the request.
+        'division_gid': "division_gid_example", # str | Scope results to a single division (its gid). Omitted ⇒ the org's first licensed division. Use this to retrieve only one division's slice (e.g. for a division-level admin or billing owner) rather than the whole organization.
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+    }
+    
+    try:
+        # Get AI Studio credit utilization
+        api_response = ai_studio_usage_api_api_instance.get_ai_studio_runs(workspace_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling AIStudioUsageAPIApi->get_ai_studio_runs: %s\n" % e)
+  get_ai_studio_seats: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    ai_studio_usage_api_api_instance = asana.AIStudioUsageAPIApi(api_client)
+    workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+    opts = {
+        'state': "state_example", # str | Filter seats to this state.
+        'division_gid': "division_gid_example", # str | Scope results to a single division (its gid). Omitted ⇒ the org's first licensed division. Use this to retrieve only one division's slice (e.g. for a division-level admin or billing owner) rather than the whole organization.
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+    }
+    
+    try:
+        # Get AI Studio seats
+        api_response = ai_studio_usage_api_api_instance.get_ai_studio_seats(workspace_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling AIStudioUsageAPIApi->get_ai_studio_seats: %s\n" % e)

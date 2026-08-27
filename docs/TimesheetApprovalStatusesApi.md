@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Create a timesheet approval status
 
-<b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday and end_date must be the following Sunday. Returns the created timesheet approval status record.
+<b>Required scope: </b><code>timesheet_approval_statuses:write</code>  Creates a new timesheet approval status for a user's timesheet week. The start_date must be a Monday or Sunday, and end_date must be the last day of that week (Sunday for a Monday start, Saturday for a Sunday start). Returns the created timesheet approval status record.
 
 ([more information](https://developers.asana.com/reference/createtimesheetapprovalstatus))
 
