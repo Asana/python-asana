@@ -20,6 +20,7 @@ env:
   JAR_ASANA: codegen/swagger/target/AsanaClientCodegen-swagger-codegen-1.0.0.jar
   ACTUAL_LANG: com.asana.codegen.PythonClientCodegenGenerator
   NAME: asana
+  SDK_VERSION: ${{ inputs.version }}
 
 jobs:
   generate-python-library:
@@ -46,7 +47,7 @@ jobs:
           java-version: "17"
       - name: Download generator
         run: |
-          wget -q -O $GENERATOR_NAME https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/${{ env.GENERATOR_VERSION }}/swagger-codegen-cli-${{ env.GENERATOR_VERSION }}.jar
+          wget -q -O "$GENERATOR_NAME" "https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/$GENERATOR_VERSION/swagger-codegen-cli-$GENERATOR_VERSION.jar"
       - name: Build custom code
         run: |
           pushd codegen/swagger >/dev/null
@@ -54,25 +55,29 @@ jobs:
           popd >/dev/null
       - name: Generate library
         run: >-
-          java -cp "${{ env.JAR_ASANA }}:${{ env.GENERATOR_NAME }}"
+          java -DmaxYamlCodePoints=5000000 -cp "$JAR_ASANA:$GENERATOR_NAME"
           io.swagger.codegen.v3.cli.SwaggerCodegen
           generate
           --input-spec https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_sdk_oas.yaml
           --template-dir "codegen/templates"
-          --lang "${{ env.ACTUAL_LANG }}"
-          -DpackageName=${{ env.NAME }}
-          --additional-properties "packageVersion=${{ inputs.version }},projectName=${{ env.NAME }},packageName=${{ env.NAME }}"
+          --lang "$ACTUAL_LANG"
+          -DpackageName="$NAME"
+          --additional-properties "packageVersion=$SDK_VERSION,projectName=$NAME,packageName=$NAME"
       - name: Clean up generator
-        run: rm -rf codegen/swagger/target ${{ env.GENERATOR_NAME }}
+        run: rm -rf codegen/swagger/target "$GENERATOR_NAME"
       - name: Push changes to master branch
         run: |
           git config user.name asana-publish-client-libraries[bot]
           git config user.email 159857493+asana-publish-client-libraries[bot]@users.noreply.github.com
           git add .
-          git commit -m 'Updated Python SDK: v${{ inputs.version }}'
+          if git diff --cached --quiet; then
+            echo "::error::Code generation produced no changes; inspect the Generate library step."
+            exit 1
+          fi
+          git commit -m "Updated Python SDK: v$SDK_VERSION"
           git push origin master
           git pull
-          git tag 'v${{ inputs.version }}' --force
+          git tag "v$SDK_VERSION" --force
           git push origin --tags --force
   publish-to-pypi:
     needs: generate-python-library
@@ -128,6 +133,6 @@ jobs:
           fetch-depth: 0
           ref: master
       - name: Publish to GitHub Releases
-        run: gh release create v${{ inputs.version }}
+        run: gh release create "v$SDK_VERSION"
         env:
           GH_TOKEN: ${{ steps.get-token.outputs.app-token }}
