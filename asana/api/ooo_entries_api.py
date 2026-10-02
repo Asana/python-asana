@@ -43,7 +43,7 @@ class OooEntriesApi(object):
 
         :param async_req bool
         :param dict body: The OOO entry to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class OooEntriesApi(object):
 
         :param async_req bool
         :param dict body: The OOO entry to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -326,7 +326,7 @@ class OooEntriesApi(object):
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param date start_date: An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
         :param date end_date: An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -354,7 +354,7 @@ class OooEntriesApi(object):
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param date start_date: An ISO 8601 date string. Filters to OOO entries that overlap with or end after this date.
         :param date end_date: An ISO 8601 date string. Filters to OOO entries that overlap with or start before this date.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -477,7 +477,7 @@ class OooEntriesApi(object):
 
         :param async_req bool
         :param str ooo_entry_gid: Globally unique identifier for the OOO entry. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -500,7 +500,7 @@ class OooEntriesApi(object):
 
         :param async_req bool
         :param str ooo_entry_gid: Globally unique identifier for the OOO entry. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -617,7 +617,7 @@ class OooEntriesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the OOO entry. (required)
         :param str ooo_entry_gid: Globally unique identifier for the OOO entry. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -641,7 +641,7 @@ class OooEntriesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the OOO entry. (required)
         :param str ooo_entry_gid: Globally unique identifier for the OOO entry. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: OooEntryResponseData
                  If the method is called asynchronously,
                  returns the request thread.

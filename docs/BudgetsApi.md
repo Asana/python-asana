@@ -128,7 +128,7 @@ api_client = asana.ApiClient(configuration)
 budgets_api_instance = asana.BudgetsApi(api_client)
 budget_gid = "12345" # str | Globally unique identifier for the budget.
 opts = {
-    'opt_fields': "actual,actual.billable_status_filter,actual.units,actual.value,budget_type,estimate,estimate.billable_status_filter,estimate.enabled,estimate.source,estimate.units,estimate.value,parent,parent.name,parent.resource_subtype,total,total.enabled,total.units,total.value", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "actual,actual.billable_status_filter,actual.units,actual.value,budget_type,estimate,estimate.billable_status_filter,estimate.enabled,estimate.source,estimate.units,estimate.value,parent,parent.name,parent.resource_subtype,total,total.enabled,total.units,total.value", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -144,7 +144,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_gid** | **str**| Globally unique identifier for the budget. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -229,7 +229,7 @@ budgets_api_instance = asana.BudgetsApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The budget to update.
 budget_gid = "12345" # str | Globally unique identifier for the budget.
 opts = {
-    'opt_fields': "actual,actual.billable_status_filter,actual.units,actual.value,budget_type,estimate,estimate.billable_status_filter,estimate.enabled,estimate.source,estimate.units,estimate.value,parent,parent.name,parent.resource_subtype,total,total.enabled,total.units,total.value", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "actual,actual.billable_status_filter,actual.units,actual.value,budget_type,estimate,estimate.billable_status_filter,estimate.enabled,estimate.source,estimate.units,estimate.value,parent,parent.name,parent.resource_subtype,total,total.enabled,total.units,total.value", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| The budget to update. | 
  **budget_gid** | **str**| Globally unique identifier for the budget. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 

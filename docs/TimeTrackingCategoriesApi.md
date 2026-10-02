@@ -33,7 +33,7 @@ api_client = asana.ApiClient(configuration)
 time_tracking_categories_api_instance = asana.TimeTrackingCategoriesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the time tracking category.
 opts = {
-    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -49,7 +49,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| Information about the time tracking category. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -135,7 +135,7 @@ opts = {
     'is_archived': False, # bool | Filter by archived status. If not provided, defaults to returning non-archived categories.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "color,is_archived,name,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "color,is_archived,name,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
  **is_archived** | **bool**| Filter by archived status. If not provided, defaults to returning non-archived categories. | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -190,7 +190,7 @@ api_client = asana.ApiClient(configuration)
 time_tracking_categories_api_instance = asana.TimeTrackingCategoriesApi(api_client)
 time_tracking_category_gid = "917392" # str | Globally unique identifier for the time tracking category.
 opts = {
-    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -206,7 +206,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **time_tracking_category_gid** | **str**| Globally unique identifier for the time tracking category. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -245,7 +245,7 @@ opts = {
     'end_date': '2025-12-31', # date | The end date for filtering time tracking entries by their entry date.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
  **end_date** | **date**| The end date for filtering time tracking entries by their entry date. | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -302,7 +302,7 @@ time_tracking_categories_api_instance = asana.TimeTrackingCategoriesApi(api_clie
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the time tracking category.
 time_tracking_category_gid = "917392" # str | Globally unique identifier for the time tracking category.
 opts = {
-    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "color,is_archived,name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| The updated fields for the time tracking category. | 
  **time_tracking_category_gid** | **str**| Globally unique identifier for the time tracking category. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 

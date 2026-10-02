@@ -31,7 +31,7 @@ api_client = asana.ApiClient(configuration)
 timesheet_approval_statuses_api_instance = asana.TimesheetApprovalStatusesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The timesheet approval status to create.
 opts = {
-    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -47,7 +47,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| The timesheet approval status to create. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -82,7 +82,7 @@ api_client = asana.ApiClient(configuration)
 timesheet_approval_statuses_api_instance = asana.TimesheetApprovalStatusesApi(api_client)
 timesheet_approval_status_gid = "917392" # str | Globally unique identifier for the timesheet approval status.
 opts = {
-    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -98,7 +98,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timesheet_approval_status_gid** | **str**| Globally unique identifier for the timesheet approval status. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -139,7 +139,7 @@ opts = {
     'approval_statuses': "draft", # str | Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "approval_status,created_at,end_date,offset,path,start_date,uri,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,created_at,end_date,offset,path,start_date,uri,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
  **approval_statuses** | **str**| Filter by approval status. Can be one or more of draft, submitted, approved, or rejected. | [optional] 
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -198,7 +198,7 @@ timesheet_approval_statuses_api_instance = asana.TimesheetApprovalStatusesApi(ap
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The fields to update on the timesheet approval status.
 timesheet_approval_status_gid = "917392" # str | Globally unique identifier for the timesheet approval status.
 opts = {
-    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "approval_status,created_at,end_date,start_date,user,user.name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| The fields to update on the timesheet approval status. | 
  **timesheet_approval_status_gid** | **str**| Globally unique identifier for the timesheet approval status. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 

@@ -44,7 +44,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The story to create. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,7 +68,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The story to create. (required)
         :param str goal_gid: Globally unique identifier for the goal. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -192,7 +192,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The story to create. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -216,7 +216,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The story to create. (required)
         :param str task_gid: The task to operate on. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -477,7 +477,10 @@ class StoriesApi(object):
         :param str goal_gid: Globally unique identifier for the goal. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -502,7 +505,10 @@ class StoriesApi(object):
         :param str goal_gid: Globally unique identifier for the goal. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -623,7 +629,10 @@ class StoriesApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -648,7 +657,10 @@ class StoriesApi(object):
         :param str task_gid: The task to operate on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -767,7 +779,7 @@ class StoriesApi(object):
 
         :param async_req bool
         :param str story_gid: Globally unique identifier for the story. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -790,7 +802,7 @@ class StoriesApi(object):
 
         :param async_req bool
         :param str story_gid: Globally unique identifier for the story. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -907,7 +919,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The comment story to update. (required)
         :param str story_gid: Globally unique identifier for the story. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -931,7 +943,7 @@ class StoriesApi(object):
         :param async_req bool
         :param dict body: The comment story to update. (required)
         :param str story_gid: Globally unique identifier for the story. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.

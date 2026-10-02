@@ -43,7 +43,7 @@ class JobsApi(object):
 
         :param async_req bool
         :param str job_gid: Globally unique identifier for the job. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class JobsApi(object):
 
         :param async_req bool
         :param str job_gid: Globally unique identifier for the job. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: JobResponseData
                  If the method is called asynchronously,
                  returns the request thread.

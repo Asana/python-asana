@@ -43,7 +43,7 @@ class TimeTrackingCategoriesApi(object):
 
         :param async_req bool
         :param dict body: Information about the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class TimeTrackingCategoriesApi(object):
 
         :param async_req bool
         :param dict body: Information about the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -324,7 +324,7 @@ class TimeTrackingCategoriesApi(object):
         :param bool is_archived: Filter by archived status. If not provided, defaults to returning non-archived categories.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -350,7 +350,7 @@ class TimeTrackingCategoriesApi(object):
         :param bool is_archived: Filter by archived status. If not provided, defaults to returning non-archived categories.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -469,7 +469,7 @@ class TimeTrackingCategoriesApi(object):
 
         :param async_req bool
         :param str time_tracking_category_gid: Globally unique identifier for the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -492,7 +492,7 @@ class TimeTrackingCategoriesApi(object):
 
         :param async_req bool
         :param str time_tracking_category_gid: Globally unique identifier for the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -612,7 +612,7 @@ class TimeTrackingCategoriesApi(object):
         :param date end_date: The end date for filtering time tracking entries by their entry date.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingEntryCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -639,7 +639,7 @@ class TimeTrackingCategoriesApi(object):
         :param date end_date: The end date for filtering time tracking entries by their entry date.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingEntryCompactArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -759,7 +759,7 @@ class TimeTrackingCategoriesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the time tracking category. (required)
         :param str time_tracking_category_gid: Globally unique identifier for the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -783,7 +783,7 @@ class TimeTrackingCategoriesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the time tracking category. (required)
         :param str time_tracking_category_gid: Globally unique identifier for the time tracking category. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimeTrackingCategoryResponseData
                  If the method is called asynchronously,
                  returns the request thread.

@@ -31,9 +31,7 @@ api_client = asana.ApiClient(configuration)
 status_updates_api_instance = asana.StatusUpdatesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The status update to create.
 opts = {
-    'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
-    'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,parent,parent.name,parent.resource_subtype,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,parent,parent.name,parent.resource_subtype,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -49,9 +47,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **Dict**| The status update to create. | 
- **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
- **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -84,7 +80,7 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 status_updates_api_instance = asana.StatusUpdatesApi(api_client)
-status_update_gid = "321654" # str | The status update to get.
+status_update_gid = "321654" # str | Globally unique identifier for the status update.
 
 
 try:
@@ -99,7 +95,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status_update_gid** | **str**| The status update to get. | 
+ **status_update_gid** | **str**| Globally unique identifier for the status update. | 
 
 ### Return type
 
@@ -132,9 +128,9 @@ api_client = asana.ApiClient(configuration)
 
 # create an instance of the API class
 status_updates_api_instance = asana.StatusUpdatesApi(api_client)
-status_update_gid = "321654" # str | The status update to get.
+status_update_gid = "321654" # str | Globally unique identifier for the status update.
 opts = {
-    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,parent,parent.name,parent.resource_subtype,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,parent,parent.name,parent.resource_subtype,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -149,8 +145,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status_update_gid** | **str**| The status update to get. | 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **status_update_gid** | **str**| Globally unique identifier for the status update. | 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 
@@ -188,7 +184,7 @@ opts = {
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
     'created_since': '2012-02-22T02:06:58.158Z', # datetime | Only return statuses that have been created since the given time.
-    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,offset,parent,parent.name,parent.resource_subtype,path,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+    'opt_fields': "author,author.name,created_at,created_by,created_by.name,hearted,hearts,hearts.user,hearts.user.name,html_text,liked,likes,likes.user,likes.user.name,modified_at,num_hearts,num_likes,offset,parent,parent.name,parent.resource_subtype,path,reaction_summary,reaction_summary.count,reaction_summary.emoji_base,reaction_summary.reacted,reaction_summary.variant,resource_subtype,status_type,text,title,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -208,7 +204,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Results per page. The number of objects to return per page. The value must be between 1 and 100. | [optional] 
  **offset** | **str**| Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.* | [optional] 
  **created_since** | **datetime**| Only return statuses that have been created since the given time. | [optional] 
- **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. | [optional] 
+ **opt_fields** | **Dict**| This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields). | [optional] 
 
 ### Return type
 

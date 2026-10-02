@@ -43,7 +43,7 @@ class TimesheetApprovalStatusesApi(object):
 
         :param async_req bool
         :param dict body: The timesheet approval status to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class TimesheetApprovalStatusesApi(object):
 
         :param async_req bool
         :param dict body: The timesheet approval status to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -185,7 +185,7 @@ class TimesheetApprovalStatusesApi(object):
 
         :param async_req bool
         :param str timesheet_approval_status_gid: Globally unique identifier for the timesheet approval status. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -208,7 +208,7 @@ class TimesheetApprovalStatusesApi(object):
 
         :param async_req bool
         :param str timesheet_approval_status_gid: Globally unique identifier for the timesheet approval status. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -330,7 +330,7 @@ class TimesheetApprovalStatusesApi(object):
         :param str approval_statuses: Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -359,7 +359,7 @@ class TimesheetApprovalStatusesApi(object):
         :param str approval_statuses: Filter by approval status. Can be one or more of draft, submitted, approved, or rejected.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -479,7 +479,7 @@ class TimesheetApprovalStatusesApi(object):
         :param async_req bool
         :param dict body: The fields to update on the timesheet approval status. (required)
         :param str timesheet_approval_status_gid: Globally unique identifier for the timesheet approval status. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -503,7 +503,7 @@ class TimesheetApprovalStatusesApi(object):
         :param async_req bool
         :param dict body: The fields to update on the timesheet approval status. (required)
         :param str timesheet_approval_status_gid: Globally unique identifier for the timesheet approval status. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: TimesheetApprovalStatusResponseData
                  If the method is called asynchronously,
                  returns the request thread.

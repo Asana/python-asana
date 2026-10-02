@@ -318,7 +318,7 @@ class BudgetsApi(object):
 
         :param async_req bool
         :param str budget_gid: Globally unique identifier for the budget. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: BudgetResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -341,7 +341,7 @@ class BudgetsApi(object):
 
         :param async_req bool
         :param str budget_gid: Globally unique identifier for the budget. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: BudgetResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -597,7 +597,7 @@ class BudgetsApi(object):
         :param async_req bool
         :param dict body: The budget to update. (required)
         :param str budget_gid: Globally unique identifier for the budget. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: BudgetResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -621,7 +621,7 @@ class BudgetsApi(object):
         :param async_req bool
         :param dict body: The budget to update. (required)
         :param str budget_gid: Globally unique identifier for the budget. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: BudgetResponseData
                  If the method is called asynchronously,
                  returns the request thread.

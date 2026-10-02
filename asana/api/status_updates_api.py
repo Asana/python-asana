@@ -43,9 +43,7 @@ class StatusUpdatesApi(object):
 
         :param async_req bool
         :param dict body: The status update to create. (required)
-        :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
-        :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,9 +66,7 @@ class StatusUpdatesApi(object):
 
         :param async_req bool
         :param dict body: The status update to create. (required)
-        :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
-        :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -188,7 +184,7 @@ class StatusUpdatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str status_update_gid: The status update to get. (required)
+        :param str status_update_gid: Globally unique identifier for the status update. (required)
         :return: EmptyResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -210,7 +206,7 @@ class StatusUpdatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str status_update_gid: The status update to get. (required)
+        :param str status_update_gid: Globally unique identifier for the status update. (required)
         :return: EmptyResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -324,8 +320,8 @@ class StatusUpdatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str status_update_gid: The status update to get. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param str status_update_gid: Globally unique identifier for the status update. (required)
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -347,8 +343,8 @@ class StatusUpdatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str status_update_gid: The status update to get. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param str status_update_gid: Globally unique identifier for the status update. (required)
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -467,7 +463,7 @@ class StatusUpdatesApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param datetime created_since: Only return statuses that have been created since the given time.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -493,7 +489,7 @@ class StatusUpdatesApi(object):
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
         :param datetime created_since: Only return statuses that have been created since the given time.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: StatusUpdateResponseArray
                  If the method is called asynchronously,
                  returns the request thread.

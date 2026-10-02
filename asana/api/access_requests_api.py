@@ -319,7 +319,7 @@ class AccessRequestsApi(object):
         :param async_req bool
         :param str target: Globally unique identifier for the target object. (required)
         :param str user: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: AccessRequestResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -343,7 +343,7 @@ class AccessRequestsApi(object):
         :param async_req bool
         :param str target: Globally unique identifier for the target object. (required)
         :param str user: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: AccessRequestResponseArray
                  If the method is called asynchronously,
                  returns the request thread.

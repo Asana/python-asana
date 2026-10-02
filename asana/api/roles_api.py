@@ -43,7 +43,7 @@ class RolesApi(object):
 
         :param async_req bool
         :param dict body: The role to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class RolesApi(object):
 
         :param async_req bool
         :param dict body: The role to create. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -321,7 +321,7 @@ class RolesApi(object):
 
         :param async_req bool
         :param str role_gid: Globally unique identifier for the role. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -344,7 +344,7 @@ class RolesApi(object):
 
         :param async_req bool
         :param str role_gid: Globally unique identifier for the role. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -449,47 +449,47 @@ class RolesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_roles(self, opts, **kwargs):  # noqa: E501
+    def get_roles(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple roles  # noqa: E501
 
         <b>Required scope: </b><code>roles:read</code>  Returns all RBAC roles for a workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_roles(async_req=True)
+        >>> thread = api.get_roles(workspace, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str workspace: The workspace or organization to filter roles on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param str workspace: The workspace or organization to filter roles on.
         :param bool archived: Only return projects whose `archived` field takes on the value of this parameter.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
         if kwargs.get('async_req'):
-            return self.get_roles_with_http_info(opts, **kwargs)  # noqa: E501
+            return self.get_roles_with_http_info(workspace, opts, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_roles_with_http_info(opts, **kwargs)  # noqa: E501
+            (data) = self.get_roles_with_http_info(workspace, opts, **kwargs)  # noqa: E501
             return data
 
-    def get_roles_with_http_info(self, opts, **kwargs):  # noqa: E501
+    def get_roles_with_http_info(self, workspace, opts, **kwargs):  # noqa: E501
         """Get multiple roles  # noqa: E501
 
         <b>Required scope: </b><code>roles:read</code>  Returns all RBAC roles for a workspace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_roles_with_http_info(async_req=True)
+        >>> thread = api.get_roles_with_http_info(workspace, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str workspace: The workspace or organization to filter roles on. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param str workspace: The workspace or organization to filter roles on.
         :param bool archived: Only return projects whose `archived` field takes on the value of this parameter.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -512,6 +512,9 @@ class RolesApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'workspace' is set
+        if (workspace is None):
+            raise ValueError("Missing the required parameter `workspace` when calling `get_roles`")  # noqa: E501
 
         collection_formats = {}
 
@@ -519,6 +522,7 @@ class RolesApi(object):
 
         query_params = {}
         query_params = opts
+        query_params['workspace'] = workspace
 
 
         header_params = kwargs.get("header_params", {})
@@ -605,7 +609,7 @@ class RolesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the role. (required)
         :param str role_gid: Globally unique identifier for the role. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -629,7 +633,7 @@ class RolesApi(object):
         :param async_req bool
         :param dict body: The updated fields for the role. (required)
         :param str role_gid: Globally unique identifier for the role. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: RbacRoleResponseData
                  If the method is called asynchronously,
                  returns the request thread.

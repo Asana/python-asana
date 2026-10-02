@@ -47,7 +47,7 @@ class UsersApi(object):
         :param str workspace: The workspace in which to get favorites. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: AsanaNamedResourceArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -74,7 +74,7 @@ class UsersApi(object):
         :param str workspace: The workspace in which to get favorites. (required)
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: AsanaNamedResourceArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -202,7 +202,7 @@ class UsersApi(object):
         :param async_req bool
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace to filter results on.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -226,7 +226,7 @@ class UsersApi(object):
         :param async_req bool
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace to filter results on.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -343,7 +343,7 @@ class UsersApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -367,7 +367,7 @@ class UsersApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -490,7 +490,7 @@ class UsersApi(object):
         :param str team: The team ID to filter users on.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -516,7 +516,7 @@ class UsersApi(object):
         :param str team: The team ID to filter users on.
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -632,7 +632,7 @@ class UsersApi(object):
         :param async_req bool
         :param str team_gid: Globally unique identifier for the team. (required)
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -656,7 +656,7 @@ class UsersApi(object):
         :param async_req bool
         :param str team_gid: Globally unique identifier for the team. (required)
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -776,7 +776,7 @@ class UsersApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -800,7 +800,7 @@ class UsersApi(object):
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseArray
                  If the method is called asynchronously,
                  returns the request thread.
@@ -921,7 +921,7 @@ class UsersApi(object):
         :param dict body: The user to update. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace to filter results on.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -946,7 +946,7 @@ class UsersApi(object):
         :param dict body: The user to update. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
         :param str workspace: The workspace to filter results on.
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1071,7 +1071,7 @@ class UsersApi(object):
         :param dict body: The user to update. (required)
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1096,7 +1096,7 @@ class UsersApi(object):
         :param dict body: The user to update. (required)
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
         :param str user_gid: A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. (required)
-        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
         :return: UserResponseData
                  If the method is called asynchronously,
                  returns the request thread.
