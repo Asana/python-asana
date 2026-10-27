@@ -35,7 +35,7 @@ class MembershipsApi(object):
     def create_membership(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership(async_req=True)
@@ -57,7 +57,7 @@ class MembershipsApi(object):
     def create_membership_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Create a membership  # noqa: E501
 
-        Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
+        Creates a new membership in a `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`, where members can be Teams or Users.  Returns the full record of the newly created membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_membership_with_http_info(async_req=True)
@@ -172,7 +172,7 @@ class MembershipsApi(object):
     def delete_membership(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership(membership_gid, async_req=True)
@@ -194,7 +194,7 @@ class MembershipsApi(object):
     def delete_membership_with_http_info(self, membership_gid, **kwargs):  # noqa: E501
         """Delete a membership  # noqa: E501
 
-        A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, or `custom_field` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
+        A specific, existing membership for a `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record` can be deleted by making a `DELETE` request on the URL for that membership.  Returns an empty data record.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_membership_with_http_info(membership_gid, async_req=True)
@@ -308,7 +308,7 @@ class MembershipsApi(object):
     def get_membership(self, membership_gid, **kwargs):  # noqa: E501
         """Get a membership  # noqa: E501
 
-        Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.  # noqa: E501
+        Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, `custom_field_membership`, `table_membership`, or `record_membership` record for a membership id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_membership(membership_gid, async_req=True)
@@ -330,7 +330,7 @@ class MembershipsApi(object):
     def get_membership_with_http_info(self, membership_gid, **kwargs):  # noqa: E501
         """Get a membership  # noqa: E501
 
-        Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` record for a membership id.  # noqa: E501
+        Returns a `project_membership`, `goal_membership`, `portfolio_membership`, `custom_type_membership`, `custom_field_membership`, `table_membership`, or `record_membership` record for a membership id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_membership_with_http_info(membership_gid, async_req=True)
@@ -444,14 +444,14 @@ class MembershipsApi(object):
     def get_memberships(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, `custom_field_membership`, `table_membership`, or `record_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str parent: Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. This parameter is optional when `resource_subtype` is provided along with `member` of type `team`.
+        :param str parent: Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`. This parameter is optional when `resource_subtype` is provided along with `member` of type `team`.
         :param str member: Globally unique identifier for `team` or `user`. When used with `resource_subtype` and without `parent`, `member` must be of type `team`. For user-type memberships `parent` parameter is required to disambiguate the workspace from which memberships should be retrieved.
         :param str resource_subtype: The type of membership to return. Required when `parent` is absent. Currently supported value is `project_membership` (when `member` is a team GID, returns all project memberships for that team).
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -471,14 +471,14 @@ class MembershipsApi(object):
     def get_memberships_with_http_info(self, opts, **kwargs):  # noqa: E501
         """Get multiple memberships  # noqa: E501
 
-        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, or `custom_field_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.  # noqa: E501
+        Returns compact `goal_membership`, `project_membership`, `portfolio_membership`, `custom_type_membership`, `custom_field_membership`, `table_membership`, or `record_membership` records. The possible types for `parent` in this request are `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`. An additional member (user GID or team GID) can be passed in to filter to a specific membership.  Alternatively, when `parent` is absent, you can use the `member` and `resource_subtype` parameters together to fetch all memberships of a specific type for a given member. For example, passing `member` as a team GID and `resource_subtype` as `project_membership` will return all project memberships for that team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_memberships_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str parent: Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, or `custom_field`. This parameter is optional when `resource_subtype` is provided along with `member` of type `team`.
+        :param str parent: Globally unique identifier for `goal`, `project`, `portfolio`, `custom_type`, `custom_field`, `table`, or `record`. This parameter is optional when `resource_subtype` is provided along with `member` of type `team`.
         :param str member: Globally unique identifier for `team` or `user`. When used with `resource_subtype` and without `parent`, `member` must be of type `team`. For user-type memberships `parent` parameter is required to disambiguate the workspace from which memberships should be retrieved.
         :param str resource_subtype: The type of membership to return. Required when `parent` is absent. Currently supported value is `project_membership` (when `member` is a team GID, returns all project memberships for that team).
         :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
@@ -590,7 +590,7 @@ class MembershipsApi(object):
     def update_membership(self, body, membership_gid, **kwargs):  # noqa: E501
         """Update a membership  # noqa: E501
 
-        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.  # noqa: E501
+        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, `custom_fields`, `tables`, and `records` can be updated. Returns the full record of the updated membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_membership(body, membership_gid, async_req=True)
@@ -613,7 +613,7 @@ class MembershipsApi(object):
     def update_membership_with_http_info(self, body, membership_gid, **kwargs):  # noqa: E501
         """Update a membership  # noqa: E501
 
-        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, and `custom_fields` can be updated.  Returns the full record of the updated membership.  # noqa: E501
+        An existing membership can be updated by making a `PUT` request on the membership. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged. Memberships on `goals`, `projects`, `portfolios`, `custom_types`, `custom_fields`, `tables`, and `records` can be updated. Returns the full record of the updated membership.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_membership_with_http_info(body, membership_gid, async_req=True)

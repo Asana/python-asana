@@ -1,0 +1,207 @@
+TablesApi:
+  add_custom_field_setting_for_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the custom field setting.
+    table_gid = "1337" # str | Globally unique identifier for the table.
+    opts = {
+        'opt_fields': "custom_field,custom_field.date_value,custom_field.date_value.date,custom_field.date_value.date_time,custom_field.display_value,custom_field.enabled,custom_field.enum_options,custom_field.enum_options.color,custom_field.enum_options.enabled,custom_field.enum_options.name,custom_field.enum_value,custom_field.enum_value.color,custom_field.enum_value.enabled,custom_field.enum_value.name,custom_field.id_prefix,custom_field.input_restrictions,custom_field.is_formula_field,custom_field.is_lookup_field,custom_field.multi_enum_values,custom_field.multi_enum_values.color,custom_field.multi_enum_values.enabled,custom_field.multi_enum_values.name,custom_field.name,custom_field.number_value,custom_field.representation_type,custom_field.text_value,custom_field.type,is_important", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Add a custom field to a table
+        api_response = tables_api_instance.add_custom_field_setting_for_table(body, table_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->add_custom_field_setting_for_table: %s\n" % e)
+  create_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The table to create.
+    opts = {
+        'opt_fields': "created_at,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.id_prefix,custom_field_settings.custom_field.input_restrictions,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_lookup_field,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.representation_type,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,modified_at,name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Create a table
+        api_response = tables_api_instance.create_table(body, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->create_table: %s\n" % e)
+  delete_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    table_gid = "1337" # str | Globally unique identifier for the table.
+
+    
+    try:
+        # Delete a table
+        api_response = tables_api_instance.delete_table(table_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->delete_table: %s\n" % e)
+  get_custom_field_settings_for_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    table_gid = "1337" # str | Globally unique identifier for the table.
+    opts = {
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        'opt_fields': "custom_field,custom_field.date_value,custom_field.date_value.date,custom_field.date_value.date_time,custom_field.display_value,custom_field.enabled,custom_field.enum_options,custom_field.enum_options.color,custom_field.enum_options.enabled,custom_field.enum_options.name,custom_field.enum_value,custom_field.enum_value.color,custom_field.enum_value.enabled,custom_field.enum_value.name,custom_field.id_prefix,custom_field.input_restrictions,custom_field.is_formula_field,custom_field.is_lookup_field,custom_field.multi_enum_values,custom_field.multi_enum_values.color,custom_field.multi_enum_values.enabled,custom_field.multi_enum_values.name,custom_field.name,custom_field.number_value,custom_field.representation_type,custom_field.text_value,custom_field.type,is_important,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Get a table's custom field settings
+        api_response = tables_api_instance.get_custom_field_settings_for_table(table_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling TablesApi->get_custom_field_settings_for_table: %s\n" % e)
+  get_custom_field_settings_for_table_legacy: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    table_gid = "1337" # str | Globally unique identifier for the table.
+    opts = {
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        'opt_fields': "custom_field,custom_field.date_value,custom_field.date_value.date,custom_field.date_value.date_time,custom_field.display_value,custom_field.enabled,custom_field.enum_options,custom_field.enum_options.color,custom_field.enum_options.enabled,custom_field.enum_options.name,custom_field.enum_value,custom_field.enum_value.color,custom_field.enum_value.enabled,custom_field.enum_value.name,custom_field.id_prefix,custom_field.input_restrictions,custom_field.is_formula_field,custom_field.is_lookup_field,custom_field.multi_enum_values,custom_field.multi_enum_values.color,custom_field.multi_enum_values.enabled,custom_field.multi_enum_values.name,custom_field.name,custom_field.number_value,custom_field.representation_type,custom_field.text_value,custom_field.type,is_important,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Get a table's custom field settings
+        api_response = tables_api_instance.get_custom_field_settings_for_table_legacy(table_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling TablesApi->get_custom_field_settings_for_table_legacy: %s\n" % e)
+  get_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    table_gid = "1337" # str | Globally unique identifier for the table.
+    opts = {
+        'opt_fields': "created_at,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.id_prefix,custom_field_settings.custom_field.input_restrictions,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_lookup_field,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.representation_type,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,modified_at,name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Get a table
+        api_response = tables_api_instance.get_table(table_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->get_table: %s\n" % e)
+  get_tables_for_workspace: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    workspace_gid = "12345" # str | Globally unique identifier for the workspace or organization.
+    opts = {
+        'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        'opt_fields': "created_at,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.id_prefix,custom_field_settings.custom_field.input_restrictions,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_lookup_field,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.representation_type,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,modified_at,name,offset,path,uri,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Get tables in a workspace
+        api_response = tables_api_instance.get_tables_for_workspace(workspace_gid, opts)
+        for data in api_response:
+            pprint(data)
+    except ApiException as e:
+        print("Exception when calling TablesApi->get_tables_for_workspace: %s\n" % e)
+  remove_custom_field_setting_for_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the custom field setting being removed.
+    table_gid = "1337" # str | Globally unique identifier for the table.
+
+    
+    try:
+        # Remove a custom field from a table
+        api_response = tables_api_instance.remove_custom_field_setting_for_table(body, table_gid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->remove_custom_field_setting_for_table: %s\n" % e)
+  update_table: |-
+    import asana
+    from asana.rest import ApiException
+    from pprint import pprint
+
+    configuration = asana.Configuration()
+    configuration.access_token = '<YOUR_ACCESS_TOKEN>'
+    api_client = asana.ApiClient(configuration)
+    
+    # create an instance of the API class
+    tables_api_instance = asana.TablesApi(api_client)
+    body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the table.
+    table_gid = "1337" # str | Globally unique identifier for the table.
+    opts = {
+        'opt_fields': "created_at,custom_field_settings,custom_field_settings.custom_field,custom_field_settings.custom_field.date_value,custom_field_settings.custom_field.date_value.date,custom_field_settings.custom_field.date_value.date_time,custom_field_settings.custom_field.display_value,custom_field_settings.custom_field.enabled,custom_field_settings.custom_field.enum_options,custom_field_settings.custom_field.enum_options.color,custom_field_settings.custom_field.enum_options.enabled,custom_field_settings.custom_field.enum_options.name,custom_field_settings.custom_field.enum_value,custom_field_settings.custom_field.enum_value.color,custom_field_settings.custom_field.enum_value.enabled,custom_field_settings.custom_field.enum_value.name,custom_field_settings.custom_field.id_prefix,custom_field_settings.custom_field.input_restrictions,custom_field_settings.custom_field.is_formula_field,custom_field_settings.custom_field.is_lookup_field,custom_field_settings.custom_field.multi_enum_values,custom_field_settings.custom_field.multi_enum_values.color,custom_field_settings.custom_field.multi_enum_values.enabled,custom_field_settings.custom_field.multi_enum_values.name,custom_field_settings.custom_field.name,custom_field_settings.custom_field.number_value,custom_field_settings.custom_field.representation_type,custom_field_settings.custom_field.text_value,custom_field_settings.custom_field.type,custom_field_settings.is_important,modified_at,name,workspace,workspace.name", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    }
+    
+    try:
+        # Update a table
+        api_response = tables_api_instance.update_table(body, table_gid, opts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TablesApi->update_table: %s\n" % e)

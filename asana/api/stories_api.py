@@ -180,10 +180,158 @@ class StoriesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_story_for_record(self, body, record_gid, opts, **kwargs):  # noqa: E501
+        """Create a story on a record  # noqa: E501
+
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a record. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_story_for_record(body, record_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict body: The story to create. (required)
+        :param str record_gid: Globally unique identifier for the record. (required)
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+        :return: StoryResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
+        if kwargs.get('async_req'):
+            return self.create_story_for_record_with_http_info(body, record_gid, opts, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_story_for_record_with_http_info(body, record_gid, opts, **kwargs)  # noqa: E501
+            return data
+
+    def create_story_for_record_with_http_info(self, body, record_gid, opts, **kwargs):  # noqa: E501
+        """Create a story on a record  # noqa: E501
+
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a record. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_story_for_record_with_http_info(body, record_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict body: The story to create. (required)
+        :param str record_gid: Globally unique identifier for the record. (required)
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+        :return: StoryResponseData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        all_params = []
+        all_params.append('async_req')
+        all_params.append('header_params')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+        all_params.append('full_payload')
+        all_params.append('item_limit')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_story_for_record" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if (body is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_story_for_record`")  # noqa: E501
+        # verify the required parameter 'record_gid' is set
+        if (record_gid is None):
+            raise ValueError("Missing the required parameter `record_gid` when calling `create_story_for_record`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['record_gid'] = record_gid  # noqa: E501
+
+        query_params = {}
+        query_params = opts
+
+
+        header_params = kwargs.get("header_params", {})
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = body
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['personalAccessToken']  # noqa: E501
+
+        # hard checking for True boolean value because user can provide full_payload or async_req with any data type
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
+            return self.api_client.call_api(
+                '/records/{record_gid}/stories', 'POST',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+        elif self.api_client.configuration.return_page_iterator:
+            (data) = self.api_client.call_api(
+                '/records/{record_gid}/stories', 'POST',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+            if params.get('_return_http_data_only') == False:
+                return data
+            return data["data"] if data else data
+        else:
+            return self.api_client.call_api(
+            '/records/{record_gid}/stories', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=object,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_story_for_task(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a story on a task  # noqa: E501
 
-        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Omit `parent_comment` to create a top-level comment. To create a threaded reply, pass the top-level comment's `comment_gid`, not its story `gid`. Retrieve it with `GET /stories/{story_gid}?opt_fields=comment_gid` or `GET /tasks/{task_gid}/stories?opt_fields=comment_gid,text,anchor_gid`. The parent must belong to this task and must not itself be a reply. A top-level comment's `anchor_gid` is the task GID; a reply's `anchor_gid` is its parent comment's envelope GID.  Returns the full record for the new story added to the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_story_for_task(body, task_gid, async_req=True)
@@ -207,7 +355,7 @@ class StoriesApi(object):
     def create_story_for_task_with_http_info(self, body, task_gid, opts, **kwargs):  # noqa: E501
         """Create a story on a task  # noqa: E501
 
-        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Returns the full record for the new story added to the task.  # noqa: E501
+        <b>Required scope: </b><code>stories:write</code>  Adds a story to a task. This endpoint currently only allows for comment stories to be created. The comment will be authored by the currently authenticated user, and timestamped when the server receives the request.  Omit `parent_comment` to create a top-level comment. To create a threaded reply, pass the top-level comment's `comment_gid`, not its story `gid`. Retrieve it with `GET /stories/{story_gid}?opt_fields=comment_gid` or `GET /tasks/{task_gid}/stories?opt_fields=comment_gid,text,anchor_gid`. The parent must belong to this task and must not itself be a reply. A top-level comment's `anchor_gid` is the task GID; a reply's `anchor_gid` is its parent comment's envelope GID.  Returns the full record for the new story added to the task.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_story_for_task_with_http_info(body, task_gid, async_req=True)
@@ -602,6 +750,158 @@ class StoriesApi(object):
         else:
             return self.api_client.call_api(
             '/goals/{goal_gid}/stories', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=object,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_stories_for_record(self, record_gid, opts, **kwargs):  # noqa: E501
+        """Get stories from a record  # noqa: E501
+
+        <b>Required scope: </b><code>stories:read</code>  Returns the compact records for all stories on the record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_stories_for_record(record_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str record_gid: Globally unique identifier for the record. (required)
+        :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+        :return: StoryResponseArray
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = kwargs.get("_return_http_data_only", True)
+        if kwargs.get('async_req'):
+            return self.get_stories_for_record_with_http_info(record_gid, opts, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_stories_for_record_with_http_info(record_gid, opts, **kwargs)  # noqa: E501
+            return data
+
+    def get_stories_for_record_with_http_info(self, record_gid, opts, **kwargs):  # noqa: E501
+        """Get stories from a record  # noqa: E501
+
+        <b>Required scope: </b><code>stories:read</code>  Returns the compact records for all stories on the record.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_stories_for_record_with_http_info(record_gid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str record_gid: Globally unique identifier for the record. (required)
+        :param int limit: Results per page. The number of objects to return per page. The value must be between 1 and 100.
+        :param str offset: Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
+        :param datetime created_after: Only return stories created after this time. Applies to every story type; pair it with `resource_subtype=comment_added` to get just the comments added since a given moment. The bound is exclusive but has second granularity: it is truncated to the start of its second before filtering, so any story created within that same second is still returned. A client polling with the `created_at` of the last story it saw should expect to see that story again, and others alongside it, and should de-duplicate on `gid`. 
+        :param str resource_subtype: Only return stories of this subtype. Only `comment_added` is supported, which narrows the response to comments and excludes activity such as assignments, due date changes, and project moves. Omit to return the full activity feed. 
+        :param bool sort_ascending: Creation-time order: `true` (the default) is oldest first, `false` is newest first. Pair `false` with `limit` to read only the most recent stories. Ordering is applied across the parent's stories; on a parent with an extremely large activity feed the feed may be truncated before it is ordered, so pair `false` with `created_after` to bound what is considered. 
+        :param list[str] opt_fields: This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+        :return: StoryResponseArray
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        all_params = []
+        all_params.append('async_req')
+        all_params.append('header_params')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+        all_params.append('full_payload')
+        all_params.append('item_limit')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_stories_for_record" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'record_gid' is set
+        if (record_gid is None):
+            raise ValueError("Missing the required parameter `record_gid` when calling `get_stories_for_record`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['record_gid'] = record_gid  # noqa: E501
+
+        query_params = {}
+        query_params = opts
+
+
+        header_params = kwargs.get("header_params", {})
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['personalAccessToken']  # noqa: E501
+
+        # hard checking for True boolean value because user can provide full_payload or async_req with any data type
+        if kwargs.get("full_payload", False) is True or kwargs.get('async_req', False) is True:
+            return self.api_client.call_api(
+                '/records/{record_gid}/stories', 'GET',
+                path_params,
+                query_params,
+                header_params,
+                body=body_params,
+                post_params=form_params,
+                files=local_var_files,
+                response_type=object,  # noqa: E501
+                auth_settings=auth_settings,
+                async_req=params.get('async_req'),
+                _return_http_data_only=params.get('_return_http_data_only'),
+                _preload_content=params.get('_preload_content', True),
+                _request_timeout=params.get('_request_timeout'),
+                collection_formats=collection_formats
+            )
+        elif self.api_client.configuration.return_page_iterator:
+            query_params["limit"] = query_params.get("limit", self.api_client.configuration.page_limit)
+            return PageIterator(
+                self.api_client,
+                {
+                    "resource_path": '/records/{record_gid}/stories',
+                    "method": 'GET',
+                    "path_params": path_params,
+                    "query_params": query_params,
+                    "header_params": header_params,
+                    "body": body_params,
+                    "post_params": form_params,
+                    "files": local_var_files,
+                    "response_type": object,
+                    "auth_settings": auth_settings,
+                    "async_req": params.get('async_req'),
+                    "_return_http_data_only": params.get('_return_http_data_only'),
+                    "_preload_content": params.get('_preload_content', True),
+                    "_request_timeout": params.get('_request_timeout'),
+                    "collection_formats": collection_formats
+                },
+                **kwargs
+            ).items()
+        else:
+            return self.api_client.call_api(
+            '/records/{record_gid}/stories', 'GET',
             path_params,
             query_params,
             header_params,

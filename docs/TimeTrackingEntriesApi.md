@@ -34,7 +34,7 @@ time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | Information about the time tracking entry.
 task_gid = "321654" # str | The task to operate on.
 opts = {
-    'opt_fields': "approval_status,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    'opt_fields': "approval_status,assignee,assignee.name,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -136,14 +136,15 @@ opts = {
     'task': "12345", # str | Globally unique identifier for the task to filter time tracking entries by.
     'attributable_to': "12345", # str | Globally unique identifier for the project the time tracking entries are attributed to.
     'portfolio': "12345", # str | Globally unique identifier for the portfolio to filter time tracking entries by.
-    'user': "12345", # str | Globally unique identifier for the user to filter time tracking entries by.
+    'user': "12345", # str | *Deprecated - please use assignee instead* Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
+    'assignee': "12345", # str | Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
     'workspace': "98765", # str | Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
     'entered_on_start_date': '2025-01-01', # date | The start date for filtering time tracking entries by when they were entered.
     'entered_on_end_date': '2025-12-31', # date | The end date for filtering time tracking entries by when they were entered.
     'timesheet_approval_status': "12345", # str | Globally unique identifier for the timesheet approval status to filter time tracking entries by.
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    'opt_fields': "assignee,assignee.name,attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -162,7 +163,8 @@ Name | Type | Description  | Notes
  **task** | **str**| Globally unique identifier for the task to filter time tracking entries by. | [optional] 
  **attributable_to** | **str**| Globally unique identifier for the project the time tracking entries are attributed to. | [optional] 
  **portfolio** | **str**| Globally unique identifier for the portfolio to filter time tracking entries by. | [optional] 
- **user** | **str**| Globally unique identifier for the user to filter time tracking entries by. | [optional] 
+ **user** | **str**| *Deprecated - please use assignee instead* Globally unique identifier for the user the time tracking entry&#x27;s logged time is attributed to, to filter time tracking entries by. | [optional] 
+ **assignee** | **str**| Globally unique identifier for the user the time tracking entry&#x27;s logged time is attributed to, to filter time tracking entries by. | [optional] 
  **workspace** | **str**| Globally unique identifier for the workspace. At least one of &#x60;entered_on_start_date&#x60; or &#x60;entered_on_end_date&#x60; must be provided when filtering by workspace. | [optional] 
  **entered_on_start_date** | **date**| The start date for filtering time tracking entries by when they were entered. | [optional] 
  **entered_on_end_date** | **date**| The end date for filtering time tracking entries by when they were entered. | [optional] 
@@ -206,7 +208,7 @@ task_gid = "321654" # str | The task to operate on.
 opts = {
     'limit': 50, # int | Results per page. The number of objects to return per page. The value must be between 1 and 100.
     'offset': "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9", # str | Offset token. An offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results. *Note: You can only pass in an offset that was returned to you via a previously paginated request.*
-    'opt_fields': "attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    'opt_fields': "assignee,assignee.name,attributable_to,attributable_to.name,attributable_to.resource_subtype,categories,categories.color,categories.name,created_by,created_by.name,duration_minutes,entered_on,offset,path,uri", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -260,7 +262,7 @@ api_client = asana.ApiClient(configuration)
 time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 time_tracking_entry_gid = "917392" # str | Globally unique identifier for the time tracking entry.
 opts = {
-    'opt_fields': "approval_status,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    'opt_fields': "approval_status,assignee,assignee.name,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:
@@ -312,7 +314,7 @@ time_tracking_entries_api_instance = asana.TimeTrackingEntriesApi(api_client)
 body = {"data": {"<PARAM_1>": "<VALUE_1>", "<PARAM_2>": "<VALUE_2>",}} # dict | The updated fields for the time tracking entry.
 time_tracking_entry_gid = "917392" # str | Globally unique identifier for the time tracking entry.
 opts = {
-    'opt_fields': "approval_status,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
+    'opt_fields': "approval_status,assignee,assignee.name,attributable_to,attributable_to.name,attributable_to.resource_subtype,billable_status,categories,categories.color,categories.name,created_at,created_by,created_by.name,description,duration_minutes,entered_on,task,task.created_by,task.name,task.resource_subtype", # list[str] | This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include. Properties can include nested fields. To learn more, see the [input/output options guide](/docs/inputoutput-options#selecting-nested-fields).
 }
 
 try:

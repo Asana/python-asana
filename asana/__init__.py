@@ -32,6 +32,7 @@ from asana.api.goal_relationships_api import GoalRelationshipsApi
 from asana.api.goals_api import GoalsApi
 from asana.api.jobs_api import JobsApi
 from asana.api.memberships_api import MembershipsApi
+from asana.api.notifications_api import NotificationsApi
 from asana.api.ooo_entries_api import OooEntriesApi
 from asana.api.organization_exports_api import OrganizationExportsApi
 from asana.api.portfolio_memberships_api import PortfolioMembershipsApi
@@ -44,11 +45,13 @@ from asana.api.project_templates_api import ProjectTemplatesApi
 from asana.api.projects_api import ProjectsApi
 from asana.api.rates_api import RatesApi
 from asana.api.reactions_api import ReactionsApi
+from asana.api.records_api import RecordsApi
 from asana.api.roles_api import RolesApi
 from asana.api.rules_api import RulesApi
 from asana.api.sections_api import SectionsApi
 from asana.api.status_updates_api import StatusUpdatesApi
 from asana.api.stories_api import StoriesApi
+from asana.api.tables_api import TablesApi
 from asana.api.tags_api import TagsApi
 from asana.api.task_templates_api import TaskTemplatesApi
 from asana.api.tasks_api import TasksApi

@@ -3675,6 +3675,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        :param int limit: Results per search response. The number of objects to return in one search response. The value must be between 1 and 100. Search responses have no `next_page`, so to retrieve further results, sort by `created_at` and repeat the query with a `created_at.before` or `created_at.after` filter that excludes the results you have already seen.
         :param str text: Performs full-text search on both task name and description
         :param str resource_subtype: Filters results by the task's resource_subtype
         :param str assignee.any: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.
@@ -3751,6 +3752,7 @@ class TasksApi(object):
 
         :param async_req bool
         :param str workspace_gid: Globally unique identifier for the workspace or organization. (required)
+        :param int limit: Results per search response. The number of objects to return in one search response. The value must be between 1 and 100. Search responses have no `next_page`, so to retrieve further results, sort by `created_at` and repeat the query with a `created_at.before` or `created_at.after` filter that excludes the results you have already seen.
         :param str text: Performs full-text search on both task name and description
         :param str resource_subtype: Filters results by the task's resource_subtype
         :param str assignee.any: Comma-separated list of user identifiers. This can either be the string \"me\", an email, or the gid of a user.

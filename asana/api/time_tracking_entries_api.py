@@ -329,7 +329,8 @@ class TimeTrackingEntriesApi(object):
         :param str task: Globally unique identifier for the task to filter time tracking entries by.
         :param str attributable_to: Globally unique identifier for the project the time tracking entries are attributed to.
         :param str portfolio: Globally unique identifier for the portfolio to filter time tracking entries by.
-        :param str user: Globally unique identifier for the user to filter time tracking entries by.
+        :param str user: *Deprecated - please use assignee instead* Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
+        :param str assignee: Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
         :param str workspace: Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
         :param date entered_on_start_date: The start date for filtering time tracking entries by when they were entered.
         :param date entered_on_end_date: The end date for filtering time tracking entries by when they were entered.
@@ -361,7 +362,8 @@ class TimeTrackingEntriesApi(object):
         :param str task: Globally unique identifier for the task to filter time tracking entries by.
         :param str attributable_to: Globally unique identifier for the project the time tracking entries are attributed to.
         :param str portfolio: Globally unique identifier for the portfolio to filter time tracking entries by.
-        :param str user: Globally unique identifier for the user to filter time tracking entries by.
+        :param str user: *Deprecated - please use assignee instead* Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
+        :param str assignee: Globally unique identifier for the user the time tracking entry's logged time is attributed to, to filter time tracking entries by.
         :param str workspace: Globally unique identifier for the workspace. At least one of `entered_on_start_date` or `entered_on_end_date` must be provided when filtering by workspace.
         :param date entered_on_start_date: The start date for filtering time tracking entries by when they were entered.
         :param date entered_on_end_date: The end date for filtering time tracking entries by when they were entered.
